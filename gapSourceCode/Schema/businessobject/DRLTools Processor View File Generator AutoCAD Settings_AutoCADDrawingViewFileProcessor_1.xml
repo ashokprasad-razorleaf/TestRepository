@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor View File Generator AutoCAD Settings</type>
+            <name>AutoCADDrawingViewFileProcessor</name>
+            <description>AutoCAD Drawing PDF Processor</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlBlockNameAttributeNameSeperator" value="-"/>
+                <attribute name="drlBlockNamesContainingMappings" value=""/>
+                <attribute name="drlCADType" value=""/>
+                <attribute name="drlCheckBlockNamesBeforeMapping" value="FALSE"/>
+                <attribute name="drlCheckInViewFileToCurrentObject" value="FALSE"/>
+                <attribute name="drlCheckInViewFileToDerivedOutputObject" value="TRUE"/>
+                <attribute name="drlCommandLineArguments" value=""/>
+                <attribute name="drlCommandLineExecutable" value="C:\Program Files\Autodesk\AutoCAD 2016\acad.exe"/>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlCopyOrginalFileBackToVault" value="TRUE"/>
+                <attribute name="drlDebugActive" value="FALSE"/>
+                <attribute name="drlDebugOutputDirectory" value="c:\temp\"/>
+                <attribute name="drlDefaultPageSize" value="ANSI B"/>
+                <attribute name="drlDerivedOutputFileType" value=""/>
+                <attribute name="drlDerivedOutputObjectGeneratorName" value=""/>
+                <attribute name="drlDerivedOutputObjectUsesCommonDocumentModel" value="TRUE"/>
+                <attribute name="drlDerivedOutputPolicySymbolicName" value="Derived Output Policy"/>
+                <attribute name="drlDerivedOutputRelationshipName" value="Derived Output"/>
+                <attribute name="drlDerivedOutputTypeSymbolicName" value="Derived Output"/>
+                <attribute name="drlDoNotResetDrawingStyleSheet" value="FALSE"/>
+                <attribute name="drlDotNETAssemblyName" value="drV6Tools.NET.ViewFileGenerator.AutoCADDrawingPDFGenerator"/>
+                <attribute name="drlDotNETClassName" value="drV6Tools.NET.ViewFileGenerator.AutoCADDrawingPDFGenerator.drAutoCADDrawingProcessor"/>
+                <attribute name="drlDrawingSizeAttributeName" value="Not used"/>
+                <attribute name="drlDrawingStyleSheetName" value="monochrome.ctb"/>
+                <attribute name="drlEnableRotatePDF" value="FALSE"/>
+                <attribute name="drlFitToPage" value="TRUE"/>
+                <attribute name="drlGetProcessModelOnly" value="FALSE"/>
+                <attribute name="drlIntegrationGCOName" value=""/>
+                <attribute name="drlIntegrationGCORevision" value=""/>
+                <attribute name="drlIntegrationGCOType" value=""/>
+                <attribute name="drlLinkDerivedOutputToOriginalFilesWorkspaces" value="FALSE"/>
+                <attribute name="drlMaxProcessingTime" value=""/>
+                <attribute name="drlMCADInteg-CADToMxAttribMapping" value=""/>
+                <attribute name="drlMCADInteg-MxToCADAttribMapping" value=""/>
+                <attribute name="drlObjectName" value=""/>
+                <attribute name="drlObjectRevision" value=""/>
+                <attribute name="drlPageDimensionsToSizeMapping" value="279 * 216 = ANSI A&#xA;432 * 279 = ANSI B&#xA;559 * 432 = ANSI C&#xA;864 * 559 = ANSI D&#xA;279 * 216 = Letter&#xA;356 * 216 = Legal&#xA;432 * 279 = Tabloid&#xA;279 * 432 = Ledger&#xA;1189 * 841 = A0&#xA;841 * 594 = A1&#xA;594 * 420 = A2&#xA;420 * 297 = A3&#xA;297 * 210 = A4&#xA;1187 * 841 = ISO A0&#xA;841 * 594 = ISO A1&#xA;594 * 420 = ISO A2"/>
+                <attribute name="drlPDFTimeout" value="0"/>
+                <attribute name="drlPlotOrentationByPageSizes" value="ANSI D=270"/>
+                <attribute name="drlPlotterConfigurationName" value=""/>
+                <attribute name="drlPrinterName" value="DRLTools PDF Printer"/>
+                <attribute name="drlPrinterPageSizeNameByPageSize" value=""/>
+                <attribute name="drlRotatePDFBy" value=""/>
+                <attribute name="drlRunForFileExtensions" value="dwg"/>
+                <attribute name="drlSettings" value="DO_NOT_UPDATE_SOURCE_FILE_IF_LOCKED=TRUE&#xA;UPDATE_SOURCE_FILE_IN_STATES=Release,Released,RELEASED,Obsolete,OBSOLETE"/>
+                <attribute name="drlTempPath" value="c:\Temp\"/>
+                <attribute name="drlUseBlockNamesForMapping" value="TRUE"/>
+                <attribute name="drlUseCommandLineExecution" value="TRUE"/>
+                <attribute name="drlUseDefaultPageSize" value="FALSE"/>
+                <attribute name="drlUseDrawingStyleSheet" value="TRUE"/>
+                <attribute name="drlUseIntgrationGCOForMapping" value="FALSE"/>
+                <attribute name="drlVersionFileOnCheckInViewFileToCurrentObject" value="FALSE"/>
+                <attribute name="drlVersionFileOnCheckInViewFileToDerivedOutputObject" value="FALSE"/>
+                <attribute name="drlVersionFileOnCopyOrginalFileBackToVault" value="FALSE"/>
+                <attribute name="drlViewFileFormat" value="PDF"/>
+                <attribute name="drlViewFileWatermark" value=""/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

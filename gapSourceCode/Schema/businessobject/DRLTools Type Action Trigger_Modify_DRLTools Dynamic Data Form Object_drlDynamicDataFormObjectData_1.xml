@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Type Action Trigger</type>
+            <name>Modify_DRLTools Dynamic Data Form Object_drlDynamicDataFormObjectData</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlFailureMessage" value=""/>
+                <attribute name="drlSuccessMessage" value=""/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Copy Values Activity</toType>
+                    <toName>Set Dynamic Data Form Object Modified Values</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Dependant Activity Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

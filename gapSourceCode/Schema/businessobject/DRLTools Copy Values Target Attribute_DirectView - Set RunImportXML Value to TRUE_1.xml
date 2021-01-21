@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Copy Values Target Attribute</type>
+            <name>DirectView - Set RunImportXML Value to TRUE</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlTargetAttribute" value="RunImportXML"/>
+                <attribute name="drlTargetObject" value="lookup"/>
+                <attribute name="drlUpdateVersionObject" value="FALSE"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Copy Values Element String</toType>
+                    <toName>DirectView - Set RunImportXML Value to TRUE</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Copy Values Element Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

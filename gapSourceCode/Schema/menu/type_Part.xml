@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>type_Part</name>
+    <symbolicName>menu_typePart</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label>${NAME} ${REVISION}</label>
+    <hidden>false</hidden>
+    <href>${COMMON_DIR}/emxPortal.jsp?portal=ENCPartPropertyPortal&amp;header=emxEngineeringCentral.Heading.PropertiesHeader</href>
+    <alt></alt>
+    <menuItems/>
+    <commandItems>
+        <commandItem>ENCEBOMPowerViewCommand</commandItem>
+        <commandItem>ENCPartChangeMgtPowerViewCommand</commandItem>
+        <commandItem>MEPEquivalents</commandItem>
+        <commandItem>ENCPartEquivalents</commandItem>
+        <commandItem>ECMChangeManagement</commandItem>
+        <commandItem>MEPLocations</commandItem>
+        <commandItem>APPClassifiedItemObjectAccess</commandItem>
+        <commandItem>IssueRollupListPage</commandItem>
+        <commandItem>LBCClassificationPowerView</commandItem>
+        <commandItem>ENCSpecAndReferenceDoc</commandItem>
+        <commandItem>ENCRelatedPart</commandItem>
+        <commandItem>ENCPartCollaboration</commandItem>
+        <commandItem>CPCEquivalentsforPart</commandItem>
+        <commandItem>APPImageManager</commandItem>
+        <commandItem>MCIPartDerivedOutputs</commandItem>
+        <commandItem>DCDocumentsWhereUsedTreeCategory</commandItem>
+    </commandItems>
+    <settings>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/iconSmallPart.gif</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EngineeringCentral</settingValue>
+        </setting>
+        <setting>
+            <settingName>Show Type Icon</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Type Icon Function</settingName>
+            <settingValue>ShowMEPIcon</settingValue>
+        </setting>
+        <setting>
+            <settingName>Type Icon Program</settingName>
+            <settingValue>jpo.manufacturerequivalentpart.Part</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

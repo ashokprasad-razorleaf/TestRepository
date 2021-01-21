@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Copy Values Activity</type>
+            <name>Set Dynamic Data Form Object Modified Values</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+                <attribute name="drlUseShadowAgent" value="TRUE"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Copy Values Target Attribute</toType>
+                    <toName>Set drlDynamicDataFormObjectModifiedBy</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Copy Values Target Attribute Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Copy Values Target Attribute</toType>
+                    <toName>Set drlDynamicDataFormObjectModifiedDate</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Copy Values Target Attribute Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

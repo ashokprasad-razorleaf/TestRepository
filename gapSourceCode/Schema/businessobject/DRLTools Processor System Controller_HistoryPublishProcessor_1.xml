@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor System Controller</type>
+            <name>HistoryPublishProcessor</name>
+            <description>HistoryPublishProcessor</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>admin_platform</owner>
+            <project>Common Space</project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlProcessDetails" value=""/>
+                <attribute name="drlProcessorIPAddress" value="172.16.10.20"/>
+                <attribute name="drlProcessorMachineName" value="INPUN0023NB"/>
+                <attribute name="drlProcessorStartedAt" value="4/2/2020 1:16:39 PM"/>
+                <attribute name="drlStopProcessing" value="FALSE"/>
+                <attribute name="drlSummary" value="HistoryPurgeProcessorTrigger: Producer : HistoryPurgeProcessorTrigger Retrieving Queue Objects at .Started at Mon Apr 06 12:21:05 IST 2020&#xA;HistoryPurgeProcessorTrigger0: Exiting&#xA;"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Processor Custom Processor</toType>
+                    <toName>HistoryPublishProcessor</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Processor System Processor Relationship</relationshipType>
+                </relationship>
+				<relationship>
+                    <toType>DRLTools Processor System Queue Object</toType>
+                    <toName>HistoryPublishProcessorQueueObject</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Processor System Queue Object Relationship</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Processor System Timer Trigger</toType>
+                    <toName>HistoryPublishProcessorTrigger</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Processor System Trigger Relationship</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

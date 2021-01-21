@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<type overlay="true">
+    <name>Part Specification</name>
+    <symbolicName>type_PartSpecification</symbolicName>
+    <dataObjectType>type</dataObjectType>
+    <description>Type to create new EC specification objects (feature- support generic specification)</description>
+    <parentName>DOCUMENTS</parentName>
+    <hidden>false</hidden>
+    <abstract>false</abstract>
+    <attributes>
+        <attribute>gapDocumentCode</attribute>
+        <attribute>gapProjectNumber</attribute>
+    </attributes>
+    <triggers>
+        <trigger immutable="true">
+            <triggerType>Create</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypePartSpecificationCreateCheck</input>
+            <programType>Check</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Revision</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypePartSpecificationRevisionAction</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Delete</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypePartSpecificationDeleteOverride</input>
+            <programType>Override</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>ChangeOwner</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypePartSpecificationChangeOwnerAction</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Delete</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>PDELicenseCheck</input>
+            <programType>Check</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Checkout</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeAllCreateHistoryObject</input>
+            <programType>Action</programType>
+        </trigger>
+    </triggers>
+    <properties/>
+</type>

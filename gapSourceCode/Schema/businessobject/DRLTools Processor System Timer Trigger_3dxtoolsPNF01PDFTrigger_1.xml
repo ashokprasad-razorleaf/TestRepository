@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor System Timer Trigger</type>
+            <name>3dxtoolsPNF01PDFTrigger</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlFCSSite" value="PNF"/>
+                <attribute name="drlProcessorMaximumRunningInstances" value="1"/>
+                <attribute name="drlProcessorPassword" value=""/>
+                <attribute name="drlProcessorUser" value=""/>
+                <attribute name="drlQueueObjectAttributes" value=""/>
+                <attribute name="drlQueueObjectName" value=""/>
+                <attribute name="drlQueueObjectProcessor" value=""/>
+                <attribute name="drlQueueObjectRetrievalType" value="Search for Waiting Queue Objects"/>
+                <attribute name="drlQueueObjectRevision" value=""/>
+                <attribute name="drlRetrieveQueueObjectsForFCSSites" value="TRUE"/>
+                <attribute name="drlRetrieveQueueObjectsForMCS" value="FALSE"/>
+                <attribute name="drlRetrieveQueueObjectsForProcessors" value="LifeCycleViewFileProcessor&#xA;ActionViewFileProcessor&#xA;DirectViewBatchUpdateXML&#xA;MedusaProcessor"/>
+                <attribute name="drlScheduleExpression" value="0 * * * * ?"/>
+                <attribute name="drlStopProcessing" value="FALSE"/>
+                <attribute name="drlUseProcessorSpecificCredentials" value="FALSE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

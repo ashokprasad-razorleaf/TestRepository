@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Create Object Setting</type>
+            <name>CloneDynamicDataFormTemplateFormObject</name>
+            <description>CloneDynamicDataFormTemplateFormObject</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlClone" value="TRUE"/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlDisableTriggers" value="FALSE"/>
+                <attribute name="drlExpandStatementConditions" value=""/>
+                <attribute name="drlExportAllAttributes" value="FALSE"/>
+                <attribute name="drlExportExpandResults" value="FALSE"/>
+                <attribute name="drlNumberGeneratorName" value="type_DRLToolsDynamicDataFormTemplateFormObject"/>
+                <attribute name="drlObjectGeneratorName" value="type_DRLToolsDynamicDataFormTemplateFormObject"/>
+                <attribute name="drlObjectName" value=""/>
+                <attribute name="drlObjectRevision" value="A"/>
+                <attribute name="drlPolicy" value="${policy}"/>
+                <attribute name="drlRelationshipIsFromSourceObject" value="TRUE"/>
+                <attribute name="drlRelationshipsToInclude" value=""/>
+                <attribute name="drlRelationshipToSourceObject" value=""/>
+                <attribute name="drlRelationshipToSourceObjectByType" value=""/>
+                <attribute name="drlTypeName" value="${type}"/>
+                <attribute name="drlUsingCommonDocumentModel" value="FALSE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

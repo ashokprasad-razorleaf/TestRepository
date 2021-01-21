@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<attribute overlay="true">
+    <name>gapDocumentCode</name>
+    <symbolicName>attribute_gapDocumentCode</symbolicName>
+    <dataObjectType>attribute</dataObjectType>
+    <description>Document Code-revised</description>
+    <type>string</type>
+    <defaultValue>-</defaultValue>
+    <dimension></dimension>
+    <maxLength>0</maxLength>
+    <scope></scope>
+    <owner></owner>
+    <valueType>singleval</valueType>
+    <isHidden>false</isHidden>
+    <resetOnClone>false</resetOnClone>
+    <resetOnRevision>false</resetOnRevision>
+    <multiline>false</multiline>
+    <ranges>
+        <drRange>
+            <range>=</range>
+            <valueOne>A01 - DOCUMENT SUBMITTAL LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>A02 - PROJECT SCHEDULE OR REPORT</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C06 - EQUIPMENT DATA SHEETS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C07 - NOISE LEVEL DATA SHEETS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C09 - DESCRIPTION OF OPERATION</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C14 - INSTRUMENT INDEX</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C15 - INSTRUMENT DATA SHEETS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C16 - CAUSE AND EFFECT CHARTS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C17 - INSTRUMENT / ELECTRICAL LOGIC DIAGRAM</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C18 - VDU / HMI SCREEN DISPLAY GRAPHICS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C19 - BLOCK DIAGRAM</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C22 - VALVE DATA SHEETS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C23 - TAG LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C24 - LINE (PIPING) LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C26 - BILL OF MATERIALS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C29 - EQUIPMENT LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C34 - TECHNICAL SPECIFICATION</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C99 - OTHER DESIGN AND OPERATION DATA</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>A04 - APPROVED VENDOR LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>D01 - CROSS SECTION DRAWING/EXPLODED VIEW DIAGRAM WITH PARTS LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>D05 - SUB ASSEMBLY ARRANGEMENTS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>D06 - DETAILED FABRICATION DRAWINGS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>D07 - INTERNAL DETAILS DRAWINGS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>D99 - OTHER GENERAL DETAILS AND SUBASSEMBLY DRAWINGS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E01 - ELECTRICAL / INSTRUMENT PANEL DETAIL DRAWINGS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E04 - CABLE SCHEDULE</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E05 - INSTRUMENT HOOK UP DRAWINGS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E06 - INSTRUMENT LOOP DIAGRAMS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E08 - DETAILED DESIGN SPECIFICATION (Control panels only)</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E99 - OTHER ELECTRICAL INSTRUMENT AND INTERCONNECTION DETAIL DRAWINGS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F99 - CALCULATIONS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>G99 - HANDLING INSTALLATION AND PRECOMMISSIONING DOCUMENTS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>H02 - QUALITY PLAN / ITP</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>H04 - PRESSURE TEST PROCEDURES</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>H05 - PERFORMANCE / ACCEPTANCE (FAT) TEST PROCEDURES</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>A96 - AERO MEMO</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>H99 - OTHER MANUFACTURING INSTALLATION AND QUALITY RECORDS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>J01 - LUBE OIL AND OPERATING FLUIDS LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>J02 - OPERATIONAL AND COMMISSIONING SPARES LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>J99 - OTHER MAINTENANCE AND SPARES PARTS DATA</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>L98 - TEST AND INSPECTION REPORTS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>P01 - WELDING WPS OR PQR AND WELD MAP</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>R02 - INSTALLATION OPERATION AND MAINTENANCE MANUAL OR SUBVENDOR DATA BOOK</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>R04 - CERTIFICATION DATA BOOK (OPERATIONS)</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C20 - SETPOINT LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C35 - PROJECT DESIGN SPECIFICATIONS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>D04 - NAMEPLATE FORMAT DRAWINGS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F32 - CENTRIFUGAL COMPRESSOR PERFORMANCE CURVES</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>J04 - REPAIR DISPOSITIONS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E02 - ELECTRICAL / INSTRUMENT INTERCONNECTION DIAGRAMS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F01 - PRESSURE VESSEL / TANK MECHANICAL CALCULATIONS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F06 - LATERAL CRITICAL SPEED CALCULATIONS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>A97 - MECHANICAL MEMO</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F07 - TORSIONAL CRITICAL SPEED CALCULATIONS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F09 - THRUST BEARING CALCULATIONS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F11 - ACOUSTIC ANALYSIS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F14 - INSTRUMENT CALCULATIONS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F19 - PROCESS VALVE CALCULATIONS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F25 - PSV/RELIEF DEVICE CALCULATIONS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>F28 - MOTOR PERFORMANCE CURVES</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>G02 - LONG TERM SITE STORAGE, PRESERVATION AND DE-PRESERVATION PROCEDURE</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>G04 - PRE-COMMISSIONING / COMMISSIONING PROCEDURES</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>G07 - TRANSPORT DRAWINGS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>H03 - INSPECTION AND TEST PLAN</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>P04 - SURFACE PREPARATION AND PAINTING PROCEDURE</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>A117 - GEARBOX DATA SHEETS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>S01 - QUOTATION</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>S02 - PURCHASE ORDER</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>S03 - ORDER CONFIRMATION</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>A98 - SCOPE OF SUPPLY / ORDER BOOK</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>S04 - REPORT</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>S05 - RECORDS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>S06 - SOFTWARE</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>S07 - MOM</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>H08 - HEALTH, SAFETY, SECURITY</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E07 - DATA COMMUNICATION PROTOCOL</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E03 - WIRING DIAGRAM</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>T01 - TEST RUN PROCEDURE</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>T02 - TEST RUN REPORT OFFICIAL</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>T03 - TEST RUN DOCUMENTS  OTHER</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C36 - ALARM MESSAGE LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C37 - SERIAL NUMBER LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>D08 - MATERIAL PROVISION FOR SUB-SUPPLIERS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E09 - I/O SIGNAL LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E10 - TERMINAL DIAGRAM</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>E11 - ARRANGEMENT DRAWINGS CONTROL ABINETS AND JUNCTION BOXES</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>A99 - OTHER CUSTOMER SUBMITTAL DOCUMENTS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange remove="true">
+            <range>=</range>
+            <valueOne>GAP - Work Instructions</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>B01 - GENERAL ARRANGEMENT DRAWINGS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>B02 - ACCEPTABLE NOZZLE LOADS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>B04 - FOUNDATION LOADING DIAGRAM</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>B99 - OTHER INTERFACE AND ARRANGEMENT DRAWINGS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C01 - PIPING AND INSTRUMENT DIAGRAMS (P&amp;ID's)</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C02 - SINGLE LINE ELECTRICAL DIAGRAMS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>-</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C03 - SCHEMATIC DIAGRAMS</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+        <drRange>
+            <range>=</range>
+            <valueOne>C04 - UTILITIES LIST</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+		<drRange>
+            <range>=</range>
+            <valueOne>GAP Instructions</valueOne>
+            <inclusiveValueOne>false</inclusiveValueOne>
+            <valueTwo></valueTwo>
+            <inclusiveValueTwo>false</inclusiveValueTwo>
+        </drRange>
+    </ranges>
+    <triggers/>
+    <properties/>
+</attribute>

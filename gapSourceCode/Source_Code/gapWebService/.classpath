@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_231"/>
+	<classpathentry kind="lib" path="D:/DassaultSystems/2019X/3DSpace/win_b64/code/tomee/webapps/3dspace/WEB-INF/lib/eMatrixServletRMI.jar"/>
+	<classpathentry kind="lib" path="D:/DassaultSystems/2019X/3DSpace/win_b64/code/tomee/webapps/3dspace/WEB-INF/lib/RestServicesInfra.jar"/>
+	<classpathentry kind="lib" path="D:/DassaultSystems/2019X/3DSpace/win_b64/code/tomee/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/DassaultSystems/2019X/3DSpace/win_b64/code/tomee/lib/javaee-api.jar"/>
+	<classpathentry kind="lib" path="D:/DassaultSystems/2019X/3DSpace/win_b64/code/tomee/webapps/3dspace/WEB-INF/lib/framework.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

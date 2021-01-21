@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Export Target Custom</type>
+            <name>DirectView - Import XML Export</name>
+            <description>DirectView - Import XML Export</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlArg1" value="\\TBISUSST120\ODPInbox\Scripting"/>
+                <attribute name="drlArg1Description" value="Export Directory - \\TBISUSST120\ODPInbox\Scripting, C:\Temp\_PROD DirectView Test"/>
+                <attribute name="drlArg2" value="\\TBISUSST120\CADACCESS\PDF\Rev 1"/>
+                <attribute name="drlArg2Description" value="Export PDFs Directory - \\TBISUSST120\CADACCESS\PDF, C:\Temp\_PROD DirectView Test"/>
+                <attribute name="drlArg3" value="TRUE"/>
+                <attribute name="drlArg3Description" value="StampPDF Active"/>
+                <attribute name="drlArg4" value="true"/>
+                <attribute name="drlArg4Description" value="deleteprocessedfile setting"/>
+                <attribute name="drlArg5" value="OCEDB-ENOVIA"/>
+                <attribute name="drlArg5Description" value="name setting (Prod = OCEDB-ENOVIA)"/>
+                <attribute name="drlArg6" value="GAP"/>
+                <attribute name="drlArg6Description" value="class setting (Prod = GAP)"/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlJavaClassName" value="com.atlascopco.directview.drDirectViewImportExportTargetObject"/>
+                <attribute name="drlMultilineArg1" value="name=Document_Number&#xA;Sheet Number=SheetNum&#xA;revision=Document_Revision&#xA;description=Document_Description&#xA;Title=Document_Name&#xA;gapParts=SAP_Material_Number&#xA;gapDocumentCode=Document_Code&#xA;gapProjects=Projects"/>
+                <attribute name="drlMultilineArg1Description" value="DirectView ImportXML value mapping"/>
+                <attribute name="drlMultilineArg2" value="name=Document_Number&#xA;Sheet Number=SheetNum&#xA;revision=Document_Revision"/>
+                <attribute name="drlMultilineArg2Description" value="DirectView UpdateXML search attribute mappings"/>
+                <attribute name="drlMultilineArg3" value="Release=Import&#xA;Released=Import&#xA;Obsolete=Update&#xA;RELEASED=Import&#xA;OBSOLETE=Update"/>
+                <attribute name="drlMultilineArg3Description" value="State to Export type mapping"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools PDF Stamper Activity</toType>
+                    <toName>atlStampDocumentPDF-DirectView</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Dependant Settings Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

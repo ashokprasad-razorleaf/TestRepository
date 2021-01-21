@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>eService Trigger Program Parameters</type>
+            <name>TypeCADDrawingReviseCheck</name>
+            <description>Checks the entered revision to ensure it matches the sequence</description>
+            <revision>Check DEC Revision Sequence</revision>
+            <policy>eService Trigger Program Policy</policy>
+            <vault>eService Administration</vault>
+            <current>Active</current>
+            <attributes>
+                <attribute name="eService Constructor Arguments" value=""/>
+                <attribute name="eService Error Type" value="Error"/>
+                <attribute name="eService Method Name" value=""/>
+                <attribute name="eService Program Argument 1" value="ProE Drawing,ProE Format,ProE Diagram,ProE Layout,ProE Note"/>
+                <attribute name="eService Program Argument 10" value=""/>
+                <attribute name="eService Program Argument 11" value=""/>
+                <attribute name="eService Program Argument 12" value=""/>
+                <attribute name="eService Program Argument 13" value=""/>
+                <attribute name="eService Program Argument 14" value=""/>
+                <attribute name="eService Program Argument 15" value=""/>
+                <attribute name="eService Program Argument 2" value=""/>
+                <attribute name="eService Program Argument 3" value=""/>
+                <attribute name="eService Program Argument 4" value=""/>
+                <attribute name="eService Program Argument 5" value=""/>
+                <attribute name="eService Program Argument 6" value=""/>
+                <attribute name="eService Program Argument 7" value=""/>
+                <attribute name="eService Program Argument 8" value=""/>
+                <attribute name="eService Program Argument 9" value=""/>
+                <attribute name="eService Program Argument Desc 1" value="List of types to process. Deliminated with a ',' e.g: CATProduct,CATPart"/>
+                <attribute name="eService Program Argument Desc 10" value=""/>
+                <attribute name="eService Program Argument Desc 11" value=""/>
+                <attribute name="eService Program Argument Desc 12" value=""/>
+                <attribute name="eService Program Argument Desc 13" value=""/>
+                <attribute name="eService Program Argument Desc 14" value=""/>
+                <attribute name="eService Program Argument Desc 15" value=""/>
+                <attribute name="eService Program Argument Desc 2" value=""/>
+                <attribute name="eService Program Argument Desc 3" value=""/>
+                <attribute name="eService Program Argument Desc 4" value=""/>
+                <attribute name="eService Program Argument Desc 5" value=""/>
+                <attribute name="eService Program Argument Desc 6" value=""/>
+                <attribute name="eService Program Argument Desc 7" value=""/>
+                <attribute name="eService Program Argument Desc 8" value=""/>
+                <attribute name="eService Program Argument Desc 9" value=""/>
+                <attribute name="eService Program Name" value="gapCheckCADRevisionSequence.tcl"/>
+                <attribute name="eService Sequence Number" value="100"/>
+                <attribute name="eService Target States" value=""/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

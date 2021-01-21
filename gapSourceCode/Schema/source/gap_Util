@@ -1,0 +1,1858 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Vector;
+
+import com.dassault_systemes.enovia.changeaction.factory.ChangeActionFactory;
+import com.dassault_systemes.enovia.changeaction.interfaces.IChangeAction;
+import com.dassault_systemes.enovia.changeaction.interfaces.IChangeActionServices;
+import com.dassault_systemes.enovia.changeaction.interfaces.IOperation;
+import com.dassault_systemes.enovia.changeaction.interfaces.IRealizedChange;
+import com.dassault_systemes.enovia.enterprisechangemgt.common.ChangeAction;
+import com.dassault_systemes.enovia.enterprisechangemgt.common.ChangeConstants;
+import com.dassault_systemes.enovia.enterprisechangemgt.common.ChangeOrder;
+import com.dassault_systemes.enovia.enterprisechangemgt.common.ChangeOrderUI;
+import com.dassault_systemes.enovia.enterprisechangemgt.util.ChangeUtil;
+import com.dassault_systemes.enovia.changeaction.interfaces.IChangeAction;
+import com.matrixone.apps.domain.DomainConstants;
+import com.matrixone.apps.domain.DomainObject;
+import com.matrixone.apps.domain.DomainRelationship;
+import com.matrixone.apps.domain.util.ContextUtil;
+import com.matrixone.apps.domain.util.EnoviaResourceBundle;
+import com.matrixone.apps.domain.util.FrameworkException;
+import com.matrixone.apps.domain.util.FrameworkUtil;
+import com.matrixone.apps.domain.util.MapList;
+import com.matrixone.apps.domain.util.MessageUtil;
+import com.matrixone.apps.domain.util.MqlUtil;
+import com.matrixone.apps.domain.util.PersonUtil;
+import com.matrixone.apps.domain.util.PropertyUtil;
+import com.matrixone.apps.domain.util.XSSUtil;
+import com.matrixone.apps.domain.util.mxType;
+import com.matrixone.apps.domain.util.i18nNow;
+import com.matrixone.apps.engineering.EngineeringUtil;
+import com.matrixone.apps.engineering.PartDefinition;
+import com.matrixone.apps.framework.ui.UIUtil;
+import com.matrixone.jdom.CDATA;
+import com.matrixone.jdom.Document;
+import com.matrixone.jdom.Element;
+import com.matrixone.jdom.Namespace;
+import com.matrixone.jdom.output.XMLOutputter;
+
+import matrix.db.BusinessObject;
+import matrix.db.Context;
+import matrix.db.JPO;
+import matrix.util.StringList;
+/*************************************************************************
+* 
+* Razorleaf Corporation Confidential
+*
+* [2018] Razorleaf Corporation
+* All Rights Reserved.
+* 
+* NOTICE:  All information contained herein is, and remains the property of Razorleaf
+* Corporation. The intellectual and technical concepts contained herein are proprietary
+* to Razorleaf Corporation and may be covered by U.S. and Foreign Patents, patents in
+* process, and are protected by trade secret or copyright law. Dissemination of this
+* information or reproduction of this material is strictly forbidden unless prior written
+* permission is obtained from Razorleaf Corporation.
+*
+*************************************************************************/
+public class ${CLASSNAME} 
+{
+	public static final String CONST_TILT  = "~";
+	public static final String CONST_PIPE  = "|";
+	public static final String CONST_HYPEN = "-";
+	public static final String CONST_COMMA = ",";
+	public static final String USER_AGENT = "User Agent";
+	public static final String ATTRIBUTE_GAPPROJECTNUMBER = PropertyUtil.getSchemaProperty("attribute_gapProjectNumber");
+	public int mxMain(Context context, String[] args)
+		    throws Exception 
+	{
+		//65080.62902.21764.31019
+		//System.out.println("entiti : "+getReviewersForChange(context, "65080.62902.64399.26223"));
+		getReviewersForChange(context, "65080.62902.64399.26223");
+		//isFromOwningEntity(context, "65080.62902.32768.13133");
+		//System.out.println("on : "+isMemberOfGAPServiceProvide(context, args));
+		//System.out.println("mm : "+isFromOwningEntity(context, "65080.62902.32768.13133"));
+		if (!context.isConnected()) {
+            throw new Exception("not supported on desktop client");
+        }
+		
+		if (args.length > 0)
+		{
+			String strArgument = args[0];
+			if (strArgument.equalsIgnoreCase("refreshSubfolders"))
+			{
+				refreshSubfoldersForAllWorkspaces(context);
+			}
+		}
+
+		return 0;
+	}
+	
+	
+
+	/**
+     * This method is the landing point for a trigger that sends out a "CAD Drawing" or "GAP Specification" Document object to DirectView
+     * @param context the eMatrix <code>Context</code> object
+     * @param args holds the following input arguments:
+     *        0 - objectId - Document OID for which to gather meta-data and check out a file
+     *        1 - action - String that tells which XML file to generate based on action type
+     * @returns 
+     * @throws Exception if the operation fails
+     * @since 
+     */
+    public void sendDocumentToDirectViewShare(Context context, String[] args)
+    	throws Exception
+    {
+    	//System.out.println("Now in method, about to grab OID");
+    	// grab arguments passed in from the trigger
+    	String strDocumentId = args[0];
+    	DomainObject doDocumentToSend = DomainObject.newInstance(context, strDocumentId);
+    	//System.out.println("Just initialized the DomainObject of the Document");
+    	
+    	// get metadata
+    	StringList slMetaDataFields = new StringList();
+    	slMetaDataFields.add(DomainConstants.SELECT_TYPE);
+    	slMetaDataFields.add(DomainConstants.SELECT_NAME);
+    	slMetaDataFields.add(DomainConstants.SELECT_REVISION);
+    	slMetaDataFields.add(DomainConstants.SELECT_DESCRIPTION);
+    	slMetaDataFields.add("attribute[" + PropertyUtil.getSchemaProperty("attribute_Title") + "]");
+    	slMetaDataFields.add("attribute[gapDocumentCode]");
+    	Map mDocumentMetaData = doDocumentToSend.getInfo(context, slMetaDataFields);
+    	
+    	// parse the Document Code
+    	String strDocCodeCombined = (String) mDocumentMetaData.get("attribute[gapDocumentCode]");
+    	String strDocCode = "";
+    	String strDocCodeDescription = "";
+    	if (!"".equals(strDocCodeCombined))
+    	{
+    		//System.out.println("Parsing gapDocumentCode: " + strDocCodeCombined);
+    		String [] saParsedDocCode = strDocCodeCombined.split(" - ");
+    		if (saParsedDocCode.length == 2)
+    		{
+    			strDocCode = saParsedDocCode[0];
+    			strDocCodeDescription = saParsedDocCode[1];
+    		}
+    	}
+    	mDocumentMetaData.put("DocCode", strDocCode);
+    	mDocumentMetaData.put("DocCodeDescription", strDocCodeDescription);
+    	
+    	// get the name of the PDF file that is checked in
+    	// TODO - change this to get the file through "Derived Output" object
+    	MapList mlAllFiles = doDocumentToSend.getAllFiles(context);
+		HashMap hmFirstFile = (HashMap) mlAllFiles.get(0);
+		String strFileName = (String) hmFirstFile.get("1");
+		
+		// get the list of connected Part objects
+		String strConnectedPartNamesCDATA = getAllConnectedPartNamesCDATA(context, doDocumentToSend);
+		
+		// get the list of ancestor Workspaces
+		String strConnectedWorkspaceNamesCDATA = getAllConnectedWorkspaceNamesCDATA(context, doDocumentToSend);
+		
+		//System.out.println("Just got all meta data for this Document: " + mDocumentMetaData.values().toString() + " " + strFileName + " " + strConnectedPartNamesCDATA + " " + strConnectedWorkspaceNamesCDATA);
+		
+		// create the XML file to send to the DirectView folder
+		saveDirectViewImportXMLFile(context, mDocumentMetaData, strFileName, strConnectedPartNamesCDATA, strConnectedWorkspaceNamesCDATA);
+    	
+    }
+    
+    // save the Import version of the DirectView XML file
+    private void saveDirectViewImportXMLFile(Context context, Map mDocumentMetaData, String strFileName,
+			String strConnectedPartNamesCDATA, String strConnectedWorkspaceNamesCDATA) 
+    {
+		// initialize the map variables
+    	String strSheetNum = "1";
+    	String strDocRevision = (String) mDocumentMetaData.get(DomainConstants.SELECT_REVISION);
+    	String strDocDescription = (String) mDocumentMetaData.get(DomainConstants.SELECT_DESCRIPTION);
+    	String strDocName = (String) mDocumentMetaData.get(DomainConstants.SELECT_NAME);
+    	String strDocType = "PDF";
+    	String strDocCode = (String) mDocumentMetaData.get("DocCode");
+    	String strDocCodeDescription = (String) mDocumentMetaData.get("DocCodeDescription");
+    	
+    	// get the path for the XML file
+    	String strXMLPath = EnoviaResourceBundle.getProperty(context, "emxComponents",
+				 context.getLocale(),"emxComponents.DirectView.PathToXML");
+    	
+    	// start XML construction
+    	Document doc = new Document();
+    	
+    	Namespace nsXSI = Namespace.getNamespace("xsi", "DS_BatchImport.xsd");
+    	Element root = new Element("OceDirect");
+    	root.addNamespaceDeclaration(nsXSI);
+    	
+    	Element BatchImport = new Element("BatchImport", nsXSI);
+    	BatchImport.setAttribute("deleteProcessedFiles", "false");
+    	BatchImport.setAttribute("submitterName", "Vault_User");
+    	BatchImport.setAttribute("name", "OCEDB-ENOVIA");
+    	BatchImport.setAttribute("class", "GAP");
+    	
+    	Element DocumentTag = new Element("Document", nsXSI);   
+    	DocumentTag.setAttribute("name", "GAP Direct View Batch DOCUMENT IMPORT ");
+    	
+    	// add the SheetNum tag
+    	Element SheetNum = new Element("Attribute", nsXSI);
+    	SheetNum.setAttribute("fieldName", "SheetNum");
+    	SheetNum.addContent(strSheetNum);
+    	DocumentTag.addContent(SheetNum);
+    	
+    	// add the Document_Revision tag
+    	Element Document_Revision = new Element("Attribute", nsXSI);
+    	Document_Revision.setAttribute("fieldName", "Document_Revision");
+    	Document_Revision.addContent(strDocRevision);
+    	DocumentTag.addContent(Document_Revision);
+    	
+    	// add the Document_Description tag
+    	Element Document_Description = new Element("Attribute", nsXSI);
+    	Document_Description.setAttribute("fieldName", "Document_Description");
+    	Document_Description.addContent(strDocDescription);
+    	DocumentTag.addContent(Document_Description);
+    	
+    	// add the Document_Name tag
+    	Element Document_Name = new Element("Attribute", nsXSI);
+    	Document_Name.setAttribute("fieldName", "Document_Name");
+    	Document_Name.addContent(strDocName);
+    	DocumentTag.addContent(Document_Name);
+    	
+    	// add the CAD_File_Name tag
+    	// TODO - change this to wherever the native CAD file is being stored - different per document type
+    	Element CAD_File_Name = new Element("Attribute", nsXSI);
+    	CAD_File_Name.setAttribute("fieldName", "CAD_File_Name");
+    	CAD_File_Name.addContent(strFileName);
+    	DocumentTag.addContent(CAD_File_Name);
+    	
+    	// add the Document_Type tag
+    	Element Document_Type = new Element("Attribute", nsXSI);
+    	Document_Type.setAttribute("fieldName", "Document_Type");
+    	Document_Type.addContent(strDocType);
+    	DocumentTag.addContent(Document_Type);
+    	
+    	// add the SAP_Material_Number tag
+    	Element SAP_Material_Number = new Element("Attribute", nsXSI);
+    	SAP_Material_Number.setAttribute("fieldName", "SAP_Material_Number");
+    	CDATA partCDATA = new CDATA(strConnectedPartNamesCDATA);
+    	SAP_Material_Number.addContent(partCDATA);
+    	DocumentTag.addContent(SAP_Material_Number);
+    	
+    	// add the Document_Code tag
+    	Element Document_Code = new Element("Attribute", nsXSI);
+    	Document_Code.setAttribute("fieldName", "Document_Code");
+    	Document_Code.addContent(strDocCode);
+    	DocumentTag.addContent(Document_Code);
+    	
+    	// add the Document_Code_Description tag
+    	Element Document_Code_Description = new Element("Attribute", nsXSI);
+    	Document_Code_Description.setAttribute("fieldName", "Document_Code_Description");
+    	Document_Code_Description.addContent(strDocCodeDescription);
+    	DocumentTag.addContent(Document_Code_Description);
+    	
+    	// add the Projects tag
+    	Element Projects = new Element("Attribute", nsXSI);
+    	Projects.setAttribute("fieldName", "Projects");
+    	CDATA projectCDATA = new CDATA(strConnectedWorkspaceNamesCDATA);
+    	Projects.addContent(projectCDATA);
+    	DocumentTag.addContent(Projects);
+    	
+    	// add the File tag
+    	Element FileTag = new Element("Attribute", nsXSI);
+    	Document_Code_Description.setAttribute("fileName", strFileName);
+    	Document_Code_Description.addContent(strDocCodeDescription);
+    	DocumentTag.addContent(Document_Code_Description);
+    	
+    	BatchImport.addContent(DocumentTag);
+    	
+    	root.addContent(BatchImport);
+    	
+    	doc.setRootElement(root);
+    	
+    	XMLOutputter outter = new XMLOutputter();
+    	String xmlOut = outter.outputString(doc);
+    	
+    	//System.out.println("Created DirectView XML call: \n\n" + xmlOut);
+		
+	}
+
+	// this method returns a String containing CDATA of OIDs from all CAD Subcomponents given a CATProduct DomianObject object
+    private String getAllConnectedPartNamesCDATA(Context context, DomainObject doDocument)
+    	throws FrameworkException
+    {
+    	// comma delimited list of relationships to traverse
+		String strRelPattern = PropertyUtil.getSchemaProperty("relationship_PartSpecification");
+		//System.out.println("Using relPattern: " + strRelPattern);
+		  
+		// comma delimited list of types to search
+		String strTypePattern = PropertyUtil.getSchemaProperty("type_Part");
+		  
+		String strWhere = "policy !~ *Version*";
+		 
+		StringList selectStmts  = new StringList(2);
+	    selectStmts.addElement(DomainConstants.SELECT_ID);
+	    selectStmts.addElement(DomainConstants.SELECT_NAME);
+		  
+		MapList mlConnectedParts = doDocument.getRelatedObjects(context,
+                strRelPattern,               // relationship pattern
+                strTypePattern,              // object pattern //Changed from "*"
+                selectStmts,                 // object selects
+                null,            			 // relationship selects
+                true,                        // to direction, i.e. get Parents
+                false,                       // from direction, i.e. get Children
+                (short) 0,                   // recursion level
+                null,                        // object where clause
+                null);                       // relationship where clause
+		
+		Iterator iterConnectedParts = mlConnectedParts.iterator();
+		Map mNextPartMap;
+		String strNextPartName;
+		StringList slUniqueNames = new StringList();
+		//String strCDATAReturn = "\\<![CDATA[";
+		String strCDATAReturn = "";
+		  
+		while (iterConnectedParts.hasNext())
+		{
+		   mNextPartMap = (Hashtable) iterConnectedParts.next();
+		   strNextPartName = (String) mNextPartMap.get(DomainConstants.SELECT_NAME);
+		   
+		   // only grab each connected Part once
+		   if (!slUniqueNames.contains(strNextPartName))
+		   {
+			   slUniqueNames.add(strNextPartName);
+			   strCDATAReturn = strCDATAReturn.concat(strNextPartName);
+			   
+			   // if there is going to be another one, add a break tag between them
+			   if (iterConnectedParts.hasNext())
+			   {
+				   //strCDATAReturn = strCDATAReturn.concat("\\\<br/\\\>");
+			   }
+		   }
+		}
+		
+		// close the square bracket and angle bracket off
+		//strCDATAReturn = strCDATAReturn.concat("]\\>");
+		
+		return strCDATAReturn;
+    }
+	
+    // this method returns a String containing CDATA of OIDs from all CAD Subcomponents given a CATProduct DomianObject object
+    private String getAllConnectedWorkspaceNamesCDATA(Context context, DomainObject doDocument)
+    	throws FrameworkException
+    {
+    	// comma delimited list of relationships to traverse
+		String strRelPattern = PropertyUtil.getSchemaProperty("relationship_PartSpecification")
+				.concat(",").concat(PropertyUtil.getSchemaProperty("relationship_VaultedDocuments"))
+				.concat(",").concat(PropertyUtil.getSchemaProperty("relationship_SubVaults"))
+				.concat(",").concat("Data Vaults"); // Data Vaults rel is not registered...
+		//System.out.println("Using relPattern: " + strRelPattern);
+		  
+		// comma delimited list of types to search
+		String strTypePattern = PropertyUtil.getSchemaProperty("type_Project")  // i.e. the "Workspace" type
+				.concat(",").concat(PropertyUtil.getSchemaProperty("type_Part"))
+				.concat(",").concat(PropertyUtil.getSchemaProperty("type_ProjectVault")); // i.e. the "Workspace Vault" type
+		  
+		String strWhere = "policy !~ *Version*";
+		 
+		StringList selectStmts  = new StringList(3);
+	    selectStmts.addElement(DomainConstants.SELECT_ID);
+	    selectStmts.addElement(DomainConstants.SELECT_NAME);
+	    selectStmts.addElement(DomainConstants.SELECT_TYPE);
+		  
+		MapList mlConnectedWorkspaces = doDocument.getRelatedObjects(context,
+                strRelPattern,               // relationship pattern
+                strTypePattern,              // object pattern //Changed from "*"
+                selectStmts,                 // object selects
+                null,            			 // relationship selects
+                true,                        // to direction, i.e. get Parents
+                false,                       // from direction, i.e. get Children
+                (short) 0,                   // recursion level
+                null,                        // object where clause
+                null);                       // relationship where clause
+		
+		Iterator iterConnectedObjects = mlConnectedWorkspaces.iterator();
+		Map mNextObjectMap;
+		String strNextObjectName;
+		String strNextObjectType;
+		StringList slUniqueNames = new StringList();
+		//String strCDATAReturn = "\\<![CDATA[";
+		String strCDATAReturn = "";
+		  
+		while (iterConnectedObjects.hasNext())
+		{
+		   mNextObjectMap = (Hashtable) iterConnectedObjects.next();
+		   strNextObjectType = (String) mNextObjectMap.get(DomainConstants.SELECT_TYPE);
+		   strNextObjectName = (String) mNextObjectMap.get(DomainConstants.SELECT_NAME);
+		   
+		   //System.out.println("Found object of type: " + strNextObjectType + " and name: " + strNextObjectName);
+		   
+		   // only grab the names of the "Workspace" objects
+		   if (!strNextObjectType.equals(PropertyUtil.getSchemaProperty("type_Project")))
+		   {
+			   continue;
+		   }
+		   
+		   // only grab each connected Workspace once
+		   if (!slUniqueNames.contains(strNextObjectName))
+		   {
+			   slUniqueNames.add(strNextObjectName);
+			   strCDATAReturn = strCDATAReturn.concat(strNextObjectName);
+			   
+			   // if there is going to be another one, add a break tag between them
+			   if (iterConnectedObjects.hasNext())
+			   {
+				   //strCDATAReturn = strCDATAReturn.concat("\\\<br/\\\>");
+			   }
+		   }
+		}
+		
+		// close the square bracket and angle bracket off
+		//strCDATAReturn = strCDATAReturn.concat("]\\>");
+		
+		return strCDATAReturn;
+    }
+    
+    
+    // this method finds all Workspaces in the system and updates the Descriptions and attributes of their subfolders
+ 	private void refreshSubfoldersForAllWorkspaces(Context context) 
+ 			throws Exception
+ 	{
+ 		String strAllWorkspaces = MqlUtil.mqlCommand(context, "temp query bus Workspace * * select id dump ~");
+ 		String []saWorkspaces = strAllWorkspaces.split("\n");
+ 		
+ 		int index = 0;
+ 		
+ 		for (String strNextWorkspaceID : saWorkspaces)
+ 		{
+			String [] saTokens = strNextWorkspaceID.split("~");
+ 			String strNextOID = saTokens[3];
+ 			System.out.println("Now pushing description and gapFrameModel to Workspace: " + strNextOID);
+ 			index++;
+ 			String [] saArgs = {strNextOID, "gapFrameModel"}; 
+ 			copyDescriptionToFolders(context, saArgs);
+ 			copyAttributegapFrameModelToFolders(context, saArgs);
+ 		}
+ 		
+ 	}
+    
+    // this method is the target of the trigger "eService Trigger Program Parameters" TypeWorkspaceModifyDescriptionAction copyDescriptionToFolders
+    // also the target of the trigger "eService Trigger Program Parameters" TypeWorkspaceModifyNameAction copyDescriptionToFolders
+    // args[0] = objectId of Workspace
+    //
+    public void copyDescriptionToFolders(Context context, String []args)
+    		throws Exception
+    {
+    	String strWorkspaceOID = args[0];
+    	DomainObject doWorkSpace = DomainObject.newInstance(context, strWorkspaceOID);
+    	String strName = doWorkSpace.getInfo(context, DomainConstants.SELECT_NAME);
+    	String strDescription = doWorkSpace.getInfo(context, DomainConstants.SELECT_DESCRIPTION);
+    	
+    	// set this Workspace's name + description to the attribute gapWorkspaceDescription on all subfolders connected to this Workspace
+    	updateSubFoldersOfWorkspace(context, doWorkSpace, "gapWorkspaceDescription", strName + "\n" + strDescription);
+    	
+    }
+    
+    // this method is the target of the trigger "eService Trigger Program Parameters" TypeWorkspaceModifyAttributeAction copyAttributegapFrameModelToFolders
+    // args[0] = objectId of Workspace
+    // args[1] = attributeName that was modified
+    //
+    public void copyAttributegapFrameModelToFolders(Context context, String []args)
+    		throws Exception
+    {
+    	String strWorkspaceOID = args[0];
+    	String strModifiedAttribute = args[1];
+    	
+    	if (!"gapFrameModel".equals(strModifiedAttribute))
+    	{
+    		//System.out.println("Attribute that was modified: '" + strModifiedAttribute + "' was not the target attribute of gapFrameModel! Returning...");
+    		return;
+    	}
+    	
+    	DomainObject doWorkSpace = DomainObject.newInstance(context, strWorkspaceOID);
+    	String strGapFrameModel = doWorkSpace.getAttributeValue(context, "gapFrameModel");
+    	
+    	// set this Workspace's description to the attribute gapWorkspaceDescription on all subfolders connected to this Workspace
+    	updateSubFoldersOfWorkspace(context, doWorkSpace, "gapFrameModel", strGapFrameModel);
+    	
+    }
+
+    // this method sets attributes on subfolders of a Workspace object given the object, the attribute name, and a value for that attribute
+	private void updateSubFoldersOfWorkspace(Context context, DomainObject doWorkSpace, String strAttributeName,
+			String strAttributeValue) throws Exception
+	{
+		// comma delimited list of relationships to traverse
+		String strRelPattern = PropertyUtil.getSchemaProperty("relationship_SubVaults")
+				.concat(",").concat("Data Vaults"); // Data Vaults rel is not registered...
+		//System.out.println("Using relPattern: " + strRelPattern);
+		  
+		// comma delimited list of types to search
+		String strTypePattern = PropertyUtil.getSchemaProperty("type_ProjectVault"); // i.e. the "Workspace Vault" type, Folders...
+		  
+		String strWhere = "policy !~ *Version*";
+		 
+		StringList selectStmts  = new StringList(1);
+	    selectStmts.addElement(DomainConstants.SELECT_ID);
+		  
+		MapList mlConnectedFolders = doWorkSpace.getRelatedObjects(context,
+                strRelPattern,               // relationship pattern
+                strTypePattern,              // object pattern //Changed from "*"
+                selectStmts,                 // object selects
+                null,            			 // relationship selects
+                false,                       // to direction, i.e. get Parents
+                true,                        // from direction, i.e. get Children
+                (short) 0,                   // recursion level
+                null,                        // object where clause
+                null);                       // relationship where clause
+		
+		Iterator iterConnectedObjects = mlConnectedFolders.iterator();
+		Map mNextObjectMap;
+		String strNextObjectId;
+		DomainObject doNextWorkSpaceFolder;
+		StringList slUniqueIds = new StringList();
+		  
+		while (iterConnectedObjects.hasNext())
+		{
+			mNextObjectMap = (Hashtable) iterConnectedObjects.next();
+			strNextObjectId = (String) mNextObjectMap.get(DomainConstants.SELECT_ID);
+			doNextWorkSpaceFolder = DomainObject.newInstance(context, strNextObjectId);
+			
+			// set the attribute value of the passed attribute:
+			doNextWorkSpaceFolder.setAttributeValue(context, strAttributeName, strAttributeValue);
+			
+		}
+		
+	}
+	
+	// this method is the target of the trigger "eService Trigger Program Parameters" RelationshipSubVaultsConnectAction updateSubFolderWorkspaceAttributes
+	// and the trigger "eService Trigger Program Parameters" RelationshipDataVaultsConnectAction updateSubFolderWorkspaceAttributes
+    // args[0] = objectId of the "from" or parent object
+    // args[1] = objectId of the "to" or child object
+    //
+	public void updateSubFolderWorkspaceAttributes(Context context, String [] args)
+		throws Exception
+	{
+		// if either of these connect objects is a folder, grab the parent Workspace and set the folder's attributes
+		String strParentId = args[0];
+		String strChildId = args[1];
+		
+		DomainObject doParent = DomainObject.newInstance(context, strParentId);
+		DomainObject doChild = DomainObject.newInstance(context, strChildId);
+		
+		String strParentType = doParent.getInfo(context, DomainConstants.SELECT_TYPE);
+		String strChildType = doChild.getInfo(context, DomainConstants.SELECT_TYPE);
+		
+		String strFolderType = PropertyUtil.getSchemaProperty("type_ProjectVault");
+		
+		System.out.println("Just connected a " + strParentType + " to a " + strChildType);
+		
+		if (strParentType.equals(strFolderType))
+		{
+			// if this parent is a folder, set it's gap attributes to the values from the Workspace above it
+			updateSubFolderGAPAttributes(context, doParent);
+		}
+		
+		if (strChildType.equals(strFolderType))
+		{
+			// if this child is a folder, set it's gap attributes to the values from the Workspace above it
+			updateSubFolderGAPAttributes(context, doChild);
+		}
+		
+	}
+
+	// this method takes a subfolder and sets its gap attributes to values from the Workspace object above it, if one exists
+	private void updateSubFolderGAPAttributes(Context context, DomainObject doObject) 
+		throws Exception
+	{
+		// comma delimited list of relationships to traverse
+		String strRelPattern = PropertyUtil.getSchemaProperty("relationship_SubVaults")
+				.concat(",").concat("Data Vaults"); // Data Vaults rel is not registered...
+		//System.out.println("Using relPattern: " + strRelPattern);
+		  
+		// comma delimited list of types to search
+		String strTypePattern = PropertyUtil.getSchemaProperty("type_ProjectVault") // this is the "Folder" type
+				.concat(",").concat(PropertyUtil.getSchemaProperty("type_Project")); // this is the "Workspace" type
+		  
+		String strWhere = "policy !~ *Version*";
+		 
+		StringList selectStmts  = new StringList(2);
+	    selectStmts.addElement(DomainConstants.SELECT_ID);
+	    selectStmts.addElement(DomainConstants.SELECT_TYPE);
+		  
+		MapList mlConnectedObjects = doObject.getRelatedObjects(context,
+                strRelPattern,               // relationship pattern
+                strTypePattern,              // object pattern //Changed from "*"
+                selectStmts,                 // object selects
+                null,            			 // relationship selects
+                true,                        // to direction, i.e. get Parents
+                false,                       // from direction, i.e. get Children
+                (short) 0,                   // recursion level
+                null,                        // object where clause
+                null);                       // relationship where clause
+		
+		Iterator iterConnectedObjects = mlConnectedObjects.iterator();
+		Map mNextObjectMap;
+		String strNextObjectId;
+		String strNextType;
+		DomainObject doNextParentObject;
+		StringList slUniqueIds = new StringList();
+		  
+		while (iterConnectedObjects.hasNext())
+		{
+			mNextObjectMap = (Hashtable) iterConnectedObjects.next();
+			strNextObjectId = (String) mNextObjectMap.get(DomainConstants.SELECT_ID);
+			strNextType = (String) mNextObjectMap.get(DomainConstants.SELECT_TYPE);
+			
+			// if this object is a Workspace object, grab it's description and gapFrameModel attribute and set them on the current Folder
+			if (strNextType.equals(PropertyUtil.getSchemaProperty("type_Project")))
+			{
+				doNextParentObject = DomainObject.newInstance(context, strNextObjectId);
+				String strDescription = doNextParentObject.getInfo(context, DomainConstants.SELECT_DESCRIPTION);
+				String strName = doNextParentObject.getInfo(context, DomainConstants.SELECT_NAME);
+				String strGAPFrameModel = doNextParentObject.getInfo(context, "attribute[gapFrameModel].value");
+				
+				// set this Folder's attributes to the values from the Workspace:
+				doObject.setAttributeValue(context, "gapWorkspaceDescription", strName + "\n" + strDescription);
+				doObject.setAttributeValue(context, "gapFrameModel", strGAPFrameModel);
+				
+				return;
+			}
+		}
+		
+	}
+    
+	/* this method is the target of the triggers: 
+	 * "eService Trigger Program Parameters" PolicyCADDrawingStateApprovedPromoteCheck EnsureECOConnectedToSpec
+	 * "eService Trigger Program Parameters" PolicyCADDrawingStatePreliminaryPromoteCheck EnsureECOConnectedToSpec
+	 * "eService Trigger Program Parameters" PolicyCADDrawingStateReviewPromoteCheck EnsureECOConnectedToSpec
+	 * 
+	 * "eService Trigger Program Parameters" PolicyPartSpecificationStateApprovedPromoteCheck EnsureECOConnectedToSpec
+	 * "eService Trigger Program Parameters" PolicyPartSpecificationStatePreliminaryPromoteCheck EnsureECOConnectedToSpec
+	 * "eService Trigger Program Parameters" PolicyPartSpecificationStateReviewPromoteCheck EnsureECOConnectedToSpec
+	 * 
+	 * "eService Trigger Program Parameters" PolicyMCADPolicyPromoteCheck EnsureECOConnectedToSpec
+	 */
+	public int ensureECOConnectedToPartSpecAlone(Context context, String [] args)
+		throws Exception
+	{
+		StringList selectStmts  = new StringList(2);
+	    selectStmts.addElement(DomainConstants.SELECT_ID);
+	    
+	    // Rel selects
+	    
+	    StringList selectRelStmts = new StringList(1);
+	    selectRelStmts.addElement(DomainConstants.SELECT_RELATIONSHIP_ID);
+
+	    String strRelPattern = DomainConstants.RELATIONSHIP_AFFECTED_ITEM;
+	    //strRelPattern = strRelPattern + "," +  ChangeConstants.RELATIONSHIP_CHANGE_AFFECTED_ITEM + "," + ChangeConstants.RELATIONSHIP_IMPLEMENTED_ITEM;
+	    
+	    String strTypePattern = DomainConstants.TYPE_ECO;
+	    strTypePattern = strTypePattern + "," + ChangeConstants.TYPE_CHANGE_ACTION ;
+	    String sObjectId = args[0];
+	    DomainObject doSpec = DomainObject.newInstance(context, sObjectId);
+	    Map proposedCAData  = com.dassault_systemes.enovia.enterprisechangemgt.util.ChangeUtil.getChangeObjectsInProposed(context, selectStmts, new String[]{sObjectId}, 1);
+	    MapList proposedchangeActionList = (MapList)proposedCAData.get(sObjectId);
+	    Map  realizedCAData = com.dassault_systemes.enovia.enterprisechangemgt.util.ChangeUtil.getChangeObjectsInRealized(context, selectStmts, new String[]{sObjectId}, 1);
+	    MapList realizedchangeActionList = (MapList)realizedCAData.get(sObjectId);
+
+	    MapList mapListECOs =
+	    		               doSpec.getRelatedObjects(context,
+	                                  strRelPattern,
+	                                  strTypePattern, // object pattern
+	                                  selectStmts, // object selects
+	                                  selectRelStmts, // relationship selects
+	                                  true, // to direction
+	                                  false, // from direction
+	                                  (short) 1, // recursion level
+	                                  null, // object where clause
+	                                  null); // relationship where clause
+
+	    if (mapListECOs.size() > 0 || proposedchangeActionList.size() > 0 || realizedchangeActionList.size() > 0)
+	    {
+	          return 0;
+	    } else {
+	    	// If this object is connected as a specification, it needs an ECO.
+	        String langStr = context.getSession().getLanguage();
+	        
+	        String strMessage = EngineeringUtil.i18nStringNow(context,"emxEngineeringCentral.CheckIfChangeConnected.Message",langStr);
+	        ${CLASS:emxContextUtil}.mqlNotice(context,strMessage);
+	        return 1;
+	    }
+	}
+	
+	/* this method is the target of the triggers:
+	 * "eService Trigger Program Parameters" PolicySpecPartStateReleasePromoteCheck GapBlockObsoletePromote
+	 * "eService Trigger Program Parameters" PolicyECPartStateReleasePromoteCheck GapBlockObsoletePromote
+	 * @author ENGMASA
+	 * @description : this trigger blocks Promotion to Obsolete state
+	 * 
+	 */
+	public int blockObsoletePromotion(Context context, String [] args)
+		throws Exception
+	{
+		int iRes = 0;
+		String langStr = context.getSession().getLanguage();
+		//System.out.println("~~~~~~~~~~~~~~~~~~~~~~~patr id1111111111111111111111111>>>>>> "+args[0]);
+		boolean bRes = checkIfConnectedToObsoleteCA(context, args[0]);
+	//	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~bRes : "+bRes);
+	    if (!bRes)
+	    {
+	    	iRes = 1;
+		    String strMessage = EngineeringUtil.i18nStringNow(context,"emxEngineeringCentral.Promote.Obosolete.BlockManualPromotion.Message",langStr);
+		    ${CLASS:emxContextUtil}.mqlNotice(context,strMessage);
+	    }
+		return iRes;
+	}
+	/**
+	 * Method to get CA to which the document is connected.
+	 * @param context
+	 * @param strDocId objectID of Document
+	 * @param bProposed true-if CA to which document connected as Proposed Change is to be retrieved, false-otherwise
+	 * @param bRealized true-if CA to which document connected as Realized Change is to be retrieved, false-otherwise
+	 * @return
+	 * @throws Exception
+	 */
+	private boolean checkIfConnectedToObsoleteCA(Context context, String strObjectId) throws Exception {
+		
+		try{
+			BusinessObject busObjePart = new BusinessObject(strObjectId) ;
+			List lBusoBject = new ArrayList(); 
+			lBusoBject.add(busObjePart);
+
+		String physicalId = new DomainObject(strObjectId).getInfo(context, "physicalid");
+		List<String> lObjectId = new ArrayList();
+		lObjectId.add(physicalId);
+		 StringList stlObjectSelects=new StringList();
+		  stlObjectSelects.addElement(DomainObject.SELECT_ID);
+			stlObjectSelects.addElement(DomainObject.SELECT_CURRENT);
+
+
+		MapList realizedCAMapList =new MapList();
+			MapList proposedCAMapList =new MapList();
+
+			ChangeActionFactory factory = new ChangeActionFactory();
+			IChangeActionServices changeAction = factory.CreateChangeActionFactory();
+
+		Map<String,Map<IChangeAction,List<IOperation>>> mapPrposedOperationAndCa = changeAction.getProposedOperationAndChangeActionFromIdList(context,lObjectId);
+			Map<String, Map<IChangeAction, List<IRealizedChange>>> mapRealizedAndCaLinked = changeAction.getRealizedAndCaFromListObjects(context, lBusoBject, false, true, true);
+			String changeRequestOrOrderSelect = DomainObject.EMPTY_STRING;	
+		for(Entry<String, Map<IChangeAction, List<IOperation>>> mapOutput : mapPrposedOperationAndCa.entrySet()){
+			for(Entry<IChangeAction,List<IOperation>> mapOutput2: mapOutput.getValue().entrySet()){
+				List<IOperation> proposedList = mapOutput2.getValue();
+					IChangeAction iChangeAction = mapOutput2.getKey();
+					// just check if it's attached as realized
+					if(iChangeAction!= null){
+					for(int index=0;index<proposedList.size();index++) {
+						Map<String, String> proposedCAMap = new HashMap<String, String>();
+						IOperation iOpreration = proposedList.get(index);
+						String strOperationName = iOpreration.getOperationName();
+						String strTargetedStatus = iOpreration.getTargetStatus();
+						BusinessObject busChangeAction =  iChangeAction.getCaBusinessObject();
+						String strChangeActionID = busChangeAction.getObjectId();
+						DomainObject domChangeAction = new DomainObject(strChangeActionID);
+						Map mapCAInfo = domChangeAction.getInfo(context, stlObjectSelects);
+						String strCurrent = (String) mapCAInfo.get(DomainObject.SELECT_CURRENT);
+						String strChangeId = (String) mapCAInfo.get(changeRequestOrOrderSelect);
+						//String strReasonForChange = new ChangeAction().getReasonForChangeFromChangeAction(context, strObjectId, strChangeActionID);
+						String strRequestedChange = ChangeAction.getRequestedChangeFromOperationAndTargetedState(context,strOperationName, strTargetedStatus);
+						// if any obsolescence CA found then ignore
+						if ("For Obsolescence".equals(strRequestedChange))
+							return true;
+						//System.out.println(mapCAInfo.get("name") + " -- >strRequestedChange : "+strRequestedChange);
+						//System.out.println(mapCAInfo.get("name") + " -- >strReasonForChange : "+strRequestedChange);
+					}
+				}
+		
+
+				}
+			}
+
+			for(Entry<String, Map<IChangeAction,List<IRealizedChange>>> mapOutput : mapRealizedAndCaLinked.entrySet()){
+				for(Entry<IChangeAction,List<IRealizedChange>> mapOutput2: mapOutput.getValue().entrySet()){
+					List<IRealizedChange> realizedList = mapOutput2.getValue();
+					IChangeAction iChangeAction = mapOutput2.getKey();
+				Map<String, String> realizedCAMap = new HashMap<String, String>();
+					if(iChangeAction!= null){
+
+						BusinessObject busChangeAction =  iChangeAction.getCaBusinessObject();
+						String strChangeActionID = busChangeAction.getObjectId();
+						String strReasonForChange = DomainObject.EMPTY_STRING;
+						DomainObject domChangeAction = new DomainObject(strChangeActionID);
+						Map mapCAInfo = domChangeAction.getInfo(context, stlObjectSelects);
+						String strCurrent = (String) mapCAInfo.get(DomainObject.SELECT_CURRENT);
+						String strChangeId = (String) mapCAInfo.get(changeRequestOrOrderSelect);
+						String strRequestedChange = new ChangeAction().getReaquestedChangeForRealizedFromChangeAction(context, strObjectId, strChangeActionID);
+						//System.out.println(mapCAInfo.get("name") + " -- >strRequestedChange : "+strRequestedChange);
+						// if any obsolescence CA found then ignore
+						if ("For Obsolescence".equals(strRequestedChange))
+							return true;
+					}
+
+				}
+			}
+			 
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return false;
+	}
+	/**
+	 * @author ENGMASA
+	 * description : this method finds and returns specifications
+	 * @param context
+	 * @param args
+	 * @return
+	 * @throws Exception
+	 */
+	public static MapList getDownloadDocs(Context context, String args[]) throws Exception
+	{
+		Map programMap = (Map)JPO.unpackArgs(args);
+		String strDocName = (String) programMap.get("DocName");
+		String strDocTitle = (String) programMap.get("DocTitle");
+		MapList mlList = new MapList();
+		if (UIUtil.isNotNullAndNotEmpty(strDocTitle) && UIUtil.isNotNullAndNotEmpty(strDocName))
+		{
+			strDocTitle = strDocTitle.trim();
+			strDocName = strDocName.trim();
+			StringBuffer sbWhere = new StringBuffer();
+			sbWhere.append("((current==Approved || current==Release) && revision ~~ last)");
+			// if not query wildcard then skip
+			if (!strDocTitle.equals(DomainObject.QUERY_WILDCARD))
+			{
+				sbWhere.append(" && (");
+				// if title contains comma then append where
+				StringList slTitle = FrameworkUtil.split(strDocTitle, ",");
+				String strTemp = null;
+				String strAttributeTitleSelect = DomainConstants.SELECT_ATTRIBUTE_TITLE+"~=";
+				for (int i=0; i<slTitle.size(); i++)
+				{
+					if (i>0)
+						sbWhere.append(" || ");
+					strTemp = (String) slTitle.get(i);
+					strTemp = strTemp.trim();
+					sbWhere.append(strAttributeTitleSelect).append(strTemp);
+				}
+				sbWhere.append(")");
+			}
+			
+			//System.out.println("sbWhere : "+sbWhere.toString());
+			StringList busSelList=new StringList();
+            busSelList.add(DomainConstants.SELECT_NAME);
+            busSelList.add(DomainConstants.SELECT_ID);
+			mlList = (MapList) DomainObject.findObjects(context,
+					  "gapGAPSpecification",
+					  strDocName,
+					  DomainObject.QUERY_WILDCARD,
+					  DomainObject.QUERY_WILDCARD,
+					  DomainObject.QUERY_WILDCARD,
+					  sbWhere.toString(),
+					  "",
+					  true,
+					  busSelList,
+					  (short)0);
+		}
+		//System.out.println("mlList:  "+mlList.size());
+		// remove duplicates
+		return mlList;		
+	}
+	// ENGMASA : Added below code to enable gap Owning entity field : START
+	/**
+     * this method checks if logged in person is member of Company other INE
+     * @author ENGMASA
+     * @param context
+     * @param args
+     * @return boolean
+     * @throws Exception
+     */
+    public static boolean isMemberOfGAPServiceProvide(Context context, String args[]) throws Exception
+    {
+    	boolean bRes = false;
+    	// always consider logged in person
+    	
+    	//String strCurrentLoggedInPerson = PropertyUtil.getGlobalRPEValue(context, ContextUtil.MX_LOGGED_IN_USER_NAME);
+    	//${CLASS:emxContextUtil}.mqlNotice(context, "strCurrentLoggedInPerson2 : "+strCurrentLoggedInPerson);
+    	String  personName =  MqlUtil.mqlCommand(context,"get env $1","USER");
+    	${CLASS:emxContextUtil}.mqlNotice(context, "personName2 : "+personName);
+        if (personName.equalsIgnoreCase(USER_AGENT) || DomainObject.EMPTY_STRING.equals(personName))
+        {
+            personName =  MqlUtil.mqlCommand(context,"get env $1","APPREALUSER");
+            ${CLASS:emxContextUtil}.mqlNotice(context, "personName21 : "+personName);
+            //added for bug no 317781
+            if(DomainObject.EMPTY_STRING.equals(personName))
+            {
+              personName=PropertyUtil.getGlobalRPEValue(context, ContextUtil.MX_LOGGED_IN_USER_NAME);
+            }
+            // till here
+        }
+    	//${CLASS:emxContextUtil}.mqlNotice(context, personName);
+    	boolean bIscontextPushed = false;
+    	try
+    	{
+    		com.matrixone.apps.domain.util.ContextUtil.pushContext(context, personName, null, null);
+    		bIscontextPushed = true;
+    		String strORGID [] = PersonUtil.getMemberOrganizations(context);
+	    	
+	    	final String ORGANIZATION_GECIA = (EnoviaResourceBundle.getProperty(context,"Framework","emxFramework.SupplierCompany.GECIA",context.getSession().getLanguage())).trim();
+	    	
+	    	DomainObject doOrg = DomainObject.newInstance(context);
+	    	String strOrgId = null;
+	    	String strOrgName = null;
+			for (int y=0;y<strORGID.length;y++)
+			{
+				strOrgId = strORGID[y];
+				doOrg.setId(strOrgId);
+				strOrgName = doOrg.getInfo(context, DomainObject.SELECT_NAME);
+				${CLASS:emxContextUtil}.mqlNotice(context,"strOrgName : "+strOrgName);
+				if (strOrgName.equals(ORGANIZATION_GECIA))
+					return true;
+			}
+    	}
+    	finally
+    	{
+    		if (bIscontextPushed)
+    			com.matrixone.apps.domain.util.ContextUtil.popContext(context);
+    	}
+    	return bRes;
+    } 
+    /**
+     * this method checks if object is from same entity as object enitity
+     * @author ENGMASA
+     * @param context
+     * @param strObjectId
+     * @return
+     * @throws Exception
+     */
+    public static boolean isFromOwningEntity(Context context, String strObjectId) throws Exception
+    {
+    	boolean bRes = false;
+    	String strOwningEntity =  DomainObject.EMPTY_STRING;
+    	DomainObject doObj = DomainObject.newInstance(context, strObjectId);
+    	
+    	if (doObj.isKindOf(context, DomainObject.TYPE_PART))
+    	{
+    		// get part entity by number
+    		strOwningEntity = getPartsEntityFromNumber(context, strObjectId);
+    	}
+    	else {
+    		 strOwningEntity = getOwningEntity(context, strObjectId);
+    	}
+    	
+    	if (strOwningEntity.equals(getFCSSite(context)))
+    		return true;
+    	return bRes;
+    }
+    /**
+     * this method return owning entity value
+     * @author ENGMASA
+     * @param context
+     * @param strObjectId
+     * @return
+     * @throws Exception
+     */
+    public static String getOwningEntity(Context context, String strObjectId) throws Exception
+    {
+    	DomainObject doObj = DomainObject.newInstance(context, strObjectId);
+    	String strOwningEntity = doObj.getAttributeValue(context, PropertyUtil.getSchemaProperty(context, "attribute_gapOwningEntity"));
+    	return strOwningEntity;
+    }
+    /**
+     * this method return Parts owning entity from Number range
+     * @author ENGMASA
+     * @param context
+     * @param strObjectId
+     * @return
+     * @throws Exception
+     */
+    public static String getPartsEntityFromNumber(Context context, String strObjectId) throws Exception
+    {
+    	String strPartOwningEnt = null;
+    	// get range key from properties
+		String strPartRangeList = "ENG~69|TBI~|UTB~1249|PNF~|COF~";//(EnoviaResourceBundle.getProperty(context,"emxComponentsStringResource","emxComponents.GAP.PartRanges",context.getSession().getLanguage())).trim();
+		
+		StringList slPartRanges = FrameworkUtil.split(strPartRangeList, CONST_PIPE);
+		DomainObject doObj = DomainObject.newInstance(context, strObjectId);
+    	String strPartName = doObj.getInfo(context, DomainObject.SELECT_NAME);
+    	
+		String strPartRange = DomainObject.EMPTY_STRING;
+		String strEntity = DomainObject.EMPTY_STRING;
+		String strEntityRange = DomainObject.EMPTY_STRING;
+		StringList slTemp = new StringList();
+		for (int i=0; i< slPartRanges.size(); i++)
+		{
+			strPartRange = (String) slPartRanges.get(i);
+			
+			//System.out.println(" strPartName : "+strPartName);
+			// split entity from numb range
+			slTemp  = FrameworkUtil.split(strPartRange, CONST_TILT);
+			strEntity = ((String) slTemp.get(0)).trim();
+			
+			strEntityRange = ((String) slTemp.get(1)).trim();
+			//System.out.println("strEntityRange : "+strEntityRange);
+			// if matches entity range
+			if (strPartName.startsWith(strEntityRange) && UIUtil.isNotNullAndNotEmpty(strEntityRange))
+			{
+				//${CLASS:emxContextUtil}.mqlNotice(context, "inside trigg strEntity : "+strEntity);
+				return strEntity;
+			}
+		}
+    	return strPartOwningEnt;
+    }
+    /**
+     * this method return FCS for logged in user
+     * @author ENGMASA
+     * @param context
+     * @return
+     * @throws Exception
+     */
+    public static String getFCSSite(Context context) throws Exception
+    {
+    	String strSite = DomainObject.EMPTY_STRING;
+    	String  personName =  MqlUtil.mqlCommand(context,"get env $1","USER");
+    	//String strCurrentLoggedInPerson = PropertyUtil.getGlobalRPEValue(context, ContextUtil.MX_LOGGED_IN_USER_NAME);
+    	//${CLASS:emxContextUtil}.mqlNotice(context, "strCurrentLoggedInPerson : "+strCurrentLoggedInPerson);
+        if (personName.equalsIgnoreCase(USER_AGENT) || DomainObject.EMPTY_STRING.equals(personName))
+        {
+            personName =  MqlUtil.mqlCommand(context,"get env $1","APPREALUSER");
+            //${CLASS:emxContextUtil}.mqlNotice(context, "realuser : "+personName);
+            //added for bug no 317781
+            if(DomainObject.EMPTY_STRING.equals(personName))
+            {
+              personName = PropertyUtil.getGlobalRPEValue(context, ContextUtil.MX_LOGGED_IN_USER_NAME);
+            }
+            // till here
+        }
+      
+    	strSite	= MqlUtil.mqlCommand(context ,"print person $1 select site dump", personName);
+    	return strSite;
+    }
+	/* this method is the target of the triggers:
+	 * "eService Trigger Program Parameters" TypePartSpecificationRevisionCheck gapCheckOwningEntity
+	 * "eService Trigger Program Parameters"  TypePartReviseCheck gapCheckOwningEntity
+	 * @author ENGMASA
+	 * @description : this trigger blocks change for other enitites than owning entities
+	 * 
+	 */
+	public static int checkGAPOwningEntityForApprove(Context context, String [] args)
+		throws Exception
+	{
+		String strObjectId = args[0];
+		//  ${CLASS:emxContextUtil}.mqlNotice(context, "inside trigg");
+		DomainObject doObj = DomainObject.newInstance(context, strObjectId);
+		String strLanguage = context.getSession().getLanguage();
+		boolean bIsFromOwningEntity = true;
+		if (isMemberOfGAPServiceProvide(context, args))
+		{
+			String[] formatArgs = new String[4];
+			
+            formatArgs[0] = doObj.getInfo(context, DomainObject.SELECT_TYPE);
+            formatArgs[1] = doObj.getInfo(context, DomainObject.SELECT_NAME);
+            formatArgs[2] = doObj.getInfo(context, DomainObject.SELECT_REVISION);
+            if (doObj.isKindOf(context, DomainObject.TYPE_PART))
+            {
+            	formatArgs[3] = getPartsEntityFromNumber(context, strObjectId);
+            }
+            else 
+            	formatArgs[3] = getOwningEntity(context, strObjectId);
+
+            String strError = MessageUtil
+                    .getMessage(
+                            context,
+                            null,
+                            "emxComponents.gapOwningEntity.alert.ApprovalNotAllowed",
+                            formatArgs, null, context.getLocale(),
+                            "emxComponentsStringResource");
+            ${CLASS:emxContextUtil}.mqlNotice(context, strError);
+            return 1;
+		}
+		
+		// if part of Owning entity then allow change
+		if (!isFromOwningEntity(context, strObjectId))
+		{
+			String[] formatArgs = new String[4];
+			
+            formatArgs[0] = doObj.getInfo(context, DomainObject.SELECT_TYPE);
+            formatArgs[1] = doObj.getInfo(context, DomainObject.SELECT_NAME);
+            formatArgs[2] = doObj.getInfo(context, DomainObject.SELECT_REVISION);
+            if (doObj.isKindOf(context, DomainObject.TYPE_PART))
+            {
+            	formatArgs[3] = getPartsEntityFromNumber(context, strObjectId);
+            }
+            else 
+            	formatArgs[3] = getOwningEntity(context, strObjectId);
+
+            String strError = MessageUtil
+                    .getMessage(
+                            context,
+                            null,
+                            "emxComponents.gapOwningEntity.alert.ApprovalNotAllowed",
+                            formatArgs, null, context.getLocale(),
+                            "emxComponentsStringResource");
+            ${CLASS:emxContextUtil}.mqlNotice(context, strError);
+            return 1;
+		}
+		return 0;
+	} 
+	/* this method is the target of the triggers:
+	 * "eService Trigger Program Parameters" TypePartSpecificationRevisionCheck gapCheckOwningEntity
+	 * "eService Trigger Program Parameters"  TypePartReviseCheck gapCheckOwningEntity
+	 * @author ENGMASA
+	 * @description : this trigger blocks change for other enitites than owning entities
+	 * 
+	 */
+	public static int checkGAPOwningEntity(Context context, String [] args)
+		throws Exception
+	{
+		String strObjectId = args[0];
+		//  ${CLASS:emxContextUtil}.mqlNotice(context, "inside trigg");
+		DomainObject doObj = DomainObject.newInstance(context, strObjectId);
+		String strLanguage = context.getSession().getLanguage();
+		boolean bIsFromOwningEntity = false;
+		// if from GECIA then ignore
+		if (isMemberOfGAPServiceProvide(context, args))
+		{${CLASS:emxContextUtil}.mqlNotice(context, "www");
+			return 0;
+		}
+		// if part of Owning entity then allow change
+		if (isFromOwningEntity(context, strObjectId))
+		{${CLASS:emxContextUtil}.mqlNotice(context, "33434");
+			return 0;
+		}
+		// else block change
+		else
+		{
+			String[] formatArgs = new String[4];
+			
+            formatArgs[0] = doObj.getInfo(context, DomainObject.SELECT_TYPE);
+            formatArgs[1] = doObj.getInfo(context, DomainObject.SELECT_NAME);
+            formatArgs[2] = doObj.getInfo(context, DomainObject.SELECT_REVISION);
+            if (doObj.isKindOf(context, DomainObject.TYPE_PART))
+            {
+            	formatArgs[3] = getPartsEntityFromNumber(context, strObjectId);
+            }
+            else 
+            	formatArgs[3] = getOwningEntity(context, strObjectId);
+
+            String strError = MessageUtil
+                    .getMessage(
+                            context,
+                            null,
+                            "emxComponents.gapOwningEntity.alert.ChangeNotAllowed",
+                            formatArgs, null, context.getLocale(),
+                            "emxComponentsStringResource");
+            ${CLASS:emxContextUtil}.mqlNotice(context, strError);
+            return 1;
+		}
+		
+	} 
+	/* this method is the target of the triggers:
+	 * "eService Trigger Program Parameters" PolicyChangeActionStateApprovedPromoteCheck GAPMemberOfGAPServiceProvide
+	 * @author ENGMASA
+	 * @description : this trigger blocks change approval for GECIA
+	 * 
+	 */
+	public static int isMemberOfGAPServiceProvider(Context context, String [] args) throws Exception
+	{
+		int iRes = 0;
+		String strObjectId = args[0];
+		
+		DomainObject doObj = DomainObject.newInstance(context, strObjectId);
+		boolean bRe = isMemberOfGAPServiceProvide(context, args);
+
+		// check owning entity
+		if (bRe)
+		{
+			String[] formatArgs = new String[3];
+			
+            formatArgs[0] = doObj.getInfo(context, DomainObject.SELECT_TYPE);
+            formatArgs[1] = doObj.getInfo(context, DomainObject.SELECT_NAME);
+            formatArgs[2] = doObj.getInfo(context, DomainObject.SELECT_REVISION);
+            
+            String strError = MessageUtil
+                    .getMessage(
+                            context,
+                            null,
+                            "emxComponents.gapOwningEntity.alert.CAApprovalNotAllowed",
+                            formatArgs, null, context.getLocale(),
+                            "emxComponentsStringResource");
+            ${CLASS:emxContextUtil}.mqlNotice(context, strError);
+            return 1;
+		}
+		return 0;
+	} 
+	// ENGMASA : Added below code to enable gap Owning entity field : END
+	
+	// TBIAPRA : Added below code to disaply name in Part Specification Create form : START
+	/* this method is to disaply name in Part Specification Create form
+	 * @author TBIAPRA
+	 */
+	public String getPartSpecName(Context context, String[] args) throws Exception {
+		Map programMap = (Map) JPO.unpackArgs(args);
+		Map requestMap = (Map)programMap.get("requestMap");
+		String strMode = (String)requestMap.get("Name");
+		return strMode;
+	}
+	// TBIAPRA : Added below code to disaply name in Part Specification Create form : END
+	
+	
+	// TBIAPRA : Added below methods to Search CA/CO Based on Project Number : START
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getChanges(Context context, String args[])throws Exception {
+		MapList mlChanges = new MapList();
+		try {
+			HashMap programMap=(HashMap)JPO.unpackArgs(args);
+			String sGapPorjectNumber = (String) programMap.get("gapProjectNumber");
+			String sRelatedToMe = (String) programMap.get("RelatedToMe");
+			if (UIUtil.isNotNullAndNotEmpty(sGapPorjectNumber))
+				sGapPorjectNumber = sGapPorjectNumber.replaceAll("\\|", ",");
+			if ("true".equalsIgnoreCase(sRelatedToMe)) {			
+				//${CLASS:enoECMChangeOrder} enoECMChangeOrder = new ${CLASS:enoECMChangeOrder}(context, args);
+				${CLASS:enoECMChangeOrder} enoECMChangeOrder = new ${CLASS:enoECMChangeOrder}(context, args);
+				MapList mlCO = enoECMChangeOrder.getMyChangeOrders(context, args);
+				MapList mlCA = enoECMChangeOrder.getAllChangeActions(context, args);
+				for (int j = 0, size = mlCO.size(); j < size; j++) {
+					Map oMap = (Map) mlCO.get(j);
+					String sObjectId = (String) oMap.get(DomainConstants.SELECT_ID);
+					DomainObject doObject = new DomainObject(sObjectId);
+					if (sGapPorjectNumber.equals(doObject.getAttributeValue(context, ATTRIBUTE_GAPPROJECTNUMBER))) {
+						mlChanges.add(oMap);
+					}
+				}
+				for (int j = 0, size = mlCA.size(); j < size; j++) {
+					Map oMap = (Map) mlCA.get(j);
+					String sObjectId = (String) oMap.get(DomainConstants.SELECT_ID);
+					DomainObject doObject = new DomainObject(sObjectId);
+					if (sGapPorjectNumber.equals(doObject.getAttributeValue(context, ATTRIBUTE_GAPPROJECTNUMBER))) {
+						mlChanges.add(oMap);
+					}
+				}
+			} else {
+				// ENGMASA :: Added below change for enabling job multi selection : START
+				String sWhere = "attribute["+ATTRIBUTE_GAPPROJECTNUMBER+"].value=='"+sGapPorjectNumber+"'";
+				StringList slList = FrameworkUtil.split(sGapPorjectNumber, CONST_COMMA);
+				// only if more than two
+				if (slList!=null && slList.size()>1)
+				{
+					StringBuffer sbWhere = new StringBuffer();
+					for (int y=0;y<slList.size();y++)
+					{
+						String strVal = (String) slList.get(y);
+						if (y>0)
+						{
+							sbWhere.append("||");
+						}
+						sbWhere.append("(attribute[")
+							   .append(ATTRIBUTE_GAPPROJECTNUMBER)
+							   .append("].value==\"")
+							   .append(strVal)
+							   .append("\")");
+						
+					}
+					sWhere = sbWhere.toString();
+				}
+				
+				StringList objectSelects = new StringList();
+				objectSelects.add(DomainConstants.SELECT_ID);
+				
+				mlChanges = DomainObject.findObjects(context, 
+													ChangeConstants.TYPE_CHANGE_ORDER+","+ChangeConstants.TYPE_CHANGE_ACTION, 
+													DomainObject.QUERY_WILDCARD, 
+													sWhere, 
+													objectSelects);
+				
+				// ENGMASA :: Added below change for enabling job multi selection : END
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw ex;
+		}
+		mlChanges.addSortKey(DomainConstants.SELECT_TYPE,"descending","String");
+		mlChanges.addSortKey(DomainConstants.SELECT_ORIGINATED,"ascending","date");
+		mlChanges.sort();
+		return mlChanges;
+    }
+	
+	@com.matrixone.apps.framework.ui.ColJPOCallable
+	public Vector getChangeContent(Context context, String[] args) throws Exception {
+		try{
+			Map programMap =   (Map)JPO.unpackArgs(args);
+			MapList objectList = (MapList)programMap.get("objectList");
+			Map paramList = (HashMap)programMap.get("paramList");
+		    String reportFormat = (String)paramList.get("reportFormat");
+		    String exportFormat = (String)paramList.get("exportFormat");
+			
+			int intSize = objectList.size();
+			Vector vecResponse = new Vector(intSize);
+			for(int i=0; i < intSize; i++) {
+				Map objMap = (Map) objectList.get(i);
+				String sObjectId = (String) objMap.get(DomainConstants.SELECT_ID);
+				DomainObject doObject = new DomainObject(sObjectId);
+				MapList mlItems = new MapList();
+				if (ChangeConstants.TYPE_CHANGE_ORDER.equalsIgnoreCase(doObject.getType(context))) {
+					mlItems = new ChangeOrder(sObjectId).getProposedItems(context);
+				} else {
+					mlItems = new ChangeAction(sObjectId).getAffectedItems(context);
+				}
+				
+				StringBuilder sb = new StringBuilder();
+				if (mlItems.size() > 0) {
+					String  lastObjName = (String)((Map) mlItems.get(mlItems.size()-1)).get(DomainConstants.SELECT_NAME);
+					for (int j = 0, size = mlItems.size(); j < size; j++) {
+						Map oMap = (Map) mlItems.get(j);
+						String sObjId = (String) oMap.get(DomainConstants.SELECT_ID);
+						String sObjName = (String) oMap.get(DomainConstants.SELECT_NAME);
+						if(null!=reportFormat && !reportFormat.equals("null") && (reportFormat.length() > 0)) {
+							sb.append(sObjName);
+							if(!lastObjName.equalsIgnoreCase(sObjName))
+								sb.append(",");
+						} else {
+							String strURL="../common/emxTree.jsp";
+							sb.append("<a href=\"javascript:showModalDialog('"+strURL+"?objectId="+sObjId+"','600','400','false');\" >");            
+							sb.append(sObjName);
+							sb.append("</a>");
+							if(!lastObjName.equalsIgnoreCase(sObjName))
+								sb.append("<br/>");
+						}
+					}
+				}
+				vecResponse.add(sb.toString());
+			}           
+
+			return vecResponse;
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	//Table ProgHTML
+	/**
+	 * Show Mass Approval Link in SB Table
+	 * @param context
+	 * @param objectId
+	 * @return
+	 * @throws Exception
+	 */
+	public Vector showQuickMassApproval(Context context, String[] args) throws Exception {
+		//XSSOK
+		HashMap programMap = (HashMap) JPO.unpackArgs(args);
+		MapList objectList = (MapList) programMap.get(ChangeConstants.OBJECT_LIST);
+		Map paramList = (HashMap)programMap.get("paramList");
+	    String reportFormat = (String)paramList.get("reportFormat");
+	    String exportFormat = (String)paramList.get("exportFormat");
+		
+		String languageStr = context.getSession().getLanguage();
+		Vector vecReturn   = null;
+		StringBuffer sb    = null;
+		ChangeUtil changeUtil    = new ChangeUtil();
+		try
+		{
+			StringList changeOrderIDList = changeUtil.getStringListFromMapList(objectList, ChangeConstants.ID);
+
+			String transferOwnership =EnoviaResourceBundle.getProperty(context, ChangeConstants.RESOURCE_BUNDLE_ENTERPRISE_STR, context.getLocale(),"EnterpriseChangeMgt.Message.TransferOwnershipOfCA");
+
+			String approvalTasks     = EnoviaResourceBundle.getProperty(context, ChangeConstants.RESOURCE_BUNDLE_ENTERPRISE_STR, context.getLocale(),"EnterpriseChangeMgt.Message.ApprovalTasksOfCA");
+
+			String approvalRequired = EnoviaResourceBundle.getProperty(context, ChangeConstants.RESOURCE_BUNDLE_ENTERPRISE_STR, context.getLocale(),"EnterpriseChangeMgt.Label.ApprovalStatus");
+
+			vecReturn = new Vector(changeOrderIDList.size());
+			String strCOId				= "";
+			String strTransferOwnership	= "";
+			String strApproveTasks		= "";
+
+			ChangeOrderUI changeOrderUI 	= null;
+			MapList mlTableData 			= new MapList();
+
+			Iterator changeOrderItr = changeOrderIDList.iterator();
+			while (changeOrderItr.hasNext()) {
+				strCOId = changeOrderItr.next().toString();
+				changeOrderUI 	= new ChangeOrderUI(strCOId);
+				String type = changeOrderUI.getInfo(context, DomainConstants.SELECT_TYPE);
+
+				if(changeOrderUI.isKindOf(context, ChangeConstants.TYPE_CHANGE_ORDER) || changeOrderUI.isKindOf(context, ChangeConstants.TYPE_CHANGE_REQUEST) || changeOrderUI.isKindOf(context, ChangeConstants.TYPE_CHANGE_ACTION)){
+					mlTableData = changeOrderUI.getCurrentAssignedTasksOnObject(context);
+
+					if(!mlTableData.isEmpty()) {
+						sb = new StringBuffer(500);
+						
+						if(null!=reportFormat && !reportFormat.equals("null") && (reportFormat.length() > 0)) {
+							strApproveTasks = EnoviaResourceBundle.getProperty(context, ChangeConstants.RESOURCE_BUNDLE_ENTERPRISE_STR, context.getLocale(),"EnterpriseChangeMgt.Command.Pending");
+                        } else {
+                        	strApproveTasks = "<a href=\"javascript:showModalDialog('../enterprisechangemgtapp/ECMUtil.jsp?objectId=" + XSSUtil.encodeForHTMLAttribute(context, strCOId) + "&amp;functionality=MassTaskApproval', '400', '400')\">"+EnoviaResourceBundle.getProperty(context, ChangeConstants.RESOURCE_BUNDLE_ENTERPRISE_STR, context.getLocale(),"EnterpriseChangeMgt.Command.Pending")+"</a>";
+                        }
+						sb.append(strApproveTasks);
+						vecReturn.addElement(sb.toString());
+					} else {
+						vecReturn.addElement("-");
+					}
+				}
+				
+				if(!changeOrderUI.isKindOf(context, ChangeConstants.TYPE_CHANGE_ORDER) && !changeOrderUI.isKindOf(context, ChangeConstants.TYPE_CHANGE_REQUEST) && !changeOrderUI.isKindOf(context, ChangeConstants.TYPE_CHANGE_ACTION))
+				{
+					vecReturn.addElement("-");
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new FrameworkException(e);
+		}
+
+		return vecReturn;
+
+	}
+	
+	/**
+	 * Program to get Column(Contributor) value For CA Summary table
+	 * @param context the eMatrix <code>Context</code> object
+	 * @param args    holds the following input arguments:
+	 *           0 -  Object
+	 * @return        Vector of column value
+	 * @throws        Exception if the operation fails
+	 **
+	 */
+	public Vector showContributorColumn(Context context, String args[])throws Exception {
+		//XSSOK
+		Vector columnVals = new Vector();
+		try {
+			HashMap programMap = (HashMap)JPO.unpackArgs(args);
+			MapList objectList = (MapList) programMap.get(ChangeConstants.OBJECT_LIST);
+			Map paramList = (HashMap)programMap.get("paramList");
+		    String reportFormat = (String)paramList.get("reportFormat");
+		    String exportFormat = (String)paramList.get("exportFormat");
+			
+			ChangeUtil changeUtil=new ChangeUtil();
+			StringList strObjectIdList = changeUtil.getStringListFromMapList(objectList,DomainObject.SELECT_ID);
+
+			String[] strArrObjIds = new String[strObjectIdList.size()];
+			strArrObjIds = (String[])strObjectIdList.toArray(strArrObjIds);
+
+			MapList objectTypeList = DomainObject.getInfo(context, strArrObjIds, new StringList(DomainObject.SELECT_TYPE));
+			StringList strObjectTypeList = changeUtil.getStringListFromMapList(objectTypeList,DomainObject.SELECT_TYPE);
+
+			if (strObjectIdList == null || strObjectIdList.size() == 0){
+				return columnVals;
+			} else{
+				columnVals = new Vector(strObjectIdList.size());
+			}
+			for(int i=0;i<strObjectIdList.size();i++){
+				String 	strChangeActionId = (String) strObjectIdList.get(i);
+				String strChangeType = (String) strObjectTypeList.get(i);
+
+				if(mxType.isOfParentType(context, strChangeType, ChangeConstants.TYPE_CHANGE_ACTION)){
+					if(null!=reportFormat && !reportFormat.equals("null") && (reportFormat.length() > 0)) {
+						columnVals.add(getContributors(context, strChangeActionId, true));
+					} else {
+						columnVals.add(getContributors(context, strChangeActionId, false));
+					}
+				} else {
+						columnVals.add("");
+				}
+			}
+			return columnVals;
+
+		} catch (Exception e) {
+			throw new FrameworkException(e);
+		}
+	}//end of method
+
+	/**
+  	 * Get Contributor column value
+  	 * @param Context context
+  	 * @param args holds information about object.
+  	 * @return Reviewers Column.
+  	 * @throws Exception if operation fails.
+  	 */
+	public String getContributors(Context context,String strChangeActionId,boolean report)throws Exception {
+		StringBuilder sb = new StringBuilder();
+	//	StringList finalContributorList=new StringList();
+		String relPattern =  new StringBuffer(ChangeConstants.RELATIONSHIP_CHANGE_REVIEWER).append(",").append(ChangeConstants.RELATIONSHIP_OBJECT_ROUTE).toString();
+		String typePattern =  new StringBuffer(ChangeConstants.TYPE_PERSON).append(",").append(ChangeConstants.TYPE_ROUTE_TEMPLATE).toString();
+		StringList objectSelects=new StringList(DomainObject.SELECT_ID);
+		DomainObject changeAction = new DomainObject(strChangeActionId);
+		IChangeAction iChangeAction=ChangeAction.getChangeAction(context, strChangeActionId);
+		List contributorList=iChangeAction.GetContributors(context);
+			if (report) {
+				if (contributorList!=null && !contributorList.isEmpty()){
+					for (int i=0;i<contributorList.size();i++) {
+					String  lastContributorName=(String)contributorList.get(contributorList.size()-1);
+						String contributorName = (String) contributorList.get(i);
+						if (contributorName!=null && !contributorName.isEmpty()) {
+							sb.append(contributorName);
+							if(!lastContributorName.equalsIgnoreCase(contributorName))
+							sb.append(",");
+						}
+					}
+				}
+			} else {
+				sb.append("<input type=\"hidden\" name=\"ReviewersHidden\" id=\"ReviewersHidden\" value=\""+XSSUtil.encodeForHTMLAttribute(context, contributorList.toString())+"\" readonly=\"readonly\" />");
+				if (contributorList!=null && !contributorList.isEmpty()){
+					for (int i=0;i<contributorList.size();i++) {
+					String  lastContributorName=(String)contributorList.get(contributorList.size()-1);
+						String contributorName = (String) contributorList.get(i);
+						if (contributorName!=null && !contributorName.isEmpty()) {
+							sb.append(XSSUtil.encodeForHTML(context, contributorName));
+							if(!lastContributorName.equalsIgnoreCase(contributorName))
+							sb.append("<br/>");
+						}
+					}
+				}
+			}
+		return sb.toString();
+	}
+	
+	/**
+	 * Program to get Column(Reviewer) value For CA Summary table
+	 * @param context the eMatrix <code>Context</code> object
+	 * @param args    holds the following input arguments:
+	 *           0 -  Object
+	 * @return        Vector of column value
+	 * @throws        Exception if the operation fails
+	 **
+	 */
+	public Vector showReviewerColumn(Context context, String args[])throws Exception {
+		//XSSOK
+		Vector columnVals = new Vector();
+		try {
+			HashMap programMap = (HashMap)JPO.unpackArgs(args);
+			MapList objectList = (MapList) programMap.get(ChangeConstants.OBJECT_LIST);
+			Map paramList = (HashMap)programMap.get("paramList");
+		    String reportFormat = (String)paramList.get("reportFormat");
+		    String exportFormat = (String)paramList.get("exportFormat");
+			
+			ChangeUtil changeUtil=new ChangeUtil();
+			StringList strObjectIdList = changeUtil.getStringListFromMapList(objectList,DomainObject.SELECT_ID);
+
+			String[] strArrObjIds = new String[strObjectIdList.size()];
+			strArrObjIds = (String[])strObjectIdList.toArray(strArrObjIds);
+
+			MapList objectTypeList = DomainObject.getInfo(context, strArrObjIds, new StringList(DomainObject.SELECT_TYPE));
+			StringList strObjectTypeList = changeUtil.getStringListFromMapList(objectTypeList,DomainObject.SELECT_TYPE);
+			// ENGMASA : Added below code to include awaiting approvals list on Order report : START
+			MapList objectStateList = DomainObject.getInfo(context, strArrObjIds, new StringList(DomainObject.SELECT_CURRENT));
+			StringList strObjectStateList = changeUtil.getStringListFromMapList(objectStateList,DomainObject.SELECT_CURRENT);
+			final String CA_STATE_IN_APPROVAL =PropertyUtil.getSchemaProperty("policy", ChangeConstants.POLICY_CHANGE_ACTION, "state_InApproval");
+			// ENGMASA : Added below code to include awaiting approvals list on Order report : END
+
+			if (strObjectIdList == null || strObjectIdList.size() == 0){
+				return columnVals;
+			} else{
+				columnVals = new Vector(strObjectIdList.size());
+			}
+			
+			for(int i=0;i<strObjectIdList.size();i++){
+				String 	strChangeActionId = (String) strObjectIdList.get(i);
+				String 	strChangeType = (String) strObjectTypeList.get(i);
+				String strChangeState = (String) strObjectStateList.get(i);
+				// ENGMASA : Added below code to include awaiting approvals list on Order report : START
+				// only if is in Approval
+				if (strChangeState.equals(CA_STATE_IN_APPROVAL))
+				{
+					String strReviewers = getReviewersForChange(context, strChangeActionId);
+					if (UIUtil.isNotNullAndNotEmpty(strReviewers))
+					{
+						columnVals.add(strReviewers);
+					}
+					else
+					{
+						columnVals.add(DomainObject.EMPTY_STRING);
+					}
+				}
+				else
+					columnVals.add(DomainObject.EMPTY_STRING);
+			/*	if(mxType.isOfParentType(context, strChangeType, ChangeConstants.TYPE_CHANGE_ACTION)){
+					if(null!=reportFormat && !reportFormat.equals("null") && (reportFormat.length() > 0)) {
+						columnVals.add(getReviewers(context, strChangeActionId, true));
+					} else {
+						columnVals.add(getReviewers(context, strChangeActionId, false));
+					}
+				} else {
+					columnVals.add("");
+				}*/
+				// ENGMASA : Added below code to include awaiting approvals list on Order report : END
+			}
+			return columnVals;
+
+		} catch (Exception e) {
+			throw new FrameworkException(e);
+		}
+	}//end of method
+
+	/**
+  	 * Get Reviewers column value
+  	 * @param Context context
+  	 * @param args holds information about object.
+  	 * @return Reviewers Column.
+  	 * @throws Exception if operation fails.
+  	 */
+	public String getReviewers(Context context,String strChangeActionId,boolean report)throws Exception {
+		StringBuilder sb = new StringBuilder();
+		StringList finalReviewersList=new StringList();
+		String relPattern =  new StringBuffer(ChangeConstants.RELATIONSHIP_CHANGE_REVIEWER).append(",").append(ChangeConstants.RELATIONSHIP_OBJECT_ROUTE).toString();
+		String typePattern =  new StringBuffer(ChangeConstants.TYPE_PERSON).append(",").append(ChangeConstants.TYPE_ROUTE_TEMPLATE).toString();
+		StringList objectSelects=new StringList(DomainObject.SELECT_ID);
+		objectSelects.add(DomainObject.SELECT_TYPE);
+		StringList personReviewersList=new StringList();
+		StringList routeTemplateReviewersList=new StringList();
+		DomainObject changeAction = new DomainObject(strChangeActionId);
+		MapList mapList=changeAction.getRelatedObjects(context,
+				  relPattern,
+				  typePattern,
+				  objectSelects,
+				  new StringList(DomainRelationship.SELECT_ID),
+				  false,
+				  true,
+				  (short) 2,
+				  null, null, (short) 0);
+
+		if(!mapList.isEmpty()){
+			Iterator iterator=mapList.iterator();
+			while(iterator.hasNext()){
+				Map dataMap=(Map)iterator.next();
+				String objectType=(String)dataMap.get(DomainObject.SELECT_TYPE);
+				String objectId=(String)dataMap.get(DomainObject.SELECT_ID);
+				if(objectType.equalsIgnoreCase(ChangeConstants.TYPE_PERSON)){
+					personReviewersList.add(objectId);
+				}else if(objectType.equalsIgnoreCase(ChangeConstants.TYPE_ROUTE_TEMPLATE)){
+					routeTemplateReviewersList.add(objectId);
+				}
+			}
+		}
+		String reviewers = DomainObject.EMPTY_STRING;
+		String reviewerstype = DomainObject.EMPTY_STRING;
+		if (personReviewersList!=null && !personReviewersList.isEmpty() && routeTemplateReviewersList.isEmpty()){
+			for (int i=0;i<personReviewersList.size();i++) {
+				String reviewersId = (String) personReviewersList.get(i);
+				String reviewerType = new DomainObject(reviewersId).getInfo(context, DomainConstants.SELECT_TYPE);
+				reviewers=reviewers.concat(reviewersId+",");
+				reviewerstype=reviewerstype.concat(reviewerType+",");
+				finalReviewersList.addElement(reviewersId);
+			}
+		}
+			if (routeTemplateReviewersList!=null && !routeTemplateReviewersList.isEmpty()){
+				for (int i=0;i<routeTemplateReviewersList.size();i++) {
+					String reviewersId = (String) routeTemplateReviewersList.get(i);
+					String reviewerType = new DomainObject(reviewersId).getInfo(context, DomainConstants.SELECT_TYPE);
+					reviewers=reviewers.concat(reviewersId+",");
+					reviewerstype=reviewerstype.concat(reviewerType+",");
+					finalReviewersList.addElement(reviewersId);
+				}
+
+		}
+			if (report) {
+				if (finalReviewersList!=null && !finalReviewersList.isEmpty()){
+					for (int i=0;i<finalReviewersList.size();i++) {
+					String  lastReviewerId=(String)finalReviewersList.get(finalReviewersList.size()-1);
+						String reviewersId = (String) finalReviewersList.get(i);
+						if (reviewersId!=null && !reviewersId.isEmpty()) {
+							String reviewerName = new DomainObject(reviewersId).getInfo(context, DomainConstants.SELECT_NAME);
+							if (reviewerName!=null && !reviewerName.isEmpty()) {
+								sb.append(reviewerName);
+								if(!lastReviewerId.equalsIgnoreCase(reviewersId))
+								sb.append(",");
+							}
+						}
+					}
+				}
+			} else {
+				sb.append("<input type=\"hidden\" name=\"ReviewersHidden\" id=\"ReviewersHidden\" value=\""+XSSUtil.encodeForHTMLAttribute(context, reviewers)+"\" readonly=\"readonly\" />");
+				if (finalReviewersList!=null && !finalReviewersList.isEmpty()){
+					for (int i=0;i<finalReviewersList.size();i++) {
+					String  lastReviewerId=(String)finalReviewersList.get(finalReviewersList.size()-1);
+						String reviewersId = (String) finalReviewersList.get(i);
+						if (reviewersId!=null && !reviewersId.isEmpty()) {
+							String reviewerName = new DomainObject(reviewersId).getInfo(context, DomainConstants.SELECT_NAME);
+							if (reviewerName!=null && !reviewerName.isEmpty()) {
+								sb.append("<input type=\"hidden\" name=\""+XSSUtil.encodeForHTMLAttribute(context, reviewerName)+"\" value=\""+XSSUtil.encodeForHTMLAttribute(context, reviewersId)+"\" />");
+								sb.append(XSSUtil.encodeForHTML(context, reviewerName));
+								if(!lastReviewerId.equalsIgnoreCase(reviewersId))
+								sb.append("<br/>");
+							}
+						}
+					}
+				}
+			}
+			
+		return sb.toString();
+	}
+	// TBIAPRA : Added below methods to Search CA/CO Based on Project Number : END
+	
+	// TBIAPRA : Added below methods for Issue Number 70: Enhancement: Enable Job number field on GAP Specification creation under Part : START
+	/* this method is to get All Active Bookmarks name in Part Specification Create form
+	 * @author TBIAPRA
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+    public MapList getActiveWorkspaces(Context context, String[] args) throws Exception {
+		${CLASS:emxWorkspace} workspace = new ${CLASS:emxWorkspace}(context, args);
+        MapList mlActiveWorkspace = (MapList) workspace.getWorkspaces(context, args, "Active");
+		for (int i = 0, size = mlActiveWorkspace.size(); i < size; i++) {
+			Map objMap = (Map) mlActiveWorkspace.get(i);
+			objMap.put("disableSelection", "true");
+		}
+		return mlActiveWorkspace;
+    }
+	
+	/* this method is to connect Spec to Bookmark Folder name in Part Specification Create form
+	 * @author TBIAPRA
+	 */
+	public void connectPartSpecification(Context context, String[] args) throws Exception {
+		Map programMap = (Map) JPO.unpackArgs(args);
+		HashMap paramMap =  (HashMap)programMap.get("paramMap");
+			
+		String sObjectId =(String) paramMap.get("objectId");
+		String sBookmarkFolderId =(String) paramMap.get("New Value");
+		
+		if (UIUtil.isNotNullAndNotEmpty(sObjectId) && UIUtil.isNotNullAndNotEmpty(sBookmarkFolderId)) {
+			DomainRelationship.connect(context, sBookmarkFolderId, DomainConstants.RELATIONSHIP_VAULTED_OBJECTS, sObjectId, false);
+		}
+	}
+	// TBIAPRA : Added below methods for Issue Number 70: Enhancement: Enable Job number field on GAP Specification creation under Part : END
+	
+	/* this method is to copy gapProjectNumber attribute value from Change Order  to Change Action 
+	 * @author TBIPKAS
+	 */
+	public int addJobNumberAttributesOnCA(Context context, String args[]) throws Exception
+	{
+		int iResult = 0;
+		String	ATTRIBUTE_SYMBOLIC_GAP_PROJECT_NUMBER	= "attribute_gapProjectNumber";
+		
+		try {
+			String strFromId=args[0];
+			String strToId=args[1];			
+			if(strFromId!=null && strFromId!="" && strToId!=null && strToId!="" ){
+			DomainObject changeOrderObj = new DomainObject(strFromId);
+			 ATTRIBUTE_SYMBOLIC_GAP_PROJECT_NUMBER = PropertyUtil.getSchemaProperty(context, ATTRIBUTE_SYMBOLIC_GAP_PROJECT_NUMBER);						
+			DomainObject CAObj = new DomainObject(strToId);						
+			CAObj.setAttributeValue(context, ATTRIBUTE_SYMBOLIC_GAP_PROJECT_NUMBER, changeOrderObj.getAttributeValue(context, ATTRIBUTE_SYMBOLIC_GAP_PROJECT_NUMBER));			
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+			
+		}
+		return iResult;
+		
+	}	
+	// TBIPKAS : Added below methods for Issue Number 76: Enhancement: Enable automatic value copy Job Number from CO to CA : END
+	public static MapList getWorkspaces(Context context, String args[]) throws Exception
+	{
+		MapList mlList = new MapList();
+		StringList busSelList=new StringList();
+        busSelList.add(DomainConstants.SELECT_NAME);
+        busSelList.add(DomainConstants.SELECT_ID);
+		mlList = (MapList) DomainObject.findObjects(context,
+				  "Workspace",
+				  DomainObject.QUERY_WILDCARD,
+				  DomainObject.QUERY_WILDCARD,
+				  DomainObject.QUERY_WILDCARD,
+				  DomainObject.QUERY_WILDCARD,
+				  "current==Active",
+				  "",
+				  true,
+				  busSelList,
+				  (short)0);
+	
+	return mlList;	
+	}
+	/**
+	 * This method gets reviewers and return only awaiting approval list
+	 * @author ENGMASA
+	 * @param context
+	 * @param strChangeId
+	 * @return
+	 * @throws Exception
+	 */
+	public static String getReviewersForChange(Context context, String strChangeId) throws Exception
+	{
+		StringBuffer sbReviewerList = new StringBuffer();
+		HashMap prgMap = new HashMap();
+		prgMap.put("objectId", strChangeId);
+		prgMap.put("languageStr", context.getSession().getLanguage());
+		// get signature or task list from change object
+		${CLASS:emxLifecycle} emxLifecycle = new ${CLASS:emxLifecycle}(context, null);
+		MapList mlList = emxLifecycle.getCurrentTaskSignaturesOnObject(context, JPO.packArgs(prgMap));
+		// format list and form report
+		if (mlList!=null && mlList.size()>0)
+		{
+			sbReviewerList.append("Pending Tasks: <br/>");
+			Map mp = null;
+			String strTaskName = null;
+			String strTaskAssignee = null;
+			String strTaskState = null;
+			Iterator itrList = mlList.iterator();
+			while (itrList.hasNext())
+			{
+				mp = (Map) itrList.next();
+				// check state
+				strTaskState = (String) mp.get("currentState");
+				// if its Assigned
+				if (UIUtil.isNotNullAndNotEmpty(strTaskState) && strTaskState.equals(DomainObject.STATE_INBOX_TASK_ASSIGNED))
+				{
+					strTaskName = (String) mp.get(DomainObject.SELECT_NAME);
+					strTaskAssignee = (String) mp.get("assigneeName");
+					// get full user name
+					strTaskAssignee = PersonUtil.getFullName(context, strTaskAssignee);
+					sbReviewerList.append(strTaskName)
+								  .append(": ")
+								  .append(strTaskAssignee)
+								  .append("<br/>");
+				}
+			}
+		}
+		return sbReviewerList.toString();
+	}
+	
+	public String getBookmarkId(Context context, String sObjectId) throws Exception {	
+		String sBookmarkId = "";
+		DomainObject doObject = new DomainObject(sObjectId);
+		if (doObject.isKindOf(context, DomainConstants.TYPE_WORKSPACE_VAULT)) {
+			sBookmarkId = (String) doObject.getInfo(context, "to["+DomainObject.RELATIONSHIP_WORKSPACE_VAULTS+"].from."+DomainConstants.SELECT_ID);
+			if(UIUtil.isNullOrEmpty(sBookmarkId)) {
+				String sBookmarkVaultId = (String) doObject.getInfo(context, "to["+DomainObject.RELATIONSHIP_SUBVAULTS+"].from."+DomainConstants.SELECT_ID);
+				return getBookmarkId(context, sBookmarkVaultId);
+			}
+		} else {
+			//sBookmarkId = "";
+			String sBookmarkVaultId = (String) doObject.getInfo(context, "to["+DomainObject.RELATIONSHIP_VAULTED_OBJECTS+"].from."+DomainConstants.SELECT_ID);
+			if(UIUtil.isNotNullAndNotEmpty(sBookmarkVaultId))
+				return getBookmarkId(context, sBookmarkVaultId);
+			else
+				return "";
+		}
+		return sBookmarkId;
+	}
+	
+	public Vector getWorkSpaceName(Context context,String[] args) throws Exception {
+		Vector colVector = new Vector();
+		try {
+			HashMap programMap = (HashMap) JPO.unpackArgs(args);
+			HashMap paramList = (HashMap) programMap.get("paramList");
+			MapList objectList  = (MapList) programMap.get("objectList");
+			Iterator<Map> itr = objectList.iterator();
+			while(itr.hasNext()) {
+				Map m = itr.next();
+				String strId = (String)m.get(DomainObject.SELECT_ID);
+				String strCurrent = (String)m.get(DomainObject.SELECT_CURRENT);
+				String strType = (String)m.get(DomainObject.SELECT_TYPE);
+				StringBuilder sb=new StringBuilder();
+				String sWorkSpaceId = (String) getBookmarkId(context, strId);
+				
+				if(UIUtil.isNotNullAndNotEmpty(sWorkSpaceId)) {
+					String strURL="../common/emxTree.jsp?mode=insert&amp;objectId="+sWorkSpaceId;
+					DomainObject doWorkSpace = new DomainObject(sWorkSpaceId);
+					String sWorkSpaceName = doWorkSpace.getInfo(context, DomainConstants.SELECT_NAME);
+					sb.append("<a href='"+strURL+"' target='content' >");
+					sb.append(sWorkSpaceName);
+					sb.append("</a>");
+				} else {
+					sb.append("");
+				}
+				colVector.add(sb.toString());
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return colVector;
+	}
+}
+

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>ENCEngrRevisionsSummary_Headerlink_0</name>
+    <symbolicName>command_ENCEngrRevisionsSummary_Headerlink_0</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description></description>
+    <label>emxEngineeringCentral.Command.CreateNewRevision</label>
+    <hidden>false</hidden>
+    <href>${SUITE_DIR}/emxEngrReviseIntermediate.jsp?showMode=slideIn&amp;reviseAction=Revise</href>
+    <alt>emxEngineeringCentral.Command.CreateNewRevision</alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>((policy.property[PolicyClassification].value!="Unresolved")&amp;&amp;(policy.property[PolicyClassification].value!="Equivalent") &amp;&amp; (policy !="$&lt;policy_DevelopmentPart&gt;"))</settingValue>
+        </setting>
+		<setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>false</settingValue>
+        </setting>
+        <setting>
+            <settingName>Access Function</settingName>
+            <settingValue>hasReviseAccess</settingValue>
+        </setting>
+        <setting>
+            <settingName>Access Program</settingName>
+            <settingValue>emxENCActionLinkAccess</settingValue>
+        </setting>
+        <setting>
+            <settingName>HelpMaker</settingName>
+            <settingValue>emxhelpfindselect</settingValue>
+        </setting>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/I_MajorVersion.png</settingValue>
+        </setting>
+        <setting>
+            <settingName>Licensed Product</settingName>
+            <settingValue>ENO_ENG_TP,ENO_TBE_TP,ENO_MCC_TP,ENO_PRT_TP</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EngineeringCentral</settingValue>
+        </setting>
+        <setting>
+            <settingName>Submit</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>listHidden</settingValue>
+        </setting>
+    </settings>
+    <userAccess>
+        <User>ECR Coordinator</User>
+        <User>Design Engineer</User>
+        <User>ECR Chairman</User>
+        <User>ECR Evaluator</User>
+        <User>Manufacturing Engineer</User>
+        <User>Product Obsolescence Manager</User>
+        <User>Senior Design Engineer</User>
+        <User>Senior Manufacturing Engineer</User>
+        <User>Part Family Coordinator</User>
+        <User>Team Design Engineer</User>
+        <User>Compliance Engineer</User>
+        <User>VPLMCreator</User>
+        <User>VPLMProjectLeader</User>
+        <User>Component Engineer</User>
+    </userAccess>
+    <properties/>
+</command>

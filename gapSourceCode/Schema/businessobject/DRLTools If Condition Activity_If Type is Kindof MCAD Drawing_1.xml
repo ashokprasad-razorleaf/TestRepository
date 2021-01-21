@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools If Condition Activity</type>
+            <name>If Type is Kindof MCAD Drawing</name>
+            <description>If Type is Kindof MCAD Drawing</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools If Condition Object</toType>
+                    <toName>If Type is Kindof MCAD Drawing</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools If Condition Activity Condition Relationship</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

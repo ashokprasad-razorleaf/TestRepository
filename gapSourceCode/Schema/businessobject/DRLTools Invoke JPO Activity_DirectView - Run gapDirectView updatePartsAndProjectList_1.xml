@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Invoke JPO Activity</type>
+            <name>DirectView - Run gapDirectView updatePartsAndProjectList</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlArg1" value=""/>
+                <attribute name="drlArg2" value=""/>
+                <attribute name="drlArg3" value=""/>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlFunctionName" value="updatePartsAndProjectsList"/>
+                <attribute name="drlProgramName" value="gapDirectView"/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+                <attribute name="drlUseShadowAgent" value="TRUE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

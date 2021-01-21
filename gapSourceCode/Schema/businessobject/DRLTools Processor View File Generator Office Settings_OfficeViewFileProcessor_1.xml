@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor View File Generator Office Settings</type>
+            <name>OfficeViewFileProcessor</name>
+            <description>Office View File Processor</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlCADType" value=""/>
+                <attribute name="drlCheckInViewFileToCurrentObject" value="FALSE"/>
+                <attribute name="drlCheckInViewFileToDerivedOutputObject" value="TRUE"/>
+                <attribute name="drlCommandLineArguments" value=""/>
+                <attribute name="drlCommandLineExecutable" value=""/>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlCopyOrginalFileBackToVault" value="TRUE"/>
+                <attribute name="drlDebugActive" value="FALSE"/>
+                <attribute name="drlDebugOutputDirectory" value="c:\temp\"/>
+                <attribute name="drlDerivedOutputFileType" value=""/>
+                <attribute name="drlDerivedOutputObjectGeneratorName" value=""/>
+                <attribute name="drlDerivedOutputObjectUsesCommonDocumentModel" value="TRUE"/>
+                <attribute name="drlDerivedOutputPolicySymbolicName" value="Derived Output Policy"/>
+                <attribute name="drlDerivedOutputRelationshipName" value="Derived Output"/>
+                <attribute name="drlDerivedOutputTypeSymbolicName" value="Derived Output"/>
+                <attribute name="drlDoNotSyncExcelWorksheetDPI" value="FALSE"/>
+                <attribute name="drlDotNETAssemblyName" value="drV6Tools.NET.ViewFileGenerator.OfficePDFGenerator"/>
+                <attribute name="drlDotNETClassName" value="drV6Tools.NET.ViewFileGenerator.OfficePDFGenerator.drOfficeProcessor"/>
+                <attribute name="drlExcelWorksheetDPI" value="1200"/>
+                <attribute name="drlIntegrationGCOName" value="MSOfficeNewArch"/>
+                <attribute name="drlIntegrationGCORevision" value="TEAM"/>
+                <attribute name="drlIntegrationGCOType" value="MSOffice-GlobalConfig"/>
+                <attribute name="drlLinkDerivedOutputToOriginalFilesWorkspaces" value="FALSE"/>
+                <attribute name="drlMapToBuiltInProperties" value="TRUE"/>
+                <attribute name="drlMapToCustomProperties" value="TRUE"/>
+                <attribute name="drlMaxProcessingTime" value=""/>
+                <attribute name="drlMCADInteg-CADToMxAttribMapping" value=""/>
+                <attribute name="drlMCADInteg-MxToCADAttribMapping" value=""/>
+                <attribute name="drlObjectName" value=""/>
+                <attribute name="drlObjectRevision" value=""/>
+                <attribute name="drlPDFTimeout" value="5000"/>
+                <attribute name="drlPrinterName" value="DRLTools PDF Printer"/>
+                <attribute name="drlRunForFileExtensions" value="doc,docx,docm,xls,xlsx,xlsm,ppt,pptx,pptm"/>
+                <attribute name="drlSettings" value="DO_NOT_UPDATE_SOURCE_FILE_IF_LOCKED=TRUE&#xA;UPDATE_SOURCE_FILE_IN_STATES=Release,Released,RELEASED,Obsolete,OBSOLETE"/>
+                <attribute name="drlTempPath" value="c:\Temp\"/>
+                <attribute name="drlUseCommandLineExecution" value="FALSE"/>
+                <attribute name="drlUseIntgrationGCOForMapping" value="TRUE"/>
+                <attribute name="drlVersionFileOnCheckInViewFileToCurrentObject" value="FALSE"/>
+                <attribute name="drlVersionFileOnCheckInViewFileToDerivedOutputObject" value="TRUE"/>
+                <attribute name="drlVersionFileOnCopyOrginalFileBackToVault" value="FALSE"/>
+                <attribute name="drlViewFileFormat" value="PDF"/>
+                <attribute name="drlViewFileWatermark" value=""/>
+                <attribute name="drlWordProtectedPassword" value=""/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Copy Values Element Date Value</type>
+            <name>NOW</name>
+            <description>NOW</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlAddDays" value="0"/>
+                <attribute name="drlAddHours" value="0"/>
+                <attribute name="drlAddMinutes" value="0"/>
+                <attribute name="drlAddMonths" value="0"/>
+                <attribute name="drlAddYears" value="0"/>
+                <attribute name="drlCalculateOffset" value="FALSE"/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlDateFormat" value="ENOVIA"/>
+                <attribute name="drlSource" value="object"/>
+                <attribute name="drlValue" value="CLIENTNOW"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

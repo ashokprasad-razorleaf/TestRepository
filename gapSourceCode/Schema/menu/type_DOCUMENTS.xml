@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>type_DOCUMENTS</name>
+    <symbolicName>menu_type_DOCUMENTS</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label>$&lt;attribute[attribute_Title].value&gt;</label>
+    <hidden>false</hidden>
+    <href>${COMMON_DIR}/emxForm.jsp?form=type_DOCUMENTS&amp;appendFields=ECMChangeControlViewForm&amp;toolbar=APPDocumentToolBar&amp;HelpMarker=emxhelpdocumentproperties&amp;formHeader=emxComponents.Common.PropertiesPageHeading&amp;subHeader=emxComponents.Menu.SubHeaderDocuments&amp;Export=False&amp;displayCDMFileSummary=true</href>
+    <alt>emxFramework.MenuItem.Administration</alt>
+    <menuItems/>
+    <commandItems>
+        <commandItem>APPWhereUsed</commandItem>
+        <commandItem>APPClassifiedItemObjectAccess</commandItem>
+        <commandItem>PMCDocumentApproval</commandItem>
+        <commandItem>APPDocumentFiles</commandItem>
+        <commandItem>APPDocumentFileVersions</commandItem>
+        <commandItem>APPDocumentVCFileVersions</commandItem>
+        <commandItem>APPDocumentVCFolderContents</commandItem>
+        <commandItem>APPNonVersionableDocumentFiles</commandItem>
+        <commandItem>APPDocumentVCFolderConfigurations</commandItem>
+        <commandItem>APPDocumentRevisions</commandItem>
+        <commandItem>ContextIssueListPage</commandItem>
+        <commandItem>APPDocumentRoutes</commandItem>
+        <commandItem>APPFileVersions</commandItem>
+        <commandItem>ECMChangeManagement</commandItem>
+        <commandItem>APPDocumentDiscussions</commandItem>
+        <commandItem>APPDocumentVCModuleContents</commandItem>
+        <commandItem>LCRetentionSchedule</commandItem>
+        <commandItem>AEFLifecycle</commandItem>
+        <commandItem>DomainAccessTreeCategory</commandItem>
+        <commandItem>APPDocumentHistory</commandItem>
+        <commandItem>IssueDocumentListPage</commandItem>
+        <commandItem>LBCObjectClassificationList</commandItem>
+        <commandItem>DCDocumentsWhereUsedTreeCategory</commandItem>
+        <commandItem>3dxToolsAdminDetails</commandItem>
+    </commandItems>
+    <settings>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>Components</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

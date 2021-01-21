@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>ECMCAImplementedItems</name>
+    <symbolicName>command_ECMCAImplementedItems</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description>Implemented Items command</description>
+    <label>EnterpriseChangeMgt.Command.ImplementedItems</label>
+    <hidden>false</hidden>
+    <href>${COMMON_DIR}/emxIndentedTable.jsp?program=enoECMChangeAction:getImplementedItems&amp;table=ECMCAImplementedItemSummary&amp;header=EnterpriseChangeMgt.Change.ImplementedItemsSummaryPageHeading&amp;selection=multiple&amp;sortColumnName=Name&amp;HelpMarker=emxhelpimplementeditems</href>
+    <alt></alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>(type.kindof[$&lt;type_ChangeAction&gt;])</settingValue>
+        </setting>
+        <setting remove="true">
+            <settingName>Access Function</settingName>
+            <settingValue>isOldUXForRealized</settingValue>
+        </setting>
+        <setting remove="true">
+            <settingName>Access Program</settingName>
+            <settingValue>enoECMChangeUtil</settingValue>
+        </setting>
+        <setting remove="true">
+            <settingName>Licensed Product</settingName>
+            <settingValue>ENO_BPS_TP</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EnterpriseChangeMgt</settingValue>
+        </setting>
+        <setting>
+            <settingName>Submit</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>content</settingValue>
+        </setting>
+    </settings>
+    <userAccess/>
+    <properties/>
+</command>

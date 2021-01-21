@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Relationship Action Trigger</type>
+            <name>Create_Vaulted Objects</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlRelationshipCurrentObjectSource" value="to"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Copy Values Activity</toType>
+                    <toName>DirectView - Set RunUpdateXML Value to TRUE</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Dependant Activity Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Lookup Values Activity</toType>
+                    <toName>DirectView - Set RunExport Lookup Value</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Dependant Activity Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="2"/>
+                    </attributes>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

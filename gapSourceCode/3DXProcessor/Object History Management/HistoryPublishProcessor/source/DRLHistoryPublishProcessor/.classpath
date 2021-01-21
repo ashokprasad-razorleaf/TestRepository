@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/drV6Tools.JobServer.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/AbsoluteLayout.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/activation - Copy.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/bcmail-jdk14.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/bcprov-ext-jdk14.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/bcprov-jdk14.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/c3p0-0.9.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/common.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/commons-io-2.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/cron4j-2.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/dr_poi-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/dr_poi-ooxml-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/dr_poi-ooxml-schemas-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/dr_poi-scratchpad-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/drV6Tools.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/eMatrixServletRMI.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/enoviaKernel.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/enoviaKernelExt.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/enterprisechangemgt.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/FcsClient.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/FcsClient_j7u45.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/FcsClientLargeFile.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/FcsClientLargeFile_j7u45.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/FcsServer.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/framework.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/jacob.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/jasper.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/Javaluator.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/javax.json.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/jaxb-api-2.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/jaxb-core-2.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/jaxb-impl-2.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/jaxws-rt-2.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/jsr173_api.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/log4j.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/m1jsystem.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/metrics-core.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/mx_axis.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/mx_jdom_1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/PDFOne.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/PDFOneJavaViewer_Executable.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/quartz-2.1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/search_common.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/stax-ex-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/streambuffer-0.8.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/SX.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Designrule/3dxprocessor/drV6Tools.JobServer.Service.Instances/HistoryPublishProcessor/lib/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/10853/Downloads/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/mssql-jdbc-8.2.2.jre8.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

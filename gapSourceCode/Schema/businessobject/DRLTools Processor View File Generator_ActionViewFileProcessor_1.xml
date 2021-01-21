@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor View File Generator</type>
+            <name>ActionViewFileProcessor</name>
+            <description>Action Operations View File Processor</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlProcessorMaximumProcessingTime" value="0"/>
+                <attribute name="drlProcessorPassword" value=""/>
+                <attribute name="drlProcessorUser" value=""/>
+                <attribute name="drlRealTimeFeedback" value="TRUE"/>
+                <attribute name="drlSettings" value=""/>
+                <attribute name="drlUseProcessorSpecificCredentials" value="FALSE"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Processor View File Generator AutoCAD Settings</toType>
+                    <toName>AutoCADDrawingViewFileProcessor</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools View File Generator Processor Settings Relationship</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Processor View File Generator Creo Settings</toType>
+                    <toName>CreoViewFileProcessor</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools View File Generator Processor Settings Relationship</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Processor View File Generator Office Settings</toType>
+                    <toName>OfficeViewFileProcessor</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools View File Generator Processor Settings Relationship</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Processor View File Generator SolidWorks Settings</toType>
+                    <toName>SolidWorksDrawingViewFileSettings</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools View File Generator Processor Settings Relationship</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

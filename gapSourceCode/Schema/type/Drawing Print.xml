@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<type overlay="true">
+    <name>Drawing Print</name>
+    <symbolicName>type_DrawingPrint</symbolicName>
+    <dataObjectType>type</dataObjectType>
+    <description>a viewable image of drawings that does not require CAD and is the electronic equivalent to the paper based drawing blueprint</description>
+    <parentName>DOCUMENTS</parentName>
+    <hidden>false</hidden>
+    <abstract>false</abstract>
+    <attributes>
+        <attribute>gapDocumentCode</attribute>
+        <attribute>gapProjectNumber</attribute>
+    </attributes>
+    <triggers>
+        <trigger immutable="true">
+            <triggerType>Create</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeAllCreateAction TypeDrawingPrintCreateAction</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Revision</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeAllReviseAction TypeDOCUMENTSReviseAction TypeDrawingPrintReviseAction</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Create</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeDrawingPrintCreateCheck</input>
+            <programType>Check</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Delete</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeDrawingPrintDeleteOverride</input>
+            <programType>Override</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>ChangeOwner</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeDrawingPrintChangeOwnerAction</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Delete</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeDOCUMENTSDeleteCheck PDELicenseCheck</input>
+            <programType>Check</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Checkout</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeAllCreateHistoryObject</input>
+            <programType>Action</programType>
+        </trigger>
+    </triggers>
+    <properties/>
+</type>

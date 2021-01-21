@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Copy Values Element Object Attribute</type>
+            <name>Copy SW Drawing gapWeightKg</name>
+            <description>Copy SW Drawing gapWeightKg</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlSource" value="to"/>
+                <attribute name="drlValue" value="gapWeightKg"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

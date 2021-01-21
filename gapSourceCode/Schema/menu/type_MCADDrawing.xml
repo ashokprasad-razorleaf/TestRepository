@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>type_MCADDrawing</name>
+    <symbolicName>menu_type_MCADDrawing</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label>${NAME}</label>
+    <hidden>false</hidden>
+    <alt></alt>
+    <menuItems/>
+    <commandItems>
+		<commandItem>3dxToolsAdminDetails</commandItem>
+    </commandItems>
+</menu>

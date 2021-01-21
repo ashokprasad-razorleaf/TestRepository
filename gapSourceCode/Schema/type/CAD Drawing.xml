@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<type overlay="true">
+    <name>CAD Drawing</name>
+    <symbolicName>type_CADDrawing</symbolicName>
+    <dataObjectType>type</dataObjectType>
+    <description>CAD Drawing</description>
+    <parentName>DOCUMENTS</parentName>
+    <hidden>false</hidden>
+    <abstract>false</abstract>
+    <attributes>
+        <attribute>gapCADRelationship</attribute>
+        <attribute>gapDocumentCode</attribute>
+        <attribute>gapMaterial</attribute>
+        <attribute>Model Type</attribute>
+        <attribute>gapProjectNumber</attribute>
+        <attribute>gapDrawingOwner</attribute>
+        <attribute>gapWeightKg</attribute>
+        <attribute>gapWeightLbs</attribute>
+        <attribute>gapActualCompletionDate</attribute>
+        <attribute>gapApprover</attribute>
+        <attribute>gapChangeActionName</attribute>
+        <attribute>gapDocumentCode_Code</attribute>
+        <attribute>gapDocumentCode_Desc</attribute>
+        <attribute>gapParts</attribute>
+        <attribute>gapProjects</attribute>
+    </attributes>
+    <triggers>
+        <trigger immutable="true">
+            <triggerType>Create</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeCADDrawingCreateCheck</input>
+            <programType>Check</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Delete</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeCADDrawingDeleteOverride</input>
+            <programType>Override</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>ChangeOwner</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeCADDrawingChangeOwnerAction</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Delete</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeDOCUMENTSDeleteCheck PDELicenseCheck</input>
+            <programType>Check</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Create</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeAllCreateAction TypeCADDrawingCreateAction TypeAllDRToolsV6RunActionTrigger_Deferred</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Checkin</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeDOCUMENTSCheckinAction TypeAllDRToolsV6RunActionTrigger</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Revision</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeAllReviseAction TypeDOCUMENTSReviseAction TypeCADDrawingReviseAction TypeAllDRToolsV6RunActionTrigger_Deferred</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Checkout</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeAllCreateHistoryObject</input>
+            <programType>Action</programType>
+        </trigger>
+		<trigger immutable="true">
+            <triggerType>Revision</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input append="true">TypeCADDrawingReviseCheck</input>
+            <programType>Check</programType>
+        </trigger>
+    </triggers>
+    <properties/>
+</type>

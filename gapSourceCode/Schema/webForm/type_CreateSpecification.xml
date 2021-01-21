@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webForm overlay="true">
+    <name>type_CreateSpecification</name>
+    <symbolicName>form_type_CreateSpecification</symbolicName>
+    <dataObjectType>webForm</dataObjectType>
+    <description></description>
+    <type></type>
+    <hidden>false</hidden>
+    <fields>
+        <field>
+            <name>Type</name>
+            <description></description>
+            <expression>
+                <expression>type</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.Type</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>Type</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Name</name>
+            <description></description>
+            <expression>
+                <expression>name</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.DrawingNumber</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>programHTMLOutput</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>textbox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>On Change Handler</settingName>
+                    <settingValue>updateSpecsTitle</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate Type</settingName>
+                    <settingValue>Name</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getPartSpecName</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>gap_Util</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Title1</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Specifications.Title</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>attribute_Title</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>textbox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>On Change Handler</settingName>
+                    <settingValue>setSpecsTitleFlag</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Policy</name>
+            <description></description>
+            <expression>
+                <expression>policy</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.Policy</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>combobox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Revision</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.CustomRevisionLevel</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Default</settingName>
+                    <settingValue>A</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Owner</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;owner&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.Owner</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?type=PERSON_CHOOSER&amp;HelpMarker=emxhelpfullsearch&amp;submitAction=refreshCaller&amp;hideHeader=true</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>owner</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>format</settingName>
+                    <settingValue>user</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>DesignResponsibility</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.DesignResponsibility</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=TYPES=type_Organization,type_ProjectSpace:CURRENT=policy_Organization.state_Active&amp;table=ENCAddExistingGeneralSearchResults&amp;selection=single&amp;submitAction=refreshCaller&amp;hideHeader=true&amp;HelpMarker=emxhelpfullsearch&amp;includeOIDprogram=emxENCFullSearchBase:getDefaultOrg</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>On Change Handler</settingName>
+                    <settingValue>reloadECOField</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>COToRelease</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.ChangeToRelease</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=TYPES=type_ChangeOrder,type_ChangeRequest:CURRENT=policy_FormalChange.state_Propose,policy_FormalChange.state_Prepare,policy_ChangeRequest.state_Create,policy_ChangeRequest.state_Evaluate&amp;HelpMarker=emxhelpfullsearch&amp;table=ENCAddExistingGeneralSearchResults&amp;selection=single&amp;submitAction=refreshCaller&amp;hideHeader=true&amp;formName=emxCreateForm&amp;fieldNameActual=COToReleaseOID&amp;fieldNameDisplay=COToReleaseDisplay</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>connectAffectedItemToCO</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>emxPart</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>ECOForRelease</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.ECOForRelease</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=emxEngineeringUtil:getECOToReleaseSearchQuery&amp;table=ENCAddExistingGeneralSearchResults&amp;selection=single&amp;submitAction=refreshCaller&amp;hideHeader=true&amp;HelpMarker=emxhelpfullsearch</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>PartToConnect</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.PartToConnect</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=TYPES=type_Part:CURRENT=policy_ECPart.state_Preliminary,policy_DevelopmentPart.state_Create&amp;table=ENCAddExistingGeneralSearchResults&amp;selection=single&amp;submitAction=refreshCaller&amp;hideHeader=true&amp;HelpMarker=emxhelpfullsearch</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>hidePartToConnectField</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>emxPart</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Default</settingName>
+                    <settingValue>emxEngineeringCentral.Label.ConnectAsSpecification</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>PartToConnect1</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.PartToConnect</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>hideRelatedPartToConnectField</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>emxPart</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>program</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>displayPartToConnect</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxPart</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Description</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;description&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.Description</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>textarea</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate</settingName>
+                    <settingValue>isBadChars</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>gapDocumentCode</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_gapDocumentCode].value&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxFramework.Attribute.gapDocumentCode</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>combobox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Framework</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sort Direction</settingName>
+                    <settingValue>ascending</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sort Range Values</settingName>
+                    <settingValue>enable</settingValue>
+                </setting>
+            </settings>
+        </field>
+		<field>
+            <name>gapProjectNumber</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_gapProjectNumber].value&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.gapJobNumber</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxIndentedTable.jsp?selection=single&amp;expandProgram=emxWorkspace:getWorkspaceVaults&amp;table=TMCSelectFolder&amp;sortColumnName=name&amp;program=gap_Util:getActiveWorkspaces&amp;header=emxEngineeringCentral.Name.SelectDestinationFolder&amp;cancelLabel=emxEngineeringCentral.Common.Cancel&amp;submitLabel=emxEngineeringCentral.Common.Done&amp;submitURL=../engineeringcentral/gapConnectBookmarkProcessSpecCreate.jsp&amp;HelpMarker=emxhelpselectfolder</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+				<setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+				<setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+				<setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>connectPartSpecification</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>gap_Util</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Attributes</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel></customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Create Exclude</settingName>
+                    <settingValue>attribute_CheckinReason,attribute_AccessType,attribute_DesignatedUser,attribute_Language,attribute_Title,attribute_Originator,attribute_ProductionMakeBuyCode,attribute_ServiceMakeBuyCode,attribute_Weight,attribute_TargetCost,attribute_EstimatedCost,attribute_FileVersion,attribute_Version,attribute_VersionDate,attribute_Approver,attribute_ICURL</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>Dynamic Attributes</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Vault</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;vault&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxEngineeringCentral.Common.Vault</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>../components/emxComponentsSelectSearchVaultsDialogFS.jsp?multiSelect=false&amp;fieldName=Vault&amp;objectType=type_Part&amp;incCollPartners=true</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>Vault</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EngineeringCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Window Height</settingName>
+                    <settingValue>350</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Window Width</settingName>
+                    <settingValue>300</settingValue>
+                </setting>
+            </settings>
+        </field>
+    </fields>
+    <properties/>
+</webForm>

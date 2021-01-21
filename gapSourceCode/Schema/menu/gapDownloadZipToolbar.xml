@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>gapDownloadZipToolbar</name>
+    <symbolicName>menu_gapDownloadZipToolbar</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label>Download PDF</label>
+    <hidden>false</hidden>
+    <href></href>
+    <alt></alt>
+    <menuItems/>
+    <commandItems>
+        <commandItem>gapDownloadSpecsPDF</commandItem>
+    </commandItems>
+    <settings/>
+    <properties/>
+</menu>

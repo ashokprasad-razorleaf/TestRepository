@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor Custom Processor</type>
+            <name>MedusaProcessor</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlArg1" value="C:\drive_R\ARCHIVE_M4\"/>
+                <attribute name="drlArg1Description" value="Input Directory"/>
+                <attribute name="drlArg2" value="C:\drive_R\PDF_M4\"/>
+                <attribute name="drlArg2Description" value="Output Directory"/>
+                <attribute name="drlArg3" value="call %bat%\to_pdf_6.bat ${FILE_NAME_WITHOUT_EXTENSION} JN %MED_VAULT%"/>
+                <attribute name="drlArg3Description" value="File command template"/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlJavaClassName" value="com.atlascopco.medusaprocessor.MedusaProcessor"/>
+                <attribute name="drlMultilineArg1" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#xA;&lt;MedusaProcessorSettingsObject&gt;&#xA;    &lt;derivedOutputFileType&gt;PDF&lt;/derivedOutputFileType&gt;&#xA;    &lt;derivedOutputFileName&gt;${name}.pdf&lt;/derivedOutputFileName&gt;&#xA;    &lt;checkInDerivedOutputToCurrentObject&gt;false&lt;/checkInDerivedOutputToCurrentObject&gt;&#xA;    &lt;derivedOutputObjectUsesCommonDocumentModel&gt;false&lt;/derivedOutputObjectUsesCommonDocumentModel&gt;&#xA;    &lt;versionFileOnCheckInViewFileToDerivedOutputObject&gt;true&lt;/versionFileOnCheckInViewFileToDerivedOutputObject&gt;&#xA;    &lt;derivedOutputTypeName&gt;Derived Output&lt;/derivedOutputTypeName&gt;&#xA;    &lt;derivedOutputName&gt;${name}&lt;/derivedOutputName&gt;&#xA;    &lt;derivedOutputRevision&gt;${revision}&lt;/derivedOutputRevision&gt;&#xA;    &lt;derivedOutputVault&gt;eService Production&lt;/derivedOutputVault&gt;&#xA;    &lt;derivedOutputPolicyName&gt;Derived Output Policy&lt;/derivedOutputPolicyName&gt;&#xA;    &lt;derivedOutputFormat&gt;PDF&lt;/derivedOutputFormat&gt;&#xA;    &lt;derivedOutputCADType&gt;&lt;/derivedOutputCADType&gt;&#xA;    &lt;derivedOutputRelationshipName&gt;Derived Output&lt;/derivedOutputRelationshipName&gt;&#xA;    &lt;fileNameTextPatternForSort&gt;${FILE_NAME_WITHOUT_EXTENSION~split:-:1}&lt;/fileNameTextPatternForSort&gt;&#xA;    &lt;outputFileName&gt;${FILE_NAME_WITHOUT_EXTENSION}.pdf&lt;/outputFileName&gt;&#xA;&lt;/MedusaProcessorSettingsObject&gt;"/>
+                <attribute name="drlMultilineArg1Description" value="MedusaProcessSettings object"/>
+                <attribute name="drlMultilineArg2" value="@echo on&#xA;&#xA;subst R: C:\drive_R&#xA;&#xA;set bat=R:\AC6\med4_mssql_if6\bat&#xA;set MED_VAULT=R:\ARCHIVE_M4\&#xA;&#xA;${FILE_COMMANDS}&#xA;&#xA;subst R: /D"/>
+                <attribute name="drlMultilineArg2Description" value="Batch file template"/>
+                <attribute name="drlMultilineArg3" value=""/>
+                <attribute name="drlMultilineArg3Description" value=""/>
+                <attribute name="drlProcessorMaximumProcessingTime" value="0"/>
+                <attribute name="drlProcessorPassword" value=""/>
+                <attribute name="drlProcessorUser" value=""/>
+                <attribute name="drlRealTimeFeedback" value="TRUE"/>
+                <attribute name="drlUseProcessorSpecificCredentials" value="FALSE"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Job Server Activity Processor</toType>
+                    <toName>DirectView - RunExport on Lifecycle</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Processor System Processor Relationship</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

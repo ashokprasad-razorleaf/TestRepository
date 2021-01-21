@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>My Desk</name>
+    <symbolicName>menu_MyDesk</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label></label>
+    <hidden>false</hidden>
+    <href></href>
+    <alt>emxNavigator.UIMenuBar.MyEnovia</alt>
+    <menuItems>
+		<menuItem>gapDownloadPDFMenu</menuItem>
+        <menuItem>FTRMyDesk</menuItem>
+        <menuItem>PLCMyDesk</menuItem>
+        <menuItem>ECMMyDesk</menuItem>
+        <menuItem>My Enovia</menuItem>
+        <menuItem>drV6ToolsMyDesk</menuItem>
+        <menuItem>TMCMyDesk</menuItem>
+        <menuItem>DMAMyDesk</menuItem>
+        <menuItem>CollabSpaceAppMenu</menuItem>
+        <menuItem>LBCMyDesk</menuItem>
+        <menuItem>ENCMyDesk</menuItem>
+        <menuItem>CPCMyDesk</menuItem>
+        <menuItem>PMCMyDesk</menuItem>
+        <menuItem>DPGMyDesk</menuItem>
+        <menuItem>RMTMyDesk</menuItem>
+        <menuItem>QICMyDesk</menuItem>
+        <menuItem>PQCCPTNCRMyDeskMenu</menuItem>
+        <menuItem>QuestionnaireMyDesk</menuItem>
+        <menuItem>DCLMyDesk</menuItem>
+        <menuItem>DCLPeriodicReviewsMyDeskMenu</menuItem>
+        <menuItem>PARMyDesk</menuItem>
+        <menuItem>DSCMyDesk</menuItem>
+    </menuItems>
+    <commandItems/>
+    <settings>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/iconMedEnovia.png</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>Framework</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>content</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

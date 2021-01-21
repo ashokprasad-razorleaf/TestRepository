@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Job Server Activity Processor</type>
+            <name>DirectView - RunExport on Lifecycle</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlAddResultFilesToReferencedObject" value="FALSE"/>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlCreateNewObjectForResultFiles" value="FALSE"/>
+                <attribute name="drlDerivedOutputObjectGeneratorName" value=""/>
+                <attribute name="drlDerivedOutputObjectUsesCommonDocumentModel" value="FALSE"/>
+                <attribute name="drlDerivedOutputPolicySymbolicName" value=""/>
+                <attribute name="drlDerivedOutputRelationshipName" value=""/>
+                <attribute name="drlDerivedOutputTypeSymbolicName" value=""/>
+                <attribute name="drlMessage" value=""/>
+                <attribute name="drlMQLDumpDelimiter" value=""/>
+                <attribute name="drlMQLQuery" value=""/>
+                <attribute name="drlMQLResultIndex" value="0"/>
+                <attribute name="drlProcessorMaximumProcessingTime" value="0"/>
+                <attribute name="drlProcessorPassword" value=""/>
+                <attribute name="drlProcessorUser" value=""/>
+                <attribute name="drlRealTimeFeedback" value="TRUE"/>
+                <attribute name="drlSubject" value=""/>
+                <attribute name="drlUseProcessorSpecificCredentials" value="FALSE"/>
+                <attribute name="drlViewFileFormat" value=""/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Copy Values Activity</toType>
+                    <toName>DirectView - Set RunImportXML Value to TRUE</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Dependant Activity Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

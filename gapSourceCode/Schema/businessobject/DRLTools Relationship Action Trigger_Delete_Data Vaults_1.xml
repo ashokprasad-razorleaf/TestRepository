@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Relationship Action Trigger</type>
+            <name>Delete_Data Vaults</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlRelationshipCurrentObjectSource" value="to"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Create Queue Object Activity</toType>
+                    <toName>DirectView - Create Batch UpdateXML Queue Object</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Dependant Activity Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

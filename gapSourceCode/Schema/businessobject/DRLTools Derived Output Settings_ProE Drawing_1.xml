@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Derived Output Settings</type>
+            <name>ProE Drawing</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlCADType" value=""/>
+                <attribute name="drlCheckForWaitingQueueObject" value="TRUE"/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlDerivedOutputObjectGeneratorName" value="type_DerivedOutput"/>
+                <attribute name="drlDerivedOutputObjectUsesCommonDocumentModel" value="TRUE"/>
+                <attribute name="drlDerivedOutputPolicySymbolicName" value="policy_DerivedOutputPolicy"/>
+                <attribute name="drlDerivedOutputRelationshipName" value="Derived Output"/>
+                <attribute name="drlDerivedOutputTypeSymbolicName" value="type_DerivedOutput"/>
+                <attribute name="drlIconIfBeingModifiedQueueObjectFound" value="../common/images/iconActionPDFProcessing.gif"/>
+                <attribute name="drlIconIfFailedQueueObjectFound" value="../common/images/iconActionPDFFailed.gif"/>
+                <attribute name="drlIconIfWaitingQueueObjectFound" value="../common/images/iconActionPDFWaiting.gif"/>
+                <attribute name="drlMessageIfBeingModifiedQueueObjectFound" value="View file for ${type} ${name} ${revision} is currently being processed."/>
+                <attribute name="drlMessageIfFailedQueueObjectFound" value="View file generation for ${type} ${name} ${revision} failed. Please contact your administrator"/>
+                <attribute name="drlMessageIfWaitingQueueObjectFound" value="View file for ${type} ${name} ${revision}  is waiting to be processed."/>
+                <attribute name="drlSettings" value=""/>
+                <attribute name="drlViewFileFormat" value=""/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webForm overlay="true">
+    <name>gapChangeName</name>
+    <symbolicName>form_gapChangeName</symbolicName>
+    <dataObjectType>webForm</dataObjectType>
+    <description></description>
+    <type></type>
+    <hidden>false</hidden>
+    <fields>
+		<field>
+		<name>oldName</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;name&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>Old Name</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+            </settings>
+        </field>
+		<field>
+            <name>WorkspaceName</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;name&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.Name</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+				<setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>type=="$&lt;type_Project&gt;"</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>checkWorkspaceName</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>emxWorkspace</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate</settingName>
+                    <settingValue>checkBadNameChars</settingValue>
+                </setting>
+            </settings>
+        </field>
+		<field>
+            <name>Name</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;name&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.Name</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+				<setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>type=="$&lt;type_ProjectVault&gt;"</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate</settingName>
+                    <settingValue>checkBadNameChars</settingValue>
+                </setting>
+            </settings>
+        </field>
+    </fields>
+    <properties/>
+</webForm>

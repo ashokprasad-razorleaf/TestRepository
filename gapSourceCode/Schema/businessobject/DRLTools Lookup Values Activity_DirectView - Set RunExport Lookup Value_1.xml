@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Lookup Values Activity</type>
+            <name>DirectView - Set RunExport Lookup Value</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlInputs" value="Type,State,isExportObject"/>
+                <attribute name="drlOutputs" value="RunExport"/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+                <attribute name="drlSettings" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#xA;&lt;LookupValueSettings&gt;&#xA;    &lt;Inputs&gt;&#xA;        &lt;Input name=&quot;isExportObject&quot; source=&quot;jpo&quot; condition=&quot;equals&quot; value=&quot;gapDirectView.isExportObject&quot;&gt;&#xA;            &lt;ColumnConditions/&gt;&#xA;        &lt;/Input&gt;&#xA;        &lt;Input name=&quot;State&quot; source=&quot;mql selectable&quot; condition=&quot;equals&quot; value=&quot;current&quot;&gt;&#xA;            &lt;ColumnConditions/&gt;&#xA;        &lt;/Input&gt;&#xA;    &lt;/Inputs&gt;&#xA;&lt;/LookupValueSettings&gt;"/>
+                <attribute name="drlValue" value="Type,State,isExportObject,RunExport&#xA;*,*,FALSE,FALSE&#xA;gapGAPSpecification,Batch Load,TRUE,TRUE&#xA;gapGAPSpecification,Batch Load Obsolete,TRUE,TRUE&#xA;gapGAPSpecification,Release,TRUE,TRUE&#xA;gapGAPSpecification,Obsolete,TRUE,TRUE&#xA;gapAutoCAD,Release,TRUE,TRUE&#xA;gapAutoCAD,Obsolete,TRUE,TRUE&#xA;SW Drawing,RELEASED,TRUE,TRUE&#xA;SW Drawing,OBSOLETE,TRUE,TRUE&#xA;*,*,TRUE,FALSE"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools If Condition Activity</toType>
+                    <toName>DirectView - If RunExport Lookup Value is TRUE</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Dependant Activity Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

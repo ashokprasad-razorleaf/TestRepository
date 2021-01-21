@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>gapMergeDocumentPDFs</name>
+    <symbolicName>command_gapMergeDocumentPDFs</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description>drV6Tools Merge PDFs</description>
+    <label>Download PDFs for Print</label>
+    <hidden>false</hidden>
+    <href>${ROOT_DIR}/drV6Tools/drV6Tools.jsp?drtoolsKey=CreatePDFToPrint</href>
+    <alt></alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>drV6Tools</settingValue>
+        </setting>
+        <setting>
+            <settingName>Submit</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>hiddenFrame</settingValue>
+        </setting>
+        <setting>
+            <settingName>Row Select</settingName>
+            <settingValue>multi</settingValue>
+        </setting>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/iconActionPDF.png</settingValue>
+        </setting>
+    </settings>
+    <userAccess/>
+    <properties/>
+</command>

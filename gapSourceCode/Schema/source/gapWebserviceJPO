@@ -1,0 +1,413 @@
+
+// ${CLASSNAME}.java
+//
+// Created on Mar 3, 2020
+// Modified on Jul 23, 2020
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+import java.util.concurrent.TimeUnit;
+
+import matrix.db.Context;
+import matrix.db.JPO;
+import matrix.util.StringList;
+
+import com.matrixone.apps.common.CommonDocument;
+import com.matrixone.apps.domain.DomainConstants;
+import com.matrixone.apps.domain.DomainObject;
+import com.matrixone.apps.domain.DomainRelationship;
+import com.matrixone.apps.domain.util.ContextUtil;
+import com.matrixone.apps.domain.util.EnoviaResourceBundle;
+import com.matrixone.apps.domain.util.FrameworkUtil;
+import com.matrixone.apps.domain.util.MapList;
+import com.matrixone.apps.domain.util.MqlUtil;
+import com.matrixone.apps.domain.util.PersonUtil;
+import com.matrixone.apps.domain.util.PropertyUtil;
+import com.matrixone.apps.framework.ui.UIUtil;
+import com.matrixone.json.JSONObject;
+import com.dassault_systemes.platform.restServices.ModelerBase;
+
+public class ${CLASSNAME} {
+
+	public static final String ATTRIBUTE_ATLAS_PACKAGE_WEBSERVICE_URL = PropertyUtil
+			.getSchemaProperty("attribute_AtlasPackageWebserviceURL");
+	public static final String SELECT_FILE_FORMATS = "to[" + CommonDocument.RELATIONSHIP_ACTIVE_VERSION + "].from."
+			+ CommonDocument.SELECT_FILE_FORMAT;
+	
+	public ${CLASSNAME}(Context context, String[] args) throws Exception {
+	}
+
+	public int mxMain(Context context, String[] args) throws Exception {
+		return 0;
+	}
+
+	// Method returns the Document id from the Type Name Revision and invokes method
+	// to checkout the files.
+	public JSONObject getDocumentFilesToCheckout(Context context, String[] args) throws Exception {
+		//System.out.println("===getDocumentFilesToCheckout===");
+		String docId = null;
+		JSONObject jobj = new JSONObject();
+		try {
+			// data params
+			HashMap inputMap = (HashMap) JPO.unpackArgs(args);
+			String name = (String) inputMap.get("name");
+			String type = (String) inputMap.get("type");
+			String revision = (String) inputMap.get("revision");
+
+			String strResult = MqlUtil.mqlCommand(context, "temp query bus $1 $2 $3 select $4 dump $5", type, name,
+					revision, "id", "|");
+			if (strResult != null && !strResult.isEmpty())
+				docId = FrameworkUtil.split(strResult, "|").get(3);
+
+			if (docId != null) {
+				jobj = getDocFilesDetails(context, docId);
+			} else {
+				jobj.put("result", "FAIL");
+				jobj.put("message", "Object doesn't exists...");
+				jobj.put("docname", name);
+				jobj.put("filename", "");
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw ex;
+		}
+		return jobj;
+	}
+
+	// Method accepts object id and checkout the files of given object into context
+	// workspace and returns JSONObject to servlet.
+	public JSONObject getDocFilesDetails(Context context, String objectId) throws Exception {
+		
+		//System.out.println("===getDocFilesDetails===");
+		JSONObject jobDocFileDetails = new JSONObject();
+		try {
+			// Version Object selects
+			StringList versionSelectList = new StringList(9);
+			versionSelectList.add(CommonDocument.SELECT_ID);
+			versionSelectList.add(CommonDocument.SELECT_REVISION);
+			versionSelectList.add(CommonDocument.SELECT_TITLE);
+			versionSelectList.add(CommonDocument.SELECT_FILE_NAME);
+			versionSelectList.add(CommonDocument.SELECT_FILE_MODIFIED);
+			versionSelectList.add(CommonDocument.SELECT_FILE_SIZE);
+			versionSelectList.add(CommonDocument.SELECT_SUSPEND_VERSIONING);
+			versionSelectList.add(CommonDocument.SELECT_IS_VERSION_OBJECT);
+			versionSelectList.add(SELECT_FILE_FORMATS);
+			versionSelectList.add(DomainConstants.SELECT_ORIGINATED);
+
+			DomainObject domObj = new DomainObject(objectId);
+			String stDocName = domObj.getName(context);
+			StringList strFormatList = domObj.getInfoList(context, CommonDocument.SELECT_FILE_FORMAT);
+			if (strFormatList.contains("mxMedium Image")) {
+				strFormatList.remove("mxMedium Image");
+			}
+			MapList versionList = domObj.getRelatedObjects(context, CommonDocument.RELATIONSHIP_ACTIVE_VERSION,
+					CommonDocument.TYPE_DOCUMENTS, versionSelectList, null, false, true, (short) 1, null, null, null,
+					null, null);
+
+			if (versionList.size() > 0) {
+				versionList.sort(DomainConstants.SELECT_ORIGINATED, "ascending", "date");
+				String strWorkSpacePath = context.createWorkspace();
+				String strZipFile = strWorkSpacePath + "\\" + stDocName + ".zip";
+				String strFileName = null;
+				jobDocFileDetails.put("docname", stDocName);
+				jobDocFileDetails.put("workspacefolder", strWorkSpacePath);
+				for (int i = 0; i < versionList.size(); i++) {
+					Map mapDocuFile = (Map) versionList.get(i);
+					strFileName = (String) mapDocuFile.get("attribute[Title]");
+					String strFileFormat = strFormatList.get(i);
+					domObj.checkoutFile(context, false, strFileFormat, strFileName, strWorkSpacePath);
+				}
+				String strFilePath = strWorkSpacePath + "\\" + strFileName;
+				if (versionList.size() > 1) {
+					zipFiles(strZipFile, strWorkSpacePath);
+					jobDocFileDetails.put("filename", strZipFile);
+				} else if (strFileName != null) {
+					jobDocFileDetails.put("filename", strFilePath);
+				}
+				jobDocFileDetails.put("result", "SUCCESS");
+				jobDocFileDetails.put("message", "Successfully Downloaded...");
+			} else {
+				jobDocFileDetails.put("result", "FAIL");
+				jobDocFileDetails.put("message", "No files to download...");
+				jobDocFileDetails.put("filename", "");
+			}
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw ex;
+		}
+
+		return jobDocFileDetails;
+	}
+	// Method added to update the AtlasPackage Webservice URL on document attribute
+	public int setWebServiceURLOnDocumentAttribute(Context context, String[] args) {
+		try {
+			String strDocId = args[0];
+			DomainObject docDomObj = DomainObject.newInstance(context, strDocId);
+			String type = docDomObj.getType(context);
+			String name = docDomObj.getName(context);
+			String revison = docDomObj.getRevision(context);
+			String strServiceURL = PropertyUtil.getEnvironmentProperty(context, "SERVICE_URL");
+			String webServiceURLParameters = DomainConstants.SELECT_TYPE + "=" + type + "&"
+					+ DomainConstants.SELECT_NAME + "=" + name + "&" + DomainConstants.SELECT_REVISION + "=" + revison;
+			StringBuffer sbWebServiceUrl = new StringBuffer();
+
+			sbWebServiceUrl.append(strServiceURL).append(ModelerBase.REST_BASE_PATH).append("/gapWebservice")
+					.append("/getFileView?").append(webServiceURLParameters);
+
+			docDomObj.setAttributeValue(context, ATTRIBUTE_ATLAS_PACKAGE_WEBSERVICE_URL, sbWebServiceUrl.toString());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 1;
+		}
+		return 0;
+	}
+
+	// Method added to write the files in to zip of given folder.
+	public static void zipFiles(String zipFile, String srcDir) {
+		try {
+			File srcFile = new File(srcDir);
+			File[] files = srcFile.listFiles();
+			FileOutputStream fos = new FileOutputStream(zipFile);
+			ZipOutputStream zos = new ZipOutputStream(fos);
+
+			for (int i = 0; i < files.length; i++) {
+				// create byte buffer
+				byte[] buffer = new byte[1024];
+
+				FileInputStream fis = new FileInputStream(files[i]);
+				zos.putNextEntry(new ZipEntry(files[i].getName()));
+				int length;
+
+				while ((length = fis.read(buffer)) > 0) {
+					zos.write(buffer, 0, length);
+				}
+				zos.closeEntry();
+				// close the InputStream
+				fis.close();
+			}
+			zos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// Connects/Disconnects Workspace Vault and object.
+	public JSONObject updateVaultObjectConnection(Context context, String[] args) throws Exception {
+		
+		//System.out.println("===updateVaultObjectConnection===");
+		//long startMillis = System.currentTimeMillis();
+		
+		JSONObject returnObject = new JSONObject();
+		String result = DomainConstants.EMPTY_STRING;
+		String sUsername = DomainConstants.EMPTY_STRING;
+		String sBookmarkId = DomainConstants.EMPTY_STRING;
+		String sFolderId = DomainConstants.EMPTY_STRING;
+		String sObjectId = DomainConstants.EMPTY_STRING;
+		String sConnectionId = DomainConstants.EMPTY_STRING;
+		int errorCode = 404;
+		boolean isNotConnected = true;
+		try {
+			HashMap paramMap = (HashMap) JPO.unpackArgs(args);
+			String action = (String) paramMap.get("action");
+			String sapUsername = (String) paramMap.get("sapusername");
+			String bwNumber = (String) paramMap.get("bwnumber");
+			String partName = (String) paramMap.get("part");
+			
+			//for (int k = 0; k<40; k++) {
+			
+			StringList objectSelects = new StringList();
+			objectSelects.add(DomainConstants.SELECT_ID);
+			objectSelects.add(DomainConstants.SELECT_NAME);
+			
+			StringList relSelects = new StringList();
+			relSelects.add(DomainConstants.SELECT_RELATIONSHIP_ID);
+			
+			if (!action.equalsIgnoreCase("add") && !action.equalsIgnoreCase("remove")) {
+				String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.NoAction");
+				result = sMessage;
+				returnObject.put("status", 400);
+				returnObject.put("result", result);
+				return returnObject;
+			}
+			
+			String sWhere = "attribute[cenitSAPUser] ~~ '"+sapUsername+"'";
+			MapList mlPerson = DomainObject.findObjects(context, DomainConstants.TYPE_PERSON, DomainConstants.QUERY_WILDCARD, DomainConstants.QUERY_WILDCARD, DomainConstants.QUERY_WILDCARD, DomainConstants.QUERY_WILDCARD, sWhere, false, objectSelects);
+			if(mlPerson.size() == 1) {
+				Map oMap = (Map) mlPerson.get(0);
+				sUsername =  (String) oMap.get(DomainConstants.SELECT_NAME);
+			}
+			
+			if (UIUtil.isNullOrEmpty(sUsername)) {
+				String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.NoUser");
+				result = sMessage+" "+sapUsername;
+				returnObject.put("status", 400);
+				returnObject.put("result", result);
+				return returnObject;
+			}
+			
+			MapList mlBookmarks = DomainObject.findObjects(context, DomainConstants.TYPE_WORKSPACE+","+DomainConstants.TYPE_WORKSPACE_VAULT, DomainConstants.QUERY_WILDCARD+bwNumber+DomainConstants.QUERY_WILDCARD, DomainConstants.QUERY_WILDCARD, DomainConstants.QUERY_WILDCARD, DomainConstants.QUERY_WILDCARD, DomainConstants.EMPTY_STRING, false, objectSelects);
+			if(mlBookmarks.size() == 1) {
+				Map oMap = (Map) mlBookmarks.get(0);
+				sBookmarkId = (String) oMap.get(DomainConstants.SELECT_ID);
+			} else if (mlBookmarks.size() > 1) {
+				String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.multipleBW");
+				result = sMessage+" "+bwNumber;
+				returnObject.put("status", 400);
+				returnObject.put("result", result);
+				return returnObject;
+			}
+			
+			if (UIUtil.isNullOrEmpty(sBookmarkId)) {
+				String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.NoBW");
+				result = sMessage+" "+bwNumber;
+				returnObject.put("status", 400);
+				returnObject.put("result", result);
+				return returnObject;
+			}
+			
+			DomainObject doBookmark = new DomainObject(sBookmarkId);
+			MapList mlFolders = doBookmark.getRelatedObjects(context, DomainConstants.RELATIONSHIP_WORKSPACE_VAULTS+","+DomainConstants.RELATIONSHIP_SUBVAULTS, DomainConstants.TYPE_WORKSPACE_VAULT, objectSelects, relSelects, false, true, (short) 1, null, null);
+			if(mlFolders.size() > 0) {
+				for (int i = 0, size = mlFolders.size(); i < size; i++) {
+					Map oMap = (Map) mlFolders.get(i);
+					String sBookmarkVaultName = (String) oMap.get(DomainConstants.SELECT_NAME);
+					if(sBookmarkVaultName.contains("eParts")) {
+						sFolderId = (String) oMap.get(DomainConstants.SELECT_ID);
+						break;
+					}
+				}
+			}
+			
+			if (UIUtil.isNullOrEmpty(sFolderId)) {
+				String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.NoeParts");
+				result = sMessage+" "+bwNumber;
+				returnObject.put("status", 400);
+				returnObject.put("result", result);
+				return returnObject;
+			}
+			
+			sWhere = "revision==last";
+			MapList mlObjects = DomainObject.findObjects(context, DomainConstants.TYPE_PART, partName, DomainConstants.QUERY_WILDCARD, DomainConstants.QUERY_WILDCARD, DomainConstants.QUERY_WILDCARD, sWhere, false, objectSelects);
+			if(mlObjects.size() == 1) {
+				Map oMap = (Map) mlObjects.get(0);
+				sObjectId = (String) oMap.get(DomainConstants.SELECT_ID);
+			}
+			
+			if (UIUtil.isNullOrEmpty(sObjectId)) {
+				String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.NoPart");
+				result = sMessage+" "+partName;
+				returnObject.put("status", 400);
+				returnObject.put("result", result);
+				return returnObject;
+			}
+			
+			DomainObject doPart = new DomainObject(sObjectId);
+			MapList mlConnectons = doPart.getRelatedObjects(context, DomainConstants.RELATIONSHIP_VAULTED_OBJECTS, DomainConstants.TYPE_WORKSPACE_VAULT, objectSelects, relSelects, true, false, (short) 1, null, null);
+			if (mlConnectons.size() > 0) {
+				for (int i = 0, size = mlConnectons.size(); i < size; i++) {
+					Map oMap = (Map) mlConnectons.get(i);
+					String sBookmarkVaultId = (String) oMap.get(DomainConstants.SELECT_ID);
+					if(sBookmarkVaultId.equals(sFolderId)) {
+						isNotConnected = false;
+						sConnectionId = (String) oMap.get(DomainConstants.SELECT_RELATIONSHIP_ID);							
+						if(action.equalsIgnoreCase("add")) {
+							String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.AlreadyConnected");
+							result = partName+" "+sMessage;
+							errorCode = 201;
+						}
+					}
+				}
+			}
+			
+			ContextUtil.pushContext(context, sUsername, null, null);
+			
+			String sRole = DomainConstants.EMPTY_STRING;
+			Vector<String> ctxRoleList = PersonUtil.getSecurityContextAssignments(context);
+			for(String ctxRole : ctxRoleList) {
+				if(ctxRole.contains("Common Space")) {
+					sRole = "ctx::"+ctxRole;
+				}
+			}
+			
+			if(UIUtil.isNotNullAndNotEmpty(sRole)) {
+				context.resetRole(sRole);
+			}
+			
+			if(isNotConnected && action.equalsIgnoreCase("add")) {
+				try {
+					DomainRelationship doRel = DomainRelationship.connect(context, new DomainObject(sFolderId), DomainConstants.RELATIONSHIP_VAULTED_OBJECTS, doPart);
+					sConnectionId = doRel.toString();
+					String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.Connct");
+					result = partName+" "+sMessage;
+					errorCode = 200;
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					//result = ex.getMessage();
+					String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.ForceConnct");
+					result = sMessage;
+					errorCode = 304;
+				}
+			} else if (isNotConnected == false && action.equalsIgnoreCase("remove") && UIUtil.isNotNullAndNotEmpty(sConnectionId)) {
+				try {
+					DomainRelationship.disconnect(context, sConnectionId);
+					String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.Disconnect");
+					result = partName+" "+sMessage;
+					errorCode = 200;
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					//result = ex.getMessage();
+					String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.ForceDisconnect");
+					result = sMessage;
+					errorCode = 304;
+				}
+			} else if (isNotConnected == true && action.equalsIgnoreCase("remove") && UIUtil.isNullOrEmpty(sConnectionId)) {
+				String sMessage = EnoviaResourceBundle.getProperty(context,"emxEngineeringCentralStringResource", context.getLocale(), "emxEngineeringCentral.Message.AlreadyDisconnected");
+				result = partName+" "+sMessage;
+				errorCode = 201;
+			}
+			
+			//TimeUnit.MINUTES.sleep(1);
+			//TimeUnit.SECONDS.sleep(65);
+			//}
+			//long endMillis = System.currentTimeMillis();
+			//long timeTaken = (endMillis - startMillis) / 1000;
+			//long timeTaken = (endMillis - startMillis);
+			//result = result+"\nTime : "+timeTaken+" Seconds....";
+			
+			ContextUtil.popContext(context);
+			//returnObject.put("status", errorCode);
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			result = ex.getMessage();
+			returnObject.put("status", 404);
+		}
+		
+		returnObject.put("result", result);
+		returnObject.put("status", errorCode);
+		//System.out.println("returnObject==="+returnObject);
+		return returnObject;
+	}
+	
+	//encrypt given string arg[0]
+	public void encryptPassword(Context context,String args[])throws Exception {
+		try {
+			String sPassword = args[0];
+			System.out.println("Entered Password::::: "+sPassword);
+			String sEnc = FrameworkUtil.encrypt(sPassword);
+			System.out.println("Encrypted Password::::: "+sEnc);
+		} catch (Exception ex) {
+			throw new Exception("Exception::::: "+ex.getMessage()+"\nPlease pass password as first argument to method", ex);
+		}
+	}
+}
+
+

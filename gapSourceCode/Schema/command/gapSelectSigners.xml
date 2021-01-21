@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>gapSelectSigners</name>
+    <symbolicName>command_gapSelectSigners</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description>Command to select signers</description>
+    <label>Select signers</label>
+    <hidden>false</hidden>
+    <href>${COMMON_DIR}/gapSelectDocumentSignersFS.jsp?suiteKey=EngineeringCentral</href>
+    <alt></alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>((type=="$&lt;type_ChangeAction&gt;") &amp;&amp; (current == "In Work" ))</settingValue>
+        </setting>
+        <setting>
+            <settingName>Popup Modal</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EngineeringCentral</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>popup</settingValue>
+        </setting>
+    </settings>
+    <userAccess/>
+    <properties/>
+</command>

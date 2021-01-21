@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<type overlay="true">
+    <name>Derived Output</name>
+    <symbolicName>type_DerivedOutput</symbolicName>
+    <dataObjectType>type</dataObjectType>
+    <description>Derived Output</description>
+    <parentName>DOCUMENTS</parentName>
+    <hidden>false</hidden>
+    <abstract>false</abstract>
+    <attributes>
+        <attribute>CAD Type</attribute>
+    </attributes>
+    <triggers>
+        <trigger immutable="true">
+            <triggerType>Checkout</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeAllCreateHistoryObject</input>
+            <programType>Action</programType>
+        </trigger>
+    </triggers>
+    <properties/>
+</type>

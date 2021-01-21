@@ -1,0 +1,2211 @@
+<ECM>
+	<ROLEADMINISTRATION CHANGE_COORDINATOR_ROLES="role_ChangeCoordinator,role_VPLMProjectLeader" CHANGE_ADMINISTRATOR_ROLES="role_ChangeAdministrator,role_VPLMProjectAdministrator"/>
+    <ALLOWEDTYPES>
+        <CONTEXT>
+            <TYPE NAME="type_Part,type_Products,type_VPMReference,type_Drawing,type_3DShape,type_CreateAssembly,type_RFLVPMLogicalReference,type_RFLPLMFunctionalReference,type_DELLmiWorkPlanSystemReference,type_CreateKit,type_CreateMaterial,type_Installation,type_ElementaryEndItem,type_DELLmiGeneralSystemReference,type_DELLmiStorageSystemReference,type_DELLmiTransferSystemReference,type_DELLmiTransformationSystemReference,type_DELLmiGeneralOperationReference,type_DELLmiLoadingOperationReference"/>
+        </CONTEXT>
+        <REFERENTIAL>
+            <TYPE NAME="type_Part,type_DesignSight,type_Document,type_DOCUMENTS,type_PLMDMTDocument,type_Image,type_ChangeAction,type_SIMItfSimulation,type_DMUValidationValidation,type_VPMReference,type_Drawing,type_3DShape,type_DMUValidationExposedPresentation"/>
+        </REFERENTIAL>
+        <PROPOSED>
+            <TYPE NAME="type_TestMethodSpecification,type_ProductDataPart,type_DesignSight,type_VPMReference,type_Drawing,type_3DShape,type_CreateAssembly,type_RFLVPMLogicalReference,type_RFLPLMFunctionalReference,type_DELLmiWorkPlanSystemReference,type_Part,type_PartSpecification,type_CADDrawing,type_CADModel,type_DrawingPrint,type_CONTROLLEDDOCUMENTS,type_PartRouting,type_WorkCenter,type_FinishedProductPart,type_PackagingAssemblyPart,type_PackagingMaterialPart,type_ProductPart,type_RawMaterial,type_FormulationPart,type_ProcessTechnicalSpecification,type_CopyandGraphicsSpecification,type_PackingProcessSpecification,type_PalletInformationSpecification,type_TestMethod,type_SharedTable,type_Template,type_Formulation,type_FormulationProcess,type_POA,type_ArtworkFile,type_Products,type_ProductVariant,type_LogicalFeature,type_ManufacturingFeature,type_ConfigurationFeature,type_RequirementGroup,type_SoftwareRequirementSpecification,type_Requirement,type_Chapter,type_Comment,type_UseCase,type_PlmParameter,type_CreateKit,type_CreateMaterial,type_Installation,type_ElementaryEndItem,type_Provide,type_Disassemble,type_RemoveMaterial,type_SinkSystem,type_SourceSystem,type_SplitProcess,type_Transform,type_Unfasten,type_Drill,type_PreDrill,type_NoDrill,type_Grinding,type_Cutting,type_Fasten,type_Machine,type_Machining,type_Marking,type_ProcessContinuousCreateMaterial,type_ProcessContinuousProvide,type_DELLmiGeneralSystemReference,type_DELLmiStorageSystemReference,type_DELLmiTransferSystemReference,type_DELLmiTransformationSystemReference,type_DELLmiGeneralOperationReference,type_DELLmiLoadingOperationReference,type_DELLmiBufferOperationReference,type_DELLmiCurveOperationReference,type_DELLmiPunctualOperationReference,type_DELLmiRemoveMaterialOperationReference,type_DELLmiSinkOperationReference,type_DELLmiSourceOperationReference,type_DELLmiTransferOperationReference,type_DELLmiUnloadingOperationReference,type_DELLmiInterruptOperationReference,type_DELWkiInstructionReference,type_DELWkiAlertReference,type_DELWkiDataCollectReference,type_DELWkiSignOffReference,type_WorkInstruction3DDocumentation,type_NCMachiningPgmFiles,type_NCMachiningTemplate,type_ServicesProduct,type_ServicesSpecification,type_ContractPriceItem,type_AnDSalesOrder,type_WorkAuthorization,type_CLIN,type_WBSE,type_WBSSpecification,type_ContractRequirement,type_ContractDocumentation,type_HardwareCI,type_SoftwareCI,type_ServicesDocument,type_CATProduct,type_CATPart,type_CATDrawing,type_SWAssemblyFamily,type_SWAssemblyInstance,type_SWComponentFamily,type_SWComponentInstance,type_SWDrawing,type_INVAssembly,type_INVComponent,type_INVPresentation,type_INVDrawing,type_INViPart,type_INVPartFactory,type_INViAssembly,type_INVAssemblyFactory,type_SEAssembly,type_SEComponent,type_SEDrawing,type_SEAssemblyInstance,type_SEAssemblyFamily,type_SEWeldment,type_SESheetMetal,type_ACADDrawing,type_ACADInsert,type_AllegroDesignEntryHDLProject,type_AllegroDesignEntryHDLVariant,type_AllegroDesignEntryHDLSchematic,type_AllegroDesignEntryHDLForwardAnnotation,type_AllegroPCBProject,type_AllegroPCBBackwardAnnotation,type_MentorPCBDesign,type_MentorPCBVariant,type_MentorEEDxDesignerProject,type_MentorEEDxDesignerVariant,relationship_CADDesignVariant,type_SystemDesignerDesignProject,type_SystemDesignerSchematic,type_SystemDesignerVariantDesign,type_BoardDesignerDesignProject,type_AllegroDesignEntryCISProject,type_AllegroDesignEntryCISVariant,relationship_AllegroDesignEntryCISNetlistOf,type_PADSLogicProject,type_PADSLayoutProject,type_PADSLayoutVariant,type_AltiumDesignerPCBProject,type_AltiumDesignPCBProjectArchive,type_AltiumDesignerVariant,type_AltiumDesignerSchematic,type_AltiumDesignerDeviceSheet,type_AltiumDesignerPCB,type_Document"/>
+        </PROPOSED>
+    </ALLOWEDTYPES>
+	<CHANGEGROUPS>
+		<FBS RTO="organization" TECHROLE="role_VPLMCreator" SRTECHROLE="role_VPLMProjectLeader"/>
+		<ENG RTO="organization" TECHROLE="role_DesignEngineer,role_VPLMCreator" SRTECHROLE="role_SeniorDesignEngineer,role_VPLMProjectLeader"/>
+		<LES RTO="organization" TECHROLE="role_ManufacturingEngineer,role_VPLMCreator" SRTECHROLE="role_SeniorManufacturingEngineer,role_VPLMProjectLeader"/>
+		<DCL RTO="organization" TECHROLE="role_DocumentCenterAdministrator,role_VPLMProjectAdministrator"
+			 SRTECHROLE="role_DocumentCenterAdministrator,role_VPLMProjectAdministrator"/>
+		<DEC RTO="organization" TECHROLE="role_DesignEngineer,role_VPLMCreator" SRTECHROLE="role_SeniorDesignEngineer,role_VPLMProjectLeader"/>
+		<TMPL RTO="organization" TECHROLE="role_TemplateAdministrator,role_VPLMProjectLeader" SRTECHROLE="role_TemplateApprover,role_VPLMProjectLeader"/>
+		<GLSPD RTO="organization" TECHROLE="role_IPMOriginator,role_VPLMCreator" SRTECHROLE="role_Approver,role_VPLMProjectLeader"/>
+        <FORM RTO="organization" TECHROLE="role_IPMRestrictedOriginator,role_Formulator,role_VPLMCreator" SRTECHROLE="role_Approver,role_Formulator,role_Toxicologist,role_VPLMProjectLeader"/>
+		<FORMRMP RTO="organization" TECHROLE="role_IPMOriginator,role_IPMMaterialAdministrator,role_VPLMCreator" SRTECHROLE="role_Approver,role_IPMMaterialAdministrator,role_Toxicologist,role_VPLMProjectLeader"/>
+		<FORMTM RTO="organization" TECHROLE="role_IPMOriginator,role_FormulaAdministrator,role_Toxicologist,role_VPLMCreator" SRTECHROLE="role_Approver,role_FormulaAdministrator,role_Toxicologist,role_VPLMProjectLeader"/>
+		<CAPPOA RTO="organization" TECHROLE="role_GraphicDesigner,role_ProductManager,role_ArtworkProjectManager,role_VPLMCreator"
+			 SRTECHROLE="role_GraphicDesigner,role_ProductManager,role_ArtworkProjectManager,role_ArtworkApprover,role_VPLMProjectLeader"/>
+		<FTRPM RTO="organization" TECHROLE="role_ProductManager,role_VPLMProjectLeader" SRTECHROLE="role_ProductManager,role_VPLMProjectLeader"/>
+		<FTRLF RTO="organization" TECHROLE="role_ProductManager,role_SystemEngineer,role_VPLMProjectLeader"
+			 SRTECHROLE="role_ProductManager,role_SystemEngineer,role_VPLMProjectLeader"/>
+		<FTRMF RTO="organization" TECHROLE="role_ProductManager,role_SystemEngineer,role_VPLMProjectLeader"
+			 SRTECHROLE="role_ProductManager,role_SystemEngineer,role_VPLMProjectLeader"/>
+		<TRM RTO="organization" TECHROLE="role_RequirementManager,role_VPLMProjectLeader" SRTECHROLE="role_RequirementManager,role_VPLMProjectLeader"/>
+		<PLCPM RTO="organization" TECHROLE="role_ProductManager,role_VPLMProjectLeader" SRTECHROLE="role_ProductManager,role_VPLMProjectLeader"/>
+		<AER RTO="organization" TECHROLE="role_VPLMCreator,role_ContractsManager" SRTECHROLE="role_VPLMProjectLeader,role_ContractsManager"/>
+		<BPS RTO="organization" TECHROLE="role_VPLMCreator" SRTECHROLE="role_VPLMProjectLeader"/>
+	</CHANGEGROUPS>
+	<CUSTOM_ATTRIBUTES>
+		<DispositionCodes ATTRIBUTES="attribute_DispositionFieldReturn,attribute_DispositionInField,attribute_DispositionInProcess,attribute_DispositionInStock,attribute_DispositionOnOrder"/>
+	</CUSTOM_ATTRIBUTES>
+	<CHANGETYPES>
+    		<type_Part>
+    			<POLICY NAME="policy_ECPart" 
+    					GROUP="ENG" 
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete" 
+    					FROZEN="state_Review"  
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					PROPOSED_REQUIRED_STATE="state_Release"
+    					RELEASEORDER="relationship_PartSpecification,from|relationship_EBOM,from" 
+    					CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource|relationship_PartRouting,from,emxLES.Command.LESPartRoutingAndWorkCentersPart.Label,emxLESStringResource"
+    					CUSTOM_ATTRIBUTES="DispositionCodes"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_StandardPart" 
+    					GROUP="ENG" 
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete" 
+    					FROZEN="state_Review" 
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					PROPOSED_REQUIRED_STATE="state_Release" 
+    				 	RELEASEORDER="relationship_PartSpecification,from|relationship_EBOM,from" CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource"
+    				 	CUSTOM_ATTRIBUTES="DispositionCodes"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_ConfiguredPart" 
+    					GROUP="ENG" 
+    					RELEASE="state_Release" 
+    					FROZEN="state_Preliminary" 
+    					PROPOSED_REQUIRED_STATE="state_Preliminary"	
+    					REQUESTED_CHANGE="For Update" 
+    					CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource|relationship_PartRouting,from,emxLES.Command.LESPartRoutingAndWorkCentersPart.Label,emxLESStringResource"
+    				 	CUSTOM_ATTRIBUTES="DispositionCodes"
+    				 	SUPPORTREVISEANDCONFIG="NO"/>			
+    		</type_Part>
+    		<type_PartSpecification>
+    			<POLICY NAME="policy_PartSpecification" 
+    					GROUP="ENG" 
+    					CHANGE_ASSESSMENT="relationship_PartSpecification,to,emxFramework.Command.SpecRelatedParts,emxEngineeringCentralStringResource"
+    				 	RELEASE="state_Release" 
+						OBSOLETE="state_Obsolete"
+    				 	FROZEN="state_Review" 
+    				 	APPROVE="state_Approved"
+    				 	AUTOAPPROVAL="true"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_PartSpecification>
+    		<type_CADDrawing>
+    			<POLICY NAME="policy_CADDrawing" 
+    					GROUP="ENG" 
+    					CHANGE_ASSESSMENT="relationship_PartSpecification,to,emxFramework.Command.SpecRelatedParts,emxEngineeringCentralStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete" 
+    				 	FROZEN="state_Review" 
+    				 	APPROVE="state_Approved" 
+    				 	AUTOAPPROVAL="true"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_DesignPolicy" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+    			<POLICY NAME="policy_DesignTEAMDefinition" 
+    					GROUP="DEC"
+    					FROZEN="state_Review"
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_InventorDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_CATIAV5DesignPolicy" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_SolidWorksDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_SolidEdgeDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_AutoCADDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_MicroStationDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_ProENGINEERDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_NXDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_CADDrawing>
+    		<type_CADModel>
+    			<POLICY NAME="policy_CADModel" 
+    					GROUP="ENG" 
+    					CHANGE_ASSESSMENT="relationship_PartSpecification,to,emxFramework.Command.SpecRelatedParts,emxEngineeringCentralStringResource"
+    				 	RELEASE="state_Release" 
+    				 	FROZEN="state_Review" 
+    				 	APPROVE="state_Approved" 
+    				 	AUTOAPPROVAL="true"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_DesignPolicy" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+    			<POLICY NAME="policy_DesignTEAMDefinition" 
+    					GROUP="DEC"
+    					FROZEN="state_Review"  
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_InventorDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_CATIAV5DesignPolicy" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_SolidWorksDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_SolidEdgeDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_AutoCADDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_MicroStationDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_ProENGINEERDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_NXDesign" 
+    					GROUP="DEC" 
+    					RELEASE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_CADModel>
+    		<type_DrawingPrint>
+    			<POLICY NAME="policy_DrawingPrint" 
+    					GROUP="ENG" 
+    					CHANGE_ASSESSMENT="relationship_PartSpecification,to,emxFramework.Command.SpecRelatedParts,emxEngineeringCentralStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete" 
+    				 	FROZEN="state_Review" 
+    				 	APPROVE="state_Approved" 
+    				 	AUTOAPPROVAL="true"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_DrawingPrint>
+    		<type_CONTROLLEDDOCUMENTS>
+    			<POLICY NAME="policy_ControlledDocuments" 
+    					GROUP="DCL" 
+    					CHANGE_ASSESSMENT="relationship_ReferenceDocument,from,enoDocumentControl.Label.ReferenceDocument,enoDocumentControlStringResource|relationship_ReferenceDocument,to,enoDocumentControl.Label.WhereUsedControlledDocuments,enoDocumentControlStringResource|relationship_ProcessDocuments,to,enoDocumentControl.Label.WhereUsedParts,enoDocumentControlStringResource" 
+    					RELEASE="state_Approved" 
+    					OBSOLETE="state_Obsolete"
+    					SUPPORTREVISEANDCONFIG="YES"/>	
+    		</type_CONTROLLEDDOCUMENTS>
+    		<type_PartRouting>
+    			<POLICY NAME="policy_PartRoutingInProduction" 
+    					GROUP="LES" 
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete"
+    				 	APPROVE="state_Approved" 
+    				 	AUTOAPPROVAL="true" 
+    				 	RELEASEORDER="relationship_WorkCenter,from"
+    					CHANGE_ASSESSMENT="relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource|relationship_WorkCenter,from,emxLES.Command.LESPartRoutingWorkCenters.Label,emxLESStringResource"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_PartRouting>
+    		<type_WorkCenter>
+    			<POLICY NAME="policy_WorkCenter" 
+    					GROUP="LES" 
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete"
+    				 	APPROVE="state_Approved" 
+    				 	AUTOAPPROVAL="true" 
+    				 	CHANGE_ASSESSMENT="relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_WorkCenter>
+    		<type_FinishedProductPart>
+    			<POLICY NAME="policy_ECPart" 
+    					GROUP="ENG" 
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete" 
+    					FROZEN="state_Review"
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true"
+    					PROPOSED_REQUIRED_STATE="state_Release"
+    				 	RELEASEORDER="relationship_PartSpecification,from|relationship_EBOM,from" 
+    				 	CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource|relationship_PartRouting,from,emxLES.Command.LESPartRoutingAndWorkCentersPart.Label,emxLESStringResource"
+    				 	CUSTOM_ATTRIBUTES="DispositionCodes"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_PilotProductData" 
+    					GROUP="GLSPD" 
+    					FROZEN="state_Review" 
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					PROPOSED_REQUIRED_STATE="state_Release"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete" 
+    				 	RELEASEORDER="relationship_EBOM,from|relationship_PartSpecification,from"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_IPMPart" 
+    					GROUP="GLSPD" 
+    					FROZEN="state_Review" 
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					PROPOSED_REQUIRED_STATE="state_Release" 
+    					RELEASE="state_Release"
+    				 	OBSOLETE="state_Obsolete" 
+    				 	RELEASEORDER="relationship_EBOM,from|relationship_PartSpecification,from"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_FinishedProductPart>
+    		<type_PackagingAssemblyPart>
+    			<POLICY NAME="policy_ECPart" 
+    					GROUP="ENG" 
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"  
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					PROPOSED_REQUIRED_STATE="state_Release"
+    				 	RELEASEORDER="relationship_PartSpecification,from|relationship_EBOM,from" 
+    				 	CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource|relationship_PartRouting,from,emxLES.Command.LESPartRoutingAndWorkCentersPart.Label,emxLESStringResource"
+    				 	CUSTOM_ATTRIBUTES="DispositionCodes"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_PackagingAssemblyPart>
+    		<type_ProductDataPart>
+    			<POLICY NAME="policy_ECPart" 
+    					GROUP="ENG" 
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"  
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					PROPOSED_REQUIRED_STATE="state_Release"
+    				 	RELEASEORDER="relationship_PartSpecification,from|relationship_EBOM,from" 
+    				 	CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource|relationship_PartRouting,from,emxLES.Command.LESPartRoutingAndWorkCentersPart.Label,emxLESStringResource"
+    					CUSTOM_ATTRIBUTES="DispositionCodes"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_ProductDataPart>
+    		<type_PackagingMaterialPart>
+    			<POLICY NAME="policy_ECPart" 
+    					GROUP="ENG" 
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"  
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					PROPOSED_REQUIRED_STATE="state_Release"
+    				 	RELEASEORDER="relationship_PartSpecification,from|relationship_EBOM,from" 
+    				 	CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource|relationship_PartRouting,from,emxLES.Command.LESPartRoutingAndWorkCentersPart.Label,emxLESStringResource"
+    				 	CUSTOM_ATTRIBUTES="DispositionCodes"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_PackagingMaterialPart>
+    		<type_ProductPart>
+    			<POLICY NAME="policy_IPMPart" 
+    					GROUP="GLSPD" 
+    					FROZEN="state_Review" 
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					PROPOSED_REQUIRED_STATE="state_Release" 
+    					RELEASE="state_Release"
+    				 	OBSOLETE="state_Obsolete" 
+    				 	RELEASEORDER="relationship_EBOM,from|relationship_PartSpecification,from"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_ProductPart>
+    		<type_RawMaterial>
+                <POLICY NAME="policy_ECPart" 
+                        GROUP="ENG" 
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        FROZEN="state_Review"  
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASEORDER="relationship_PartSpecification,from|relationship_EBOM,from" 
+                        CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_FBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource"
+                        CUSTOM_ATTRIBUTES="DispositionCodes"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_RawMaterial>
+            <type_FormulationPart>
+                <POLICY NAME="policy_ECPart" 
+                        GROUP="ENG" 
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        FROZEN="state_Review"  
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_EBOM,from|relationship_FormulaIngredient,from" 
+                        CHANGE_ASSESSMENT="relationship_FormulaIngredient,from,enoTemplate.SectionTableTypes.Formula_Ingredients,enoTemplateStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_FBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource"
+                        CUSTOM_ATTRIBUTES="DispositionCodes"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_IPMRestrictedPart" 
+                        GROUP="FORM" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_FormulaIngredient,from"
+                        CHANGE_ASSESSMENT="relationship_FormulaIngredient,from,enoTemplate.SectionTableTypes.Formula_Ingredients,enoTemplateStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_FBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_FormulationPropagate,to,emxCPN.Common.FormulationFamily,emxCPNStringResource|relationship_PlannedFor,from,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_HypotheticalPrivateFormulationPart" 
+                        GROUP="FORM" 
+                        RELEASE="state_Complete"
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_FormulaIngredient,from"
+                        CHANGE_ASSESSMENT="relationship_FormulaIngredient,from,enoTemplate.SectionTableTypes.Formula_Ingredients,enoTemplateStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_FBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_FormulationPropagate,to,emxCPN.Common.FormulationFamily,emxCPNStringResource|relationship_PlannedFor,from,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_HypotheticalPublicFormulationPart" 
+                        GROUP="FORM" 
+                        RELEASE="state_Complete"
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_FormulaIngredient,from"
+                        CHANGE_ASSESSMENT="relationship_FormulaIngredient,from,enoTemplate.SectionTableTypes.Formula_Ingredients,enoTemplateStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_FBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_FormulationPropagate,to,emxCPN.Common.FormulationFamily,emxCPNStringResource|relationship_PlannedFor,from,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_ExperimentalFormulationPart" 
+                        GROUP="FORM" 
+                        FROZEN="state_Review" 
+                        PROPOSED_REQUIRED_STATE="state_Complete"
+                        RELEASE="state_Complete" 
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_FormulaIngredient,from"
+                        CHANGE_ASSESSMENT="relationship_FormulaIngredient,from,enoTemplate.SectionTableTypes.Formula_Ingredients,enoTemplateStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_FBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_FormulationPropagate,to,emxCPN.Common.FormulationFamily,emxCPNStringResource|relationship_PlannedFor,from,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_PilotFormulationPart" 
+                        GROUP="FORM" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_FormulaIngredient,from"
+                        CHANGE_ASSESSMENT="relationship_FormulaIngredient,from,enoTemplate.SectionTableTypes.Formula_Ingredients,enoTemplateStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_FBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_FormulationPropagate,to,emxCPN.Common.FormulationFamily,emxCPNStringResource|relationship_PlannedFor,from,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+            </type_FormulationPart>
+    		<type_ProcessTechnicalSpecification>
+                <POLICY NAME="policy_IPMRestrictedSpecification" 
+                        GROUP="FORM" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        SUPPORTREVISEANDCONFIG="YES"
+                        CHANGE_ASSESSMENT="relationship_PartSpecification,to,enoTechnicalSpec.Command.WhereUsed,enoTechnicalSpecsStringResource"/>
+            </type_ProcessTechnicalSpecification>
+            <type_CopyandGraphicsSpecification>
+                <POLICY NAME="policy_IPMSpecification" 
+                        GROUP="GLSPD" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        SUPPORTREVISEANDCONFIG="YES"
+                        CHANGE_ASSESSMENT="relationship_PartSpecification,to,enoTechnicalSpec.Command.WhereUsed,enoTechnicalSpecsStringResource"/>
+            </type_CopyandGraphicsSpecification>
+            <type_PackingProcessSpecification>
+                <POLICY NAME="policy_IPMSpecification" 
+                        GROUP="GLSPD" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        SUPPORTREVISEANDCONFIG="YES"
+                        CHANGE_ASSESSMENT="relationship_PartSpecification,to,enoTechnicalSpec.Command.WhereUsed,enoTechnicalSpecsStringResource"/>
+            </type_PackingProcessSpecification>
+            <type_PalletInformationSpecification>
+                <POLICY NAME="policy_IPMSpecification" 
+                        GROUP="GLSPD" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        SUPPORTREVISEANDCONFIG="YES"
+                        CHANGE_ASSESSMENT="relationship_PartSpecification,to,enoTechnicalSpec.Command.WhereUsed,enoTechnicalSpecsStringResource"/>
+            </type_PalletInformationSpecification>
+            <type_TestMethod>
+                <POLICY NAME="policy_IPMSpecification" 
+                        GROUP="FORMTM" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        SUPPORTREVISEANDCONFIG="YES"
+                        CHANGE_ASSESSMENT="relationship_PartSpecification,to,enoTechnicalSpec.Command.WhereUsed,enoTechnicalSpecsStringResource"/>
+            </type_TestMethod>
+    		<type_TestMethodSpecification>
+				<POLICY NAME="policy_IPMSpecification" 
+						GROUP="FORMTM" 
+						FROZEN="state_Review" 
+						APPROVE="state_Approved" 
+						AUTOAPPROVAL="true" 
+						PROPOSED_REQUIRED_STATE="state_Release" 
+						RELEASE="state_Release" 
+						OBSOLETE="state_Obsolete"
+						SUPPORTREVISEANDCONFIG="YES"/>
+			</type_TestMethodSpecification>
+    		<type_SharedTable>
+    			<POLICY NAME="policy_CommonTable" 
+    					GROUP="GLSPD" 
+    					FROZEN="state_Review" 
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					PROPOSED_REQUIRED_STATE="state_Release"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_ReferenceTable" 
+    					GROUP="GLSPD" 
+    					FROZEN="state_Review" 
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					PROPOSED_REQUIRED_STATE="state_Release"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_SharedTable>
+    		<type_Template>
+    			<POLICY NAME="policy_Template" 
+    					GROUP="TMPL" 
+    					FROZEN="state_Review" 
+    					APPROVE="state_Approved" 
+    					AUTOAPPROVAL="true" 
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete"
+    				 	PROPOSED_REQUIRED_STATE="state_Release"
+    					SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_Template>
+            <type_Formulation>
+                <POLICY NAME="policy_HypotheticalPrivateFormulation" 
+                        GROUP="FORM" 
+                        RELEASE="state_Complete"
+                        OBSOLETE="state_Obsolete" 
+                        RELEASEORDER="relationship_FormulationPropagate,from"
+                        CHANGE_ASSESSMENT="relationship_FormulationPropagate,from,emxCPN.Common.FormulationFamily,emxCPNStringResource|relationship_FormulationProcess,to,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_HypotheticalPublicFormulation" 
+                        GROUP="FORM" 
+                        RELEASE="state_Complete"
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_FormulationPropagate,from"
+                        CHANGE_ASSESSMENT="relationship_FormulationPropagate,from,emxCPN.Common.FormulationFamily,emxCPNStringResource|relationship_FormulationProcess,to,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_ExperimentalFormulation" 
+                        GROUP="FORM" 
+                        FROZEN="state_Review" 
+                        PROPOSED_REQUIRED_STATE="state_Complete"
+                        RELEASE="state_Complete" 
+                        OBSOLETE="state_Obsolete" 
+                        RELEASEORDER="relationship_FormulationPropagate,from"
+                        CHANGE_ASSESSMENT="relationship_FormulationPropagate,from,emxCPN.Common.FormulationFamily,emxCPNStringResource|relationship_FormulationProcess,to,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_PilotFormulation" 
+                        GROUP="FORM" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete" 
+                        RELEASEORDER="relationship_FormulationPropagate,from"
+                        CHANGE_ASSESSMENT="relationship_FormulationPropagate,from,emxCPN.Common.FormulationFamily,emxCPNStringResource|relationship_FormulationProcess,to,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_ProductionFormulation" 
+                        GROUP="FORM" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete" 
+                        RELEASEORDER="relationship_FormulationPropagate,from"
+                        CHANGE_ASSESSMENT="relationship_FormulationPropagate,from,emxCPN.Common.FormulationFamily,emxCPNStringResource|relationship_FormulationProcess,to,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+            </type_Formulation>
+            <type_FormulationProcess>
+                <POLICY NAME="policy_HypotheticalPrivateFormulationProcess" 
+                        GROUP="FORM" 
+                        RELEASE="state_Complete"
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_FBOM,from"
+                        CHANGE_ASSESSMENT="relationship_FormulationProcess,from,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PlannedFor,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_FBOM,from,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_HypotheticalPublicFormulationProcess" 
+                        GROUP="FORM" 
+                        RELEASE="state_Complete"
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_FBOM,from"
+                        CHANGE_ASSESSMENT="relationship_FormulationProcess,from,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PlannedFor,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_FBOM,from,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_ExperimentalFormulationProcess" 
+                        GROUP="FORM" 
+                        FROZEN="state_Review" 
+                        AUTOAPPROVAL="true"
+                        RELEASE="state_Complete" 
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_FBOM,from"
+                        CHANGE_ASSESSMENT="relationship_FormulationProcess,from,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PlannedFor,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_FBOM,from,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_PilotFormulationProcess" 
+                        GROUP="FORM" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_FBOM,from"
+                        CHANGE_ASSESSMENT="relationship_FormulationProcess,from,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PlannedFor,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_FBOM,from,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+                <POLICY NAME="policy_ProductionFormulationProcess" 
+                        GROUP="FORM" 
+                        FROZEN="state_Review" 
+                        APPROVE="state_Approved" 
+                        AUTOAPPROVAL="true" 
+                        PROPOSED_REQUIRED_STATE="state_Release"
+                        RELEASE="state_Release" 
+                        OBSOLETE="state_Obsolete"
+                        RELEASEORDER="relationship_FBOM,from"
+                        CHANGE_ASSESSMENT="relationship_FormulationProcess,from,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PlannedFor,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_FBOM,from,emxCPN.Common.FormulationFamily,emxCPNStringResource"
+                        SUPPORTREVISEANDCONFIG="YES"/>
+            </type_FormulationProcess>
+    		<type_VirtualIntermediate>
+				<POLICY NAME="policy_VirtualIntermediate" 
+						GROUP="FORM" 
+						FROZEN="state_Review" 
+						APPROVE="state_Approved" 
+						AUTOAPPROVAL="true" 
+						PROPOSED_REQUIRED_STATE="state_Release"
+						RELEASE="state_Release" 
+						OBSOLETE="state_Obsolete"
+						SUPPORTREVISEANDCONFIG="YES"/>
+			</type_VirtualIntermediate>
+    		<type_POA>
+    			<POLICY NAME="policy_POA" 
+    					GROUP="CAPPOA" 
+    					APPROVE="state_Review" 
+    					AUTOAPPROVAL="true" 
+    					RELEASE="state_Release"
+    				 	OBSOLETE="state_Obsolete"
+    				 	SUPPORTREVISEANDCONFIG="YES"
+    				 	SUPPORTPARENTCHECK="NO"/>
+    		</type_POA>
+    		<type_ArtworkFile>
+    			<POLICY NAME="policy_ArtworkFile" 
+    					GROUP="CAPPOA" 
+    					APPROVE="state_Review" 
+    					AUTOAPPROVAL="true"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_ArtworkFile>
+    		<type_Products>
+    			<POLICY NAME="policy_Product" 
+    					GROUP="PLCPM" 
+    					PROPOSED_REQUIRED_STATE="state_Release" 
+    					RELEASEORDER="relationship_LogicalFeatures,from|relationship_ManufacturingFeatures,from|relationship_ConfigurationFeatures,from|relationship_VariesBy,from|relationship_Derived,to"
+    				 	CHANGE_ASSESSMENT="relationship_LogicalFeatures,from,emxConfiguration.CA.LogicalFeatures,emxConfigurationStringResource|relationship_ConfigurationFeatures,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_VariesBy,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_ManufacturingFeatures,from,emxConfiguration.CA.ManufacturingFeatures,emxConfigurationStringResource|relationship_GBOM,from,emxConfiguration.CA.GBOM,emxConfigurationStringResource|relationship_DERIVED_ABSTRACT,to,emxConfiguration.CA.ParentProduct,emxConfigurationStringResource|relationship_ProductRequierments,from,emxProductLine.CA.ProductRequirements,emxProductLineStringResource"
+    					RELEASE="state_Release" 
+    					OBSOLETE="state_Obsolete"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_Products>
+    		<type_ProductVariant>
+    			<POLICY NAME="policy_ProductVariant" 
+    					GROUP="PLCPM" 
+    					PROPOSED_REQUIRED_STATE="state_Release" 
+    					RELEASEORDER="relationship_ProductVersion,to"
+    				 	CHANGE_ASSESSMENT="relationship_ConfigurationFeatures,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_GBOM,from,emxConfiguration.CA.GBOM,emxConfigurationStringResource|relationship_ProductVersion,to,emxConfiguration.CA.ParentProduct,emxConfigurationStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_ProductVariant>
+    		<type_LogicalFeature>
+    			<POLICY NAME="policy_LogicalFeature" 
+    					GROUP="FTRLF" 
+    					PROPOSED_REQUIRED_STATE="state_Release" 
+    					RELEASEORDER="relationship_LogicalFeatures,from|relationship_ManufacturingFeatures,from"
+    				 	CHANGE_ASSESSMENT="relationship_LogicalFeatures,from,emxConfiguration.CA.LogicalFeatures,emxConfigurationStringResource|relationship_ManufacturingFeatures,from,emxConfiguration.CA.ManufacturingFeatures,emxConfigurationStringResource|relationship_GBOM,from,emxConfiguration.CA.GBOM,emxConfigurationStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_LogicalFeature>
+    		<type_ManufacturingFeature>
+    			<POLICY NAME="policy_ManufacturingFeature" 
+    					GROUP="FTRMF" 
+    					PROPOSED_REQUIRED_STATE="state_Release" 
+    					RELEASEORDER="relationship_ManufacturingFeatures,from"
+    				 	CHANGE_ASSESSMENT="relationship_ManufacturingFeatures,from,emxConfiguration.CA.ManufacturingFeatures,emxConfigurationStringResource|relationship_GBOM,from,emxConfiguration.CA.GBOM,emxConfigurationStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_ManufacturingFeature>
+    		<type_ConfigurationFeature>
+    			<POLICY NAME="policy_ConfigurationFeature" 
+    					GROUP="FTRPM" 
+    					PROPOSED_REQUIRED_STATE="state_Release" 
+    					RELEASEORDER="" 
+    					CHANGE_ASSESSMENT="relationship_VariesBy,to,emxConfiguration.CA.VariesBy,emxConfigurationStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete"
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_ConfigurationFeature>
+    		<POLICIES>
+    			<POLICY NAME="VPLM_SMB_Resource" 
+    					FROZEN="state_UnderEvaluation" 
+    					RELEASE="state_Released" 
+    					OBSOLETE="state_Obsolete" 
+    					SUPPORTREVISEANDCONFIG="NO"/>
+    			<POLICY NAME="VPLM_SMB_Definition" 
+    					FROZEN="state_Approved" 
+    					RELEASE="state_Released" 
+    					OBSOLETE="state_Obsolete" 
+    					SUPPORTREVISEANDCONFIG="NO"/>
+    			<POLICY NAME="VPLM_SMB_Definition_Document" 
+    					FROZEN="state_UnderEvaluation" 
+    					RELEASE="state_Released" 
+    					OBSOLETE="state_Obsolete" 
+    					SUPPORTREVISEANDCONFIG="NO"/>
+    			<POLICY NAME="VPLM_SMB_Evaluation" 
+    					FROZEN="state_UnderEvaluation" 
+    					RELEASE="state_Released" 
+    					OBSOLETE="state_Obsolete" 
+    					SUPPORTREVISEANDCONFIG="NO"/>
+    		</POLICIES>
+    		<type_RequirementGroup>
+    			<POLICY NAME="policy_RequirementGroup" 
+    					GROUP="TRM" 
+    					RELEASEORDER="relationship_SubRequirementGroup,from|relationship_RequirementGroupContent,from"
+    				 	CHANGE_ASSESSMENT="relationship_SubRequirementGroup,from,emxRequirements.Heading.RequirementGroups,emxRequirementsStringResource|relationship_RequirementGroupContent,from,emxRequirements.TreeDisplaySettings.RequirementSpecifications,emxRequirementsStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete" 
+    				 	SUPPORTREVISEANDCONFIG="NO"/>
+    		</type_RequirementGroup>
+    		<type_SoftwareRequirementSpecification>
+    			<POLICY NAME="policy_RequirementSpecification" 
+    					GROUP="TRM" 
+    					RELEASEORDER="relationship_DerivedRequirementSpecification,from|relationship_SpecificationStructure,from"
+    				 	CHANGE_ASSESSMENT="relationship_SpecificationStructure,from,emxRequirements.ActionLink.RMTPrefExtendedSpecTree,emxRequirementsStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete"
+    				 	SUPPORTREVISEANDCONFIG="NO"/>
+    		</type_SoftwareRequirementSpecification>
+    		<type_Requirement>
+    			<POLICY NAME="policy_SoftwareUserRequirement" 
+    					GROUP="TRM" 
+    					RELEASEORDER="relationship_RequirementBreakdown,from|relationship_ParameterUsage,from"
+    				 	CHANGE_ASSESSMENT="relationship_RequirementBreakdown,from,emxRequirements.Command.RMTCreateSubRequirement,emxRequirementsStringResource|relationship_ParameterUsage,from,emxRequirements.TraceabilityReport.Requirement.Parameters.Name,emxRequirementsStringResource|relationship_RequirementUseCase,from,emxRequirements.RequirementStructureBrowser.UseCase,emxRequirementsStringResource|relationship_ProductRequirement,to,emxRequirements.FullTraceability.Requirement.Expand.ParentProducts.Name,emxRequirementsStringResource|relationship_RequirementSatisfiedBy,to,emxRequirements.FullTraceability.Requirement.Expand.SatisfiedFeatures.Name,emxRequirementsStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete" 
+    				 	SUPPORTREVISEANDCONFIG="NO"/>
+    		</type_Requirement>
+    		<type_Chapter>
+    			<POLICY NAME="policy_Chapter" 
+    					GROUP="TRM" 
+    					RELEASEORDER="relationship_SpecificationStructure,from"
+    				 	CHANGE_ASSESSMENT="relationship_SpecificationStructure,from,emxRequirements.ActionLink.RMTPrefExtendedSpecTree,emxRequirementsStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete" 
+    				 	SUPPORTREVISEANDCONFIG="NO"/>
+    		</type_Chapter>
+    		<type_Comment>
+    			<POLICY NAME="policy_Comment" 
+    					GROUP="TRM" 
+    					RELEASEORDER="relationship_SpecificationStructure,from"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete" 
+    				 	SUPPORTREVISEANDCONFIG="NO"/>
+    		</type_Comment>
+    		<type_UseCase>
+    			<POLICY NAME="policy_SoftwareUseCase" 
+    					GROUP="TRM" 
+    					RELEASEORDER="relationship_SubUseCase,from|relationship_RequirementUseCase,from"
+    				 	CHANGE_ASSESSMENT="relationship_SubUseCase,from,emxRequirements.RequirementStructureBrowser.UseCase,emxRequirementsStringResource"
+    				 	RELEASE="state_Release" 
+    				 	OBSOLETE="state_Obsolete" 
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_UseCase>
+    		<type_PlmParameter>
+    			<POLICY NAME="policy_ParameterAggregation" 
+    					GROUP="TRM" 
+    				 	EXISTS="state_Exists" 
+    				 	REQUESTED_CHANGE="For Release" 
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    			<POLICY NAME="policy_Parameter" 
+    					GROUP="TRM" 
+    				 	RELEASE="state_Released" 
+    				 	OBSOLETE="state_Obsolete" 
+    				 	SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_PlmParameter>
+    		<type_ServicesProduct>
+				<POLICY NAME="policy_ServicesProduct" 
+					GROUP="FBS" 
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete" 
+					FROZEN="state_Review" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+					RELEASEORDER="relationship_LogicalFeatures,from|relationship_ProductSpecification,from|relationship_ConfigurationFeatures,from"
+					CHANGE_ASSESSMENT="relationship_LogicalFeatures,from,FinancialServices.tree.NestedProducts,FinancialServicesStringResource|relationship_LogicalFeatures,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource|relationship_ProductSpecification,from,FinancialServices.Common.Specifications,FinancialServicesStringResource|relationship_ConfigurationFeatures,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_ReferenceDocument,from,FinancialServices.Common.ReferenceDocuments,FinancialServicesStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+				<POLICY NAME="policy_ServicesProductGA" 
+					GROUP="FBS" 
+					RELEASE="state_GeneralAvailability" 
+					OBSOLETE="state_Obsolete" 
+					PROPOSED_REQUIRED_STATE="state_GeneralAvailability"
+					CHANGE_ASSESSMENT="relationship_LogicalFeatures,from,FinancialServices.tree.NestedProducts,FinancialServicesStringResource|relationship_LogicalFeatures,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource|relationship_ProductSpecification,from,FinancialServices.Common.Specifications,FinancialServicesStringResource|relationship_ConfigurationFeatures,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_ReferenceDocument,from,FinancialServices.Common.ReferenceDocuments,FinancialServicesStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+				<POLICY NAME="policy_ServicesProductCancelled" 
+					GROUP="FBS" 
+					RELEASE="state_Cancelled" 
+					CHANGE_ASSESSMENT="relationship_LogicalFeatures,from,FinancialServices.tree.NestedProducts,FinancialServicesStringResource|relationship_LogicalFeatures,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource|relationship_ProductSpecification,from,FinancialServices.Common.Specifications,FinancialServicesStringResource|relationship_ConfigurationFeatures,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_ReferenceDocument,from,FinancialServices.Common.ReferenceDocuments,FinancialServicesStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			</type_ServicesProduct>
+    		<type_ServicesSpecification>
+    			<POLICY NAME="policy_ServicesSpecification" 
+    				GROUP="FBS" 
+    				RELEASE="state_Release" 
+    				OBSOLETE="state_Obsolete" 
+    				FROZEN="state_Review" 
+    				PROPOSED_REQUIRED_STATE="state_Release"
+    				RELEASEORDER="relationship_IsTranslation,from" 
+    				CHANGE_ASSESSMENT="relationship_ProductSpecification,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource" 
+    				SUPPORTREVISEANDCONFIG="YES"/>
+				<POLICY NAME="policy_ServicesSpecificationCancelled" 
+					GROUP="FBS" 
+					RELEASE="state_Cancelled" 
+					CHANGE_ASSESSMENT="relationship_ProductSpecification,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_ServicesSpecification>
+    		<type_ServicesDocument>
+    			<POLICY NAME="policy_ServicesDocument" 
+    				GROUP="FBS" 
+    				RELEASE="state_Release" 
+    				OBSOLETE="state_Obsolete" 
+    				FROZEN="state_Review" 
+    				PROPOSED_REQUIRED_STATE="state_Release"
+    				RELEASEORDER="relationship_IsTranslation,from" 
+    				CHANGE_ASSESSMENT="relationship_ReferenceDocument,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource" 
+    				SUPPORTREVISEANDCONFIG="YES"/>
+  			    <POLICY NAME="policy_ServicesDocumentCancelled" 
+					GROUP="FBS" 
+					RELEASE="state_Cancelled" 
+					CHANGE_ASSESSMENT="relationship_ReferenceDocument,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+    		</type_ServicesDocument>
+    		<type_ContractPriceItem>
+			<POLICY NAME="policy_ContractPriceItem" 
+					GROUP="AER" 
+					RELEASE="state_OnContract"
+					FROZEN="state_Authorized"
+					OBSOLETE="state_Closed" 
+					RELEASEORDER="relationship_SalesContractPriceItem,to" 
+					CHANGE_ASSESSMENT="relationship_SalesContractPriceItem,to,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource" 
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+		</type_ContractPriceItem>
+		<type_AnDSalesOrder>
+			<POLICY NAME="policy_AnDSalesOrder" 
+					GROUP="AER" 
+					FROZEN="state_Anticipated"
+					RELEASE="state_Authorized"
+					OBSOLETE="state_Closed" 
+					RELEASEORDER="relationship_WorkAuthorizationSalesOrder,to" 
+					CHANGE_ASSESSMENT="relationship_WorkAuthorizationSalesOrder,to,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource|relationship_SalesContractPriceItem,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource" 
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+		</type_AnDSalesOrder>
+		<type_WorkAuthorization>
+		<POLICY NAME="policy_WorkAuthorization" 
+					GROUP="AER"
+					FROZEN="state_Anticipated"
+					RELEASE="state_Authorized" 
+					OBSOLETE="state_Closed" 
+					CHANGE_ASSESSMENT="relationship_WorkAuthorizationSalesOrder,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+		</type_WorkAuthorization>
+		<type_CLIN>
+			<POLICY NAME="policy_CLIN" 
+					GROUP="AER"
+					FROZEN="state_Active"
+					RELEASE="state_Deliver" 
+					OBSOLETE="state_Close" 
+					RELEASEORDER="relationship_CLINWBSE,from|relationship_CLINCLIN,from|relationship_CLINCI,from"
+					CHANGE_ASSESSMENT="relationship_CLINWBSE,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource|relationship_CLINCLIN,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource|relationship_CLINCI,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+		</type_CLIN>
+		<type_WBSE>
+			<POLICY NAME="policy_WBSE" 
+					GROUP="AER"
+					RELEASEORDER="relationship_RequirementBreakdown,from"
+					CHANGE_ASSESSMENT="relationship_RequirementBreakdown,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource"
+					FROZEN="state_Assign"
+					RELEASE="state_Active" 
+					OBSOLETE="state_Closed" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+		</type_WBSE>
+		<type_WBSSpecification>
+			<POLICY NAME="policy_WBSSpecification" 
+					GROUP="AER"
+					RELEASEORDER="relationship_SpecificationStructure,from"
+					CHANGE_ASSESSMENT="relationship_SpecificationStructure,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource"
+					FROZEN="state_Review"
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+		</type_WBSSpecification>
+		<type_ContractRequirement>
+			<POLICY NAME="policy_SoftwareUserRequirement" 
+					GROUP="AER" 
+					RELEASEORDER="relationship_RequirementBreakdown,from"
+					CHANGE_ASSESSMENT="relationship_RequirementBreakdown,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource"
+					FROZEN="state_Frozen"
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete" 
+					SUPPORTREVISEANDCONFIG="NO"/>
+		</type_ContractRequirement>
+		<type_ContractDocumentation>
+			<POLICY NAME="policy_ContractDocument" 
+					GROUP="AER"
+					RELEASE="state_OnContract" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+		</type_ContractDocumentation>
+		<type_HardwareCI>
+			<POLICY NAME="policy_CI" 
+					GROUP="AER"
+					FROZEN="state_Active"
+					RELEASE="state_Deliver" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+		</type_HardwareCI>
+		<type_SoftwareCI>
+			<POLICY NAME="policy_CI" 
+					GROUP="AER"
+					FROZEN="state_Active"
+					RELEASE="state_Deliver" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+		</type_SoftwareCI>
+			<type_CATProduct>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_CATProduct>
+			<type_CATPart>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_CATPart>
+			<type_CATDrawing>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_CATDrawing>
+			<type_SWAssemblyFamily>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_InstanceOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_InstanceOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SWAssemblyFamily>
+			<type_SWAssemblyInstance>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SWAssemblyInstance>
+			<type_SWComponentFamily>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_InstanceOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_InstanceOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SWComponentFamily>
+			<type_SWComponentInstance>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWJoinPart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWBasePart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWWeldPart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWMirrorPart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWSplitPart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWExternalReference,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWJoinPart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWBasePart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWWeldPart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWMirrorPart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWSplitPart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_SWExternalReference,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SWComponentInstance>
+			<type_SWDrawing>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SWDrawing>
+			<type_INVAssembly>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_INVAssembly>
+			<type_INVComponent>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_INVComponent>
+			<type_INVPresentation>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_INVPresentation>
+			<type_INVDrawing>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_INVDrawing>
+			<type_INViPart>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_INViPart>
+			<type_INVPartFactory>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_InstanceOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_InstanceOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_INVPartFactory>
+			<type_INViAssembly>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_INViAssembly>
+			<type_INVAssemblyFactory>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_InstanceOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_InstanceOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_INVAssemblyFactory>
+			<type_SEAssembly>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SEAssembly>
+			<type_SEComponent>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|realtionship_SEDivdedPart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|realtionship_SEDivdedPart,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SEComponent>
+			<type_SEDrawing>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SEDrawing>
+			<type_SEAssemblyInstance>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SEAssemblyInstance>
+			<type_SEAssemblyFamily>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_InstanceOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_InstanceOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SEAssemblyFamily>
+			<type_SEWeldment>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_SEWeldment,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_SEWeldment,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SEWeldment>
+			<type_SESheetMetal>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SESheetMetal>
+			<type_ACADDrawing>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_AssociatedDrawing,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_ACADDrawing>
+			<type_ACADInsert>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADSubComponent,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_ACADInsert>
+			<type_AllegroDesignEntryHDLProject>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_ForwardAnnotation,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_BackwardAnnotation,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_ForwardAnnotation,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_BackwardAnnotation,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AllegroDesignEntryHDLProject>
+			<type_AllegroDesignEntryHDLVariant>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AllegroDesignEntryHDLVariant>
+			<type_AllegroDesignEntryHDLSchematic>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AllegroDesignEntryHDLSchematic>
+			<type_AllegroDesignEntryHDLForwardAnnotation>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_ForwardAnnotation,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_ForwardAnnotation,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AllegroDesignEntryHDLForwardAnnotation>
+			<type_AllegroPCBProject>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_BackwardAnnotation,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_ForwardAnnotation,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource||relationship_AllegroDesignEntryCISNetlistOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_Layout,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_BackwardAnnotation,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_ForwardAnnotation,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource||relationship_AllegroDesignEntryCISNetlistOf,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_Layout,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AllegroPCBProject>
+			<type_AllegroPCBBackwardAnnotation>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_BackwardAnnotation,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_AllegroDesignEntryCISNetlistOf,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_BackwardAnnotation,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource|relationship_AllegroDesignEntryCISNetlistOf,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AllegroPCBBackwardAnnotation>
+			<type_MentorPCBDesign>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_MentorPCBDesign>
+			<type_MentorPCBVariant>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_MentorPCBVariant>
+			<type_MentorEEDxDesignerProject>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_MentorEEDxDesignerProject>
+			<type_MentorEEDxDesignerVariant>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_MentorEEDxDesignerVariant>
+			<type_SystemDesignerDesignProject>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SystemDesignerDesignProject>
+			<type_SystemDesignerSchematic>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SystemDesignerSchematic>
+			<type_SystemDesignerVariantDesign>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_SystemDesignerVariantDesign>
+			<type_BoardDesignerDesignProject>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="Relationship_Layout,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Panel,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Panel,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|Relationship_Layout,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="Relationship_Layout,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Panel,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Panel,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|Relationship_Layout,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_BoardDesignerDesignProject>
+			<type_AllegroDesignEntryCISProject>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_AllegroDesignEntryCISNetlistOf,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_BackwardAnnotation,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Layout,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_AllegroDesignEntryCISNetlistOf,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_BackwardAnnotation,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Layout,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AllegroDesignEntryCISProject>
+			<type_AllegroDesignEntryCISVariant>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AllegroDesignEntryCISVariant>
+			<type_AllegroDesignEntryCISNetlist>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AllegroDesignEntryCISNetlistOf,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_AllegroDesignEntryCISNetlistOf,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AllegroDesignEntryCISNetlist>
+			<type_PADSLogicProject>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_PADSLogicProject>
+			<type_PADSLayoutProject>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_PADSLayoutProject>
+			<type_PADSLayoutVariant>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_PADSLayoutVariant>
+			<type_AltiumDesignerPCBProject>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Layout,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Layout,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AltiumDesignerPCBProject>
+			<type_AltiumDesignPCBProjectArchive>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AltiumDesignPCBProjectArchive>
+			<type_AltiumDesignerVariant>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_CADDesignVariant,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AltiumDesignerVariant>
+			<type_AltiumDesignerSchematic>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_Schematic,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_Schematic,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource|relationship_Schematic,to,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AltiumDesignerSchematic>
+			<type_AltiumDesignerDeviceSheet>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_Schematic,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_Schematic,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AltiumDesignerDeviceSheet>
+			<type_AltiumDesignerPCB>
+				<POLICY NAME="policy_DesignTEAMDefinition" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_Layout,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release" 
+				        OBSOLETE="state_Obsolete" 
+				        FROZEN="state_Frozen"/>
+				<POLICY NAME="policy_DesignPolicy" 		
+				        GROUP="DEC" 
+				        CHANGE_ASSESSMENT="relationship_Layout,from,EnterpriseChangeMgt.Command.ChangeAssessedObject,emxEnterpriseChangeMgtStringResource"
+				        RELEASE="state_Release"
+    					OBSOLETE="state_Obsolete"
+    					FROZEN="state_Review"/>
+			</type_AltiumDesignerPCB>
+			<type_Document>
+				<POLICY NAME="policy_Document" 
+						GROUP="BPS" 
+						RELEASE="state_RELEASED"
+						OBSOLETE="state_OBSOLETE"
+						FROZEN="state_FROZEN"
+						AUTOAPPROVAL="true"
+						CHANGE_ASSESSMENT="relationship_ReferenceDocument,from,emxFramework.Command.WhereUsed,emxFrameworkStringResource"
+						SUPPORTREVISEANDCONFIG="YES"/>
+			</type_Document>
+    	</CHANGETYPES>
+	<POLICIES>
+		<POLICY NAME="policy_ECPart" 
+					GROUP="ENG" 
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete" 
+					FROZEN="state_Review"  
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+					RELEASEORDER="relationship_PartSpecification,from|relationship_EBOM,from" 
+					CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource|relationship_PartRouting,from,emxLES.Command.LESPartRoutingAndWorkCentersPart.Label,emxLESStringResource"
+					CUSTOM_ATTRIBUTES="DispositionCodes"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_StandardPart" 
+					GROUP="ENG" 
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release" 
+				 	RELEASEORDER="relationship_PartSpecification,from|relationship_EBOM,from" CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource"
+				 	CUSTOM_ATTRIBUTES="DispositionCodes"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ConfiguredPart" 
+					GROUP="ENG" 
+					RELEASE="state_Release" 
+					FROZEN="state_Preliminary" 
+					PROPOSED_REQUIRED_STATE="state_Preliminary"	
+					REQUESTED_CHANGE="For Update" 
+					CHANGE_ASSESSMENT="relationship_EBOM,from,emxEngineeringCentral.Part.EBOM,emxEngineeringCentralStringResource|relationship_EBOM,to,emxFramework.Command.WhereUsed,emxEngineeringCentralStringResource|relationship_PartSpecification,from,emxEngineeringCentral.Common.RelatedSpecs,emxEngineeringCentralStringResource|relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource|relationship_PartRouting,from,emxLES.Command.LESPartRoutingAndWorkCentersPart.Label,emxLESStringResource"
+				 	CUSTOM_ATTRIBUTES="DispositionCodes"
+				 	SUPPORTREVISEANDCONFIG="NO"/>			
+			<POLICY NAME="policy_PartSpecification" 
+					GROUP="ENG" 
+					CHANGE_ASSESSMENT="relationship_PartSpecification,to,emxFramework.Command.SpecRelatedParts,emxEngineeringCentralStringResource"
+				 	RELEASE="state_Release" 
+				 	FROZEN="state_Review" 
+				 	APPROVE="state_Approved" 					
+				 	AUTOAPPROVAL="true"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_CADDrawing" 
+					GROUP="ENG" 
+					CHANGE_ASSESSMENT="relationship_PartSpecification,to,emxFramework.Command.SpecRelatedParts,emxEngineeringCentralStringResource"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete" 
+				 	FROZEN="state_Review" 
+				 	APPROVE="state_Approved" 
+				 	AUTOAPPROVAL="true"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_DesignPolicy" 
+					GROUP="DEC" 
+					RELEASE="state_Release"
+    				OBSOLETE="state_Obsolete"
+    				FROZEN="state_Review"/>
+			<POLICY NAME="policy_DesignTEAMDefinition" 
+					GROUP="DEC" 
+					FROZEN="state_Review"
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_InventorDesign" 
+					GROUP="DEC" 
+					RELEASE="state_Release"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_CATIAV5DesignPolicy" 
+					GROUP="DEC" 
+					RELEASE="state_Release"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_SolidWorksDesign" 
+					GROUP="DEC" 
+					RELEASE="state_Release"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_SolidEdgeDesign" 
+					GROUP="DEC" 
+					RELEASE="state_Release"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_AutoCADDesign" 
+					GROUP="DEC" 
+					RELEASE="state_Release"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_MicroStationDesign" 
+					GROUP="DEC" 
+					RELEASE="state_Release"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ProENGINEERDesign" 
+					GROUP="DEC" 
+					RELEASE="state_Release"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_NXDesign" 
+					GROUP="DEC" 
+					RELEASE="state_Release"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_CADModel" 
+					GROUP="ENG" 
+					CHANGE_ASSESSMENT="relationship_PartSpecification,to,emxFramework.Command.SpecRelatedParts,emxEngineeringCentralStringResource"
+				 	RELEASE="state_Release" 
+				 	FROZEN="state_Review" 
+				 	APPROVE="state_Approved" 
+				 	AUTOAPPROVAL="true"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_DrawingPrint" 
+					GROUP="ENG" 
+					CHANGE_ASSESSMENT="relationship_PartSpecification,to,emxFramework.Command.SpecRelatedParts,emxEngineeringCentralStringResource"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete" 
+				 	FROZEN="state_Review" 
+				 	APPROVE="state_Approved" 
+				 	AUTOAPPROVAL="true"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ControlledDocuments" 
+					GROUP="DCL" 
+					CHANGE_ASSESSMENT="relationship_ReferenceDocument,from,enoDocumentControl.Label.ReferenceDocument,enoDocumentControlStringResource|relationship_ReferenceDocument,to,enoDocumentControl.Label.WhereUsedControlledDocuments,enoDocumentControlStringResource|relationship_ProcessDocuments,to,enoDocumentControl.Label.WhereUsedParts,enoDocumentControlStringResource" 
+					RELEASE="state_Approved" 
+					OBSOLETE="state_Obsolete"
+					SUPPORTREVISEANDCONFIG="YES"/>	
+			<POLICY NAME="policy_PartRoutingInProduction" 
+					GROUP="LES" 
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete"
+				 	APPROVE="state_Approved" 
+				 	AUTOAPPROVAL="true" 
+				 	RELEASEORDER="relationship_WorkCenter,from"
+					CHANGE_ASSESSMENT="relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource|relationship_WorkCenter,from,emxLES.Command.LESPartRoutingWorkCenters.Label,emxLESStringResource"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_WorkCenter" 
+					GROUP="LES" 
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete"
+				 	APPROVE="state_Approved" 
+				 	AUTOAPPROVAL="true" 
+				 	CHANGE_ASSESSMENT="relationship_ProcessDocuments,from,emxLES.Command.LESProcessDocuments.Label,emxLESStringResource"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_PilotProductData" 
+					GROUP="GLSPD" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete" 
+				 	RELEASEORDER="relationship_EBOM,from|relationship_PartSpecification,from"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_IPMPart" 
+					GROUP="GLSPD" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release" 
+					RELEASE="state_Release"
+				 	OBSOLETE="state_Obsolete" 
+				 	RELEASEORDER="relationship_EBOM,from|relationship_PartSpecification,from"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_IPMRestrictedPart" 
+                    GROUP="FORM" 
+                    FROZEN="state_Review" 
+                    APPROVE="state_Approved" 
+                    AUTOAPPROVAL="true" 
+                    PROPOSED_REQUIRED_STATE="state_Release"
+                    RELEASE="state_Release" 
+                    OBSOLETE="state_Obsolete"
+                    RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_FormulaIngredient,from"
+                    SUPPORTREVISEANDCONFIG="YES"/>
+            <POLICY NAME="policy_HypotheticalPrivateFormulationPart" 
+                    GROUP="FORM" 
+                    RELEASE="state_Complete"
+                    OBSOLETE="state_Obsolete"
+                    RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_FormulaIngredient,from"
+                    SUPPORTREVISEANDCONFIG="YES"/>
+            <POLICY NAME="policy_HypotheticalPublicFormulationPart" 
+                    GROUP="FORM" 
+                    RELEASE="state_Complete"
+                    OBSOLETE="state_Obsolete"
+                    RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_FormulaIngredient,from"
+                    SUPPORTREVISEANDCONFIG="YES"/>
+            <POLICY NAME="policy_ExperimentalFormulationPart" 
+                    GROUP="FORM" 
+                    FROZEN="state_Review" 
+                    PROPOSED_REQUIRED_STATE="state_Complete"
+                    RELEASE="state_Complete" 
+                    OBSOLETE="state_Obsolete"
+                    RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_FormulaIngredient,from"
+                    SUPPORTREVISEANDCONFIG="YES"/>
+            <POLICY NAME="policy_PilotFormulationPart" 
+                    GROUP="FORM" 
+                    FROZEN="state_Review" 
+                    APPROVE="state_Approved" 
+                    AUTOAPPROVAL="true" 
+                    PROPOSED_REQUIRED_STATE="state_Release"
+                    RELEASE="state_Release" 
+                    OBSOLETE="state_Obsolete"
+                    RELEASEORDER="relationship_PartSpecification,from|relationship_PlannedFor,from|relationship_FormulaIngredient,from"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_IPMRestrictedSpecification" 
+					GROUP="FORM" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_IPMSpecification" 
+					GROUP="GLSPD" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_CommonTable" 
+					GROUP="GLSPD" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ReferenceTable" 
+					GROUP="GLSPD" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_Template" 
+					GROUP="TMPL" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete"
+				 	PROPOSED_REQUIRED_STATE="state_Release"
+					SUPPORTREVISEANDCONFIG="YES"/>
+            <POLICY NAME="policy_HypotheticalPrivateFormulation" 
+            		GROUP="FORM" 
+            		RELEASE="state_Complete"
+            		OBSOLETE="state_Obsolete" 
+            		RELEASEORDER="relationship_FormulationPropagate,from"
+            		SUPPORTREVISEANDCONFIG="YES"/>
+            <POLICY NAME="policy_HypotheticalPublicFormulation" 
+            		GROUP="FORM" 
+            		RELEASE="state_Complete"
+            		OBSOLETE="state_Obsolete"
+            		RELEASEORDER="relationship_FormulationPropagate,from"
+            		SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ExperimentalFormulation" 
+					GROUP="FORM" 
+					FROZEN="state_Review" 
+					PROPOSED_REQUIRED_STATE="state_Complete"
+				 	RELEASE="state_Complete" 
+				 	OBSOLETE="state_Obsolete" 
+				 	RELEASEORDER="relationship_FormulationPropagate,from"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_PilotFormulation" 
+					GROUP="FORM" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete" 
+				 	RELEASEORDER="relationship_FormulationPropagate,from"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ProductionFormulation" 
+					GROUP="FORM" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete" 
+				 	RELEASEORDER="relationship_FormulationPropagate,from"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_HypotheticalPrivateFormulationProcess" 
+					GROUP="FORM" 
+					RELEASE="state_Complete"
+					OBSOLETE="state_Obsolete"
+					RELEASEORDER="relationship_FBOM,from"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_HypotheticalPublicFormulationProcess" 
+					GROUP="FORM" 
+					RELEASE="state_Complete"
+					OBSOLETE="state_Obsolete"
+					RELEASEORDER="relationship_FBOM,from"
+					SUPPORTREVISEANDCONFIG="YES"/>
+            <POLICY NAME="policy_ExperimentalFormulationProcess" 
+            		GROUP="FORM" 
+            		FROZEN="state_Review" 
+            		AUTOAPPROVAL="true"
+                    RELEASE="state_Complete" 
+                    OBSOLETE="state_Obsolete"
+                    RELEASEORDER="relationship_FBOM,from"
+                    SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_PilotFormulationProcess" 
+					GROUP="FORM" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	RELEASEORDER="relationship_FBOM,from"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ProductionFormulationProcess" 
+					GROUP="FORM" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	RELEASEORDER="relationship_FBOM,from"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_VirtualIntermediate" 
+					GROUP="FORM" 
+					FROZEN="state_Review" 
+					APPROVE="state_Approved" 
+					AUTOAPPROVAL="true" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_POA" 
+					GROUP="CAPPOA" 
+					APPROVE="state_Review" 
+					AUTOAPPROVAL="true" 
+					RELEASE="state_Release"
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"
+				 	SUPPORTPARENTCHECK="NO"/>
+			<POLICY NAME="policy_ArtworkFile" 
+					GROUP="CAPPOA" 
+					APPROVE="state_Review" 
+					AUTOAPPROVAL="true"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_Product" 
+					GROUP="PLCPM" 
+					PROPOSED_REQUIRED_STATE="state_Release" 
+					RELEASEORDER="relationship_LogicalFeatures,from|relationship_ManufacturingFeatures,from|relationship_ConfigurationFeatures,from|relationship_Derived,to"
+				 	CHANGE_ASSESSMENT="relationship_LogicalFeatures,from,emxConfiguration.CA.LogicalFeatures,emxConfigurationStringResource|relationship_ConfigurationFeatures,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_VariesBy,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_ManufacturingFeatures,from,emxConfiguration.CA.ManufacturingFeatures,emxConfigurationStringResource|relationship_GBOM,from,emxConfiguration.CA.GBOM,emxConfigurationStringResource|relationship_Derived,to,emxConfiguration.CA.ParentProduct,emxConfigurationStringResource"
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ProductVariant" 
+					GROUP="PLCPM" 
+					PROPOSED_REQUIRED_STATE="state_Release" 
+					RELEASEORDER="relationship_ProductVersion,to"
+				 	CHANGE_ASSESSMENT="relationship_ConfigurationFeatures,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_GBOM,from,emxConfiguration.CA.GBOM,emxConfigurationStringResource|relationship_ProductVersion,to,emxConfiguration.CA.ParentProduct,emxConfigurationStringResource"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_LogicalFeature" 
+					GROUP="FTRLF" 
+					PROPOSED_REQUIRED_STATE="state_Release" 
+					RELEASEORDER="relationship_LogicalFeatures,from|relationship_ManufacturingFeatures,from"
+				 	CHANGE_ASSESSMENT="relationship_LogicalFeatures,from,emxConfiguration.CA.LogicalFeatures,emxConfigurationStringResource|relationship_ManufacturingFeatures,from,emxConfiguration.CA.ManufacturingFeatures,emxConfigurationStringResource|relationship_GBOM,from,emxConfiguration.CA.GBOM,emxConfigurationStringResource"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ManufacturingFeature" 
+					GROUP="FTRMF" 
+					PROPOSED_REQUIRED_STATE="state_Release" 
+					RELEASEORDER="relationship_ManufacturingFeatures,from"
+				 	CHANGE_ASSESSMENT="relationship_ManufacturingFeatures,from,emxConfiguration.CA.ManufacturingFeatures,emxConfigurationStringResource|relationship_GBOM,from,emxConfiguration.CA.GBOM,emxConfigurationStringResource"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ConfigurationFeature" 
+					GROUP="FTRPM" 
+					PROPOSED_REQUIRED_STATE="state_Release" 
+					RELEASEORDER="" 
+					CHANGE_ASSESSMENT="relationship_VariesBy,to,emxConfiguration.CA.VariesBy,emxConfigurationStringResource"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_VPLM_SMB_Resource" 
+					FROZEN="state_UnderEvaluation" 
+					RELEASE="state_Released" 
+					OBSOLETE="state_Obsolete" 
+					SUPPORTREVISEANDCONFIG="NO"/>
+			<POLICY NAME="policy_VPLM_SMB_Definition" 
+					FROZEN="state_Approved" 
+					RELEASE="state_Released" 
+					OBSOLETE="state_Obsolete" 
+					SUPPORTREVISEANDCONFIG="NO"/>
+			<POLICY NAME="VPLM_SMB_Definition_Document" 
+    				FROZEN="state_UnderEvaluation" 
+    				RELEASE="state_Released" 
+    				OBSOLETE="state_Obsolete" 
+    				SUPPORTREVISEANDCONFIG="NO"/>
+			<POLICY NAME="policy_VPLM_SMB_Evaluation" 
+					FROZEN="state_UnderEvaluation" 
+					RELEASE="state_Released" 
+					OBSOLETE="state_Obsolete" 
+					SUPPORTREVISEANDCONFIG="NO"/>
+			<POLICY NAME="policy_RequirementGroup" 
+					GROUP="TRM" 
+					RELEASEORDER="relationship_SubRequirementGroup,from|relationship_RequirementGroupContent,from"
+				 	CHANGE_ASSESSMENT="relationship_SubRequirementGroup,from,emxRequirements.Heading.RequirementGroups,emxRequirementsStringResource|relationship_RequirementGroupContent,from,emxRequirements.TreeDisplaySettings.RequirementSpecifications,emxRequirementsStringResource"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete" 
+				 	SUPPORTREVISEANDCONFIG="NO"/>
+			<POLICY NAME="policy_RequirementSpecification" 
+					GROUP="TRM" 
+					RELEASEORDER="relationship_DerivedRequirementSpecification,from|relationship_SpecificationStructure,from"
+				 	CHANGE_ASSESSMENT="relationship_SpecificationStructure,from,emxRequirements.ActionLink.RMTPrefExtendedSpecTree,emxRequirementsStringResource"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete"
+				 	SUPPORTREVISEANDCONFIG="NO"/>
+			<POLICY NAME="policy_SoftwareUserRequirement" 
+					GROUP="TRM" 
+					RELEASEORDER="relationship_RequirementBreakdown,from|relationship_ParameterUsage,from"
+				 	CHANGE_ASSESSMENT="relationship_RequirementBreakdown,from,emxRequirements.Command.RMTCreateSubRequirement,emxRequirementsStringResource|relationship_ParameterUsage,from,emxRequirements.TraceabilityReport.Requirement.Parameters.Name,emxRequirementsStringResource|relationship_RequirementUseCase,from,emxRequirements.RequirementStructureBrowser.UseCase,emxRequirementsStringResource|relationship_ProductRequirement,to,emxRequirements.FullTraceability.Requirement.Expand.ParentProducts.Name,emxRequirementsStringResource|relationship_RequirementSatisfiedBy,to,emxRequirements.FullTraceability.Requirement.Expand.SatisfiedFeatures.Name,emxRequirementsStringResource"
+				 	FROZEN="state_Frozen"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete" 
+				 	SUPPORTREVISEANDCONFIG="NO"/>
+			<POLICY NAME="policy_Chapter" 
+					GROUP="TRM" 
+					RELEASEORDER="relationship_SpecificationStructure,from"
+				 	CHANGE_ASSESSMENT="relationship_SpecificationStructure,from,emxRequirements.ActionLink.RMTPrefExtendedSpecTree,emxRequirementsStringResource"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete" 
+				 	SUPPORTREVISEANDCONFIG="NO"/>
+			<POLICY NAME="policy_Comment" 
+					GROUP="TRM" 
+					RELEASEORDER="relationship_SpecificationStructure,from"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete" 
+				 	SUPPORTREVISEANDCONFIG="NO"/>
+			<POLICY NAME="policy_SoftwareUseCase" 
+					GROUP="TRM" 
+					RELEASEORDER="relationship_SubUseCase,from|relationship_RequirementUseCase,from"
+				 	CHANGE_ASSESSMENT="relationship_SubUseCase,from,emxRequirements.RequirementStructureBrowser.UseCase,emxRequirementsStringResource"
+				 	RELEASE="state_Release" 
+				 	OBSOLETE="state_Obsolete" 
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ParameterAggregation" 
+					GROUP="TRM" 
+				 	EXISTS="state_Exists" 
+				 	REQUESTED_CHANGE="For Release" 
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_Parameter" 
+					GROUP="TRM" 
+				 	RELEASE="state_Released" 
+				 	OBSOLETE="state_Obsolete" 
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ServicesProduct" 
+					GROUP="FBS" 
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete" 
+					FROZEN="state_Review" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+					RELEASEORDER="relationship_LogicalFeatures,from|relationship_ProductSpecification,from|relationship_ConfigurationFeatures,from"
+					CHANGE_ASSESSMENT="relationship_LogicalFeatures,from,FinancialServices.tree.NestedProducts,FinancialServicesStringResource|relationship_LogicalFeatures,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource|relationship_ProductSpecification,from,FinancialServices.Common.Specifications,FinancialServicesStringResource|relationship_ConfigurationFeatures,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_ReferenceDocument,from,FinancialServices.Common.ReferenceDocuments,FinancialServicesStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ServicesProductCancelled" 
+					GROUP="FBS" 
+					RELEASE="state_Cancelled"
+					CHANGE_ASSESSMENT="relationship_LogicalFeatures,from,FinancialServices.tree.NestedProducts,FinancialServicesStringResource|relationship_LogicalFeatures,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource|relationship_ProductSpecification,from,FinancialServices.Common.Specifications,FinancialServicesStringResource|relationship_ConfigurationFeatures,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_ReferenceDocument,from,FinancialServices.Common.ReferenceDocuments,FinancialServicesStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ServicesProductGA" 
+					GROUP="FBS" 
+					RELEASE="state_GeneralAvailability" 
+					OBSOLETE="state_Obsolete" 
+					PROPOSED_REQUIRED_STATE="state_GeneralAvailability"
+					CHANGE_ASSESSMENT="relationship_LogicalFeatures,from,FinancialServices.tree.NestedProducts,FinancialServicesStringResource|relationship_LogicalFeatures,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource|relationship_ProductSpecification,from,FinancialServices.Common.Specifications,FinancialServicesStringResource|relationship_ConfigurationFeatures,from,emxConfiguration.CA.ConfigurationFeatures,emxConfigurationStringResource|relationship_ReferenceDocument,from,FinancialServices.Common.ReferenceDocuments,FinancialServicesStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ServicesSpecification" 
+					GROUP="FBS" 
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete" 
+					FROZEN="state_Review" 
+					PROPOSED_REQUIRED_STATE="state_Release"
+				 	RELEASEORDER="relationship_IsTranslation,from" 
+				 	CHANGE_ASSESSMENT="relationship_ProductSpecification,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource" 
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ServicesSpecificationCancelled" 
+					GROUP="FBS" 
+					RELEASE="state_Cancelled" 
+					CHANGE_ASSESSMENT="relationship_ProductSpecification,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ServicesDocument" 
+    				GROUP="FBS" 
+    				RELEASE="state_Release" 
+    				OBSOLETE="state_Obsolete" 
+    				FROZEN="state_Review" 
+    				PROPOSED_REQUIRED_STATE="state_Release"
+    				RELEASEORDER="relationship_IsTranslation,from" 
+    				CHANGE_ASSESSMENT="relationship_ReferenceDocument,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource" 
+    				SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ServicesDocumentCancelled" 
+					GROUP="FBS" 
+					RELEASE="state_Cancelled" 
+					CHANGE_ASSESSMENT="relationship_ReferenceDocument,to,emxFramework.Command.WhereUsed,emxFrameworkStringResource" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ContractPriceItem" 
+					GROUP="AER" 
+					RELEASE="state_OnContract"
+					FROZEN="state_Authorized"
+					OBSOLETE="state_Closed" 
+					RELEASEORDER="relationship_SalesContractPriceItem,to" 
+					CHANGE_ASSESSMENT="relationship_SalesContractPriceItem,to,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource" 
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_AnDSalesOrder" 
+					GROUP="AER" 
+					FROZEN="state_Anticipated"
+					RELEASE="state_Authorized"
+					OBSOLETE="state_Closed" 
+					RELEASEORDER="relationship_WorkAuthorizationSalesOrder,to" 
+					CHANGE_ASSESSMENT="relationship_WorkAuthorizationSalesOrder,to,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource|relationship_SalesContractPriceItem,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource" 
+				 	SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_WorkAuthorization" 
+					GROUP="AER"
+					FROZEN="state_Anticipated"
+					RELEASE="state_Authorized" 
+					OBSOLETE="state_Closed" 
+					CHANGE_ASSESSMENT="relationship_WorkAuthorizationSalesOrder,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_CLIN" 
+					GROUP="AER"
+					FROZEN="state_Active"
+					RELEASE="state_Deliver" 
+					OBSOLETE="state_Close" 
+					RELEASEORDER="relationship_CLINWBSE,from|relationship_CLINCLIN,from|relationship_CLINCI,from"
+					CHANGE_ASSESSMENT="relationship_CLINWBSE,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource|relationship_CLINCLIN,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource|relationship_CLINCI,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_WBSE" 
+					GROUP="AER"
+					RELEASEORDER="relationship_RequirementBreakdown,from"
+					CHANGE_ASSESSMENT="relationship_RequirementBreakdown,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource"
+					FROZEN="state_Assign"
+					RELEASE="state_Active" 
+					OBSOLETE="state_Closed" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_WBSSpecification" 
+					GROUP="AER"
+					RELEASEORDER="relationship_SpecificationStructure,from"
+					CHANGE_ASSESSMENT="relationship_SpecificationStructure,from,emxFramework.LifecycleTasks.RelatedObjects,emxFrameworkStringResource"
+					FROZEN="state_Review"
+					RELEASE="state_Release" 
+					OBSOLETE="state_Obsolete" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_ContractDocument" 
+					GROUP="AER"
+					RELEASE="state_OnContract" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_CI" 
+					GROUP="AER"
+					FROZEN="state_Active"
+					RELEASE="state_Deliver" 
+					SUPPORTREVISEANDCONFIG="YES"/>
+			<POLICY NAME="policy_Document" 
+					GROUP="BPS" 
+					RELEASE="state_RELEASED"
+					OBSOLETE="state_OBSOLETE"
+					FROZEN="state_FROZEN"
+					AUTOAPPROVAL="true"
+					CHANGE_ASSESSMENT="relationship_ReferenceDocument,from,emxFramework.Command.WhereUsed,emxFrameworkStringResource"
+					SUPPORTREVISEANDCONFIG="YES"/>
+		</POLICIES>
+	<CHECKS>
+		<CHECK TYPE="type_Part" ACTION="DELETE" OPERATION="ALL" CLASS="com.dassault_systemes.enovia.bom.modeler.util.BOMMgtUtil" METHOD="deleteCheckAndActionMarkups"/>
+		<CHECK TYPE="type_Part" ACTION="ADD" OPERATION="ALL" CLASS="com.dassault_systemes.enovia.bom.modeler.util.BOMMgtUtil" METHOD="moveMarkupsOpening"/>
+		<CHECK TYPE="type_Part" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_Libraries" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_Classification" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_HardwareProduct" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_LogicalFeature" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_Viewable" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_Product" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_ENOCLG_LibraryReference" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_ENOCLG_ClassReference" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_VPMReference" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_VPMRepReference" ACTION="ADD" OPERATION="REVISE" CLASS="ChangeActionServices" METHOD="isAttachmentToCAAuthorized"/>
+		<CHECK TYPE="type_CONTROLLEDDOCUMENTS" ACTION="ADD" OPERATION="ALL" CLASS="com.dassault_systemes.enovia.dcl.service.impl.ControlledDocumentServiceImpl" METHOD="validateControlledDocument"/>
+	</CHECKS>
+</ECM>
+
+

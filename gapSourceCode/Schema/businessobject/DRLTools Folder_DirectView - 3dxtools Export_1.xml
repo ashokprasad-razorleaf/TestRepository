@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Folder</type>
+            <name>DirectView - 3dxtools Export</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Relationship Action Trigger</toType>
+                    <toName>Create_Data Vaults</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Relationship Action Trigger</toType>
+                    <toName>Create_Part Specification</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Relationship Action Trigger</toType>
+                    <toName>Create_Sub Vaults</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Relationship Action Trigger</toType>
+                    <toName>Create_Vaulted Objects</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Relationship Action Trigger</toType>
+                    <toName>Delete_Data Vaults</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Relationship Action Trigger</toType>
+                    <toName>Delete_Part Specification</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Relationship Action Trigger</toType>
+                    <toName>Delete_Sub Vaults</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Relationship Action Trigger</toType>
+                    <toName>Delete_Vaulted Objects</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Relationship Action Trigger</toType>
+                    <toName>PlaceHolderPartSpecification</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Type Action Trigger</toType>
+                    <toName>ChangeName_Workspace</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Type Action Trigger</toType>
+                    <toName>Placeholder_DirectView_Export</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

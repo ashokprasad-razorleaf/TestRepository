@@ -1,0 +1,13 @@
+INSTRUCTIONS:
+
+1.HistoryPurgeProcessor More-Info : Monitor_History_Management_Setup_and_Usermanual.docx
+------------------------------------------------------------------------------------------
+1.1 Copy Jar
+	Create 3dx Processor and copy HistoryPurgeProcessor.jar from \\HistoryPurgeProcessor to \\Designrule\3dxprocessor\drV6Tools.JobServer.Service.Instances\HistoryPurgeProcessor\lib
+
+2.HistoryPublishProcessor More-Info : Monitor_History_Management_Setup_and_Usermanual.docx
+-------------------------------------------------------------------------------------------
+2.1 Run Below DB script:
+	sqlcmd -S localhost -i \\HistoryPublishProcessor\historymonitor_2019x_v1.sql
+2.2 Copy Jar
+	Create 3dx Processor and copy HistoryPublishProcessor.jar and mssql-jdbc-8.2.2.jre8.jar from \\HistoryPublishProcessor to \\Designrule\3dxprocessor\drV6Tools.JobServer.Service.Instances\HistoryPublishProcessor\lib

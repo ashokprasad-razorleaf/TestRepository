@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Create Object Setting</type>
+            <name>CreateDataFormFromTemplate</name>
+            <description>CreateDataFormFromTemplate</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlClone" value="FALSE"/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlDisableTriggers" value="FALSE"/>
+                <attribute name="drlExpandStatementConditions" value="from rel &apos;DRLTools Dynamic Data Form Object&apos; recurse to 0"/>
+                <attribute name="drlExportAllAttributes" value="FALSE"/>
+                <attribute name="drlExportExpandResults" value="TRUE"/>
+                <attribute name="drlNumberGeneratorName" value="type_DOCUMENTS"/>
+                <attribute name="drlObjectGeneratorName" value="type_DOCUMENTS"/>
+                <attribute name="drlObjectName" value=""/>
+                <attribute name="drlObjectRevision" value="A"/>
+                <attribute name="drlPolicy" value="${drlDynamicDataFormTargetPolicy}"/>
+                <attribute name="drlRelationshipIsFromSourceObject" value="TRUE"/>
+                <attribute name="drlRelationshipsToInclude" value=""/>
+                <attribute name="drlRelationshipToSourceObject" value=""/>
+                <attribute name="drlRelationshipToSourceObjectByType" value=""/>
+                <attribute name="drlTypeName" value="${drlDynamicDataFormTargetType}"/>
+                <attribute name="drlUsingCommonDocumentModel" value="FALSE"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Copy Values Target Attribute</toType>
+                    <toName>Set Data Form Object Originator Value</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Copy Values Target Attribute Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Copy Values Target Attribute</toType>
+                    <toName>Set Data Form Object Owner Value</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Copy Values Target Attribute Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Create Object Setting</toType>
+                    <toName>CreateDynamicDataFormObject</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Create Object Setting Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                        <attribute name="drlRelationshipsToInclude" value="DRLTools Dynamic Data Form Object"/>
+                        <attribute name="drlTypesToInclude" value="DRLTools Dynamic Data Form Template Form Object"/>
+                    </attributes>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

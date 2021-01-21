@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>ProE Part TEAM Template</type>
+            <name>Part Sheetmetal Template</name>
+            <description></description>
+            <revision>---</revision>
+            <policy>Design TEAM Resource</policy>
+            <vault>eService Production</vault>
+            <current>IN_WORK</current>
+            <owner>admin_platform</owner>
+            <project>Common Space</project>
+            <organization>Company Name</organization>
+            <files>
+                <file>
+                    <filename>enovia_part_sheetmetal.prt</filename>
+                    <format>prt</format>
+                    <path>enovia_part_sheetmetal.prt</path>
+                </file>
+            </files>
+        </object>
+    </objects>
+</drlExportObjects>

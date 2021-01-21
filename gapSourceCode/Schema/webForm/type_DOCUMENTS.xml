@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webForm overlay="true">
+    <name>type_DOCUMENTS</name>
+    <symbolicName>form_type_DOCUMENTS</symbolicName>
+    <dataObjectType>webForm</dataObjectType>
+    <description></description>
+    <type></type>
+    <hidden>false</hidden>
+    <fields>
+        <field>
+            <name>Name</name>
+            <description></description>
+            <expression>
+                <expression>name</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Name</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>($&lt;attribute[attribute_IsVersionObject] == "False"&gt; &amp;&amp; current.access[changeowner] == true)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Name Field</settingName>
+                    <settingValue>keyin</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate</settingName>
+                    <settingValue>checkBadNameChars</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Name1</name>
+            <description></description>
+            <expression>
+                <expression>name</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Name</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>($&lt;attribute[attribute_IsVersionObject] == "False"&gt; &amp;&amp; current.access[changeowner] == false)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Revision</name>
+            <description></description>
+            <expression>
+                <expression>revision</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Basic.Revision</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] == "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Type</name>
+            <description></description>
+            <expression>
+                <expression>type</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Basic.Type</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] == "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>Type</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>textbox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Organization</name>
+            <description></description>
+            <expression>
+                <expression>organization</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Organization</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>CollaborativeSpace</name>
+            <description></description>
+            <expression>
+                <expression>project</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.CollaborativeSpace</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Title</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_Title].value&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Title</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] == "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>textbox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate</settingName>
+                    <settingValue>checkBadNameChars</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Description</name>
+            <description></description>
+            <expression>
+                <expression>description</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Basic.Description</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] == "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>textarea</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Nowrap</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate</settingName>
+                    <settingValue>checkBadChars</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>State</name>
+            <description></description>
+            <expression>
+                <expression>current</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.State</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] == "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>State</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Owner</name>
+            <description></description>
+            <expression>
+                <expression>owner</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Owner</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?type=PERSON_CHOOSER&amp;showInitialResults=false&amp;selection=single&amp;field=USERROLE=role_VPLMCreator,role_GlobalUser</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] == "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>owner</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>textbox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>format</settingName>
+                    <settingValue>user</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Originated</name>
+            <description></description>
+            <expression>
+                <expression>originated</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Originated</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] == "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>format</settingName>
+                    <settingValue>date</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Modified</name>
+            <description></description>
+            <expression>
+                <expression>modified</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Modified</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] == "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>modified</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>format</settingName>
+                    <settingValue>date</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Policy</name>
+            <description></description>
+            <expression>
+                <expression>policy</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Policy</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] == "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>Policy</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>combobox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Selector</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.CommonDocument.Selector</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>(vcfile == TRUE || vcfolder == TRUE || vcmodule == TRUE) &amp;&amp; ($&lt;attribute[attribute_IsVersionObject] == "False"&gt;)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>program</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate</settingName>
+                    <settingValue>validateSelector</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getVCSelector</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxVCDocument</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Server</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.CommonDocument.Server</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>(vcfile == TRUE || vcfolder == TRUE || vcmodule == TRUE) &amp;&amp; ($&lt;attribute[attribute_IsVersionObject] == "False"&gt;)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>program</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getVCServer</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxVCDocument</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Path</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.CommonDocument.Path</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>(vcfile == TRUE || vcfolder == TRUE || vcmodule == TRUE) &amp;&amp; ($&lt;attribute[attribute_IsVersionObject] == "False"&gt;)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>program</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getVCPathValue</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxVCDocument</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>VCfileName</name>
+            <description></description>
+            <expression>
+                <expression>vcfile[1].vcname</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.CommonDocument.VCfileName</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>(vcfile == TRUE ) &amp;&amp; ($&lt;attribute[attribute_IsVersionObject] == "False"&gt;)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>VersionId</name>
+            <description></description>
+            <expression>
+                <expression>vcfile[1].versionid</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.CommonDocument.VersionId</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>(vcfile == TRUE ) &amp;&amp; ($&lt;attribute[attribute_IsVersionObject] == "False"&gt;)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>VCLocked</name>
+            <description></description>
+            <expression>
+                <expression>vcfile[1].locked</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.CommonDocument.Locked</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>(vcfile == TRUE) &amp;&amp; ($&lt;attribute[attribute_IsVersionObject] == "False"&gt;)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>VCAuthor</name>
+            <description></description>
+            <expression>
+                <expression>vcfile[1].author</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.CommonDocument.Author</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>(vcfile == TRUE) &amp;&amp; ($&lt;attribute[attribute_IsVersionObject] == "False"&gt;)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>format</settingName>
+                    <settingValue>user</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>VCComments</name>
+            <description></description>
+            <expression>
+                <expression>vcfile[1].comment</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Comments</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>(vcfile == TRUE ) &amp;&amp; ($&lt;attribute[attribute_IsVersionObject] == "False"&gt;)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>VCCheckinStatus</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.VCDocument.CheckinStatus</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>(vcfolder == TRUE || vcmodule == TRUE) &amp;&amp; ($&lt;attribute[attribute_IsVersionObject] == "False"&gt;)</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>programHTMLOutput</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getVCCheckinStatus</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxVCDocument</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>FileName</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_Title].value&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.FileName</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] != "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Version</name>
+            <description></description>
+            <expression>
+                <expression>revision</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Formats.Version</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] != "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Format</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Format</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] != "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>program</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>showFileFormat</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxCommonFileUI</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>FileSize</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.FileSize</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] != "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>program</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>showFileSize</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxCommonFileUI</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Owner1</name>
+            <description></description>
+            <expression>
+                <expression>owner</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Owner</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] != "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>owner</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>format</settingName>
+                    <settingValue>user</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Originated1</name>
+            <description></description>
+            <expression>
+                <expression>originated</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Originated</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] != "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>format</settingName>
+                    <settingValue>date</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Modified1</name>
+            <description></description>
+            <expression>
+                <expression>modified</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Modified</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] != "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>modified</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>format</settingName>
+                    <settingValue>date</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Locker</name>
+            <description></description>
+            <expression>
+                <expression>locker</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Locker</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] != "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>format</settingName>
+                    <settingValue>user</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Comments</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_CheckinReason].value&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Common.Comments</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] != "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate Type</settingName>
+                    <settingValue>BadChars</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>DynamicAttributes</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel></customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject] == "False"&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Edit Exclude</settingName>
+                    <settingValue>attribute_DesignatedUser,attribute_Originator,attribute_Language,attribute_FileVersion,attribute_Version,attribute_VersionDate,attribute_Approver,attribute_ICURL,attribute_AccessType</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>Dynamic Attributes</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>View Exclude</settingName>
+                    <settingValue>attribute_DesignatedUser,attribute_Originator,attribute_Language,attribute_FileVersion,attribute_Version,attribute_VersionDate,attribute_Approver,attribute_ICURL</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Classification Path</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxComponents.Properties.ClassificationPaths</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject].value&gt; == False</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>checkForLibraryCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>emxCommonAccessRequest</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>ClassificationPaths</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>AttributeGroupCollection</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel></customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>$&lt;attribute[attribute_IsVersionObject].value&gt; == False</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>checkForLibraryCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>emxCommonAccessRequest</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Dynamic Field Function</settingName>
+                    <settingValue>getClassificationAttributesForForm</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Dynamic Field Program</settingName>
+                    <settingValue>emxLibraryCentralClassificationAttributes</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>Dynamic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>LibraryCentral</settingValue>
+                </setting>
+            </settings>
+        </field>
+    </fields>
+    <properties/>
+</webForm>

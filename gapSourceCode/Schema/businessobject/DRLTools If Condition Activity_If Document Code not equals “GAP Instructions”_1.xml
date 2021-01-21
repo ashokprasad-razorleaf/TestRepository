@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools If Condition Activity</type>
+            <name>If Document Code not equals &#x201c;GAP Instructions&#x201d;</name>
+            <description>If Document Code not equals &#x201c;GAP Instructions&#x201d;</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>admin_platform</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools PDF Stamper Activity</toType>
+                    <toName>atlStampDocumentPDF</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Dependant Activity Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools If Condition Object</toType>
+                    <toName>If Document Code not equals &#x201c;GAP Instructions&#x201d;</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools If Condition Activity Condition Relationship</relationshipType>
+                </relationship>
+				<relationship>
+                    <toType>DRLTools If Condition Object</toType>
+                    <toName>If Type equals &#x201c;GAP Specification&#x201d;</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools If Condition Activity Condition Relationship</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

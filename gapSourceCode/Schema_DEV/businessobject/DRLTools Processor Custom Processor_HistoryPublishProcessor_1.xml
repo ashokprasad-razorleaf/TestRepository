@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor Custom Processor</type>
+            <name>HistoryPublishProcessor</name>
+            <description>Atlas History Publish Processor</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>admin_platform</owner>
+            <project>Common Space</project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlArg1" value="DB"/>
+                <attribute name="drlArg1Description" value="Publish Format (DB/CSV/XML)"/>
+                <attribute name="drlArg2" value="jdbc:sqlserver://TBISUSENQAT200;databaseName=historymonitordb;user=historymonitoruser;password=DbHi$tory"/>
+                <attribute name="drlArg2Description" value="DB Connection String"/>
+                <attribute name="drlArg3" value="history_monitor_table"/>
+                <attribute name="drlArg3Description" value="DB History Table"/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlJavaClassName" value="com.designrule.drv6tools.historymonitor.drlHistoryPublishProcessor"/>
+                <attribute name="drlMultilineArg1" value="Event=DRL_HISTORY_Event&#xA;Site=DRL_HISTORY_Site&#xA;UserName=name&#xA;ObjectID=DRL_HISTORY_ObjectId&#xA;ObjectType=DRL_HISTORY_Type&#xA;ObjectDisplayName=DRL_HISTORY_ObjectDisplayName&#xA;Timestamp=originated"/>
+                <attribute name="drlMultilineArg1Description" value="Attribute and DB Column Mapping"/>
+                <attribute name="drlMultilineArg2" value="C:\temp\XML"/>
+                <attribute name="drlMultilineArg2Description" value="CSV/XML Export Path"/>
+                <attribute name="drlMultilineArg3" value=""/>
+                <attribute name="drlMultilineArg3Description" value=""/>
+                <attribute name="drlProcessorMaximumProcessingTime" value="0"/>
+                <attribute name="drlProcessorPassword" value=""/>
+                <attribute name="drlProcessorUser" value=""/>
+                <attribute name="drlRealTimeFeedback" value="TRUE"/>
+                <attribute name="drlUseProcessorSpecificCredentials" value="FALSE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

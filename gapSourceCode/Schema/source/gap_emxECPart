@@ -1,0 +1,107 @@
+import java.util.HashMap;
+import java.util.Map;
+
+import com.matrixone.apps.framework.ui.UIUtil;
+import com.matrixone.apps.engineering.PartDefinition;
+
+import matrix.db.Context;
+import matrix.db.JPO;
+/*************************************************************************
+* 
+* Razorleaf Corporation Confidential
+*
+* [2018] Razorleaf Corporation
+* All Rights Reserved.
+* 
+* NOTICE:  All information contained herein is, and remains the property of Razorleaf
+* Corporation. The intellectual and technical concepts contained herein are proprietary
+* to Razorleaf Corporation and may be covered by U.S. and Foreign Patents, patents in
+* process, and are protected by trade secret or copyright law. Dissemination of this
+* information or reproduction of this material is strictly forbidden unless prior written
+* permission is obtained from Razorleaf Corporation.
+*
+*************************************************************************/
+public class ${CLASSNAME} extends ${CLASS:emxECPartBase} {
+	
+	/**
+     * Constructor.
+     *
+     * @param context the eMatrix <code>Context</code> object.
+     * @param args holds no arguments.
+     * @throws Exception if the operation fails.
+     * @since EC 9.5.JCI.0.
+     */
+    public ${CLASSNAME} (Context context, String[] args) throws Exception {
+        super(context, args);
+    }
+	
+	/**
+     * This method is executed if a specific method is not specified.
+     *
+     * @param context the eMatrix <code>Context</code> object.
+     * @param args holds no arguments.
+     * @return int.
+     * @throws Exception if the operation fails.
+     * @since EC 9.5.JCI.0.
+     */
+    public int mxMain(Context context, String[] args) throws Exception {
+        if (true) {
+            throw new Exception("must specify method on emxPart invocation");
+        }
+        return 0;
+    }
+	
+	//Cloned below methods from ${CLASS:emxECPartBase} and added few changes
+	private String getStringValue(Map map, String key) {
+		return (String) map.get(key);
+	}
+	
+	/* this method is to create part specification using name disaplyed in webform
+	 * @author TBIAPRA
+	 */
+	@com.matrixone.apps.framework.ui.CreateProcessCallable
+    public Map createSpecification(Context context, String[] args) throws Exception {
+		HashMap programMap = (HashMap) JPO.unpackArgs(args);
+		
+		String sType = getStringValue(programMap, "TypeActual");
+		String nameField = (String) programMap.get("nameField");
+		String sAutoNameChecked	= getStringValue(programMap, "autoNameCheck");
+		String sAutoNameSeries = getStringValue(programMap, "AutoNameSeries");
+		String sName = getStringValue(programMap, "Name");
+		if(UIUtil.isNullOrEmpty(sAutoNameChecked) && UIUtil.isNullOrEmpty(sAutoNameSeries)) { 
+			sAutoNameSeries = sName;
+			if("keyin".equals(nameField)){
+				sAutoNameChecked = "false";
+			}
+			else
+			sAutoNameChecked = "true";
+		}
+		String sCustomRevisionLevel	= getStringValue(programMap, "Revision");
+		String sPolicy = getStringValue(programMap, "Policy");
+		String sVault = getStringValue(programMap, "Vault");
+
+		//EngineeringUtil.checkLicenseForDEC(context, sType);	  //checking for DEC license
+		boolean autoNameSelected = "true".equals(sAutoNameChecked);
+		if (!autoNameSelected) {
+			sAutoNameSeries = sCustomRevisionLevel;
+		}
+
+		// TBIAPRA : Added below code to disbale autoname : START
+		if (UIUtil.isNotNullAndNotEmpty(sName)) {
+			sAutoNameSeries = null;
+			autoNameSelected = false;
+		}
+		// TBIAPRA : Added below code to disbale autoname : END
+		
+		PartDefinition partDefinition = new PartDefinition();
+		partDefinition.create(context, sType, sName, sAutoNameSeries,
+				null, autoNameSelected, sPolicy, context.getVault().getName(), null, null, null,
+				null, sCustomRevisionLevel, null);
+
+		String documentId = partDefinition.getId();
+		HashMap mapReturn = new HashMap(1);
+		mapReturn.put("id", documentId);
+
+		return mapReturn;
+	}
+}

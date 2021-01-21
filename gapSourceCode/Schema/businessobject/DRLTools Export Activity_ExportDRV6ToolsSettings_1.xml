@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Export Activity</type>
+            <name>ExportDRV6ToolsSettings</name>
+            <description>Export drV6Tools Settings</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlDerivedOutputFileType" value=""/>
+                <attribute name="drlDerivedOutputRelationshipName" value=""/>
+                <attribute name="drlDerivedOutputTypeSymbolicName" value=""/>
+                <attribute name="drlExpandStatementConditions" value="from recurse to all type &quot;DRLTools,!DRLTools Processor System Queue Object&quot;"/>
+                <attribute name="drlExportAllAttributes" value="TRUE"/>
+                <attribute name="drlExportAttributes" value=""/>
+                <attribute name="drlExportCurrentObject" value="TRUE"/>
+                <attribute name="drlExportExpandResults" value="TRUE"/>
+                <attribute name="drlExportFiles" value="FALSE"/>
+                <attribute name="drlExportFilesWithExtensions" value=""/>
+                <attribute name="drlExportRelationshipAttributes" value=""/>
+                <attribute name="drlExportStructureMode" value="Structured"/>
+                <attribute name="drlIncludeRelationships" value="TRUE"/>
+                <attribute name="drlOrderBy" value=""/>
+                <attribute name="drlRelationshipsToInclude" value=""/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+                <attribute name="drlSettings" value=""/>
+                <attribute name="drlTypesToInclude" value=""/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Export Target Download</toType>
+                    <toName>ExportDownload</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Export Target Relationship</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

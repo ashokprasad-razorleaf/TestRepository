@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>ECMCANewImplementedItems</name>
+    <symbolicName>command_ECMCANewImplementedItems</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description>New UX Implemented Items command</description>
+    <label>EnterpriseChangeMgt.Command.ImplementedItems</label>
+    <hidden>false</hidden>
+    <href>${SUITE_DIR}/ECMChangeNewImplementedItems.jsp</href>
+    <alt></alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Access Function</settingName>
+            <settingValue>isNewUXForRealized</settingValue>
+        </setting>
+        <setting>
+            <settingName>Access Program</settingName>
+            <settingValue>enoECMChangeUtil</settingValue>
+        </setting>
+        <setting>
+            <settingName>Licensed Product</settingName>
+            <settingValue>ENO_BPS_TP</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EnterpriseChangeMgt</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>content</settingValue>
+        </setting>
+		 <setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>false</settingValue>
+        </setting>
+    </settings>
+    <userAccess/>
+    <properties/>
+</command>

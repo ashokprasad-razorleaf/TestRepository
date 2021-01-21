@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>APPCreateRoute</name>
+    <symbolicName>command_APPCreateRoute</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description>Command Object for Quick Create Route</description>
+    <label>emxComponents.Common.CreateRoute</label>
+    <hidden>false</hidden>
+    <href>${COMMON_DIR}/emxCreate.jsp?type=type_Route&amp;header=emxComponents.Common.CreateRoute&amp;form=APPRouteCreate&amp;HelpMarker=emxhelpcreatenewroute&amp;nameField=both&amp;createJPO=emxRoute:createRouteProcess&amp;submitAction=doNothing&amp;mode=create&amp;postProcessURL=../components/emxComponentsCreateProcessUtil.jsp&amp;autoNameChecked=true&amp;showPageURLIcon=false</href>
+    <alt>emxComponents.Common.CreateRoute</alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>(!(policy == "Inbox Task" &amp;&amp; current == Complete))</settingValue>
+        </setting>
+        <setting>
+            <settingName>Access Function</settingName>
+            <settingValue>emxCheckCreateRoutesAccess</settingValue>
+        </setting>
+        <setting>
+            <settingName>Access Program</settingName>
+            <settingValue>emxRoute</settingValue>
+        </setting>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/iconActionCreateRoute.png</settingValue>
+        </setting>
+        <setting>
+            <settingName>Licensed Product</settingName>
+            <settingValue>ENO_BPS_TP</settingValue>
+        </setting>
+        <setting>
+            <settingName>Popup Modal</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Popup Size</settingName>
+            <settingValue>MediumTall</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>Components</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>popup</settingValue>
+        </setting>
+        <setting>
+            <settingName>Window Width</settingName>
+            <settingValue>600</settingValue>
+        </setting>
+    </settings>
+    <userAccess>
+        <User>Global User</User>
+        <User>VPLMExperimenter</User>
+        <User>VPLMReleaseManager</User>
+    </userAccess>
+    <properties/>
+</command>

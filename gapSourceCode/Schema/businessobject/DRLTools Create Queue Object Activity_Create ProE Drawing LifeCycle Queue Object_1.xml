@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Create Queue Object Activity</type>
+            <name>Create ProE Drawing LifeCycle Queue Object</name>
+            <description>Create ProE Drawing LifeCycle Queue Object</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlAssignedToSystem" value=""/>
+                <attribute name="drlAttributes" value=""/>
+                <attribute name="drlEnableOnVersionObjects" value="TRUE"/>
+                <attribute name="drlIncludeRequestParamters" value="FALSE"/>
+                <attribute name="drlMailUser" value="FALSE"/>
+                <attribute name="drlPriorityOrder" value="1"/>
+                <attribute name="drlProcessor" value="LifeCycleViewFileProcessor"/>
+                <attribute name="drlRequiresBusinessObject" value="TRUE"/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+                <attribute name="drlRunForFileExtensions" value=""/>
+                <attribute name="drlSettings" value=""/>
+                <attribute name="drlUseShadowAgent" value="TRUE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

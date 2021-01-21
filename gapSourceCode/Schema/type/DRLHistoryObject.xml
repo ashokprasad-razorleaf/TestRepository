@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<type overlay="true">
+    <name>DRLHistoryObject</name>
+    <symbolicName>type_DRLHistoryObject</symbolicName>
+    <dataObjectType>type</dataObjectType>
+    <description></description>
+    <parentName></parentName>
+    <hidden>false</hidden>
+    <abstract>false</abstract>
+    <attributes>
+        <attribute>DRL_HISTORY_Event</attribute>
+        <attribute>DRL_HISTORY_ObjectDisplayName</attribute>
+        <attribute>DRL_HISTORY_ObjectId</attribute>
+        <attribute>DRL_HISTORY_Publish</attribute>
+        <attribute>DRL_HISTORY_Site</attribute>
+		<attribute>DRL_HISTORY_Type</attribute>
+    </attributes>
+    <triggers/>
+</type>

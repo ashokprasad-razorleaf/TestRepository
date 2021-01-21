@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Action Activity</type>
+            <name>ForEachPartRelatedToSWDrawing</name>
+            <description>ForEachPartRelatedToSWDrawing</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+                <attribute name="drlSettings" value="&lt;setting&gt;&#xA; &lt;actions&gt;&#xA;  &lt;ifType&gt;&#xA;   &lt;name&gt;IfSWDrawing&lt;/name&gt;&#xA;   &lt;types&gt;&#xA;    &lt;type&gt;SW Drawing&lt;/type&gt;&#xA;   &lt;/types&gt;&#xA;   &lt;actions&gt;&#xA;    &lt;forEach&gt;&#xA;     &lt;name&gt;forEachBOMPart&lt;/name&gt;&#xA;     &lt;query&gt;expand bus ${id} rel &apos;Part Specification&apos; select bus id select relationship id&lt;/query&gt;&#xA;     &lt;ofTypes&gt;&#xA;      &lt;type&gt;Part&lt;/type&gt;&#xA;     &lt;/ofTypes&gt;&#xA;     &lt;actions&gt;&#xA;      &lt;ifCondition&gt;&#xA;       &lt;name&gt;IfNotReleasedorObsolete&lt;/name&gt;&#xA;       &lt;conditions&gt;&#xA;       &lt;condition leftHandSource=&quot;attribute&quot; leftHandValue=&quot;current&quot; condition=&quot;!=&quot; rightHandSource=&quot;fixed value&quot; rightHandValue=&quot;Released&quot;/&gt;&#xA;       &lt;condition leftHandSource=&quot;attribute&quot; leftHandValue=&quot;current&quot; condition=&quot;!=&quot; rightHandSource=&quot;fixed value&quot; rightHandValue=&quot;Obsolete&quot;/&gt;&#xA;       &lt;/conditions&gt;&#xA;       &lt;actions&gt;&#xA;        &lt;actionActivity name=&quot;CopySWDrawingAttributesToBOMPart&quot;/&gt;&#xA;       &lt;/actions&gt; &#xA;      &lt;/ifCondition&gt;&#xA;     &lt;/actions&gt;&#xA;    &lt;/forEach&gt;&#xA;   &lt;/actions&gt; &#xA;  &lt;/ifType&gt;&#xA; &lt;/actions&gt; &#xA;&lt;/setting&gt;"/>
+                <attribute name="drlUseShadowAgent" value="FALSE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

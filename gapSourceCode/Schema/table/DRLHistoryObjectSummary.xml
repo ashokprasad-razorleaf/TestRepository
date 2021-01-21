@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<table overlay="true">
+    <name>DRLHistoryObjectSummary</name>
+    <symbolicName>table_DRLHistoryObjectSummary</symbolicName>
+    <dataObjectType>table</dataObjectType>
+    <hidden>false</hidden>
+	<columns>
+		<column>
+            <name>Originated</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;originated&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxFramework.Basic.Originated</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Framework</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+				<setting>
+                    <settingName>Sort Direction</settingName>
+                    <settingValue>ascending</settingValue>
+                </setting>
+				<setting>
+                    <settingName>Sort Type</settingName>
+                    <settingValue>date</settingValue>
+                </setting>
+            </settings>
+        </column>
+		<column>
+            <name>Publish</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_DRL_HISTORY_Publish].value&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxFramework.attribute.DRL_HISTORY_Publish</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>attribute_DRL_HISTORY_Publish</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Framework</settingValue>
+                </setting>
+            </settings>
+        </column>
+    </columns>
+    <properties/>
+</table>

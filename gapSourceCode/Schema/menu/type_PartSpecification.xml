@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>type_PartSpecification</name>
+    <symbolicName>menu_typePartSpecification</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label>$&lt;attribute[attribute_Title].value&gt; ${REVISION}</label>
+    <hidden>false</hidden>
+    <href>${COMMON_DIR}/emxForm.jsp?form=type_Spec&amp;toolbar=ENCpartPartSpecEditToolBar&amp;displayCDMFileSummary=true&amp;HelpMarker=emxhelppartspecifications</href>
+    <alt></alt>
+    <menuItems/>
+    <commandItems>
+        <commandItem>APPNonVersionableDocumentFiles</commandItem>
+        <commandItem>ECMChangeManagement</commandItem>
+        <commandItem>APPDocumentFiles</commandItem>
+        <commandItem>APPDocumentVCFileVersions</commandItem>
+        <commandItem>APPDocumentVCFolderContents</commandItem>
+        <commandItem>APPDocumentFileVersions</commandItem>
+        <commandItem>APPDocumentVCFolderConfigurations</commandItem>
+        <commandItem>APPFileVersions</commandItem>
+        <commandItem>ENCChangeMgtPowerView</commandItem>
+        <commandItem>ENCRoute</commandItem>
+        <commandItem>AEFLifecycle</commandItem>
+        <commandItem>ENCSpecRelatedParts</commandItem>
+        <commandItem>ENCDocumentsRevisions</commandItem>
+        <commandItem>AEFHistory</commandItem>
+        <commandItem>IssueDocumentListPage</commandItem>
+        <commandItem>DomainAccessTreeCategory</commandItem>
+        <commandItem>LBCObjectClassificationList</commandItem>
+        <commandItem>ENCDrawingMarkup</commandItem>
+        <commandItem>DCDocumentsWhereUsedTreeCategory</commandItem>
+        <commandItem>3dxToolsAdminDetails</commandItem>
+    </commandItems>
+    <settings>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EngineeringCentral</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

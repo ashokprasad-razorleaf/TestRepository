@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor System Queue Object</type>
+            <name>HistoryPurgeProcessorQueueObject</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>User Agent</owner>
+            <project>Common Space</project>
+            <organization>Company Name</organization>
+            <attributes>
+                <attribute name="drlAbortProcessing" value="FALSE"/>
+                <attribute name="drlAssignedToSystem" value=""/>
+                <attribute name="drlAttributes" value=""/>
+                <attribute name="drlFCSSite" value=""/>
+                <attribute name="drlFileName" value=""/>
+                <attribute name="drlMailUser" value="FALSE"/>
+                <attribute name="drlPriorityOrder" value="1"/>
+                <attribute name="drlProcessor" value="HistoryPurgeProcessor"/>
+                <attribute name="drlRefObject" value=""/>
+                <attribute name="drlRefUser" value="admin_platform"/>
+                <attribute name="drlRequestParameters" value=""/>
+                <attribute name="drlStatus" value="Waiting"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

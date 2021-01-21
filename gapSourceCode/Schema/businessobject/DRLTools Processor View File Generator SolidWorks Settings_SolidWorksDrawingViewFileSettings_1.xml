@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor View File Generator SolidWorks Settings</type>
+            <name>SolidWorksDrawingViewFileSettings</name>
+            <description>SolidWorks Drawing View File Settings</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlAssociatedDrawingRelationshipName" value="Associated Drawing"/>
+                <attribute name="drlCADType" value="pdf"/>
+                <attribute name="drlCheckInViewFileToCurrentObject" value="FALSE"/>
+                <attribute name="drlCheckInViewFileToDerivedOutputObject" value="TRUE"/>
+                <attribute name="drlCommandLineArguments" value=""/>
+                <attribute name="drlCommandLineExecutable" value=""/>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlCopyDependentFilesWithExtensions" value="sldprt,sldasm"/>
+                <attribute name="drlCopyOrginalFileBackToVault" value="FALSE"/>
+                <attribute name="drlDebugActive" value="FALSE"/>
+                <attribute name="drlDebugOutputDirectory" value="c:\Processor_Temp"/>
+                <attribute name="drlDerivedOutputFileType" value="PDF"/>
+                <attribute name="drlDerivedOutputObjectGeneratorName" value=""/>
+                <attribute name="drlDerivedOutputObjectUsesCommonDocumentModel" value="FALSE"/>
+                <attribute name="drlDerivedOutputPolicySymbolicName" value="Derived Output Policy"/>
+                <attribute name="drlDerivedOutputRelationshipName" value="Derived Output"/>
+                <attribute name="drlDerivedOutputTypeSymbolicName" value="Derived Output"/>
+                <attribute name="drlDotNETAssemblyName" value="drV6Tools.NET.ViewFileGenerator.SolidWorksPDFGenerator"/>
+                <attribute name="drlDotNETClassName" value="drV6Tools.NET.ViewFileGenerator.SolidWorksPDFGenerator.drSolidWorksDrawingGenerator"/>
+                <attribute name="drlInstanceOfRelationshipName" value="Instance Of"/>
+                <attribute name="drlIntegrationGCOName" value="SWNewArch"/>
+                <attribute name="drlIntegrationGCORevision" value="TEAM"/>
+                <attribute name="drlIntegrationGCOType" value="SolidWorksInteg-GlobalConfig"/>
+                <attribute name="drlLaunchRetries" value="3"/>
+                <attribute name="drlLaunchTimeOut" value="120"/>
+                <attribute name="drlLinkDerivedOutputToOriginalFilesWorkspaces" value="FALSE"/>
+                <attribute name="drlMaxProcessingTime" value="1000"/>
+                <attribute name="drlMCADInteg-CADToMxAttribMapping" value=""/>
+                <attribute name="drlMCADInteg-MxToCADAttribMapping" value=""/>
+                <attribute name="drlObjectName" value="${FILE_NAME}"/>
+                <attribute name="drlObjectRevision" value="${version:revision}"/>
+                <attribute name="drlPauseAfterOpening" value="10"/>
+                <attribute name="drlPauseBeforeGettingApplication" value="0"/>
+                <attribute name="drlPDFTimeout" value="1000"/>
+                <attribute name="drlPrinterName" value=""/>
+                <attribute name="drlRunForFileExtensions" value="slddrw"/>
+                <attribute name="drlSettings" value="DO_NOT_UPDATE_SOURCE_FILE_IF_LOCKED=TRUE&#xA;UPDATE_SOURCE_FILE_IN_STATES=Release,Released,RELEASED,Obsolete,OBSOLETE"/>
+                <attribute name="drlSubComponentRelationshipName" value="CAD SubComponent"/>
+                <attribute name="drlTempPath" value="c:\temp\"/>
+                <attribute name="drlUseCommandLineExecution" value="FALSE"/>
+                <attribute name="drlUseIntgrationGCOForMapping" value="TRUE"/>
+                <attribute name="drlVersionFileOnCheckInViewFileToCurrentObject" value="FALSE"/>
+                <attribute name="drlVersionFileOnCheckInViewFileToDerivedOutputObject" value="FALSE"/>
+                <attribute name="drlVersionFileOnCopyOrginalFileBackToVault" value="TRUE"/>
+                <attribute name="drlViewFileFormat" value="PDF"/>
+                <attribute name="drlViewFileWatermark" value=""/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

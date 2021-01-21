@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Export Target Download</type>
+            <name>ExportUtilitiesSettingsDownload</name>
+            <description>ExportUtilitiesBusinessObjectsDownload</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value="drV6Tools.TVC.Utilities_v01"/>
+                <attribute name="drlFileExtension" value="xml"/>
+                <attribute name="drlFileName" value=""/>
+                <attribute name="drlImportXSLSource" value=""/>
+                <attribute name="drlSettings" value="ONE_OBJECT_PER_FILE=TRUE&#xA;SORT_ATTRIBUTES=TRUE&#xA;SORT_RELATIONSHIPS=TRUE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

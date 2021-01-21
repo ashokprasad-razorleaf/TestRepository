@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools If Condition Object</type>
+            <name>If Type is gapAutoCAD</name>
+            <description>If Type is gapAutoCAD</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlCondition" value="="/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlLeftHandSource" value="attribute"/>
+                <attribute name="drlLeftHandValue" value="type"/>
+                <attribute name="drlRightHandSource" value="fixed value"/>
+                <attribute name="drlRightHandValue" value="gapAutoCAD"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

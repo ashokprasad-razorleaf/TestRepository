@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor System Controller</type>
+            <name>3dxtoolsUTB01PDFProcessor</name>
+            <description>FCS SITE UTB - California - PDF Job Server</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlProcessDetails" value=""/>
+                <attribute name="drlProcessorIPAddress" value="10.2.64.220"/>
+                <attribute name="drlProcessorMachineName" value="UTBSUS3DX002"/>
+                <attribute name="drlProcessorStartedAt" value="6/14/2020 8:29:37 AM"/>
+                <attribute name="drlStopProcessing" value="FALSE"/>
+                <attribute name="drlSummary" value="3dxtoolsUTB01PDFTrigger: Producer : 3dxtoolsUTB01PDFTrigger Retrieving Queue Objects at .Started at Mon Jun 15 18:21:07 PDT 2020&#xA;3dxtoolsUTB01PDFTrigger0: Exiting&#xA;"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Processor Custom Processor</toType>
+                    <toName>DirectViewBatchUpdateXML</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Processor System Processor Relationship</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Processor Custom Processor</toType>
+                    <toName>MedusaProcessor</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Processor System Processor Relationship</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Processor View File Generator</toType>
+                    <toName>ActionViewFileProcessor</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Processor System Processor Relationship</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Processor View File Generator</toType>
+                    <toName>LifeCycleViewFileProcessor</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Processor System Processor Relationship</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Processor System Timer Trigger</toType>
+                    <toName>3dxtoolsUTB01PDFTrigger</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Processor System Trigger Relationship</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Folder</type>
+            <name>ATL Documents - Stamp PDF</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Type Action Trigger</toType>
+                    <toName>StampDocumentPDF</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

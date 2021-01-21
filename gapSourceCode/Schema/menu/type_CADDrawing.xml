@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>type_CADDrawing</name>
+    <symbolicName>menu_type_CADDrawing</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <alt></alt>
+    <menuItems/>
+    <commandItems>
+		<commandItem>3dxToolsAdminDetails</commandItem>
+    </commandItems>
+</menu>

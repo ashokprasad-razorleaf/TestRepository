@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>gapChangeReportByProjectNumber</name>
+    <symbolicName>command_gapChangeReportByProjectNumber</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description>Change Report Based on Project Number</description>
+    <label>EnterpriseChangeMgt.Command.gapChangeReportByProjectNumber</label>
+    <hidden>false</hidden>
+    <href>${COMMON_DIR}/gapChangeReportByProjectNumberDialogFS.jsp?</href>
+    <alt></alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EnterpriseChangeMgt</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>content</settingValue>
+        </setting>
+    </settings>
+    <userAccess/>
+    <properties/>
+</command>

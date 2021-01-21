@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<table overlay="true">
+    <name>drV6ToolsWaitingQueueObjectsMainTable</name>
+    <symbolicName>table_DrV6ToolsWaitingQueueObjectsMainTable</symbolicName>
+    <dataObjectType>table</dataObjectType>
+    <hidden>false</hidden>
+    <columns>
+        <column>
+            <name>Name</name>
+            <description></description>
+            <expression>
+                <expression>name</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.Name</customLabel>
+            </expression>
+            <href>${COMMON_DIR}/emxTree.jsp?mode=insert</href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Fixed</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Type Icon</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Target Location</settingName>
+                    <settingValue>content</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Width</settingName>
+                    <settingValue>400</settingValue>
+                </setting>
+            </settings>
+        </column>
+		<column>
+            <name>Processor</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlProcessor].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlProcessor</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+            </settings>
+        </column>
+		<column>
+            <name>Status</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlStatus].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlStatus</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>combobox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+                <setting>
+                    <settingName>massUpdate</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </column>
+		<column>
+            <name>FCS Site</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlFCSSite].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlFCSSite</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Document</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;to[relationship_DRLToolsProcessorSystemQueueObjectRelationship].from.name&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.column.DRLToolsProcessorSystemQueueObjectRelationship</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Alternate OID expression</settingName>
+                    <settingValue>$&lt;to[relationship_DRLToolsProcessorSystemQueueObjectRelationship].from.id&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Alternate Type expression</settingName>
+                    <settingValue>$&lt;to[DRLToolsProcessorSystemQueueObjectRelationship].from.id&gt;</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+				<setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Originated</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;originated&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxFramework.Basic.Originated</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Framework</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sort Type</settingName>
+                    <settingValue>date</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Description</name>
+            <description></description>
+            <expression>
+                <expression>description</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.Description</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Width</settingName>
+                    <settingValue>400</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column remove="true">
+            <name>Ref Object</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlRefObject].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlRefObject</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Ref User</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlRefUser].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlRefUser</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Mail User</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlMailUser].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlMailUser</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Status Comments</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlStatusComments].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlStatusComments</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Completed At</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlCompletedAt].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlCompletedAt</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Assigned To System</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlAssignedToSystem].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlAssignedToSystem</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Attributes</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlAttributes].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlAttributes</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Owner</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.WorkspaceTemplate.Owner</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>program</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>showOwner</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxWorkspaceTemplate</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>drlPriorityOrder</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_drlPriorityOrder].value&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>drV6Tools.attribute.drlPriorityOrder</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>attribute_drlPriorityOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>drV6Tools</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>DetailPopup</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel></customLabel>
+            </expression>
+            <href>${COMMON_DIR}/emxTree.jsp</href>
+            <alt>emxComponents.Common.OpenNew</alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Column Icon</settingName>
+                    <settingValue>images/iconActionNewWindow.gif</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>icon</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Target Location</settingName>
+                    <settingValue>popup</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Window Height</settingName>
+                    <settingValue>930</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Window Width</settingName>
+                    <settingValue>650</settingValue>
+                </setting>
+            </settings>
+        </column>
+    </columns>
+    <properties/>
+</table>

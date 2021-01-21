@@ -1,0 +1,660 @@
+/***
+ * History Moniter Code
+ * @author CMS
+ */
+
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.Vector;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;  
+
+import matrix.db.BusinessObject;
+import matrix.db.Context;
+import matrix.db.JPO;
+import matrix.db.MQLCommand;
+import matrix.util.StringList;
+import matrix.util.MatrixException;
+import com.matrixone.apps.framework.ui.UIUtil;
+import com.matrixone.apps.domain.DomainObject;
+import com.matrixone.apps.domain.DomainConstants;
+import com.matrixone.apps.domain.util.MapList;
+import com.matrixone.apps.domain.util.MqlUtil;
+import com.matrixone.apps.domain.util.PersonUtil;
+import com.matrixone.apps.domain.util.FrameworkUtil;
+import com.matrixone.apps.domain.util.PropertyUtil;
+import com.matrixone.apps.domain.util.EnoviaResourceBundle;
+import com.matrixone.apps.domain.util.FrameworkException;
+
+public class ${CLASSNAME} {
+	
+	public static final String VAULT_ESERVICE_PRODUCTION =	PropertyUtil.getSchemaProperty("vault_eServiceProduction");
+	public static final String TYPE_DRLHISTORYOBJECT = PropertyUtil.getSchemaProperty("type_DRLHistoryObject");
+	public static final String TYPE_DERIVEDOUTPUT = PropertyUtil.getSchemaProperty("type_DerivedOutput");
+	public static final String POLICY_DRLHISTORYOBJECT = PropertyUtil.getSchemaProperty("policy_DRLHistoryObject");
+	public static final String RELATIONSHIP_DERIVEDOUTPUT = PropertyUtil.getSchemaProperty("relationship_DerivedOutput");
+	public static final String ATTRIBUTE_DRL_HISTORY_EVENT = PropertyUtil.getSchemaProperty("attribute_DRL_HISTORY_Event");
+	public static final String ATTRIBUTE_DRL_HISTORY_OBJECTDISPLAYNAME = PropertyUtil.getSchemaProperty("attribute_DRL_HISTORY_ObjectDisplayName");
+	public static final String ATTRIBUTE_DRL_HISTORY_OBJECTID = PropertyUtil.getSchemaProperty("attribute_DRL_HISTORY_ObjectId");
+	public static final String ATTRIBUTE_DRL_HISTORY_PUBLISH = PropertyUtil.getSchemaProperty("attribute_DRL_HISTORY_Publish");
+	public static final String ATTRIBUTE_DRL_HISTORY_SITE = PropertyUtil.getSchemaProperty("attribute_DRL_HISTORY_Site");
+	public static final String ATTRIBUTE_DRL_HISTORY_TYPE = PropertyUtil.getSchemaProperty("attribute_DRL_HISTORY_Type");
+	
+	public static final String KEY_FILTERTODAY = "Today";
+	public static final String KEY_FILTERTHISWEEK = "This week";
+	public static final String KEY_FILTERTHISMONTH = "This month";
+	public static final String KEY_FILTERALL = "All";
+	
+	public static final String KEY_SITE = "site";
+	public static final String KEY_EVENT = "event";
+	public static final String KEY_PERSON = "Person";
+	
+	public static final String XML_KEY = "xmlKey";
+	public static final String KEY_ID = "id";
+	public static final String KEY_NAME = "name";
+	public static final String KEY_FULLNAME = "fullName";
+	public static final String KEY_DOCUMENTTITLE ="documentTitle";
+	public static final String KEY_HISTORYOBJECTCOUNT = "historyObjectCount";
+	
+	public static final String KEY_SETTINGS = "settings";
+	public static final String KEY_COLUMNMAP = "columnMap";
+	public static final String KEY_OBJECTLIST = "objectList";	
+	public static final String KEY_SELECTEDPROGRAMLABEL = "selectedProgramLabel";
+		
+	public static final String KEY_IDHISTORY = "idHistory";
+	public static final String KEY_OBJECTID = "objectId";
+	
+	public ${CLASSNAME}(Context context, String[] args)  throws Exception {
+
+	}
+	
+	/***
+	 * Trigger program for creating the history object
+	 * @return int status 
+	 * @throws MatrixException
+	 */
+	public int createHistoryObject(Context context, String [] args) throws Exception {		
+		String sObjectId = args[0];
+		String sEvent = args[1];
+		String sType = args[2];
+		String sObjectTitle = DomainConstants.EMPTY_STRING;
+		try {
+			if(UIUtil.isNotNullAndNotEmpty(sObjectId) && UIUtil.isNotNullAndNotEmpty(sEvent)) {
+				DomainObject doObject = new DomainObject(sObjectId);
+				if (UIUtil.isNullOrEmpty(sType)) {
+					sType = doObject.getInfo(context, DomainConstants.SELECT_TYPE);
+				}
+				
+				StringList slObjeSelects = new StringList();
+				slObjeSelects.add("to["+RELATIONSHIP_DERIVEDOUTPUT+"].from."+DomainConstants.SELECT_ID);
+				slObjeSelects.add("to["+RELATIONSHIP_DERIVEDOUTPUT+"].from."+DomainConstants.SELECT_TYPE);
+				slObjeSelects.add("to["+RELATIONSHIP_DERIVEDOUTPUT+"].from."+"attribute["+DomainConstants.ATTRIBUTE_TITLE+"].value");
+				if (sType.equals(TYPE_DERIVEDOUTPUT)) {
+					Map objMap = (Map) doObject.getInfo(context, slObjeSelects);
+					String sParentId = (String) objMap.get("to["+RELATIONSHIP_DERIVEDOUTPUT+"].from."+DomainConstants.SELECT_ID);
+					if(UIUtil.isNotNullAndNotEmpty(sParentId)) {
+						sObjectId = sParentId;
+						sType = (String) objMap.get("to["+RELATIONSHIP_DERIVEDOUTPUT+"].from."+DomainConstants.SELECT_TYPE);
+						sObjectTitle = (String) objMap.get("to["+RELATIONSHIP_DERIVEDOUTPUT+"].from."+"attribute["+DomainConstants.ATTRIBUTE_TITLE+"].value");
+					}
+				} else {				
+					sObjectTitle = doObject.getAttributeValue(context, DomainConstants.ATTRIBUTE_TITLE);
+				}
+				
+				String sName = context.getUser();
+				String sRevision = Long.toString(System.currentTimeMillis());
+				
+				DomainObject doHistoryObject = DomainObject.newInstance(context);
+				doHistoryObject.createObject(context, TYPE_DRLHISTORYOBJECT, sName, sRevision, POLICY_DRLHISTORYOBJECT, VAULT_ESERVICE_PRODUCTION);
+				HashMap attributeMap = new HashMap();
+				attributeMap.put(ATTRIBUTE_DRL_HISTORY_EVENT, sEvent);
+				attributeMap.put(ATTRIBUTE_DRL_HISTORY_OBJECTDISPLAYNAME, sObjectTitle);
+				attributeMap.put(ATTRIBUTE_DRL_HISTORY_OBJECTID, sObjectId);
+				attributeMap.put(ATTRIBUTE_DRL_HISTORY_SITE, getPersonSiteName(context, sName));
+				attributeMap.put(ATTRIBUTE_DRL_HISTORY_TYPE, sType);
+				doHistoryObject.setAttributeValues(context, attributeMap);
+			}
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:createHistoryObject : "+e);
+		}
+		return 0;
+	}
+	
+	/***
+	 * Returns the site from the person
+	 * @return String site name
+	 * @throws FrameworkException
+	 */
+	public String getPersonSiteName(Context context, String sName) throws FrameworkException {
+		String sSite = DomainConstants.EMPTY_STRING;
+		try{
+			sSite = MqlUtil.mqlCommand(context,"print person $1 select site dump", sName);
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:getPersonSiteName : "+e);
+		}
+		return sSite;
+	}
+	
+	/***
+	 * JPO to list the sites
+	 * @return site names along with details
+	 * @throws FrameworkException
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getTodaysHistory(Context context, String[] args) throws FrameworkException {
+		MapList mlObjects = (MapList) getHistory(context, new String[] {KEY_FILTERTODAY});
+		return mlObjects;
+	}
+	
+	/***
+	 * JPO to list the sites
+	 * @return site names along with details
+	 * @throws FrameworkException
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getThisWeekHistory(Context context, String[] args) throws FrameworkException {
+		MapList mlObjects = (MapList) getHistory(context, new String[] {KEY_FILTERTHISWEEK});
+		return mlObjects;
+	}
+	
+	/***
+	 * JPO to list the sites
+	 * @return site names along with details
+	 * @throws FrameworkException
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getThisMonthHistory(Context context, String[] args) throws FrameworkException {
+		MapList mlObjects = (MapList) getHistory(context, new String[] {KEY_FILTERTHISMONTH});
+		return mlObjects;
+	}
+	
+	/***
+	 * JPO to list the sites
+	 * @return site names along with details
+	 * @throws FrameworkException
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getCompleteHistory(Context context, String[] args) throws FrameworkException {
+		MapList mlObjects = (MapList) getHistory(context, new String[] {KEY_FILTERALL});
+		return mlObjects;
+	}
+	
+	/***
+	 * JPO to list the sites
+	 * @return site names along with details
+	 * @throws FrameworkException
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getHistory(Context context, String[] args) throws FrameworkException {
+		String sFilter = args[0];
+		MapList mlObjects = new MapList();
+		try {
+			
+			StringList slSites = (StringList) getAllSites(context, args);			
+			for (Object ItemObject:slSites) {
+				String sSite = (String)ItemObject;
+				if (UIUtil.isNotNullAndNotEmpty(sSite)) {
+					Map objectMap = new HashMap();
+					objectMap.put(KEY_NAME, sSite);
+					objectMap.put(KEY_ID, sSite);
+					MapList mlHistoryObjects = getHistoryObjects(context, new String[] {sSite, sFilter});
+					objectMap.put(KEY_HISTORYOBJECTCOUNT, mlHistoryObjects.size());
+					mlObjects.add(objectMap);
+				}
+			}
+			
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:getHistory : "+e);
+		}
+		
+		return mlObjects;
+	}
+	
+	/***
+	 * JPO to list the sites
+	 * @return site names along with details
+	 * @throws FrameworkException
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public StringList getAllSites(Context context, String[] args) throws FrameworkException {
+		StringList slSites = new StringList();
+		try {
+			MQLCommand cmd = new MQLCommand();
+			cmd.open(context);
+			cmd.executeCommand(context, "list site");
+			String sResult = cmd.getResult();
+			cmd.close(context);
+			slSites = FrameworkUtil.split(sResult, "\n");
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:getAllSites : "+e);
+		}
+		return slSites;
+	}
+	
+	/***
+	 * JPO to list the History Objects
+	 * @return site names along with details
+	 * @throws FrameworkException
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getHistoryObjects(Context context, String[] args) throws FrameworkException {
+		MapList mlHistoryObjects = new MapList();
+		String sWhere = DomainConstants.EMPTY_STRING;
+		try {
+			String sSite = (args.length >= 1) ? args[0] : DomainConstants.EMPTY_STRING;
+			String sFilter = (args.length >= 2) ? args[1] : DomainConstants.EMPTY_STRING;
+			String sEvent = (args.length >= 3) ? args[2] : DomainConstants.EMPTY_STRING;
+			String sPerson = (args.length == 4) ? args[3] : DomainConstants.EMPTY_STRING;
+				
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			Calendar cal = Calendar.getInstance();
+			cal.add(Calendar.SECOND, -1);
+			
+			if(KEY_FILTERTODAY.equals(sFilter)) {
+				sWhere = DomainConstants.SELECT_ORIGINATED+ " >= "+sdf.format(cal.getTime());
+				cal.add(Calendar.DAY_OF_YEAR, 1);
+				sWhere = sWhere + " && " + DomainConstants.SELECT_ORIGINATED+ " < "+sdf.format(cal.getTime());
+			} else if(KEY_FILTERTHISWEEK.equals(sFilter)) {
+				cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+				sWhere = DomainConstants.SELECT_ORIGINATED+ " >= "+sdf.format(cal.getTime());
+			} else if(KEY_FILTERTHISMONTH.equals(sFilter)) {
+				cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
+				sWhere = DomainConstants.SELECT_ORIGINATED+ " >= "+sdf.format(cal.getTime());
+			}
+			
+			if(UIUtil.isNotNullAndNotEmpty(sSite) && UIUtil.isNotNullAndNotEmpty(sWhere)){
+				sWhere = "attribute[" + ATTRIBUTE_DRL_HISTORY_SITE + "] == " + sSite + " && " + sWhere;
+			} else if (UIUtil.isNotNullAndNotEmpty(sSite) && UIUtil.isNullOrEmpty(sWhere)) {
+				sWhere = "attribute[" + ATTRIBUTE_DRL_HISTORY_SITE + "] == " + sSite;
+			}
+			
+			if(UIUtil.isNotNullAndNotEmpty(sEvent)) {
+				sWhere = sWhere + " && " + "attribute[" + ATTRIBUTE_DRL_HISTORY_EVENT + "] == " + sEvent;
+			}
+			
+			if(UIUtil.isNotNullAndNotEmpty(sPerson)) {
+				sWhere = sWhere + " && " + DomainConstants.SELECT_NAME + " == " + sPerson;
+			}					
+			
+			StringList objectSelects = new StringList();
+			objectSelects.add(DomainObject.SELECT_ID);
+			objectSelects.add(DomainConstants.SELECT_NAME);
+			objectSelects.add(DomainConstants.SELECT_TYPE);
+			objectSelects.add("attribute["+ ATTRIBUTE_DRL_HISTORY_EVENT +"].value");
+			objectSelects.add("attribute["+ ATTRIBUTE_DRL_HISTORY_OBJECTDISPLAYNAME +"].value");
+			objectSelects.add("attribute["+ ATTRIBUTE_DRL_HISTORY_OBJECTID +"].value");
+			objectSelects.add("attribute["+ ATTRIBUTE_DRL_HISTORY_PUBLISH +"].value");
+			objectSelects.add("attribute["+ ATTRIBUTE_DRL_HISTORY_SITE +"].value");
+			objectSelects.add("attribute["+ ATTRIBUTE_DRL_HISTORY_TYPE +"].value");
+					
+			mlHistoryObjects = DomainObject.findObjects(context, TYPE_DRLHISTORYOBJECT, VAULT_ESERVICE_PRODUCTION, sWhere, objectSelects);
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:getHistory : "+e);
+		}
+		return mlHistoryObjects;
+	}
+	
+	/***
+	 * Returns the respective column data as per 
+	 * the xml key provided in the column setting
+	 * @return Vector containing relevant data 
+	 * @throws Exception
+	 */
+	public Vector getXMLKeyValue(Context context, String[] args) throws Exception {
+		Vector vReturnList = new Vector();
+		HashMap argMap = (HashMap) JPO.unpackArgs(args);	
+		Map columnMap = (Map) argMap.get(KEY_COLUMNMAP);
+		Map settingsMap = (Map) columnMap.get(KEY_SETTINGS);
+		String xmlKey = (String) settingsMap.get(XML_KEY);
+		MapList mlObjectList = (MapList) argMap.get(KEY_OBJECTLIST);
+		for (int i = 0; i < mlObjectList.size(); i++) {
+			Map mpObject = (Map) mlObjectList.get(i);
+			String xmlKeyValue = (String) mpObject.get(xmlKey);
+			vReturnList.add(xmlKeyValue);
+		}
+		return vReturnList;
+	}
+	
+	/***
+	 * Returns the object count on the UI.
+	 * @return StringList containing relavent data 
+	 * @throws Exception
+	 */
+	public Vector getHistoryObjectCount(Context context, String[] args) throws Exception {
+		Vector vReturnList = new Vector();
+		HashMap argMap = (HashMap) JPO.unpackArgs(args);
+		MapList mlObjectList = (MapList) argMap.get(KEY_OBJECTLIST);
+		for (int i = 0; i < mlObjectList.size(); i++) {
+			Map mpObject = (Map) mlObjectList.get(i);
+			if(mpObject!=null) {
+				if(mpObject.get(KEY_HISTORYOBJECTCOUNT)!= null ) {
+					int count = (int) mpObject.get(KEY_HISTORYOBJECTCOUNT);
+					vReturnList.add(count+"");
+				}
+			}
+		}
+		return vReturnList;
+	}
+	
+	/**
+	 * Returns the link of the object to show on the history
+	 * @param context
+	 * @param args
+	 * @return
+	 * @throws FrameworkException
+	 */
+	public Vector getHistoryObjectSummaryTableLink(Context context, String[] args) throws FrameworkException {
+		Vector vReturnList = new Vector();
+		try {
+			HashMap programMap = (HashMap) JPO.unpackArgs(args);
+			MapList mlObjectList = (MapList) programMap.get(KEY_OBJECTLIST);
+			for (int i = 0; i < mlObjectList.size(); i++) {
+				Map mpObject = (Map) mlObjectList.get(i);
+				String sObjectId = (String) mpObject.get(KEY_ID);
+				String sIdHostory = (String) mpObject.get(KEY_IDHISTORY);
+				String sTempHeader = (String) mpObject.get("id[parent]");
+				
+				StringBuilder sbTableLink = new StringBuilder();
+				if(UIUtil.isNotNullAndNotEmpty(sIdHostory)) {
+					
+					DomainObject doObject = new DomainObject(sObjectId);
+					String sObjectTitle = doObject.getAttributeValue(context, DomainConstants.ATTRIBUTE_TITLE);					
+					StringList slTempHeader = FrameworkUtil.split(sTempHeader, "|");
+					String sPersonId = slTempHeader.get(slTempHeader.size()-1);
+					doObject = new DomainObject(sPersonId);
+					String sPerson = (String) doObject.getInfo(context, DomainConstants.SELECT_NAME);
+					String sFullName = PersonUtil.getFullName(context, sPerson);
+					String sHeader = DomainConstants.EMPTY_STRING;
+					for (int j=0; j < slTempHeader.size()-1 ; j++ ) {
+						sHeader = sHeader + slTempHeader.get(j) + " | ";
+					}
+					sHeader = sHeader + sFullName + " | " + sObjectTitle;					
+					
+					String imgHTML = "<img border='0' src='../common/images/iconNewWindow.gif' title='obj' />";
+					String strURL = "emxIndentedTable.jsp?program=DRLCaptureHistory:getHistoryObjectDetails&table=DRLHistoryObjectSummary&sortColumnName=Originated&suiteKey=Components&sortDirection=ascending&header="+sHeader.trim()+"&CancelButton=true&CancelLabel=emxComponents.Button.Close&HelpMarker=emxhelpquickfileview&"+KEY_IDHISTORY+"="+sIdHostory;
+					sbTableLink.append("<a href=\"javascript:openAsPopup('");
+					sbTableLink.append(URLEncoder.encode(strURL, "utf-8")).append("', '500', '400', '").append("')\">");
+					sbTableLink.append(imgHTML);
+					sbTableLink.append("</a>");
+				}
+				vReturnList.add(sbTableLink.toString());
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vReturnList;
+	}
+	
+	/***
+	 * Expand program for fetching the objects.
+	 * @return Maplist containing relavent data 
+	 * @throws Exception
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList expandHistory(Context context, String[] args)throws Exception {
+		MapList mlObjects = new MapList();
+		try {
+			HashMap programMap = (HashMap)JPO.unpackArgs(args);
+			String sSelectedProgramLabel = (String)programMap.get(KEY_SELECTEDPROGRAMLABEL);
+			String sObjectId = (String)programMap.get(KEY_OBJECTID);
+			
+			StringList slSelectedProgramLabel = FrameworkUtil.split(sSelectedProgramLabel,"|");			
+			String sFilter = EnoviaResourceBundle.getProperty(context,"drV6ToolsStringResource", context.getLocale(), slSelectedProgramLabel.get(1));
+			
+			StringList slKeys = FrameworkUtil.split(sObjectId, "|");
+			String sType = (String) getObjectType(context, new String[] {slKeys.get(slKeys.size()-1)});
+			
+			switch(sType) {
+				case KEY_SITE : 
+						mlObjects = (MapList) getEvents(context, new String[] {sObjectId, sFilter});
+						break;
+				case KEY_EVENT : 
+						if (slKeys.size() == 2)
+						mlObjects = (MapList) getPersons(context, new String[] {slKeys.get(0), slKeys.get(1), sFilter});
+						break;
+				case KEY_PERSON : 
+						if (slKeys.size() == 3)
+						mlObjects = (MapList) getObjects(context, new String[] {slKeys.get(0), slKeys.get(1), slKeys.get(2), sFilter});
+						break;
+			}
+			
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:expandHistory : "+e);
+		}
+		return mlObjects;
+	}
+	
+	/***
+	 * Expand program for fetching the objects.
+	 * @return Maplist containing relavent data 
+	 * @throws Exception
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public String getObjectType(Context context, String[] args)throws Exception {
+		String sType = DomainConstants.EMPTY_STRING;
+		try {
+			String sObjectId = args[0];
+			StringList slSites = (StringList) getAllSites(context, args);
+			if(slSites.contains(sObjectId)) {
+				sType = KEY_SITE;
+			} else {
+				BusinessObject boObject = new BusinessObject(sObjectId);
+				if(boObject.exists(context)) {
+					DomainObject doObject = new DomainObject(boObject);
+					sType = (String) doObject.getInfo(context, DomainConstants.SELECT_TYPE);
+				} else {
+					sType = KEY_EVENT;
+				}
+			}			
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:getObjectType : "+e);
+		}
+		return sType;
+	}
+	
+	/***
+	 * Expand program for fetching the objects.
+	 * @return Maplist containing relavent data 
+	 * @throws Exception
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getEvents(Context context, String[] args)throws Exception {
+		MapList mlObjects = new MapList();
+		try {
+			String sSite = args[0];
+			String sFilter = args[1];
+			Set<String> eventList = new HashSet<String>();
+			MapList mlHistoryObjects = getHistoryObjects(context, new String[] {sSite, sFilter});
+			for (int i = 0; i < mlHistoryObjects.size(); i++) {
+				Map mpObject = (Map) mlHistoryObjects.get(i);
+				eventList.add((String) mpObject.get("attribute["+ ATTRIBUTE_DRL_HISTORY_EVENT +"].value"));
+			}
+			
+			for (String sEvent : eventList) {
+				
+				int iEventCount = 0;
+				for (int i = 0; i < mlHistoryObjects.size(); i++) {
+					Map mpObject = (Map) mlHistoryObjects.get(i);
+					if (sEvent.equalsIgnoreCase((String) mpObject.get("attribute["+ ATTRIBUTE_DRL_HISTORY_EVENT +"].value"))){
+						iEventCount++;
+					}
+				}
+				
+				Map objectMap = new HashMap();
+				objectMap.put(KEY_EVENT, sEvent);
+				objectMap.put(KEY_ID, sSite+"|"+sEvent);
+				objectMap.put(KEY_HISTORYOBJECTCOUNT, iEventCount);
+				mlObjects.add(objectMap);
+			}
+			
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:getEvents : "+e);
+		}
+		return mlObjects;
+	}
+	
+	
+	/***
+	 * Expand program for fetching the objects.
+	 * @return Maplist containing relavent data 
+	 * @throws Exception
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getPersons(Context context, String[] args)throws Exception {
+		MapList mlObjects = new MapList();
+		try {
+			String sSite = args[0];
+			String sEvent = args[1];
+			String sFilter = args[2];
+			Set<String> personList = new HashSet<String>();
+			MapList mlHistoryObjects = getHistoryObjects(context, new String[] {sSite, sFilter, sEvent});
+			for (int i = 0; i < mlHistoryObjects.size(); i++) {
+				Map mpObject = (Map) mlHistoryObjects.get(i);			
+				personList.add((String) mpObject.get(DomainConstants.SELECT_NAME));
+			}
+			
+			for (String sPerson : personList) {
+				
+				int iPersonCount = 0;
+				for (int i = 0; i < mlHistoryObjects.size(); i++) {
+					Map mpObject = (Map) mlHistoryObjects.get(i);
+					if (sPerson.equalsIgnoreCase((String) mpObject.get(DomainConstants.SELECT_NAME))){
+						iPersonCount++;
+					}
+				}
+				
+				Map objectMap = new HashMap();
+				String sFullName = PersonUtil.getFullName(context, sPerson);
+				String sPersonId = PersonUtil.getPersonObjectID(context, sPerson);
+				objectMap.put(KEY_FULLNAME, sFullName);
+				objectMap.put(KEY_ID, sSite+"|"+sEvent+"|"+sPersonId);
+				objectMap.put(KEY_HISTORYOBJECTCOUNT, iPersonCount);
+				mlObjects.add(objectMap);
+			}
+			
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:getPersons : "+e);
+		}
+		return mlObjects;
+	}
+	
+	/***
+	 * Expand program for fetching the objects.
+	 * @return Maplist containing relavent data 
+	 * @throws Exception
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getObjects(Context context, String[] args)throws Exception {
+		MapList mlObjects = new MapList();
+		try {
+			String sSite = args[0];
+			String sEvent = args[1];
+			String sPersonId = args[2];
+			String sFilter = args[3];
+			
+			DomainObject doObject = new DomainObject(sPersonId);
+			String sName = (String) doObject.getInfo(context, DomainConstants.SELECT_NAME);
+			
+			Set<String> objectList = new HashSet<String>();
+			MapList mlHistoryObjects = getHistoryObjects(context, new String[] {sSite, sFilter, sEvent, sName});
+			for (int i = 0; i < mlHistoryObjects.size(); i++) {
+				Map mpObject = (Map) mlHistoryObjects.get(i);
+				objectList.add((String) mpObject.get("attribute["+ ATTRIBUTE_DRL_HISTORY_OBJECTID +"].value"));
+			}
+			
+			for (String sObjectId : objectList) {
+				String sIdHostory = DomainConstants.EMPTY_STRING;
+				Map objectMap = new HashMap();
+				doObject = new DomainObject(sObjectId);
+				String sDocTitle = (String) doObject.getAttributeValue(context, DomainConstants.ATTRIBUTE_TITLE);
+								
+				int iObjectCount = 0;
+				StringBuilder sbIdHostory = new StringBuilder();
+				for (int i = 0; i < mlHistoryObjects.size(); i++) {
+					Map mpObject = (Map) mlHistoryObjects.get(i);
+					if (sObjectId.equalsIgnoreCase((String) mpObject.get("attribute["+ ATTRIBUTE_DRL_HISTORY_OBJECTID +"].value"))){
+						iObjectCount++;
+						sbIdHostory.append((String) mpObject.get(DomainConstants.SELECT_ID));
+						sbIdHostory.append(",");
+					}
+				}
+				
+				objectMap.put(KEY_DOCUMENTTITLE, sDocTitle);
+				objectMap.put(KEY_ID, sObjectId);
+				objectMap.put(KEY_IDHISTORY, sbIdHostory.toString());
+				objectMap.put(KEY_HISTORYOBJECTCOUNT, iObjectCount);
+				mlObjects.add(objectMap);
+			}
+			
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:getObjects : "+e);
+		}
+		return mlObjects;
+	}
+	
+	/**
+	 * Returns the gap objects for table.
+	 * @param context
+	 * @param args
+	 * @return
+	 * @throws FrameworkException
+	 */
+	@com.matrixone.apps.framework.ui.ProgramCallable
+	public MapList getHistoryObjectDetails(Context context, String[] args) throws FrameworkException {
+		MapList mlHistoryObjects = new MapList();
+		try {
+			HashMap programMap = (HashMap) JPO.unpackArgs(args);
+			String sIdHistory = (String)programMap.get(KEY_IDHISTORY);
+			StringList slIdHistory = FrameworkUtil.split(sIdHistory,",");
+			for (String sObjectId : slIdHistory) {
+				if(UIUtil.isNotNullAndNotEmpty(sObjectId)) {
+					Map objectMap = new HashMap();
+					objectMap.put(KEY_ID, sObjectId);
+					mlHistoryObjects.add(objectMap);
+				}
+			}
+		} catch (Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:getHistoryObjectDetails : "+e);
+		}
+		return mlHistoryObjects;
+	}
+	
+	/**
+	 * Returns the link of the object as popup
+	 * @param context
+	 * @param args
+	 * @return
+	 * @throws FrameworkException
+	 */
+	public Vector popupObjectLink(Context context, String[] args) throws FrameworkException {
+		Vector vReturnList = new Vector();
+		try {
+			HashMap programMap = (HashMap) JPO.unpackArgs(args);
+			MapList mlObjectList = (MapList) programMap.get(KEY_OBJECTLIST);
+			//System.out.println("mlObjectList==="+mlObjectList);
+			for (int i = 0; i < mlObjectList.size(); i++) {
+				Map mpObject = (Map) mlObjectList.get(i);
+				String sObjectId = (String) mpObject.get(KEY_ID);
+				String sIdHostory = (String) mpObject.get(KEY_IDHISTORY);
+				String sObjectTitle = (String) mpObject.get(KEY_DOCUMENTTITLE);
+				
+				StringBuilder sbObjectLink = new StringBuilder();
+				if(UIUtil.isNotNullAndNotEmpty(sIdHostory)) {					
+					String strURL="../common/emxTree.jsp";
+					sbObjectLink.append("<a href=\"javascript:showModalDialog('"+strURL+"?objectId="+sObjectId+"','600','400','false');\" >");            
+					sbObjectLink.append(sObjectTitle);
+					sbObjectLink.append("</a>");
+				}
+				vReturnList.add(sbObjectLink.toString());
+			}
+		} catch(Exception e) {
+			throw new FrameworkException("Problem occurred at DRLCaptureHistory:popupObjectLink : "+e);
+		}
+		return vReturnList;
+	}
+	
+}
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>ProE Assembly TEAM Template</type>
+            <name>Assembly Template</name>
+            <description></description>
+            <revision>---</revision>
+            <policy>Design TEAM Resource</policy>
+            <vault>eService Production</vault>
+            <current>IN_WORK</current>
+            <owner>admin_platform</owner>
+            <project>Common Space</project>
+            <organization>Company Name</organization>
+            <files>
+                <file>
+                    <filename>mmks_asm_design_2018.asm</filename>
+                    <format>asm</format>
+                    <path>mmks_asm_design_2018.asm</path>
+                </file>
+            </files>
+        </object>
+    </objects>
+</drlExportObjects>

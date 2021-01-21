@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>gapProjectChangeName</name>
+    <symbolicName>command_gapProjectChangeName</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description></description>
+    <label>Change Name</label>
+    <hidden>false</hidden>
+    <href>${COMMON_DIR}/emxForm.jsp?form=gapChangeName&amp;mode=edit&amp;HelpMarker=emxhelpeditworkspacedetails&amp;submitAction=refreshCaller</href>
+    <alt>Change Name</alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/EditArtworkUsage.png</settingValue>
+        </setting>
+        <setting>
+            <settingName>Popup Modal</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>TeamCentral</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>slidein</settingValue>
+        </setting>
+        <setting>
+            <settingName>Window Height</settingName>
+            <settingValue>575</settingValue>
+        </setting>
+        <setting>
+            <settingName>Window Width</settingName>
+            <settingValue>575</settingValue>
+        </setting>
+    </settings>
+    <userAccess>
+        <User>all</User>
+    </userAccess>
+    <properties/>
+</command>

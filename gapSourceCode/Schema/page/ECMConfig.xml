@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page overlay="true">
+    <name>ECMConfig</name>
+    <symbolicName></symbolicName>
+    <dataObjectType>page</dataObjectType>
+    <description></description>
+    <content>pageSource\ECMConfig</content>
+    <mime></mime>
+    <properties/>
+</page>

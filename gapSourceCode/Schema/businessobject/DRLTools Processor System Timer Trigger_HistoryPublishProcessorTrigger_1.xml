@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor System Timer Trigger</type>
+            <name>HistoryPublishProcessorTrigger</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>User Agent</owner>
+            <project>Common Space</project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlFCSSite" value=""/>
+                <attribute name="drlProcessorMaximumRunningInstances" value="0"/>
+                <attribute name="drlProcessorPassword" value=""/>
+                <attribute name="drlProcessorUser" value=""/>
+                <attribute name="drlQueueObjectAttributes" value=""/>
+                <attribute name="drlQueueObjectName" value="HistoryPublishProcessorQueueObject"/>
+                <attribute name="drlQueueObjectProcessor" value="HistoryPublishProcessor"/>
+                <attribute name="drlQueueObjectRetrievalType" value="Use Fixed Queue Object"/>
+                <attribute name="drlQueueObjectRevision" value="1"/>
+                <attribute name="drlRetrieveQueueObjectsForFCSSites" value="TRUE"/>
+                <attribute name="drlRetrieveQueueObjectsForMCS" value="TRUE"/>
+                <attribute name="drlRetrieveQueueObjectsForProcessors" value="HistoryPublishProcessor"/>
+                <attribute name="drlScheduleExpression" value="0 15 10 ? * *"/>
+                <attribute name="drlStopProcessing" value="FALSE"/>
+                <attribute name="drlUseProcessorSpecificCredentials" value="FALSE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

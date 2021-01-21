@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<type overlay="true">
+    <name>ProE Part Family Table</name>
+    <dataObjectType>type</dataObjectType>
+	<triggers>
+		<trigger>
+            <triggerType>ChangeType</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeProEPartFamilyTableChangeTypeCheck</input>
+            <programType>Check</programType>
+        </trigger>
+    </triggers>
+    <properties/>
+</type>

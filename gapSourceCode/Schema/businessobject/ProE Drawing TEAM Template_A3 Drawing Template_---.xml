@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>ProE Drawing TEAM Template</type>
+            <name>A3 Drawing Template</name>
+            <description></description>
+            <revision>---</revision>
+            <policy>Design TEAM Resource</policy>
+            <vault>eService Production</vault>
+            <current>IN_WORK</current>
+            <owner>admin_platform</owner>
+            <project>Common Space</project>
+            <organization>Company Name</organization>
+            <files>
+                <file>
+                    <filename>enovia_a3s_drawing.drw</filename>
+                    <format>drw</format>
+                    <path>enovia_a3s_drawing.drw</path>
+                </file>
+                <file>
+                    <filename>enovia_a3s.frm</filename>
+                    <format>frm</format>
+                    <path>enovia_a3s.frm</path>
+                </file>
+            </files>
+        </object>
+    </objects>
+</drlExportObjects>

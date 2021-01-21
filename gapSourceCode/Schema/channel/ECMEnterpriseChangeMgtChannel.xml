@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<channel overlay="true">
+    <name>ECMEnterpriseChangeMgtChannel</name>
+    <symbolicName>channel_ECMEnterpriseChangeMgtChannel</symbolicName>
+    <dataObjectType>channel</dataObjectType>
+    <description></description>
+    <label></label>
+    <hidden>false</hidden>
+    <href></href>
+    <alt></alt>
+    <height>0</height>
+    <settings>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EnterpriseChangeMgt</settingValue>
+        </setting>
+    </settings>
+    <items>
+		<item>ECMCAs</item>
+        <item>ECMCOs</item>
+        <item>ECMCRs</item>   
+        <item>ECMChangeLegacy</item>
+    </items>
+</channel>

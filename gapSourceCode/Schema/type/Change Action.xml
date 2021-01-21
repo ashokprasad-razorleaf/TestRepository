@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<type overlay="true">
+    <name>Change Action</name>
+    <symbolicName>type_ChangeAction</symbolicName>
+    <dataObjectType>type</dataObjectType>
+    <description>ECM type for domain specific change</description>
+    <parentName>Change</parentName>
+    <hidden>false</hidden>
+    <abstract>false</abstract>
+    <attributes>
+        <attribute>gapSituation</attribute>
+        <attribute>gapSigners</attribute>
+        <attribute>Actual Completion Date</attribute>
+        <attribute>Estimated Completion Date</attribute>
+        <attribute>Category of Change</attribute>
+        <attribute>Severity</attribute>
+        <attribute>Synopsis</attribute>
+        <attribute>Reason For Cancel</attribute>
+        <attribute>Actual Start Date</attribute>
+        <attribute>Estimated Start Date</attribute>
+        <attribute>gapProjectNumber</attribute>
+    </attributes>
+    <triggers>
+        <trigger immutable="true">
+            <triggerType>ModifyAttribute</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeChangeActionModifyAttributeAction</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>ChangeOwner</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeChangeActionChangeOwnerAction APPObjectOwnerChangedNotificationAction</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Delete</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeChangeActionDeleteCheck EntityLocationControl</input>
+            <programType>Check</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>ChangeOwner</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeChangeActionChangeOwnerCheck</input>
+            <programType>Check</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Transaction</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeAllLifecycleTransactionEvent</input>
+            <programType>Action</programType>
+        </trigger>
+    </triggers>
+    <properties/>
+</type>

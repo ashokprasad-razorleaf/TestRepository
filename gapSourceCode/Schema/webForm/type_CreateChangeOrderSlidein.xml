@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webForm overlay="true">
+    <name>type_CreateChangeOrderSlidein</name>
+    <symbolicName>form_type_CreateChangeOrderSlidein</symbolicName>
+    <dataObjectType>webForm</dataObjectType>
+    <description></description>
+    <type></type>
+    <hidden>false</hidden>
+    <fields>
+        <field>
+            <name>SectionHeader1</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.SectionHeader.Basic</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>Section Header</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Section Level</settingName>
+                    <settingValue>1</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>COName</name>
+            <description></description>
+            <expression>
+                <expression>empty</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.CloneBased</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>showFieldInClone</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>program</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getClonedCOName</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>ChangeTemplate2</name>
+            <description></description>
+            <expression>
+                <expression>empty</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.ChangeTemplate</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=TYPES=type_ChangeTemplate:CURRENT=policy_ChangeTemplate.state_Active&amp;selection=single&amp;table=ECMChangeTemplateSearchSummary&amp;submitAction=refreshCaller&amp;fieldNameActual=ChangeTemplate&amp;fieldNameDisplay=ChangeTemplateDisplay&amp;includeOIDprogram=enoECMChangeTemplate:getUsageTemplates&amp;mode=Chooser&amp;chooserType=CustomChooser&amp;showInitialResults=true&amp;suiteKey=EnterpriseChangeMgt&amp;submitURL=../enterprisechangemgtapp/ECMSearchUtil.jsp</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>showFieldInClone</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>connectChangeTemplate</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>ChangeTemplate</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.ChangeTemplate</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=enoECMChangeOrder:getCTDynamicSearchQuery&amp;selection=single&amp;table=ECMChangeTemplateSearchSummary&amp;submitAction=refreshCaller&amp;includeOIDprogram=enoECMChangeTemplate:getUsageTemplates&amp;mode=Chooser&amp;chooserType=CustomChooser&amp;showInitialResults=true&amp;suiteKey=EnterpriseChangeMgt&amp;submitURL=../enterprisechangemgtapp/ECMSearchUtil.jsp</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>showFieldInCreate</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>On Change Handler</settingName>
+                    <settingValue>clearAll</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>connectChangeTemplate</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Type</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;type&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.Type</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxTypeChooser.jsp?SelectType=single&amp;ReloadOpener=false&amp;SelectAbstractTypes=false&amp;InclusionList=type_ChangeOrder&amp;suiteKey=Framework&amp;targetLocation=popup</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>showFieldInCreate</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>Type</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>textbox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Type2</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;type&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.Type</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>showFieldInClone</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>Type</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Policy</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;policy&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.Policy</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>showFieldInCreate</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>combobox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>On Change Handler</settingName>
+                    <settingValue>DisableReviewersListAndChangeCoordinator</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Range Function</settingName>
+                    <settingValue>getPolicies</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Range Program</settingName>
+                    <settingValue>enoECMChangeUX</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Policy2</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;policy&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.Policy</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Function</settingName>
+                    <settingValue>showFieldInClone</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Access Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>SectionSeparator1</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel></customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>Section Separator</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>SectionHeader2</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.SectionHeader.ChangeInfo</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>Section Header</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Section Level</settingName>
+                    <settingValue>1</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Description</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;description&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.Description</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>textarea</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>		
+		<field>
+            <name>gapProjectNumber</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_gapProjectNumber].value&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxFramework.Attribute.gapProjectNumber</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=TYPES=type_Project:CURRENT=policy_Project.state_Active&amp;table=ENCAddExistingGeneralSearchResults&amp;selection=single&amp;hideHeader=true&amp;HelpMarker=emxhelpfullsearch&amp;searchOnInit=false</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+				<setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>textbox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Framework</settingValue>
+                </setting>
+				<setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>ResponsibleOrganization</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.ResponsibleOrganization</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=TYPES=type_Organization:CURRENT=policy_Organization.state_Active&amp;includeOIDprogram=enoECMChangeOrder:includeROs&amp;table=AEFGeneralSearchResults&amp;selection=single&amp;hideHeader=true&amp;HelpMarker=emxhelpfullsearch</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Group Name</settingName>
+                    <settingValue>ChangeInfo</settingValue>
+                </setting>
+                <setting>
+                    <settingName>OnChange Handler</settingName>
+                    <settingValue>clearAllRO</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Required</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>connectResponsibleOrganisation</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>ReportedAgainst</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;from[relationship_ReportedAgainstChange].to.name&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.ReportedAgainst</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?targetRelName=relationship_ReportedAgainstChange&amp;field=enoECMChangeOrder:getFieldSearchTypes&amp;table=APPECReportedAgainstSearchList&amp;selection=single&amp;hideHeader=true&amp;HelpMarker=emxhelpfullsearch&amp;suiteKey=EnterpriseChangeMgt</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Alternate Range Label</settingName>
+                    <settingValue>EnterpriseChangeMgt.Command.External</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Group Name</settingName>
+                    <settingValue>ChangeInfo</settingValue>
+                </setting>
+                <setting>
+                    <settingName>OSLC</settingName>
+                    <settingValue>javascript:loadDelegatedUICreate()</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Range Label</settingName>
+                    <settingValue>EnterpriseChangeMgt.Command.Native</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>connectReportedAgainstChange</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>ChangeCoordinator</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.ChangeCoordinator</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?type=PERSON_CHOOSER&amp;field=enoECMChangeOrder:getChangeCoordinatorDynamicSearchQuery&amp;table=ECMAssigneeTable&amp;selection=single</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Group Name</settingName>
+                    <settingValue>ChangeInfo1</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>connectChangeCoordinator</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>format</settingName>
+                    <settingValue>user</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>CategoryOfChange</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_CategoryofChange].value&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxFramework.Attribute.Category_of_Change</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>attribute_CategoryofChange</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Group Name</settingName>
+                    <settingValue>ChangeInfo1</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>combobox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Framework</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Severity</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;attribute[attribute_Severity].value&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxFramework.Attribute.Severity</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>attribute_Severity</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>attribute</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Input Type</settingName>
+                    <settingValue>combobox</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Framework</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>SectionSeparator2</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel></customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>Section Separator</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>SectionHeader3</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.SectionHeader.ReviewersandApprovers</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>Section Header</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Section Level</settingName>
+                    <settingValue>1</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>ReviewersList</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.ReviewerList</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=TYPES=type_RouteTemplate:ROUTE_BASE_PURPOSE=Approval:CURRENT=policy_RouteTemplate.state_Active:LATESTREVISION=TRUE&amp;table=APPECRouteTemplateSearchList&amp;includeOIDprogram=emxRouteTemplate:getRouteTemplateIncludeIDs&amp;selection=single</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>policy!="$&lt;policy_FasttrackChange&gt;"</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Group Name</settingName>
+                    <settingValue>Approvers</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>updateReviewRouteObject</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate</settingName>
+                    <settingValue>validateReviewerListAndApprovalList</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>ApprovalList</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.ApproversList</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=TYPES=type_RouteTemplate:ROUTE_BASE_PURPOSE=Approval:CURRENT=policy_RouteTemplate.state_Active:LATESTREVISION=TRUE&amp;table=APPECRouteTemplateSearchList&amp;includeOIDprogram=emxRouteTemplate:getRouteTemplateIncludeIDs&amp;selection=single</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Group Name</settingName>
+                    <settingValue>Approvers</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>updateApprovalRouteObject</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Validate</settingName>
+                    <settingValue>validateReviewerListAndApprovalList</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>SectionHeader4</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.SectionHeader.ExtendedAttributes</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>Section Header</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Section Level</settingName>
+                    <settingValue>1</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>DistributionList</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;from[relationship_ECDistributionList].to.name&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.FollowerList</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref>${COMMON_DIR}/emxFullSearch.jsp?field=TYPES=type_MemberList:CURRENT=policy_MemberList.state_Active&amp;table=APPECMemberListsSearchList&amp;selection=single</rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Clear Button</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Function</settingName>
+                    <settingValue>connectDistributionList</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Update Program</settingName>
+                    <settingValue>enoECMChangeOrder</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>Policy1</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;policy&gt;</expression>
+                <appliesTo>businessobject</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Label.Policy</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>basic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+            </settings>
+        </field>
+        <field>
+            <name>InterfaceAttributes</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>EnterpriseChangeMgt.Common.Attributes</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Dynamic Field Function</settingName>
+                    <settingValue>DisplayInterfaceAttributes</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Dynamic Field Program</settingName>
+                    <settingValue>enoECMChangeTemplate</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>Dynamic</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>EnterpriseChangeMgt</settingValue>
+                </setting>
+            </settings>
+        </field>
+    </fields>
+    <properties/>
+</webForm>

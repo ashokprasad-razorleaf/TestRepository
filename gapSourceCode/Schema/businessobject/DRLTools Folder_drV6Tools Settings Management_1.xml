@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Folder</type>
+            <name>drV6Tools Settings Management</name>
+            <description>drV6Tools Settings Management</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Type Action Trigger</toType>
+                    <toName>CloneDRV6ToolsSettings</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+                <relationship>
+                    <toType>DRLTools Type Action Trigger</toType>
+                    <toName>ExportDRV6ToolsSettings</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Folder Content</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

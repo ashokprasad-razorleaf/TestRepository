@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webForm overlay="true">
+    <name>type_MCADDrawing</name>
+    <symbolicName>form_type_MCADDrawing</symbolicName>
+    <dataObjectType>webForm</dataObjectType>
+    <description></description>
+    <type></type>
+    <hidden>false</hidden>
+    <fields>
+       <field after="Title">
+            <name>View File</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo></appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>View File</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Editable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Field Type</settingName>
+                    <settingValue>programHTMLOutput</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Group Name</settingName>
+                    <settingValue>Group1</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>DesignerCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Vertical Group Name</settingName>
+                    <settingValue>VG1</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr activity icon</settingName>
+                    <settingValue>../common/images/iconActionPDF.gif</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr activity name</settingName>
+                    <settingValue>StampDocumentPDF</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr activity tooltip</settingName>
+                    <settingValue>Download Stamped PDF</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show activity</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show activity check derived output</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show activity check for any derived output</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show activity for file extensions</settingName>
+                    <settingValue>pdf</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getActivityHTML</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>drV6ToolsJPO</settingValue>
+                </setting>
+            </settings>
+        </field>
+    </fields>
+    <properties/>
+</webForm>

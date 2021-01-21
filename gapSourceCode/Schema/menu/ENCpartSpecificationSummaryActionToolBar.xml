@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>ENCpartSpecificationSummaryActionToolBar</name>
+    <symbolicName>menu_ENCpartSpecificationSummaryActionToolBar</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label>EngineeringCentral.Toolbar.Actions</label>
+    <hidden>false</hidden>
+    <href></href>
+    <alt></alt>
+    <menuItems/>
+    <commandItems>
+        <commandItem>ENCECSpecificationCreateNew</commandItem>
+        <commandItem>ENCMEPSpecificationCreateNew</commandItem>
+        <commandItem>ENCSpecificationAddExisting</commandItem>
+        <commandItem>DSCCreateCADStructure</commandItem>
+        <commandItem>ENCCommonDocumentDownloadActionLink</commandItem>
+        <commandItem>ENCDocumentSummaryCheckOutActionLink</commandItem>
+        <commandItem>APPAccessRequestActionLink</commandItem>
+        <commandItem>AEFSeparator</commandItem>
+        <commandItem>ENCECSpecDocumentRemove</commandItem>
+        <commandItem>ENCMEPSpecDocumentRemove</commandItem>
+        <commandItem>APPSeparator</commandItem>
+        <commandItem>VPLMIntegSynchWithVPLM</commandItem>
+		<commandItem>gapDownloadSpecsPDF</commandItem>
+    </commandItems>
+    <settings>
+        <setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>(policy !="$&lt;policy_ManufacturingPart&gt;")</settingValue>
+        </setting>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/iconActionActions.png</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EngineeringCentral</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

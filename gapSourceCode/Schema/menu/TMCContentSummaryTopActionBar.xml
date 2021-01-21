@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>TMCContentSummaryTopActionBar</name>
+    <symbolicName>menu_TMCContentSummaryTopActionBar</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label></label>
+    <hidden>false</hidden>
+    <href></href>
+    <alt></alt>
+    <menuItems>
+        <menuItem>TMCContentSummaryCreateNew</menuItem>
+        <menuItem>ECMChangeToolbar</menuItem>
+    </menuItems>
+    <commandItems>
+        <commandItem>TMCGeneralSearch</commandItem>
+        <commandItem>TMCContentSummaryUploadExternalFile</commandItem>
+        <commandItem>TMCContentSummaryEditLifecycleBlock</commandItem>
+        <commandItem>APPNavigateVCFileFolder</commandItem>
+        <commandItem>TMCCommonDocumentUpdateHolder</commandItem>
+		<commandItem>gapDownloadSpecsPDF</commandItem>
+		<commandItem>gapMergeDocumentPDFs</commandItem>
+        <commandItem>IEFCreateDesignFromWorkspaceFolderLink</commandItem>
+    </commandItems>
+    <settings>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>TeamCentral</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

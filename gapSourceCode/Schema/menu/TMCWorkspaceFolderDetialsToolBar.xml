@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>TMCWorkspaceFolderDetialsToolBar</name>
+    <symbolicName>menu_TMCWorkspaceFolderDetialsToolBar</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label>TeamCentral.Toolbar.Actions</label>
+    <hidden>false</hidden>
+    <href></href>
+    <alt>TeamCentral.Toolbar.Actions</alt>
+    <menuItems>
+        <menuItem>TMCWorkspaceFolderDetailsActionsToolBar</menuItem>
+    </menuItems>
+	<commandItems>
+		 <commandItem>gapProjectChangeName</commandItem>
+	</commandItems>
+    <settings>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/iconActionActions.png</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>TeamCentral</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

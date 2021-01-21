@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>gapDownloadPDFMenu</name>
+    <symbolicName>menu_gapDownloadPDFMenu</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label>emxEngineeringCentral.Label.gapUtilities</label>
+    <hidden>false</hidden>
+    <href></href>
+    <alt></alt>
+    <menuItems/>
+    <commandItems>
+        <commandItem>gapDownloadPDFZIP</commandItem>
+        <commandItem>gapChangeReportByProjectNumber</commandItem>
+        <commandItem>TMCWorkspaceFolderSummaryCreateCommandTemp</commandItem>
+    </commandItems>
+    <settings>
+        <setting>
+            <settingName>Licensed Product</settingName>
+            <settingValue>ENO_BPS_TP</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EngineeringCentral</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

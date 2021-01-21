@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor Custom Processor</type>
+            <name>DirectViewBatchUpdateXML</name>
+            <description>Direct View Batch UpdateXML export</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlArg1" value=""/>
+                <attribute name="drlArg1Description" value=""/>
+                <attribute name="drlArg2" value=""/>
+                <attribute name="drlArg2Description" value=""/>
+                <attribute name="drlArg3" value=""/>
+                <attribute name="drlArg3Description" value=""/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlJavaClassName" value="com.atlascopco.directview.drDirectViewBatchUpdateProcessor"/>
+                <attribute name="drlMultilineArg1" value=""/>
+                <attribute name="drlMultilineArg1Description" value=""/>
+                <attribute name="drlMultilineArg2" value=""/>
+                <attribute name="drlMultilineArg2Description" value=""/>
+                <attribute name="drlMultilineArg3" value=""/>
+                <attribute name="drlMultilineArg3Description" value=""/>
+                <attribute name="drlProcessorMaximumProcessingTime" value="0"/>
+                <attribute name="drlProcessorPassword" value=""/>
+                <attribute name="drlProcessorUser" value=""/>
+                <attribute name="drlRealTimeFeedback" value="TRUE"/>
+                <attribute name="drlUseProcessorSpecificCredentials" value="FALSE"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Job Server Activity Processor</toType>
+                    <toName>DirectView - Run UpdateXML</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Processor System Processor Relationship</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

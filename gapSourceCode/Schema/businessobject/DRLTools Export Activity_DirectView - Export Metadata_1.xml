@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Export Activity</type>
+            <name>DirectView - Export Metadata</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlDerivedOutputFileType" value="PDF"/>
+                <attribute name="drlDerivedOutputRelationshipName" value="Derived Output"/>
+                <attribute name="drlDerivedOutputTypeSymbolicName" value="type_DerivedOutput"/>
+                <attribute name="drlExpandStatementConditions" value=""/>
+                <attribute name="drlExportAllAttributes" value="TRUE"/>
+                <attribute name="drlExportAttributes" value=""/>
+                <attribute name="drlExportCurrentObject" value="TRUE"/>
+                <attribute name="drlExportExpandResults" value="FALSE"/>
+                <attribute name="drlExportFiles" value="TRUE"/>
+                <attribute name="drlExportFilesWithExtensions" value="PDF"/>
+                <attribute name="drlExportRelationshipAttributes" value=""/>
+                <attribute name="drlExportStructureMode" value="Flat"/>
+                <attribute name="drlIncludeRelationships" value="FALSE"/>
+                <attribute name="drlOrderBy" value=""/>
+                <attribute name="drlRelationshipsToInclude" value=""/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+                <attribute name="drlSettings" value="EXCLUDE_FILES_IN_FORMAT=gapDocumentApproval"/>
+                <attribute name="drlTypesToInclude" value=""/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Export Target Custom</toType>
+                    <toName>DirectView - Update XML Export</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Export Target Relationship</relationshipType>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

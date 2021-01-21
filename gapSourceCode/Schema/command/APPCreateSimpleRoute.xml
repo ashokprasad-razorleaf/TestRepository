@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>APPCreateSimpleRoute</name>
+    <symbolicName>command_APPCreateSimpleRoute</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description>Command Object for Create Simple Route</description>
+    <label>emxComponents.Common.CreateSimpleRoute</label>
+    <hidden>false</hidden>
+    <href>${COMPONENT_DIR}/emxRouteCreateSimpleDialogFS.jsp?init1=true</href>
+    <alt>emxComponents.Common.CreateSimpleRoute</alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>(!(policy == "Inbox Task" &amp;&amp; current == Complete))</settingValue>
+        </setting>
+        <setting>
+            <settingName>Access Function</settingName>
+            <settingValue>checkCreateSimpleRouteAccess</settingValue>
+        </setting>
+        <setting>
+            <settingName>Access Program</settingName>
+            <settingValue>emxRoute</settingValue>
+        </setting>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/iconActionCreate.png</settingValue>
+        </setting>
+        <setting>
+            <settingName>Licensed Product</settingName>
+            <settingValue>ENO_BPS_TP</settingValue>
+        </setting>
+        <setting>
+            <settingName>Popup Modal</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Popup Size</settingName>
+            <settingValue>MediumTall</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>Components</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>popup</settingValue>
+        </setting>
+    </settings>
+    <userAccess>
+        <User>Global User</User>
+        <User>VPLMExperimenter</User>
+        <User>VPLMReleaseManager</User>
+    </userAccess>
+    <properties/>
+</command>

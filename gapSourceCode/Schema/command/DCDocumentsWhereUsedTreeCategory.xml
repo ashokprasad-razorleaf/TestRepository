@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>DCDocumentsWhereUsedTreeCategory</name>
+    <symbolicName>command_DCDocumentsWhereUsedTreeCategory</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description>Where Used Tree Category for DOCUMENTS</description>
+    <label>emxDocumentCentral.TreeCategory.WhereUsed</label>
+    <hidden>false</hidden>
+    <href>${COMMON_DIR}/emxIndentedTable.jsp?eezePane=Name&amp;HelpMarker=emxhelpwhereused&amp;inquiry=DCObjectWhereUsed&amp;table=DCObjectsStandardWithoutLock&amp;sortColumnName=Name&amp;sortDirection=ascending&amp;header=emxDocumentCentral.Common.WhereUsed&amp;HelpMarker=emxhelpobjecttreecategorywhereused&amp;massPromoteDemote=false&amp;triggerValidation=false&amp;displayView=details,thumbnails</href>
+    <alt>emxDocumentCentral.TreeCategory.WhereUsed</alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>($&lt;attribute[attribute_IsVersionObject].value&gt; != True || type==$&lt;type[type_ProjectVault]&gt;)</settingValue>
+        </setting>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/iconSmallObjectFolder.gif</settingValue>
+        </setting>
+        <setting remove="true">
+            <settingName>Licensed Product</settingName>
+            <settingValue>ENO_LBC_TP</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>DocumentCentral</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>content</settingValue>
+        </setting>
+    </settings>
+    <userAccess/>
+    <properties/>
+</command>

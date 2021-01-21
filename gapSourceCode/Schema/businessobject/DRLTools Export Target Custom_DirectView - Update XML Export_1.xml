@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Export Target Custom</type>
+            <name>DirectView - Update XML Export</name>
+            <description>DirectView - Update XML Export</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlArg1" value="\\TBISUSST120\ODPInbox\Scripting"/>
+                <attribute name="drlArg1Description" value="Export Directory - \\TBISUSST120\ODPInbox\Scripting, C:\temp\_PROD DirectView Test"/>
+                <attribute name="drlArg2" value="\\TBISUSST120\CADACCESS\PDF"/>
+                <attribute name="drlArg2Description" value="\\TBISUSST120\CADACCESS\PDF, C:\temp\_PROD DirectView Test"/>
+                <attribute name="drlArg3" value=""/>
+                <attribute name="drlArg3Description" value=""/>
+                <attribute name="drlArg4" value="true"/>
+                <attribute name="drlArg4Description" value="deleteprocessedfile setting"/>
+                <attribute name="drlArg5" value="OCEDB-ENOVIA"/>
+                <attribute name="drlArg5Description" value="name setting (Prod = OCEDB-ENOVIA)"/>
+                <attribute name="drlArg6" value="GAP"/>
+                <attribute name="drlArg6Description" value="class setting (Prod = GAP)"/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlJavaClassName" value="com.atlascopco.directview.drDirectViewUpdateExportTargetObject"/>
+                <attribute name="drlMultilineArg1" value="name=Document_Number&#xA;Sheet Number=SheetNum&#xA;revision=Document_Revision&#xA;description=Document_Description&#xA;Title=Document_Name&#xA;gapParts=SAP_Material_Number&#xA;gapDocumentCode=Document_Code&#xA;gapProjects=Projects"/>
+                <attribute name="drlMultilineArg1Description" value="DirectView UpdateXML value mapping"/>
+                <attribute name="drlMultilineArg2" value="name=Document_Number&#xA;Sheet Number=SheetNum&#xA;revision=Document_Revision"/>
+                <attribute name="drlMultilineArg2Description" value="DirectView UpdateXML search attribute mappings"/>
+                <attribute name="drlMultilineArg3" value=""/>
+                <attribute name="drlMultilineArg3Description" value=""/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

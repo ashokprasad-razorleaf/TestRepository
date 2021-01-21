@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>gapCreateSystemQueueObject</name>
+    <symbolicName>command_gapCreateSystemQueueObject</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description></description>
+    <label>Create Queue Object</label>
+    <hidden>false</hidden>
+    <href>${ROOT_DIR}/drV6Tools/drV6Tools.jsp?drtoolsKey=CreateSystemQueueObject</href>    
+    <alt></alt>
+    <code></code>
+    <settings>
+         <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>drV6Tools</settingValue>
+        </setting>
+        <setting>
+            <settingName>Submit</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>hiddenFrame</settingValue>
+        </setting>
+    </settings>
+    <userAccess>
+        <User>DRLTools Admin</User>
+    </userAccess>
+</command>

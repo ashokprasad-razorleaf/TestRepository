@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<table overlay="true">
+    <name>TMCContentSummary</name>
+    <symbolicName>table_TMCContentSummary</symbolicName>
+    <dataObjectType>table</dataObjectType>
+    <hidden>false</hidden>
+    <columns>
+        <column>
+            <name>Image</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel></customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>Image</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Draggable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Framework</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Name</name>
+            <description></description>
+            <expression>
+                <expression>$&lt;name&gt;</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.Name</customLabel>
+            </expression>
+            <href>${COMMON_DIR}/emxTree.jsp</href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Draggable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Type Icon</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Target Location</settingName>
+                    <settingValue>content</settingValue>
+                </setting>
+            </settings>
+        </column>
+		<column>
+            <name>gapProjectNumber</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Label.gapProjectNumber</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+				<setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>programHTMLOutput</settingValue>
+                </setting>
+				<setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getWorkSpaceName</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>gap_Util</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Title</name>
+            <description></description>
+            <expression>
+                <expression>evaluate[IF(attribute[Title] != '') THEN attribute[Title] ELSE (IF(attribute[PLMEntity.V_Name] != '') THEN attribute[PLMEntity.V_Name] ELSE (IF(attribute[PLMInstance.V_Name] != '') THEN attribute[PLMInstance.V_Name] ELSE(name))) ]</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.Title</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Width</settingName>
+                    <settingValue>100</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Type</name>
+            <description></description>
+            <expression>
+                <expression>type</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.Type</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>Type</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Width</settingName>
+                    <settingValue>100</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Rev</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.Rev</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>programHTMLOutput</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Export</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sort Program</settingName>
+                    <settingValue>emxSortHTMLAnchorElement</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sort Type</settingName>
+                    <settingValue>other</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Target Location</settingName>
+                    <settingValue>popup</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getRevisionStatus</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxCommonDocumentUI</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Ver</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.Version</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>programHTMLOutput</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Export</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sort Program</settingName>
+                    <settingValue>emxSortHTMLAnchorElement</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sort Type</settingName>
+                    <settingValue>other</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Target Location</settingName>
+                    <settingValue>popup</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getVersionStatus</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxCommonDocumentUI</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Actions</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.DocSummary.Actions</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>programHTMLOutput</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Printer Friendly</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Width</settingName>
+                    <settingValue>170</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr activity conditions</settingName>
+                    <settingValue>If Type is gapAutoCAD|If Type is gapGAPSpecification|If Type is Kindof MCAD Drawing</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr activity icon</settingName>
+                    <settingValue>../common/images/iconActionPDF.gif</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr activity name</settingName>
+                    <settingValue>StampDocumentPDF</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr activity tooltip</settingName>
+                    <settingValue>Download Stamped PDF</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show activity</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show activity check derived output</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show activity for file extensions</settingName>
+                    <settingValue>pdf</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show check in</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show check out</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show download</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show download if activity false</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show subscribe</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show viewer</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>dr show viewer if activity false</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getContentActions</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>drlTools_emxTeamContent</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Checkin</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>&lt;img border="0" src="../common/images/iconColHeadUpload.png"&gt;&lt;/img&gt;</customLabel>
+            </expression>
+            <href></href>
+            <alt>emxComponents.Common.Checkin</alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess/>
+            <settings>
+                <setting>
+                    <settingName>Access Expression</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Align</settingName>
+                    <settingValue>center</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>programHTMLOutput</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Drop Zone Relationship</settingName>
+                    <settingValue>Active Version</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Hide Mode</settingName>
+                    <settingValue>Mobile</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Printer Friendly</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Row Grouping</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Counter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show Drop Zone</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Show More</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Target Type</settingName>
+                    <settingValue>DOCUMENTS</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Type Specific</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Types</settingName>
+                    <settingValue>DOCUMENTS</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>columnRelatedItems</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxGenericColumns</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>LockStatus</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>&lt;img border="0" src="../common/images/iconColHeadLocked.gif"&gt;&lt;/img&gt;</customLabel>
+            </expression>
+            <href></href>
+            <alt>emxComponents.VersionControl.Locked</alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>programHTMLOutput</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getLockStatus</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxCommonDocumentUI</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>RouteStatus</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>&lt;img border="0" src="../common/images/iconSmallRoute.gif"&gt;&lt;/img&gt;</customLabel>
+            </expression>
+            <href></href>
+            <alt>emxComponents.Common.RouteStatus</alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>programHTMLOutput</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>Components</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>function</settingName>
+                    <settingValue>getRouteStatus</settingValue>
+                </setting>
+                <setting>
+                    <settingName>program</settingName>
+                    <settingValue>emxCommonDocumentUI</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>Description</name>
+            <description></description>
+            <expression>
+                <expression>description</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.Description</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>State</name>
+            <description></description>
+            <expression>
+                <expression>current</expression>
+                <appliesTo>businessobject </appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>emxTeamCentral.Common.State</customLabel>
+            </expression>
+            <href></href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Admin Type</settingName>
+                    <settingValue>State</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>true</settingValue>
+                </setting>
+            </settings>
+        </column>
+        <column>
+            <name>DetailPopup</name>
+            <description></description>
+            <expression>
+                <expression></expression>
+                <appliesTo>set</appliesTo>
+                <hasCustomLabel>true</hasCustomLabel>
+                <customLabel>&lt;img border="0" src="../common/images/iconNewWindow.gif"&gt;&lt;/img&gt;</customLabel>
+            </expression>
+            <href>${COMMON_DIR}/emxTree.jsp</href>
+            <alt></alt>
+            <rangeHref></rangeHref>
+            <updateUrl></updateUrl>
+            <userAccess>
+                <user>all</user>
+            </userAccess>
+            <settings>
+                <setting>
+                    <settingName>Auto Filter</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Column Icon</settingName>
+                    <settingValue>images/iconNewWindow.gif</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Column Type</settingName>
+                    <settingValue>icon</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Export</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Printer Friendly</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Registered Suite</settingName>
+                    <settingValue>TeamCentral</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Sortable</settingName>
+                    <settingValue>false</settingValue>
+                </setting>
+                <setting>
+                    <settingName>Target Location</settingName>
+                    <settingValue>popup</settingValue>
+                </setting>
+            </settings>
+        </column>
+    </columns>
+    <properties/>
+</table>

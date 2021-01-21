@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>ENCpartPartSpecEditActionsToolBar</name>
+    <symbolicName>menu_ENCpartPartSpecEditActionsToolBar</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label>EngineeringCentral.Toolbar.Actions</label>
+    <hidden>false</hidden>
+    <href></href>
+    <alt></alt>
+    <menuItems/>
+    <commandItems>
+        <commandItem>ENCECPartSpecEditAction_Headerlink_0</commandItem>
+        <commandItem>ENCMEPPartSpecEditAction_Headerlink_0</commandItem>
+        <commandItem>APPDocumentVCFileCheckInActionLink</commandItem>
+        <commandItem>APPDocumentVCFolderCheckInActionLink</commandItem>
+        <commandItem>APPFilePropertyFormLockActionLink</commandItem>
+        <commandItem>APPFilePropertyFormUnlockActionLink</commandItem>
+        <commandItem>AEFSeparator</commandItem>
+        <commandItem>APPDocumentCheckInActionLink</commandItem>
+        <commandItem>APPFormFileUpdateFiles</commandItem>
+        <commandItem>AEFSeparator2</commandItem>
+        <commandItem>APPFileDownloadActionLink</commandItem>
+        <commandItem>APPFileCheckOutActionLink</commandItem>
+        <commandItem>APPFormFileDownload</commandItem>
+        <commandItem>APPFormFileCheckOut</commandItem>
+        <commandItem>APPFormFileDeleteAllVersions</commandItem>
+        <commandItem>APPFormFileDeleteSelectedFile</commandItem>
+        <commandItem>TransferOwnership</commandItem>
+        <commandItem>APPSubscription</commandItem>
+        <commandItem>APPPushSubscription</commandItem>
+        <commandItem>gapCreateSystemQueueObject</commandItem>
+    </commandItems>
+    <settings>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/iconActionActions.png</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EngineeringCentral</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

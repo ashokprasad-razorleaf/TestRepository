@@ -1,0 +1,271 @@
+import com.matrixone.apps.domain.DomainConstants;
+import com.matrixone.apps.domain.DomainObject;
+import com.matrixone.apps.domain.util.EnoviaResourceBundle;
+import com.matrixone.apps.domain.util.MapList;
+import com.matrixone.apps.domain.util.PropertyUtil;
+import com.matrixone.apps.framework.ui.UIUtil;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.TimeZone;
+import matrix.db.Context;
+import matrix.db.JPO;
+
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+import com.matrixone.apps.domain.util.BPSJsonObjectBuilder;
+
+import matrix.util.StringList;
+
+public class ${CLASSNAME} extends ${CLASS:emxDashboardDocumentsBase} {
+    /**
+     * @param context
+     * @param args
+     * @throws Exception
+     */
+    public ${CLASSNAME}(Context context, String[] args) throws Exception {
+    	super(context, args);
+    }
+	
+	// My Dashboard
+	@Override
+	/**
+     * this method is overriden from base class to collapse Update document graph on startup
+     * @author ENGMASA
+     * @param context
+     * @param args
+     * @throws Exception
+     */
+    public JsonObject getUserDashboardData(Context context, String[] args) throws Exception {
+
+        HashMap paramMap        = (HashMap) JPO.unpackArgs(args);
+        String sLanguage        = (String)paramMap.get("languageStr");
+        Integer[] iCounters     = new Integer[4];
+        Calendar cNow           = Calendar.getInstance();
+        Calendar cMRU           = Calendar.getInstance();
+        Calendar cModified      = Calendar.getInstance();
+        Calendar cOriginated    = Calendar.getInstance();
+        Calendar calThreshold   = Calendar.getInstance(TimeZone.getDefault());
+        int iCountMRU           = 0;
+        String sLabelDate = EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.History.Date", sLanguage);
+        for(int i = 0; i < iCounters.length; i++){
+        	iCounters[i] = 0;
+        }
+        cMRU.add(java.util.GregorianCalendar.DAY_OF_YEAR,-1);
+        calThreshold.add(java.util.GregorianCalendar.DAY_OF_YEAR,-10);
+        int iWeekNow 	= cNow.get(Calendar.WEEK_OF_YEAR);
+        int iMonthNow 	= cNow.get(Calendar.MONTH);
+        int iYearNow 	= cNow.get(Calendar.YEAR);
+        String strModified = DomainConstants.SELECT_MODIFIED;
+        StringList busSelects = new StringList();
+        busSelects.add(DomainConstants.SELECT_ID);
+        busSelects.add(DomainConstants.SELECT_POLICY);
+        busSelects.add(DomainConstants.SELECT_ORIGINATED);
+        busSelects.add(strModified);
+        StringBuilder sbWhere = new StringBuilder();
+        sbWhere.append("("+DomainConstants.SELECT_POLICY+" != 'Version')").append(" && (revision == last)").append(" && ("+strModified +" > '").append(calThreshold.get(Calendar.MONTH) + 1).append('/').append(calThreshold.get(Calendar.DAY_OF_MONTH)).append('/').append(calThreshold.get(Calendar.YEAR)).append("')");
+        // ENGMASA : Modified type DOCUMENTS to gapSpec and Document to improve performance : START
+            final String TYPE_GAP_SPECIFICATION = PropertyUtil.getSchemaProperty(context,"type_gapGAPSpecification");
+            final String TYPE_Document = PropertyUtil.getSchemaProperty(context, DomainObject.SYMBOLIC_type_Document);
+            String strType = TYPE_GAP_SPECIFICATION + ","+ TYPE_Document;
+            //String strType = PropertyUtil.getSchemaProperty(context,DomainObject.SYMBOLIC_type_DOCUMENTS);
+        // ENGMASA : Modified type DOCUMENTS to gapSpec and Document to improve performance : END
+        MapList mlDocuments     = DomainObject.findObjects(context, strType, null, sbWhere.toString(), busSelects);
+        MapList mlDocumentsNEW  = new MapList();
+        MapList mlDocumentsMOD  = new MapList();
+        for(int i = 0; i < mlDocuments.size(); i++) {
+            Map mDocument       = (Map)mlDocuments.get(i);
+            String sModified    = (String)mDocument.get(strModified);
+            String sOriginated  = (String)mDocument.get(DomainConstants.SELECT_ORIGINATED);
+            String sDateMod     = sModified.substring(0, sModified.indexOf(' '));
+            String sDateOrig    = sOriginated.substring(0, sOriginated.indexOf(' '));
+            cOriginated.setTime(sdf.parse(sOriginated));
+            cModified.setTime(sdf.parse(sModified));
+            if(cModified.after(cMRU)) {
+            	iCountMRU++;
+            }
+            if(cOriginated.after(calThreshold)){
+            	mlDocumentsNEW.add(mDocument);
+            }
+            int iWeekOrig 	= cOriginated.get(Calendar.WEEK_OF_YEAR);
+            int iMonthOrig 	= cOriginated.get(Calendar.MONTH);
+            int iYearOrig 	= cOriginated.get(Calendar.YEAR);
+            if(iYearNow == iYearOrig) {
+                if(iMonthNow == iMonthOrig){
+                	iCounters[1]++;
+                }
+                if(iWeekNow  == iWeekOrig){
+                	iCounters[0]++;
+                }
+            }
+            if(!sDateMod.equals(sDateOrig)) {
+                mlDocumentsMOD.add(mDocument);
+                int iWeekMod 	= cModified.get(Calendar.WEEK_OF_YEAR);
+                int iMonthMod 	= cModified.get(Calendar.MONTH);
+                int iYearMod 	= cModified.get(Calendar.YEAR);
+                if(iYearNow == iYearMod && sDateMod.equals(sDateOrig)==false ) {
+                    if(iMonthNow == iMonthMod){
+                    	iCounters[3]++;
+                    }
+                    if(iWeekNow  == iWeekMod){
+                    	iCounters[2]++;
+                    }
+                }
+            }
+        }
+        JsonObjectBuilder newDocumentsSeriesBuilder = Json.createObjectBuilder();
+        newDocumentsSeriesBuilder.add("name", EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.String.NewDocs", sLanguage)).add("color", "#EC0C41");
+        JsonArrayBuilder newDocumentsDataArrayBuilder = Json.createArrayBuilder();
+        if(mlDocumentsNEW.size() > 0) {
+            mlDocumentsNEW.sort("originated", "ascending", "date");
+            Map mDocumentFirstNEW       = (Map)mlDocumentsNEW.get(0);
+            String sDateTimePrevious    = (String)mDocumentFirstNEW.get(DomainConstants.SELECT_ORIGINATED);
+            String sDatePrevious        = sDateTimePrevious.substring(0, sDateTimePrevious.indexOf(' '));
+            int iCountNEW               = 0;
+            for(int i = 0; i < mlDocumentsNEW.size(); i++) {
+                Map mDocument       = (Map)mlDocumentsNEW.get(i);
+                String sDateTime    = (String)mDocument.get(DomainConstants.SELECT_ORIGINATED);
+                String sDate        = sDateTime.substring(0, sDateTime.indexOf(' '));
+                if(sDate.equals(sDatePrevious)) { iCountNEW++; }
+                else {
+                    Calendar cNEW = Calendar.getInstance();
+                    cNEW.setTime(sdf.parse(sDateTimePrevious));
+                    JsonArray newDocumentDataObjectArr = Json.createArrayBuilder().add(cNEW.getTimeInMillis()).add(iCountNEW).build();
+                    newDocumentsDataArrayBuilder.add(newDocumentDataObjectArr);
+                    iCountNEW           = 1;
+                    sDateTimePrevious   = sDateTime;
+                    sDatePrevious   = sDate;
+                }
+                if (i ==  (mlDocumentsNEW.size() - 1)) {
+                    Calendar cNEW = Calendar.getInstance();
+                    cNEW.setTime(sdf.parse(sDateTime));
+                    JsonArray newDocumentDataObjectArr = Json.createArrayBuilder().add(cNEW.getTimeInMillis()).add(iCountNEW).build();
+                    newDocumentsDataArrayBuilder.add(newDocumentDataObjectArr);
+                }
+            }
+        }
+        JsonArray newDocumentsDataArray = newDocumentsDataArrayBuilder.build();
+        newDocumentsSeriesBuilder.add("data", newDocumentsDataArray);
+        JsonObject newDocumentsSeries = newDocumentsSeriesBuilder.build();
+        JsonObjectBuilder updateDocumentsSeriesBuilder = Json.createObjectBuilder().add("name",EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.String.ChangedDocs" , sLanguage)).add("color", "#8BBA00");
+        JsonArrayBuilder updateDocumentsDataArrayBuilder = Json.createArrayBuilder();
+
+        if(mlDocumentsMOD.size() > 0) {
+            mlDocumentsMOD.sort("modified", "ascending", "date");
+            Map mDocumentFirstMOD       = (Map)mlDocumentsMOD.get(0);
+            String sDateTimePrevious    = (String)mDocumentFirstMOD.get(strModified);
+            String sDatePrevious        = sDateTimePrevious.substring(0, sDateTimePrevious.indexOf(' '));
+            int iCountMOD               = 0;
+            for(int i = 0; i < mlDocumentsMOD.size(); i++) {
+                Map mDocument       = (Map)mlDocumentsMOD.get(i);
+                String sDateTime    = (String)mDocument.get(strModified);
+                String sDate        = sDateTime.substring(0, sDateTime.indexOf(' '));
+                Calendar cMOD = Calendar.getInstance();
+                cMOD.setTime(sdf.parse(sDateTime));
+                if(sDate.equals(sDatePrevious)) {
+                	iCountMOD++;
+                }else {
+                    Calendar cMODPrev = Calendar.getInstance();
+                    cMODPrev.setTime(sdf.parse(sDateTimePrevious));
+                    JsonArray updateDocumentDataObjectArr = Json.createArrayBuilder().add(cMODPrev.getTimeInMillis()).add(iCountMOD).build();
+                    updateDocumentsDataArrayBuilder.add(updateDocumentDataObjectArr);
+                    iCountMOD           = 1;
+                    sDateTimePrevious   = sDateTime;
+                    sDatePrevious   = sDate;
+                }
+                if (i ==  (mlDocumentsMOD.size() - 1)) {
+                    JsonArray updateDocumentDataObjectArr = Json.createArrayBuilder().add(cMOD.getTimeInMillis()).add(iCountMOD).build();
+                    updateDocumentsDataArrayBuilder.add(updateDocumentDataObjectArr);
+                }
+            }
+        }
+        JsonArray updateDocumentsDataArray = updateDocumentsDataArrayBuilder.build();
+        updateDocumentsSeriesBuilder.add("data",updateDocumentsDataArray);
+        JsonObject updateDocumentsSeries = updateDocumentsSeriesBuilder.build();
+        JsonArray documentsDataSeriesArray = Json.createArrayBuilder().add(newDocumentsSeries).add(updateDocumentsSeries).build();
+
+        StringBuffer docNewInWeek = new StringBuffer();
+        StringBuffer docNewInMonth = new StringBuffer();
+        StringBuffer docModInWeek = new StringBuffer();
+        StringBuffer docModInMonth = new StringBuffer();
+
+        String sInfoPrefix 	= " <a onclick='openURLInDetails(\"../common/emxIndentedTable.jsp?suiteKey=Framework&table=APPDashboardUserDocuments&freezePane=RouteStatus,Name,Title,Actions,NewWindow&editLink=true&selection=multiple&sortColumnName=Modified&sortDirection=decending&program=emxDashboardDocuments:";
+        docNewInWeek.append("<b>").append(iCounters[0]).append("</b>").append(sInfoPrefix).append("getDocuments&mode=NewWeek&header=emxFramework.String.DocumentsCreatedThisWeek\")'>").append(EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.String.NEWThisWeek" , sLanguage)).append("</a>");
+        docNewInMonth.append("<b>").append(iCounters[1]).append("</b>").append(sInfoPrefix).append("getDocuments&mode=NewMonth&header=emxFramework.String.DocumentsCreatedThisMonth\")'>").append(EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.String.NEWThisMonth" , sLanguage)).append("</a>");
+        docModInWeek.append("<b>").append(iCounters[2]).append("</b>").append(sInfoPrefix).append("getDocuments&mode=ModWeek&header=emxFramework.String.DocumentsModifiedThisWeek\")'>").append(EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.String.MODThisWeek" , sLanguage)).append("</a>");
+        docModInMonth.append("<b>").append(iCounters[3]).append("</b>").append(sInfoPrefix).append("getDocuments&mode=ModMonth&header=emxFramework.String.DocumentsModifiedThisMonth\")'>").append(EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.String.MODThisMonth" , sLanguage)).append("</a>");
+
+        JsonObject documentCountersLink = BPSJsonObjectBuilder.createJsonObjectBuilder(Json.createObjectBuilder())
+		        .add("newThisWeek",docNewInWeek.toString())
+		        .add("newThisMonth",docNewInMonth.toString())
+		        .add("modThisWeek",docModInWeek.toString())
+		        .add("modThisMonth",docModInMonth.toString())
+		        .build();
+
+        String relActiveVersion = PropertyUtil.getSchemaProperty(context,DomainObject.SYMBOLIC_relationship_ActiveVersion);
+        busSelects.add("to["+relActiveVersion+"].from.id");
+
+        // Dashboard Counters
+        // ENGMASA : Modified type DOCUMENTS to gapSpec and Document to improve performance : START
+            MapList mlDocumentsLocked = DomainObject.findObjects(context, strType, null, "locker == \"" + context.getUser() + "\"", busSelects);
+            //MapList mlDocumentsLocked =DomainObject.findObjects(context, "DOCUMENTS", null, "locker == \"" + context.getUser() + "\"", busSelects);
+        // ENGMASA : Modified type DOCUMENTS to gapSpec and Document to improve performance : END
+
+        HashSet tempSet=new HashSet();
+        for (int i = 0; i < mlDocumentsLocked.size(); i++) {
+            Map mLockedItem = (Map)mlDocumentsLocked.get(i);
+            String sId = (String)mLockedItem.get("to["+relActiveVersion+"].from.id");
+			if(UIUtil.isNullOrEmpty(sId)){
+                sId = (String)mLockedItem.get(DomainConstants.SELECT_ID);
+            }
+            tempSet.add(sId);
+        }
+        StringBuilder sbCounter = new StringBuilder();
+        sbCounter.append("<td onclick='openURLInDetails(\"../common/emxIndentedTable.jsp?table=APPDashboardUserDocuments&program=emxDashboardDocuments:getDocuments&mode=Locked&header=emxFramework.String.LockedDocuments&freezePane=Name,RouteStatus,Title,Actions,NewWindow&suiteKey=Framework&selection=multiple\")'").append(" class='counterCell ");
+        if(mlDocumentsLocked.size() == 0){
+        	sbCounter.append("grayBright");
+        }else{
+        	sbCounter.append("redBright");
+        }
+        sbCounter.append("'><span class='counterText redBright'>").append(tempSet.size()).append("</span><br/>").append(EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.String.LockedDocuments", sLanguage)).append("</td>");
+
+        StringBuilder sbUpdates = new StringBuilder();
+        sbUpdates.append("<td ");
+        if(iCountMRU > 0) {
+            sbUpdates.append(" onclick='openURLInDetails(\"../common/emxIndentedTable.jsp?table=APPDashboardUserDocuments&program=emxDashboardDocuments:getDocuments&mode=MRU&header=emxFramework.String.MRUDocuments&freezePane=Name,RouteStatus,Title,Actions,NewWindow&suiteKey=Framework\")' ").append(" class='mruCell'><span style='color:#000000;font-weight:bold;'>").append(iCountMRU).append("</span> <span class='counterTextMRU'>");
+            if(iCountMRU == 1) { 
+				sbUpdates.append(EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.String.MostRecentUpdate"  , sLanguage)); 
+			} else { 
+				sbUpdates.append(EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.String.MostRecentUpdates" , sLanguage)); 
+			}
+            sbUpdates.append("</span>");
+        } else {
+            sbUpdates.append('>');
+        }
+        sbUpdates.append("</td>");
+        String labelDocumentUpdates = EnoviaResourceBundle.getProperty(context, "Framework", "emxFramework.String.DocumentUpdates", sLanguage);
+        JsonObject widgetItem2 = BPSJsonObjectBuilder.createJsonObjectBuilder(Json.createObjectBuilder())
+        .add("label", labelDocumentUpdates)
+        .add("series", documentsDataSeriesArray)
+        //widgetItem2.put("counters", documentNewUpdatedCounters);
+        .add("bottomLineDataDocument", documentCountersLink)
+        .add("name", "DocumentUpdates" )
+        .add("type", "area")
+		// ENGMASA : Changed view to collapsed : START
+        //.add("view", "expanded")
+		.add("view", "collapsed")
+		// ENGMASA : Changed view to collapsed : END
+        .add("filterable", true)
+        .add("headerLabel", sLabelDate)
+        .add("filterURL", "../common/emxIndentedTable.jsp?program=emxDashboardDocuments:getDocuments&mode=By Date&table=APPDashboardUserDocuments&freezePane=Name,RouteStatus,Title,Actions,NewWindow&selection=multiple")
+        .add("counterLink", sbCounter.toString())
+        .add("updateLink", sbUpdates.toString())
+        .build();
+        return widgetItem2;
+    }
+}
+

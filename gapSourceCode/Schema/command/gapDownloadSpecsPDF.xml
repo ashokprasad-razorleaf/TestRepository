@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>gapDownloadSpecsPDF</name>
+    <symbolicName>command_gapDownloadSpecsPDF</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description>Engineering Central File or Document Download Command Object</description>
+    <label>Download stamped PDFs</label>
+    <hidden>false</hidden>
+    <href>../drV6Tools/gapdrV6ToolsDownloadZip.jsp?drtoolsKey=StampDocumentPDF</href>
+    <alt>Download PDFs</alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>(current.access[checkout] == true) &amp;&amp; current!="Obsolete"</settingValue>
+        </setting>
+        <setting>
+            <settingName>Hide Mode</settingName>
+            <settingValue>mobile</settingValue>
+        </setting>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/iconActionPDF.gif</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EngineeringCentral</settingValue>
+        </setting>
+        <setting>
+            <settingName>Row Select</settingName>
+            <settingValue>multi</settingValue>
+        </setting>
+        <setting>
+            <settingName>Submit</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>hiddenFrame</settingValue>
+        </setting>
+        <setting>
+            <settingName>Window Height</settingName>
+            <settingValue>525</settingValue>
+        </setting>
+        <setting>
+            <settingName>Window Width</settingName>
+            <settingValue>875</settingValue>
+        </setting>
+    </settings>
+    <userAccess>
+        <User>Global User</User>
+        <User>VPLMViewer</User>
+    </userAccess>
+    <properties/>
+</command>

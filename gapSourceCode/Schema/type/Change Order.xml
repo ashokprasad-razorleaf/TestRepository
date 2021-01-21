@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<type overlay="true">
+    <name>Change Order</name>
+    <symbolicName>type_ChangeOrder</symbolicName>
+    <dataObjectType>type</dataObjectType>
+    <description>ECM type for high level change</description>
+    <parentName>Change</parentName>
+    <hidden>false</hidden>
+    <abstract>false</abstract>
+    <attributes>
+        <attribute>Estimated Completion Date</attribute>
+        <attribute>Category of Change</attribute>
+        <attribute>Severity</attribute>
+        <attribute>Reason For Cancel</attribute>
+		<attribute>gapProjectNumber</attribute>
+    </attributes>
+    <triggers>
+        <trigger immutable="true">
+            <triggerType>ChangeOwner</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeChangeOrderChangeOwnerAction APPObjectOwnerChangedNotificationAction</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Create</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeAllCreateAction TypeChangeOrderCreateAction</input>
+            <programType>Action</programType>
+        </trigger>
+        <trigger immutable="true">
+            <triggerType>Delete</triggerType>
+            <programName>emxTriggerManager</programName>
+            <input>TypeChangeOrderDeleteCheck</input>
+            <programType>Check</programType>
+        </trigger>
+    </triggers>
+    <properties/>
+</type>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Processor View File Generator Creo Settings</type>
+            <name>CreoViewFileProcessor</name>
+            <description>Creo View File Processor</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>admin_platform</owner>
+            <project>Default</project>
+            <organization>GAP</organization>
+            <attributes>
+                <attribute name="drlAssociatedDrawingRelationshipName" value="Associated Drawing"/>
+                <attribute name="drlCADType" value="pdf,dxf"/>
+                <attribute name="drlCheckInViewFileToCurrentObject" value="FALSE"/>
+                <attribute name="drlCheckInViewFileToDerivedOutputObject" value="TRUE"/>
+                <attribute name="drlCommandLineArguments" value=""/>
+                <attribute name="drlCommandLineExecutable" value=""/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlCopyDependentFilesWithExtensions" value="asm,prt,frm"/>
+                <attribute name="drlCopyOrginalFileBackToVault" value="FALSE"/>
+                <attribute name="drlDebugActive" value="FALSE"/>
+                <attribute name="drlDebugOutputDirectory" value="C:\Temp\"/>
+                <attribute name="drlDerivedOutputFileType" value="pdf,DXF"/>
+                <attribute name="drlDerivedOutputObjectGeneratorName" value=""/>
+                <attribute name="drlDerivedOutputObjectUsesCommonDocumentModel" value="TRUE"/>
+                <attribute name="drlDerivedOutputPolicySymbolicName" value="Derived Output TEAM Policy"/>
+                <attribute name="drlDerivedOutputRelationshipName" value="Derived Output"/>
+                <attribute name="drlDerivedOutputTypeSymbolicName" value="Derived Output"/>
+                <attribute name="drlDotNETAssemblyName" value="drV6Tools.NET.ViewFileGenerator.CreoDrawingPDFGenerator"/>
+                <attribute name="drlDotNETClassName" value="drV6Tools.NET.ViewFileGenerator.CreoDrawingPDFGenerator.drCreoDrawingProcessor"/>
+                <attribute name="drlInstanceOfRelationshipName" value="Instance Of"/>
+                <attribute name="drlIntegrationGCOName" value="ProENewArch_3DEXPERIENCE R2019x.HF1"/>
+                <attribute name="drlIntegrationGCORevision" value="TEAM"/>
+                <attribute name="drlIntegrationGCOType" value="MxPRO-GlobalConfig"/>
+                <attribute name="drlLaunchRetries" value="0"/>
+                <attribute name="drlLaunchTimeOut" value="0"/>
+                <attribute name="drlLinkDerivedOutputToOriginalFilesWorkspaces" value="FALSE"/>
+                <attribute name="drlMaxProcessingTime" value=""/>
+                <attribute name="drlMCADInteg-CADToMxAttribMapping" value=""/>
+                <attribute name="drlMCADInteg-MxToCADAttribMapping" value="ProE Drawing,$$description$$|drawing,DESCRIPTION"/>
+                <attribute name="drlObjectName" value="${name}_DRAWING"/>
+                <attribute name="drlObjectRevision" value="${version:revision}"/>
+                <attribute name="drlPauseAfterOpening" value="0"/>
+                <attribute name="drlPauseBeforeGettingApplication" value="0"/>
+                <attribute name="drlPDFTimeout" value="0"/>
+                <attribute name="drlPrinterName" value="DRLTools PDF Printer"/>
+                <attribute name="drlRunForFileExtensions" value="drw"/>
+                <attribute name="drlSettings" value="CREOSON_PORT=9057&#xA;DRAWING_DEPENDENT_OBJECTS_RELATIONSHIP_NAME=ProEFormat"/>
+                <attribute name="drlSubComponentRelationshipName" value="CAD SubComponent"/>
+                <attribute name="drlTempPath" value="C:\Temp\"/>
+                <attribute name="drlUseCommandLineExecution" value="FALSE"/>
+                <attribute name="drlUseIntgrationGCOForMapping" value="FALSE"/>
+                <attribute name="drlVersionFileOnCheckInViewFileToCurrentObject" value="TRUE"/>
+                <attribute name="drlVersionFileOnCheckInViewFileToDerivedOutputObject" value="FALSE"/>
+                <attribute name="drlVersionFileOnCopyOrginalFileBackToVault" value="FALSE"/>
+                <attribute name="drlViewFileFormat" value="PDF,DXF"/>
+                <attribute name="drlViewFileWatermark" value=""/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

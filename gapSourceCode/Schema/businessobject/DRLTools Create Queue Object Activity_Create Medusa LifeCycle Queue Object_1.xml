@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Create Queue Object Activity</type>
+            <name>Create Medusa LifeCycle Queue Object</name>
+            <description>Create Medusa LifeCycle Queue Object</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlAssignedToSystem" value=""/>
+                <attribute name="drlAttributes" value=""/>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlEnableOnVersionObjects" value="FALSE"/>
+                <attribute name="drlIncludeRequestParamters" value="FALSE"/>
+                <attribute name="drlMailUser" value="FALSE"/>
+                <attribute name="drlPriorityOrder" value="1"/>
+                <attribute name="drlProcessor" value="MedusaProcessor"/>
+                <attribute name="drlRequiresBusinessObject" value="FALSE"/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+                <attribute name="drlRunForFileExtensions" value="she"/>
+                <attribute name="drlSettings" value=""/>
+                <attribute name="drlUseShadowAgent" value="TRUE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

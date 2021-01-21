@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools If Condition Object</type>
+            <name>DirectView - If RunImportXML Lookup Value is TRUE</name>
+            <description></description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlCondition" value="="/>
+                <attribute name="drlConfigurationObjectSource" value="Package-000457"/>
+                <attribute name="drlLeftHandSource" value="lookup"/>
+                <attribute name="drlLeftHandValue" value="RunImportXML"/>
+                <attribute name="drlRightHandSource" value="fixed value"/>
+                <attribute name="drlRightHandValue" value="TRUE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

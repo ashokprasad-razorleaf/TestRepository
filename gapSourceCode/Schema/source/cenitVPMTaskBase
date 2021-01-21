@@ -1,0 +1,612 @@
+/* emxVPMTaskBase.java
+
+   Copyright (c) 2007-2008 Dassault Systemes, Inc.
+   All Rights Reserved.
+   This program contains proprietary and trade secret information of Dassault Systemes,
+   Inc.  Copyright notice is precautionary only
+   and does not evidence any actual or intended publication of such program
+
+   static const char RCSID[] = $Id: emxVPMTaskBase.java.rca 1.1.1.15.1.3 Wed Apr  2 16:08:01 2008 przemek Experimental przemek $
+
+   CRK 11/05/08: Program was changed from deferred to immediate, so clean up context management (since it is managed by the trigger manager) 
+*/
+
+import com.matrixone.apps.domain.DomainObject;
+import com.matrixone.apps.domain.DomainConstants;
+import com.matrixone.apps.domain.DomainRelationship;
+import com.matrixone.apps.domain.util.MapList;
+import com.matrixone.apps.domain.util.PropertyUtil;
+import com.matrixone.apps.domain.util.i18nNow;
+import com.matrixone.apps.framework.ui.UINavigatorUtil;
+import com.matrixone.apps.domain.util.MqlUtil;
+import com.matrixone.apps.domain.util.FrameworkUtil;
+import com.matrixone.apps.framework.ui.UICache;
+import com.matrixone.apps.domain.util.eMatrixDateFormat;
+import matrix.db.*;
+import matrix.util.*;
+import java.io.*;
+import java.util.*;
+import java.text.SimpleDateFormat;
+import com.matrixone.apps.domain.*;
+import com.matrixone.apps.domain.util.*;
+import com.matrixone.apps.common.*;
+import com.matrixone.apps.common.util.*;
+import com.dassault_systemes.vplm.modeler.*;
+import com.dassault_systemes.PLMJCoreCom.utils.*;
+import com.matrixone.vplmintegrationitf.util.ISessionUtil;
+import com.matrixone.vplmintegrationitf.util.IVPMUtil;
+import com.dassault_systemes.vplm.modeler.entity.PLMxReferenceEntity;
+import com.dassault_systemes.vplm.modeler.entity.PLMxEntityDef;
+import com.dassault_systemes.vplm.modeler.entity.PLMxConnectionEntity;
+import com.dassault_systemes.vplm.modeler.chg.interfaces.IChgOperations;
+
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.lang.Exception;
+import java.util.*;
+
+import matrix.db.*;
+import matrix.util.*;
+
+import com.matrixone.apps.domain.DomainObject;
+import com.dassault_systemes.vplm.modeler.entity.PLMxSemanticRelation;
+
+
+import com.dassault_systemes.vplm.commit.CommitReport;
+
+import com.dassault_systemes.vplm.data.PLMxJResultSet;
+
+import com.dassault_systemes.enovia.changeaction.constants.ActivitiesOperationConstants;
+import com.dassault_systemes.enovia.changeaction.factory.ChangeActionFactory;
+import com.dassault_systemes.enovia.changeaction.factory.ProposedActivityFactory;
+import com.dassault_systemes.enovia.changeaction.interfaces.IBusinessObjectOrRelationshipObject;
+import com.dassault_systemes.enovia.changeaction.interfaces.IChangeAction;
+import com.dassault_systemes.enovia.changeaction.interfaces.IChangeActionServices;
+import com.dassault_systemes.enovia.changeaction.interfaces.IOperationArgument;
+import com.dassault_systemes.enovia.changeaction.interfaces.IProposedActivity;
+import com.dassault_systemes.enovia.changeaction.interfaces.IProposedChanges;
+import com.dassault_systemes.enovia.enterprisechangemgt.common.ChangeAction;
+import com.dassault_systemes.enovia.enterprisechangemgt.common.ChangeConstants;
+import com.dassault_systemes.enovia.enterprisechangemgt.common.ChangeManagement;
+import com.dassault_systemes.enovia.enterprisechangemgt.common.ChangeOrder;
+import com.dassault_systemes.enovia.enterprisechangemgt.admin.ECMAdmin;
+import com.dassault_systemes.enovia.enterprisechangemgt.util.ChangeUtil;
+import com.dassault_systemes.enovia.changeaction.dictionaryservices.AllowedOperationsServices;
+
+
+
+/**
+* The <code>emxVPMTaskBase</code> class represents the VPM Task JPO
+* functionality for the AEF type.
+*
+* @version AEF 10.7.SP1 - Copyright (c) 2002, MatrixOne, Inc.
+*/
+public class ${CLASSNAME} //extends  ${CLASS:emxDomainObject}
+{
+
+    private PLMCoreModelerSession session = null;
+
+    /**
+     *
+     * @param context the eMatrix <code>Context</code> object
+     * @param args holds no arguments
+     * @throws Exception if the operation fails
+     * @since AEF 10.0.SP4
+     * @grade 0
+     */
+    public ${CLASSNAME} (Context context, String[] args) throws Exception
+    {
+    }
+
+
+
+public Hashtable createVPMAction1(Context paramContext, String[] paramArrayOfString)
+    throws Exception
+  {
+    //TRACE("----> createVPMAction()");
+    
+    Hashtable localHashtable1 = new Hashtable();
+    try
+    {
+      paramContext.setApplication("VPLM");
+      if (!paramContext.isTransactionActive()) {
+        paramContext.start(true);
+      }
+                  
+                  
+                    String User=paramContext.getUser();
+                                String Passwd=paramContext.getPassword();
+                                String Role=paramContext.getRole();
+
+                                
+                                User = "DSXInterfaceUser";
+                                Passwd = "DSXInterfaceUser";
+                                Role = "ctx::VPLMAdmin.CENIT AG.DEMO";
+                //            this.session=PLMCoreModelerSession.getPLMCoreModelerSession(User,Passwd,Role);
+                                
+                                    paramContext.setRole(Role);
+                this.session=PLMCoreModelerSession.getPLMCoreModelerSession(User,Passwd,Role);
+      //  this.session = PLMCoreModelerSession.getPLMCoreModelerSessionFromContext(paramContext);
+      try
+      {
+        this.session.openSession();
+      }
+      catch (Exception localException1)
+      {
+        System.out.println(localException1.getMessage());
+      }
+      Hashtable localHashtable2 = (Hashtable)JPO.unpackArgs(paramArrayOfString);
+      
+      Iterator localIterator = localHashtable2.keySet().iterator();
+      Hashtable localHashtable3 = new Hashtable();
+                  
+                   String str1;
+                    String str2;
+      while (localIterator.hasNext())
+      {
+        str1 = (String)localIterator.next();
+        str2 = (String)localHashtable2.get(str1);
+        if ((str2 != null) && (str2.length() > 0)) {
+          if ((str1.startsWith("PLMEntity")) || (str1.startsWith("PLMChgBase"))) {
+            localHashtable3.put(str1.substring(str1.lastIndexOf(".") + 1), str2);
+          }
+                                   if ((str1.startsWith("VPLMatt")) ) {
+            localHashtable3.put(str1.substring(8), str2);
+          }
+                                  
+                                  
+                                  
+                                  
+                                  
+        }
+      }
+       str1 = (String)localHashtable2.get("type");
+      
+       str2 = "com.dassault_systemes.vplm.modeler.chg.implementation.PLMxChgAction";
+      IChgOperations localIChgOperations = (IChgOperations)this.session.getModeler(str2);
+      if (localIChgOperations != null)
+      {
+        PLMxReferenceEntity localPLMxReferenceEntity = null;
+        try
+        {
+          localPLMxReferenceEntity = localIChgOperations.createAction("PLMChgDesignAction", localHashtable3);
+        }
+        catch (Exception localException3)
+        {
+          localException3.printStackTrace();
+          throw localException3;
+        }
+        String str3 = localPLMxReferenceEntity.getPLMIdentifier();
+        
+        CommitReport localCommitReport = null;
+        localCommitReport = this.session.commitSession(true);
+        if (CommitReport.FAILED.equals(localCommitReport.getGlobalStatus()))
+        {
+          this.session.closeSession(true);
+          paramContext.abort();
+          if ((-1 != localCommitReport.toString().indexOf("Name")) && (-1 != localCommitReport.toString().indexOf("not unique"))) {
+            throw new Exception("emxVPMCentral.Change.CreateECA.Exception.NameNotUnique");
+          }
+          throw new Exception("emxVPMCentral.Change.CreateECA.Exception.CommitFailed");
+        }
+        if (CommitReport.SUCCEEDED.equals(localCommitReport.getGlobalStatus()))
+        {
+          ArrayList localArrayList = new ArrayList();
+          localArrayList.add(str3);
+          String[] arrayOfString = localIChgOperations.chgPLMID2M1ID(localArrayList);
+         String str4 = "";
+          if ((arrayOfString != null) && (arrayOfString.length > 0)) {
+            str4 = arrayOfString[0];
+          } else {
+            System.out.println("ERROR: m1is null!");
+          }
+          localHashtable1.put("OBJECTID", str4);
+          
+          paramContext.commit();
+        }
+      }
+    }
+    catch (Exception localException2)
+    {
+      localException2.printStackTrace();
+      //TRACE("<---- createVPMAction() with Exception");
+      throw localException2;
+    }
+    //TRACE("<---- createVPMAction()");
+    return localHashtable1;
+  }
+
+  
+  
+  
+  
+  
+  
+  public Hashtable getImplementedItems(Context context, String[] paramArrayOfString)throws Exception  {
+  
+	Hashtable localHashtable1 = new Hashtable();
+    try{
+	 System.out.println("Product Id : Start 1" );
+		context.setApplication("VPLM");
+		if (!context.isTransactionActive()) {
+			context.start(true);
+		}
+		String[] app = { "ENO_ECM_TP"};
+		ComponentsUtil.checkLicenseReserved(context, app);
+		
+		String caId = "";
+		Hashtable inputHT = (Hashtable)JPO.unpackArgs(paramArrayOfString);
+		caId = inputHT.get("OBJECTID") + "";
+		
+		ChangeAction changeAction = new ChangeAction(caId);
+		MapList realizedChangesML  = changeAction.getAllRealizedChanges(context);
+	 System.out.println("Product Id : Start 2" );				
+		Iterator localIterator = realizedChangesML.iterator();
+		while (localIterator.hasNext())
+		{
+		  Map localMap = (Map)localIterator.next();
+		  
+		  System.out.println("Product Id : " + localMap.get("id"));
+		 
+		}
+  	
+		localHashtable1.put("AFFECTEDITEMS", realizedChangesML);
+	 
+		context.commit();
+	 }	
+    catch (Exception localException2) {
+      context.abort();
+	  localException2.printStackTrace();
+      throw localException2;
+    }
+	
+	return localHashtable1;
+  }
+  
+    public Hashtable getAffectedItems(Context context, String[] paramArrayOfString)throws Exception  {
+  
+	Hashtable localHashtable1 = new Hashtable();
+    try{
+	
+		context.setApplication("VPLM");
+		if (!context.isTransactionActive()) {
+			context.start(true);
+		}
+		String[] app = { "ENO_ECM_TP"};
+		ComponentsUtil.checkLicenseReserved(context, app);
+		 System.out.println("Product Id : Start1" );		
+		String caId = "";
+		Hashtable inputHT = (Hashtable)JPO.unpackArgs(paramArrayOfString);
+		caId = inputHT.get("OBJECTID") + "";
+		
+		ChangeAction changeAction = new ChangeAction(caId);
+		MapList realizedChangesML  = changeAction.getAffectedItems(context);
+	
+	
+			 System.out.println("Product Id : Start" );		
+		Iterator localIterator = realizedChangesML.iterator();
+		while (localIterator.hasNext())
+		{
+		  Map localMap = (Map)localIterator.next();
+		  
+		  System.out.println("Product Id : " + localMap.get("id"));
+		 
+		}
+  	
+		localHashtable1.put("AFFECTEDITEMS", realizedChangesML);
+	 
+		context.commit();
+	 }	
+    catch (Exception localException2) {
+      context.abort();
+	  localException2.printStackTrace();
+      throw localException2;
+    }
+	
+	return localHashtable1;
+  }
+  
+  
+  
+  
+  
+  
+
+  
+   public Hashtable connectImplementedItems(Context context, String[] paramArrayOfString)throws Exception
+  {
+	Hashtable localHashtable1 = new Hashtable();
+    try{
+	
+		context.setApplication("VPLM");
+		if (!context.isTransactionActive()) {
+			context.start(true);
+		}
+		String[] app = { "ENO_ECM_TP"};
+		ComponentsUtil.checkLicenseReserved(context, app);
+		
+		String caId = "";
+		Hashtable inputHT = (Hashtable)JPO.unpackArgs(paramArrayOfString);
+		caId = inputHT.get("OBJECTID") + "";
+		StringList updatedItems = (StringList)inputHT.get("IMPLEMENTEDITEMS") ;
+		
+		ChangeAction changeAction = new ChangeAction(caId);
+		//changeAction.connectImplementedItems(context,updatedItems);
+	 }	
+    catch (Exception localException2) {
+      context.abort();
+	  localException2.printStackTrace();
+      throw localException2;
+    }
+	
+	return localHashtable1;
+  }
+  
+  
+   public Hashtable createVPMAction(Context context, String[] paramArrayOfString)throws Exception
+  {
+	Hashtable localHashtable1 = new Hashtable();
+    try{
+	
+		context.setApplication("VPLM");
+		if (!context.isTransactionActive()) {
+			context.start(true);
+		}
+		String[] app = { "ENO_ECM_TP"};
+		ComponentsUtil.checkLicenseReserved(context, app);
+
+		String newCAId = "";
+	//	newCAId = new ChangeAction().create(context);
+	Hashtable inputHT = (Hashtable)JPO.unpackArgs(paramArrayOfString);
+	
+	
+	String strType=ChangeConstants.TYPE_CHANGE_ACTION;
+			String strObjectGeneratorName = FrameworkUtil.getAliasForAdmin(context, DomainConstants.SELECT_TYPE, strType, true);
+			String strAutoName = DomainObject.getAutoGeneratedName(context,strObjectGeneratorName, null);
+			IChangeActionServices iCaServices = ChangeActionFactory.CreateChangeActionFactory();
+			
+			 strAutoName = inputHT.get("VPLMatt/V_Name")+ "";
+			IChangeAction iCa=iCaServices.CreateChangeAction(context,strType, strAutoName, null);
+			 newCAId =iCa.getCaBusinessObject().getObjectId(context);
+	
+	System.out.println("newCAId" + newCAId);
+		localHashtable1.put("OBJECTID", newCAId);
+		
+		
+		
+		Map sAttritubeMap	= new HashMap(); 
+			 
+		//sAttritubeMap.put(ATTRIBUTE_ORIGINATOR, sOwner);
+		//sAttritubeMap.put(ChangeConstants.ATTRIBUTE_ESTIMATED_COMPLETION_DATE, sEstimatedCompletionDate_msvalue);
+		//sAttritubeMap.put(ChangeConstants.ATTRIBUTE_ESTIMATED_START_DATE, sEstimatedStartDate_msvalue);
+	//	sAttritubeMap.put(ATTRIBUTE_SEVERITY, sSeverity);
+		sAttritubeMap.put(ChangeConstants.ATTRIBUTE_SYNOPSIS, inputHT.get("VPLMatt/V_Name") + "");
+		
+	    ChangeAction changeAction = new ChangeAction(newCAId);
+	    changeAction.setAttributeValues(context, sAttritubeMap);
+	    changeAction.setDescription(context, inputHT.get("VPLMatt/V_Name") + "");
+			
+			
+			
+			
+		 
+		context.commit();
+	 }	
+    catch (Exception localException2) {
+      context.abort();
+	  localException2.printStackTrace();
+      throw localException2;
+    }
+	
+	return localHashtable1;
+  }
+  
+   
+    public Hashtable connectAffectedItems1(Context context, String[] paramArrayOfString)throws Exception
+  {
+	Hashtable localHashtable1 = new Hashtable();
+    try{
+	System.out.println("connectAffectedItems 1 ");
+		context.setApplication("VPLM");
+		if (!context.isTransactionActive()) {
+			context.start(true);
+		}
+		String[] app = { "ENO_ECM_TP"};
+		ComponentsUtil.checkLicenseReserved(context, app);
+		System.out.println("connectAffectedItems 12");
+		String caId = "";
+		Hashtable inputHT = (Hashtable)JPO.unpackArgs(paramArrayOfString);
+		caId = inputHT.get("OBJECTID") + "";
+		//caId = "62176.13189.43920.58972";
+		// caId = "62176.13189.18264.3891";
+		System.out.println("connectAffectedItems 133 " + caId);
+		
+		
+		StringList updatedItems = (StringList)inputHT.get("AFFECTEDITEMS") ;
+		
+				
+		System.out.println("connectAffectedItems 13 " + updatedItems);
+		ChangeAction changeAction = new ChangeAction(caId);
+		changeAction.connectAffectedItems(context,updatedItems);
+		
+		System.out.println("connectAffectedItems 14 ");
+	 }	
+    catch (Exception localException2) {
+      context.abort();
+	  localException2.printStackTrace();
+	  System.out.println("connectAffectedItems 15 " + localException2.getMessage());
+      throw localException2;
+    }
+	
+	return localHashtable1;
+  }
+  
+   public Hashtable connectAffectedItems(Context context, String[] paramArrayOfString)
+    throws Exception
+  {
+  Hashtable localHashtable1 = new Hashtable();
+   try{
+   context.setApplication("VPLM");
+      if (!context.isTransactionActive()) {
+        context.start(true);
+      }
+  
+
+
+String newCAId = "";
+
+
+ 
+//	String newCAId = new ChangeAction().create(context);
+			
+			//to handle error :Unexpected publication status value null while promoting CO to Complete
+        //Working Create CA    
+		  /*  	String strType=ChangeConstants.TYPE_CHANGE_ACTION;
+			String strObjectGeneratorName = FrameworkUtil.getAliasForAdmin(context, DomainConstants.SELECT_TYPE, strType, true);
+			String strAutoName = DomainObject.getAutoGeneratedName(context,strObjectGeneratorName, null);
+			IChangeActionServices iCaServices = ChangeActionFactory.CreateChangeActionFactory();
+			
+			
+			IChangeAction iCa=iCaServices.CreateChangeAction(context,strType, strAutoName, null);
+			 newCAId =iCa.getCaBusinessObject().getObjectId(context); 
+            
+           
+		 System.out.println("newCAId===>" +newCAId );*/
+		
+		//Working connect proposedChanges
+		  newCAId = "62176.13189.18264.3891";
+		  newCAId = "62176.13189.58448.36086";
+		  
+		 
+	    
+	    //	changeAction.setAttributeValues(context, sAttritubeMap);
+	    //	changeAction.setDescription(context, "Test ECA");
+	    	
+	        localHashtable1.put(ChangeConstants.ID, newCAId);
+			
+			
+		//	StringList updatedItems = new StringList();
+		//	updatedItems.addElement("62176.13189.8528.56335");
+			
+			
+			Hashtable inputHT = (Hashtable)JPO.unpackArgs(paramArrayOfString);
+		String caId = inputHT.get("OBJECTID") + "";
+		//caId = "62176.13189.43920.58972";
+		// caId = "62176.13189.18264.3891";
+		System.out.println("connectAffectedItems 133 " + caId);
+		
+		newCAId = inputHT.get("OBJECTID") + "";
+		StringList updatedItems = (StringList)inputHT.get("AFFECTEDITEMS") ;
+				ChangeAction changeAction = new ChangeAction(newCAId);
+			changeAction.connectAffectedItems(context,updatedItems);
+			
+			
+			 
+			 
+			
+  
+			 
+			 
+	 localHashtable1.put("OBJECTID", newCAId);
+	 
+	           context.commit();
+			   
+			    }	
+    catch (Exception localException2) {
+      context.abort();
+	  localException2.printStackTrace();
+      throw localException2;
+    }
+    return localHashtable1;
+  }
+   
+   
+public Hashtable createVPMActionWorking(Context context, String[] paramArrayOfString)
+    throws Exception
+  {
+  
+   context.setApplication("VPLM");
+      if (!context.isTransactionActive()) {
+        context.start(true);
+      }
+  String[] app = { "ENO_ECM_TP"};
+			ComponentsUtil.checkLicenseReserved(context, app);
+
+
+
+String newCAId = "";
+
+
+ Hashtable localHashtable1 = new Hashtable();
+//	String newCAId = new ChangeAction().create(context);
+			
+			//to handle error :Unexpected publication status value null while promoting CO to Complete
+        //Working Create CA    
+		 /*	String strType=ChangeConstants.TYPE_CHANGE_ACTION;
+			String strObjectGeneratorName = FrameworkUtil.getAliasForAdmin(context, DomainConstants.SELECT_TYPE, strType, true);
+			String strAutoName = DomainObject.getAutoGeneratedName(context,strObjectGeneratorName, null);
+			IChangeActionServices iCaServices = ChangeActionFactory.CreateChangeActionFactory();
+			
+			
+			IChangeAction iCa=iCaServices.CreateChangeAction(context,strType, strAutoName, null);
+			String newCAId =iCa.getCaBusinessObject().getObjectId(context); */
+            
+            /*  Map sAttritubeMap				  = new HashMap(); 
+			 
+			    sAttritubeMap.put(ATTRIBUTE_ORIGINATOR, sOwner);
+		sAttritubeMap.put(ChangeConstants.ATTRIBUTE_ESTIMATED_COMPLETION_DATE, sEstimatedCompletionDate_msvalue);
+		sAttritubeMap.put(ChangeConstants.ATTRIBUTE_ESTIMATED_START_DATE, sEstimatedStartDate_msvalue);
+		sAttritubeMap.put(ATTRIBUTE_SEVERITY, sSeverity);
+		sAttritubeMap.put(ChangeConstants.ATTRIBUTE_SYNOPSIS, sAbstract);
+		 */
+		
+		//Working connect proposedChanges
+		  /*
+	    	ChangeAction changeAction = new ChangeAction(newCAId);
+	    //	changeAction.setAttributeValues(context, sAttritubeMap);
+	    	changeAction.setDescription(context, "Test ECA");
+	    	
+	        localHashtable1.put(ChangeConstants.ID, newCAId);
+			
+			
+			StringList updatedItems = new StringList();
+			updatedItems.addElement("62176.13189.20892.18792");
+			
+			changeAction.connectAffectedItems(context,updatedItems);
+			
+			
+			 */
+			 
+			 ChangeAction changeAction = new ChangeAction("62176.13189.60856.51000");
+			 
+			 MapList realizedChangesML  = changeAction.getAllRealizedChanges(context);
+			 
+			 
+			
+    Iterator localIterator = realizedChangesML.iterator();
+    while (localIterator.hasNext())
+    {
+      Map localMap = (Map)localIterator.next();
+	  
+	  System.out.println("Product Id : " + localMap.get("id"));
+     
+    }
+  
+  newCAId = "62176.13189.60856.51000";
+  
+  
+  
+  
+  
+			 
+			 
+	 localHashtable1.put("OBJECTID", newCAId);
+	 
+	           context.commit();
+    return localHashtable1;
+  }
+    
+}

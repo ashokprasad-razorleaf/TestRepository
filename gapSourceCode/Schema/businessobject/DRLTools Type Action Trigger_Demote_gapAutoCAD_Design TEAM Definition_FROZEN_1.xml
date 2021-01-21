@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Type Action Trigger</type>
+            <name>Demote_gapAutoCAD_Design TEAM Definition_FROZEN</name>
+            <description>Demote_gapAutoCAD_Design TEAM Definition_FROZEN</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlFailureMessage" value=""/>
+                <attribute name="drlSuccessMessage" value=""/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

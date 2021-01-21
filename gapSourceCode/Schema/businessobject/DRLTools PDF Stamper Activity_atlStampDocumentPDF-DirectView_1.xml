@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools PDF Stamper Activity</type>
+            <name>atlStampDocumentPDF-DirectView</name>
+            <description>atlStampDocumentPDF for Direct View</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlDerivedOutputRelationshipName" value="Derived Output"/>
+                <attribute name="drlDerivedOutputTypeSymbolicName" value="type_DerivedOutput"/>
+                <attribute name="drlFileName" value=""/>
+                <attribute name="drlReportLayout" value="&lt;document&gt; &#xA; &lt;styles&gt; &#xA;  &lt;style name=&quot;atlGeneral&quot; font=&quot;Arial&quot; size=&quot;12&quot; colour=&quot;black&quot; format=&quot;&quot; /&gt; &#xA;  &lt;style name=&quot;atlNotForProduction&quot; font=&quot;Arial&quot; size=&quot;30&quot; colour=&quot;red&quot; format=&quot;stroke&quot; strokeColour=&quot;red&quot; strokeWidth=&quot;1&quot;/&gt; &#xA;   &lt;style name=&quot;atlObsolete&quot; font=&quot;Arial&quot; size=&quot;30&quot; colour=&quot;red&quot; format=&quot;stroke&quot; strokeColour=&quot;red&quot; strokeWidth=&quot;1&quot;/&gt;&#xA;  &lt;style name=&quot;bold&quot; font=&quot;Arial&quot; size=&quot;9&quot; format=&quot;bold&quot;/&gt; &#xA;  &lt;style name=&quot;normal&quot; font=&quot;Arial&quot; size=&quot;9&quot; format=&quot;&quot; default=&quot;true&quot;/&gt; &#xA;  &lt;style name=&quot;large&quot; font=&quot;Arial&quot; size=&quot;100&quot; format=&quot;bold&quot; colour=&quot;black&quot; strokeColour=&quot;blue&quot; strokeWidth=&quot;10&quot; /&gt; &#xA;  &lt;style name=&quot;H1&quot; font=&quot;Arial&quot; size=&quot;14&quot; format=&quot;bold&quot; colour=&quot;red&quot; /&gt; &#xA;  &lt;style name=&quot;H2&quot; font=&quot;Arial&quot; size=&quot;10&quot; format=&quot;bold&quot; colour=&quot;green&quot;/&gt; &#xA;  &lt;style name=&quot;H3&quot; font=&quot;Arial&quot; size=&quot;20&quot; format=&quot;&quot; default=&quot;true&quot;/&gt;&#xA;  &lt;style name=&quot;small&quot; font=&quot;Arial&quot; size=&quot;5&quot; format=&quot;&quot; /&gt; &#xA;  &lt;style name=&quot;smallbold&quot; font=&quot;Arial&quot; size=&quot;5&quot; format=&quot;bold&quot; /&gt; &#xA; &lt;/styles&gt; &#xA; &lt;pages&gt; &#xA;  &lt;page&gt; &#xA;   &lt;name&gt;AllPages&lt;/name&gt; &#xA;   &lt;pageRange&gt;-&lt;/pageRange&gt; &#xA;   &lt;unitOfMeasure&gt;MM&lt;/unitOfMeasure&gt; &#xA;   &lt;watermarks&gt;&#xA;    &lt;if&gt;&#xA;     &lt;condition leftHandSource=&quot;mql selectable&quot; leftHandValue=&quot;current&quot; condition=&quot;=&quot; rightHandSource=&quot;fixed value&quot; rightHandValue=&quot;Obsolete&quot;/&gt; &#xA;     &lt;elements&gt;&#xA;      &lt;watermark style=&quot;atlObsolete&quot; horizontalPosition=&quot;center&quot; verticalPosition=&quot;center&quot; alignment=&quot;middle&quot; rotation=&quot;45&quot; height=&quot;80&quot; width=&quot;300&quot; underlay=&quot;false&quot;&gt; &#xA;  &lt;text&gt;OBSOLETE&lt;/text&gt; &#xA;      &lt;/watermark&gt;&#xA;     &lt;/elements&gt;&#xA;    &lt;/if&gt;   &#xA;   &lt;/watermarks&gt;&#xA;  &lt;/page&gt; &#xA; &lt;/pages&gt; &#xA;&lt;/document&gt;"/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+                <attribute name="drlUseShadowAgent" value="FALSE"/>
+            </attributes>
+            <relationships>
+                <relationship>
+                    <toType>DRLTools Copy Values Target Attribute</toType>
+                    <toName>NOW</toName>
+                    <toRevision>1</toRevision>
+                    <relationshipType>DRLTools Copy Values Target Attribute Relationship</relationshipType>
+                    <attributes>
+                        <attribute name="drlOrderNumber" value="1"/>
+                    </attributes>
+                </relationship>
+            </relationships>
+        </object>
+    </objects>
+</drlExportObjects>

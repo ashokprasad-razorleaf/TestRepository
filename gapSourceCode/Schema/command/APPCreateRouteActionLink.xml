@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>APPCreateRouteActionLink</name>
+    <symbolicName>command_APPCreateRouteActionLink</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description>Route Summary Create Route Command Object</description>
+    <label>emxComponents.Routes.CreateNew</label>
+    <hidden>false</hidden>
+    <href>${COMPONENT_DIR}/emxRouteWizardCreateDialogFS.jsp?init1=true&amp;showmenuinToolbar=false</href>
+    <alt></alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Access Expression</settingName>
+            <settingValue>(!(policy == "Inbox Task" &amp;&amp; current == Complete))</settingValue>
+        </setting>
+        <setting>
+            <settingName>Access Function</settingName>
+            <settingValue>emxCheckCreateRoutesAccess</settingValue>
+        </setting>
+        <setting>
+            <settingName>Access Program</settingName>
+            <settingValue>emxRoute</settingValue>
+        </setting>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${COMMON_DIR}/images/iconActionRouteWizard.png</settingValue>
+        </setting>
+        <setting>
+            <settingName>Licensed Product</settingName>
+            <settingValue>ENO_BPS_TP</settingValue>
+        </setting>
+        <setting>
+            <settingName>Popup Modal</settingName>
+            <settingValue>true</settingValue>
+        </setting>
+        <setting>
+            <settingName>Popup Size</settingName>
+            <settingValue>Large</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>Components</settingValue>
+        </setting>
+        <setting>
+            <settingName>Selectable in Preferences</settingName>
+            <settingValue>false</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>popup</settingValue>
+        </setting>
+    </settings>
+    <userAccess>
+        <User>Global User</User>
+        <User>VPLMExperimenter</User>
+        <User>VPLMReleaseManager</User>
+    </userAccess>
+    <properties/>
+</command>

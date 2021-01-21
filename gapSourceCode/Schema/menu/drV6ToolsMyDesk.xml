@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>drV6ToolsMyDesk</name>
+    <symbolicName>menu_drV6ToolsMyDesk</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description>drV6Tools Admin Menu</description>
+    <label>drV6Tools.menu.MyDesk</label>
+    <hidden>false</hidden>
+    <href></href>
+    <alt></alt>
+    <menuItems>
+        <menuItem>drLicenseToolbarMenu</menuItem>
+    </menuItems>
+    <commandItems>
+        <commandItem>drV6ToolsConfigurationMyDesk</commandItem>
+        <commandItem>drV6ToolsProcessorSystemMyDesk</commandItem>
+        <commandItem>drV6ToolsInstallationLogMyDesk</commandItem>
+        <commandItem>drV6ToolsHelpMyDesk</commandItem>
+        <commandItem>drV6ToolsDebugMyDesk</commandItem>
+        <commandItem>DRLMonitorHistory</commandItem>
+    </commandItems>
+    <settings>
+        <setting>
+            <settingName>Image</settingName>
+            <settingValue>${SUITE_DIR}/images/iconSmallDRLTools.gif</settingValue>
+        </setting>
+        <setting>
+            <settingName>Licensed Product</settingName>
+            <settingValue>ENO_BPS_TP</settingValue>
+        </setting>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>drV6Tools</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<menu overlay="true">
+    <name>ECMCAPropertiesToolbar</name>
+    <symbolicName>menu_ECMCAPropertiesToolbar</symbolicName>
+    <dataObjectType>menu</dataObjectType>
+    <description></description>
+    <label>EnterpriseChangeMgt.Menu.Actions</label>
+    <hidden>false</hidden>
+    <href></href>
+    <alt></alt>
+    <menuItems/>
+    <commandItems>
+        <commandItem>ECMCAEditDetails</commandItem>
+        <commandItem>ECMCATransferOwnership</commandItem>
+        <commandItem>APPPushSubscribe</commandItem>
+        <commandItem>ECMHtmlSummary</commandItem>
+        <commandItem>ECMCACancel</commandItem>
+        <commandItem>ECMCAHold</commandItem>
+        <commandItem>ECMCAResume</commandItem>
+        <commandItem>ECMCollaborateBOMAndPS</commandItem>
+		<commandItem>gapSelectSigners</commandItem>
+    </commandItems>
+    <settings>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>EnterpriseChangeMgt</settingValue>
+        </setting>
+    </settings>
+    <properties/>
+</menu>

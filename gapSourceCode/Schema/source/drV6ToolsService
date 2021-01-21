@@ -1,0 +1,76 @@
+import com.designrule.drv6tools.Operations;
+import com.designrule.drv6tools.eFunctionType;
+import com.designrule.drv6tools.Trace;
+import java.io.File;
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import matrix.db.BusinessObject;
+import matrix.db.Context;
+//import matrix.util.MatrixService;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ${CLASSNAME} { //implements MatrixService {
+
+    String sep = System.getProperty("file.separator");
+
+    public ${CLASSNAME}() {}
+
+    public class Result {
+        int Code;
+        String Message;
+        String Output;
+        public Result(int Code, String Message, String Output) {
+            this.Code = Code;
+            this.Message = Message;
+            this.Output = Output;
+        }
+        public int getCode() {return Code;}
+        public String getMessage() {return Message;}
+        public String getOutput() {return Output;}
+    }
+
+    /* This function is called from a Web Service to execute DRLTools function "operation".
+     * Inside operation do not use dialogs or checkin/checkout. */
+    public Result execute(Context ctx, String operation, String ID,
+                          String type, String name, String revision, String vault, String input) {
+        Trace.writeHeader("${CLASSNAME} execute");
+        Trace.write2("Service", "Operation", operation, "ID", ID, "Type", type, "Name", name, "Revision", revision, "Vault", vault, "Input", input);
+        Operations op = new Operations();
+		HashMap<String, String[]> paramMap = new HashMap<String, String[]>();
+        com.designrule.drv6tools.Result r = op.exec(ctx, ID, null, operation, false, eFunctionType.webservice, "", paramMap, type, name, revision, vault, input);
+        Trace.write2("Service", "Code", r.code, "Message", r.message, "Output", r.output);
+        return new Result(r.code, r.message, r.output);
+    }
+
+    /* Use this function to perform a checkin via Web Service. */
+    public void checkin(Context ctx, String ID, String type, String name, String revision,
+                        String vault, String format, String store, String file,
+                        boolean append, boolean unlock, DataHandler data) throws Exception {
+        Trace.writeHeader("${CLASSNAME} checkin");
+        Trace.write2("Service", "ID", ID, "Type", type, "Name", name, "Revision", revision, "Vault", vault, "Format", format,
+                     "Store", store, "File", file, "Append", append, "Unlock", unlock, "Data.getName", data.getName());
+        File f = new File(data.getName());
+        File g = new File(f.getParent() + sep + file);
+        g.delete();
+        f.renameTo(g);
+        BusinessObject bus = new BusinessObject(type, name, revision, vault);
+        bus.open(ctx);
+        bus.checkinFile(ctx, unlock, append, "", format, file, f.getParent());
+        bus.close(ctx);
+    }
+
+    /* Use this function to perform a checkout via Web Service. */
+    public DataHandler checkout(Context ctx, String ID, String type, String name, String revision,
+                                String vault, String format, String file, boolean lock) throws Exception {
+        Trace.writeHeader("${CLASSNAME} checkout");
+        Trace.write2("Service", "ID", ID, "Type", type, "Name", name, "Revision", revision, "Vault", vault, "Format", format, "File", file, "Lock", lock);
+        BusinessObject bus = new BusinessObject(type, name, revision, vault);
+        bus.open(ctx);
+        bus.checkoutFile(ctx, lock, format, file, ctx.createWorkspace() + sep);
+        bus.close(ctx);
+        return (new DataHandler(new FileDataSource(ctx.createWorkspace() + sep + file)));
+    }
+
+}
+

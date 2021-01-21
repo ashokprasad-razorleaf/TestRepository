@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<command overlay="true">
+    <name>DRLMonitorHistory</name>
+    <symbolicName>command_DRLMonitorHistory</symbolicName>
+    <dataObjectType>command</dataObjectType>
+    <description></description>
+    <label>drV6Tools.command.DRLMonitorHistory</label>
+    <hidden>false</hidden>
+    <href>${COMMON_DIR}/emxIndentedTable.jsp?program=DRLCaptureHistory:getTodaysHistory,DRLCaptureHistory:getThisWeekHistory,DRLCaptureHistory:getThisMonthHistory,DRLCaptureHistory:getCompleteHistory&amp;programLabel=drV6Tools.Filter.today,drV6Tools.Filter.thisWeek,drV6Tools.Filter.thisMonth,drV6Tools.Filter.All&amp;table=DRLMonitorHistory&amp;customize=true&amp;header=drV6Tools.command.DRLMonitorHistory&amp;multiColumnSort=false&amp;objectBased=false&amp;expandProgram=DRLCaptureHistory:expandHistory&amp;expandLevelFilter=false&amp;freezePane=Name,Event,FullName</href>    
+    <alt></alt>
+    <code></code>
+    <settings>
+        <setting>
+            <settingName>Registered Suite</settingName>
+            <settingValue>drV6Tools</settingValue>
+        </setting>
+        <setting>
+            <settingName>Target Location</settingName>
+            <settingValue>content</settingValue>
+        </setting>
+    </settings>
+    <userAccess>
+        <User>DRLTools Admin</User>
+    </userAccess>
+</command>

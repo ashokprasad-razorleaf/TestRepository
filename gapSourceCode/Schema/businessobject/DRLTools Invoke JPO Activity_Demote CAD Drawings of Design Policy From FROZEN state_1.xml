@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<drlExportObjects>
+    <objects>
+        <object>
+            <type>DRLTools Invoke JPO Activity</type>
+            <name>Demote CAD Drawings of Design Policy From FROZEN state</name>
+            <description>Demote CAD Drawings of Design Policy From FROZEN state</description>
+            <revision>1</revision>
+            <policy>DRLTools</policy>
+            <vault>3dxtools</vault>
+            <current>Exists</current>
+            <owner>creator</owner>
+            <project></project>
+            <organization></organization>
+            <attributes>
+                <attribute name="drlArg1" value="${ID}"/>
+                <attribute name="drlArg2" value=""/>
+                <attribute name="drlArg3" value=""/>
+                <attribute name="drlConfigurationObjectSource" value=""/>
+                <attribute name="drlFunctionName" value="removeDerviedOutputOrConnectedPDFFileonDemote"/>
+                <attribute name="drlProgramName" value="gapGAPSpecificationActions"/>
+                <attribute name="drlRunActivity" value="Once"/>
+                <attribute name="drlRunActivityBasedOnAttribute" value=""/>
+                <attribute name="drlUseShadowAgent" value="FALSE"/>
+            </attributes>
+        </object>
+    </objects>
+</drlExportObjects>

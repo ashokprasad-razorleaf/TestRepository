@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<program overlay="true">
+    <name>emxDashboardDocuments</name>
+    <symbolicName></symbolicName>
+    <dataObjectType>program</dataObjectType>
+    <description>JPO for Dashboard Documents</description>
+    <user></user>
+    <hidden>false</hidden>
+    <immediate>true</immediate>
+    <needsBus>false</needsBus>
+    <downloadable>false</downloadable>
+    <piped>false</piped>
+    <pooled>false</pooled>
+    <mqlProgram>false</mqlProgram>
+    <javaProgram>true</javaProgram>
+    <externalProgram>false</externalProgram>
+    <code>source\emxDashboardDocuments</code>
+    <properties>
+        <property>
+            <name>access</name>
+            <value>READ_ONLY</value>
+        </property>
+        <property>
+            <name>application</name>
+            <value>CommonComponents</value>
+        </property>
+        <property>
+            <name>installed date</name>
+            <value>11-15-2017</value>
+        </property>
+        <property>
+            <name>installer</name>
+            <value>ENOVIAEngineering</value>
+        </property>
+        <property>
+            <name>original name</name>
+            <value>emxDashboardDocuments</value>
+        </property>
+        <property>
+            <name>version</name>
+            <value>R419</value>
+        </property>
+    </properties>
+</program>
